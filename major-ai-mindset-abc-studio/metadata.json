@@ -1,0 +1,6 @@
+{
+  "name": "Major AI Mindset ABC Studio",
+  "description": "A premium content production dashboard for a 3-level ABC AI education system, turning AI lessons into social content, podcasts, and video assets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
