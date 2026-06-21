@@ -1,182 +1,181 @@
-# MAIM Instagram Launch Playbook
-## Major AI Mindset — @major_ai_mindset
+# Major AI Mindset Instagram Launch Playbook
 
-**Version:** 1.0  
-**Status:** ACTIVE  
-**Owner:** Major  
-**Agents:** Cowork (daily ops) · Codex (implementation) · Claude Code (review)
+Account: `@major_ai_mindset`
+Meta / Instagram ID: `17841468044783727`
 
----
+## Purpose
 
-## 1. Strategic Position
+Instagram is the front door for Major AI Mindset.
 
-Instagram is the **front door** to the Major AI Mindset ecosystem.
+This is not an AI news page. It is the doorway into the MAIM ecosystem: beginner education, webinar activation, lead capture, Skool community, digital asset lab, leverage cohorts, and Hanzo-powered implementation.
 
-```
-Instagram (@major_ai_mindset)
-  → Intake form (leads + email capture)
-  → Skool community (paid home base)
-  → ABC Studio (the product)
-  → Hanzo / Major AI OS (the infrastructure)
-```
+## Positioning
 
-The account is **not** a general AI tips account.  
-It is a **sovereign AI education brand** for builders, founders, and creators who want to use AI as real leverage — not just productivity hacks.
+Major AI Mindset helps builders, creators, athletes, coaches, community leaders, parents, and business owners understand AI without shame or confusion.
 
----
+Core line:
 
-## 2. Account Setup
+> AI made simple for builders, creators, and business owners.
 
-### Handle
-`@major_ai_mindset`
+Tagline:
 
-### Bio Formula
-```
-Line 1: AI literacy for builders. A to Z.
-Line 2: 26 concepts. 3 levels. Real leverage.
-Line 3: ↓ Get your free ABC starter kit
-Line 4: [intake form link]
-```
+> Likkle by likkle, we build the future.
 
-### Profile Photo
-- Sovereign gold letter M on deep black background
-- Cinzel font treatment
-- No cartoon, no generic AI imagery
+## Brand Rule
 
-### Link in Bio
-Primary: Intake form (email capture + Skool onboarding)  
-Secondary: ABC Studio app (when deployed)
+Every MAIM asset should feel clear, premium, human, culturally grounded, and beginner-friendly.
 
-### Highlights
-```
-📚 ABC Series     ← pinned lesson reels A-Z
-🧠 Mindset        ← strategy + philosophy posts
-⚡ Actions        ← 5-minute challenge posts
-🎙 Podcast        ← NotebookLM-generated episodes
-🛠 Tools          ← tool breakdowns + stack content
-```
+Visual rule:
 
----
+- Black foundation
+- Gold authority
+- Jamaican green legacy
+- Knicks blue / orange energy
+- White clarity
+- Major logo as the trust stamp
 
-## 3. Brand Voice
+Scroll test:
 
-**What it sounds like:**
-- Direct. No fluff.
-- Builder-to-builder.
-- Caribbean-rooted future literacy.
-- Smart without being academic.
-- Premium without being inaccessible.
+> Can someone understand this post while scrolling quickly?
 
-**What it never sounds like:**
-- "AI is taking over!!!"
-- "10 ChatGPT hacks you need right now"
-- Hustle-bro productivity spam
-- Generic motivational content
-- Academic or corporate language
+If not, simplify.
 
-**Voice reference:**
-> "A is for Awareness. AI starts when you notice where help is needed. Before you automate anything — you have to see the friction. Write down 3 tasks that cost you time this week. That's your AI roadmap. Comment AWARE if you found one."
+## Bio Setup
 
----
+Name field:
 
-## 4. Content Buckets
+`Major AI Mindset | AI for Builders`
 
-| Bucket | % of Feed | Format | Frequency |
-|--------|-----------|--------|-----------|
-| ABC Lessons | 40% | Reel (60s) + Carousel | 3x/week |
-| Mindset / Strategy | 20% | Single image + caption | 1x/week |
-| 5-Min Actions | 20% | Story + Reel | 2x/week |
-| Stack / Tools | 10% | Carousel | 1x/week |
-| Social proof / testimonial | 10% | Quote card + story | As available |
+Bio:
 
----
+`AI made simple for builders, creators & business owners.`
+`Likkle by likkle, we build the future.`
+`Free webinar + beginner AI roadmap ↓`
 
-## 5. First 9-Post Grid
+Primary CTA:
 
-The launch grid establishes the visual brand and the A-Z concept system.
+One link only at launch: intake form or clean landing page.
 
-| Position | Content | Format | Caption Hook |
-|----------|---------|--------|--------------|
-| 1 (anchor) | A is for Awareness | Reel | "AI starts when you notice where help is needed." |
-| 2 | Brand intro / manifesto | Single | "This is not a ChatGPT tips account." |
-| 3 | B is for Build | Reel | "The barrier to building has collapsed." |
-| 4 | What is AI Literacy? | Carousel (5 slides) | "AI literacy is not knowing every tool." |
-| 5 | C is for Context | Reel | "Better context = better AI output. Every time." |
-| 6 | 5-min action challenge | Story > Reel | "One task. Five minutes. Start now." |
-| 7 | D is for Delegate | Reel | "Great operators delegate what doesn't need their judgment." |
-| 8 | Stack breakdown | Carousel | "The tools I actually use to run my AI OS." |
-| 9 | E is for Execute | Reel | "Builders ship. Browsers scroll." |
+## Pinned Posts
 
-**Grid aesthetic:**
-- Alternating: Reel cover / Carousel cover / Single post
-- Consistent: Gold letter mark top-left, concept name center, level badge bottom-right
-- Dark background on all posts — no white/light posts in the main feed
+### Pin 1 — What is Major AI Mindset?
 
----
+Headline: `AI is not just for tech people.`
 
-## 6. CTA Rules
+Purpose: Explain who this is for and reduce shame.
 
-Every post must have exactly **one** CTA. No stacking.
+CTA: `Comment MAIM if you want the beginner roadmap.`
 
-| Post Type | CTA |
-|-----------|-----|
-| ABC Lesson Reel | Comment [LETTER] if you're applying this |
-| Carousel | Save this for your AI starter kit |
-| Strategy post | Reply with your biggest AI bottleneck |
-| Tool breakdown | DM me "STACK" for my full tool list |
-| 5-min challenge | Comment DONE when you finish |
+### Pin 2 — The A-Z Roadmap
 
-**Intake CTA** (used in stories and bio):
-> "Get your free AI Mindset starter kit — link in bio."
+Headline: `One letter. One lesson. One action.`
 
----
+Purpose: Introduce the signature education system.
 
-## 7. Posting Schedule (Launch Phase)
+CTA: `Comment A-Z if you want the first lesson.`
 
-```
-Mon — ABC Lesson Reel
-Wed — Strategy / Mindset post
-Thu — 5-Min Action Reel or Story
-Sat — Carousel (tools, stack, deep dive)
-```
+### Pin 3 — Free Webinar
 
-Stories: Daily during launch week. Every other day after.
+Headline: `Free Live Webinar: AI Mindset`
 
----
+Purpose: Convert attention into attendance.
 
-## 8. Comment Response Rules
+CTA: `Tap the link in bio to register.`
 
-| Signal | Response |
-|--------|----------|
-| Keyword comment (AWARE, BUILD, etc.) | ← DM with lesson link + intake form |
-| Question about tools | Short answer + "DM me STACK for the full list" |
-| "How do I start?" | "Follow the A-Z series from A. Start here: [link]" |
-| Negative/skeptical | Acknowledge, don't argue. One reply max. |
-| Spam | Ignore or hide. Never engage. |
+Use the full flyer for Stories and WhatsApp. Use a cleaner simplified version for the feed.
 
----
+## Content Buckets
 
-## 9. Launch Definition of Done
+### 1. ABCs of AI Mindset
 
-- [ ] Profile photo set
-- [ ] Bio live with intake link
-- [ ] Highlights created (empty placeholders OK)
-- [ ] First 9 posts published in correct grid order
-- [ ] Each post has exactly one CTA
-- [ ] A post is pinned to profile
-- [ ] Story archive active
-- [ ] At least 50 followers on day 1 (warm network share)
-- [ ] First 3 comment responses handled
+Daily or near-daily education engine.
 
----
+Examples:
 
-## 10. Success Metrics (30-Day)
+- A is for Awareness
+- B is for Belief
+- C is for Context
 
-| Metric | Target |
-|--------|--------|
-| Followers | 500+ |
-| Avg reel views | 1,000+ |
-| Link-in-bio clicks | 100+ |
-| Intake form submissions | 50+ |
-| Email captures | 50+ |
-| Skool joins | 10+ |
+Each post needs one big idea, one simple action, and one comment CTA.
+
+### 2. AI for Real Life
+
+Show practical examples for barbers, coaches, realtors, church leaders, parents, athletes, creators, and small business owners.
+
+### 3. Build With Me
+
+Behind the scenes: setting up Skool, building agent systems, creating the webinar, launching the roadmap, testing automations, and improving the machine in public.
+
+### 4. Mindset + Legacy
+
+Short wisdom posts in Major's voice.
+
+Examples:
+
+- AI does not replace your purpose. It reveals your bottlenecks.
+- The future belongs to people who learn how to ask better questions.
+- Likkle by likkle, we build the future.
+
+### 5. Webinar / Cohort CTA
+
+Every 4-5 posts, point people to the next step.
+
+Do not make every post a sales post. Make every post move people somewhere.
+
+## First 9-Post Grid
+
+1. What is Major AI Mindset?
+2. A is for Awareness
+3. Free Webinar Announcement
+4. B is for Belief
+5. Why AI is not just for tech people
+6. C is for Context
+7. The A-Z Roadmap
+8. 3 things AI can help you do this week
+9. Founder post: why Major is building MAIM
+
+## Highlights
+
+Create these highlights:
+
+- Start Here
+- A-Z AI
+- Webinar
+- Tools
+- Wins
+- Skool
+
+## Launch Caption
+
+Major AI Mindset is here.
+
+This is for the people who feel AI moving fast but do not want to get left behind.
+
+You do not need to be technical.
+You do not need to know how to code.
+You do not need to have it all figured out.
+
+You need curiosity.
+You need structure.
+You need one step at a time.
+
+That is what we are building here.
+
+AI for builders.
+AI for creators.
+AI for business owners.
+AI for legacy.
+
+Likkle by likkle, we build the future.
+
+Comment MAIM if you want the beginner roadmap.
+
+## Funnel
+
+Instagram → Intake Form → WhatsApp / Email → Beginner Cohort → Digital Asset Lab → Leverage Cohort → Hanzo Services
+
+## Writing Standard
+
+No AI-looking formatting. No generic tech tone. No sterile corporate phrasing. No fake hype. No robotic posts.
+
+Write like Major Dream Williams built it, lived it, and is inviting people into it: direct, grounded, practical, warm, and operator-minded.

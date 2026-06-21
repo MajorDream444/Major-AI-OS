@@ -1,0 +1,65 @@
+{
+  "id": "MAIM-ABC-BEG-B-BELIEF",
+  "series": "Major AI Mindset ABCs",
+  "level": "Beginner",
+  "letter": "B",
+  "concept": "Belief",
+  "subtheme": "Basics",
+  "title": "B is for Belief",
+  "status": "idea",
+  "bigIdea": "If you can text, you can use AI.",
+  "lesson": "Most people think AI is too complicated because they believe they need to understand the technology before they can use it. That is not true. Beginners do not need to understand every model, setting, or technical term. They need belief that AI is accessible, and they need one simple problem to practice with. Belief comes before skill. The first win is realizing that talking to AI can be as simple as sending a clear message.",
+  "fiveMinuteAction": "Open an AI chat tool and ask it to help you rewrite one message, email, or idea you already have.",
+  "cta": "Comment BELIEF if you are ready to try one simple AI task.",
+  "thumbnail": {
+    "assetId": "MAIM-ABC-BEG-B-BELIEF-THUMBNAIL-V001",
+    "status": "prompt-ready",
+    "headline": "BELIEF",
+    "subheadline": "IF YOU CAN TEXT, YOU CAN USE AI",
+    "prompt": "Vertical social media poster, premium editorial design, Major AI Mindset ABC Series. Large letter B dominating the composition. Headline: BELIEF. Subheadline: IF YOU CAN TEXT, YOU CAN USE AI. Visual concept: everyday people standing at the edge of a glowing doorway made of light and intelligence. Not programmers. Not engineers. A mother, a student, an entrepreneur, and a retired worker. The doorway represents AI becoming accessible. Some are stepping through confidently while others are realizing they can begin. Cinematic black background. Sovereign gold illumination. Aurelis design language. Premium luxury magazine aesthetic. Elegant typography. Gold intelligence particles. No robots. No futuristic city. Human-centered. Hopeful. Empowering. High contrast. Deep blacks. Gold highlights. Editorial poster. Instagram quality. Professional keynote quality. 9:16 vertical."
+  },
+  "reelScript": {
+    "duration": "60 seconds",
+    "hook": "AI is not just for tech people. That belief is holding too many people back.",
+    "body": "B is for Belief. Most beginners stop before they start because they think they need to be technical. But using AI can begin as simply as texting. You ask a question. You explain what you need. You give context. You improve the answer. That is the beginning. You do not need to understand the whole machine to get your first result. You need one real problem and enough belief to try. Belief comes before skill. Skill comes from repetition.",
+    "cta": "Comment BELIEF if you are ready to test one simple AI task today."
+  },
+  "carouselCopy": [
+    {
+      "slide": 1,
+      "text": "B is for Belief\nThe AI Mindset Alphabet — Beginner Edition"
+    },
+    {
+      "slide": 2,
+      "text": "Most people think AI is too complicated.\nThat belief stops them before they even begin."
+    },
+    {
+      "slide": 3,
+      "text": "You do not need to code.\nYou do not need a degree.\nYou do not need to know every tool."
+    },
+    {
+      "slide": 4,
+      "text": "If you can text clearly, you can start using AI.\nPrompting begins as communication."
+    },
+    {
+      "slide": 5,
+      "text": "Your 5-minute action:\nAsk AI to rewrite one message, email, or idea you already have."
+    },
+    {
+      "slide": 6,
+      "text": "B is for Belief.\nComment BELIEF if you are ready to try one simple AI task.\n@MajorAIMindset"
+    }
+  ],
+  "platformCaptions": {
+    "instagram": "B is for Belief. 🔤\n\nYou do not need to be technical to start using AI.\n\nIf you can text clearly, ask questions, and explain what you need, you can begin.\n\nBelief comes before skill.\nSkill comes from repetition.\n\nYour 5-minute action: ask AI to rewrite one message or idea you already have.\n\nComment BELIEF if you are ready to try.\n\n#AIMindset #AILiteracy #AIBeginners #MajorAIMindset #LearnAI",
+    "tiktok": "B is for Belief. If you can text, you can use AI. Try one simple task today. #AIAlphabet #AIBeginners #MajorAIMindset",
+    "linkedin": "B is for Belief.\n\nThe biggest barrier to AI adoption for beginners is not technical skill. It is the belief that AI is only for technical people.\n\nThat belief is wrong.\n\nThe first step can be as simple as asking AI to rewrite a message, organize an idea, or explain something clearly.\n\nBelief comes before skill. Skill comes from repetition.\n\nIf you can text clearly, you can start.",
+    "newsletter": "Subject: B is for Belief\n\nThis week in the AI Mindset Alphabet, B is for Belief.\n\nMost beginners think AI is too technical before they even try it. But the first step is not coding, automation, or agents. The first step is believing that you can communicate with the tool.\n\nYour action this week: ask AI to rewrite one message or idea you already have. Start there.\n\nNext letter: C."
+  },
+  "notebookLMPrompt": "Source this lesson in NotebookLM. Topic: Belief as the adoption gateway for beginner AI literacy. Research angles: 1. Why self-efficacy matters when learning new technology. 2. How perceived complexity blocks adoption. 3. How simple early wins increase confidence. 4. The role of communication skills in beginner prompting. 5. Why belief comes before technical fluency. Use this to deepen intermediate and expert lessons on AI confidence and adoption psychology.",
+  "googleOpalPrompt": "Build an interactive mini-app for Major AI Mindset called AI Confidence Check. Purpose: help beginners see that AI is accessible and identify what belief is blocking them from starting. Inputs: current comfort with AI, biggest fear, first simple task they want help with, whether they have used AI before, and what would make them feel confident enough to try. Output: AI Confidence Score, belief blocker, first safe experiment, and one 5-minute action. Tone: calm, beginner-safe, empowering. CTA: Comment BELIEF or join the Major AI Mindset Beginner track.",
+  "googleOmniPrompt": "Create a 30-second vertical 9:16 cinematic educational video for Major AI Mindset ABCs. Letter: B. Concept: Belief. Core message: If you can text, you can use AI. Visual style: premium black and sovereign gold editorial aesthetic, human-centered, no robots. Show everyday people sending simple messages that transform into organized ideas, clear plans, and confident first steps. On-screen text: B = BELIEF; IF YOU CAN TEXT, YOU CAN USE AI; BELIEF COMES BEFORE SKILL; TRY ONE SIMPLE TASK. Tone: calm, clear, empowering.",
+  "obsidianContextNote": "Track who responds to the belief message. Watch for comments like: I am not technical, I do not know where to start, AI feels complicated, I am scared to try. These are signals for beginner onboarding, live workshops, and the B = Belief confidence mini-app.",
+  "publishedPlatforms": [],
+  "createdAt": "2026-06-19T14:55:00+08:00"
+}

@@ -1,112 +1,123 @@
 # Codex Skill — MAIM Instagram Implementation
-## Major AI Mindset — @major_ai_mindset
 
-**Role:** Instagram content implementation and schema management  
 **Activation:** "Build the next Instagram post for [lesson]" / "Update launch grid status"  
-**Source of truth:** `app/src/data/lessons.ts` + `src/utils/exportFunctions.ts`
+**App source:** `app/src/data/lessons.ts` | `app/src/utils/exportFunctions.ts`
 
----
+## Role
 
-## Your Job
+You are the implementation engineer for the Major AI Mindset Instagram launch system.
 
-You implement the technical side of the Instagram content pipeline.  
-You do not write strategy. You build the rails, fill the schemas, and generate export-ready content.
+Your job is to make the repo, app, schemas, exports, and automation helpers support the launch of `@major_ai_mindset`.
 
----
+## Source Documents
 
-## Post Record Schema
+Use these files:
 
-Every Instagram post must have a corresponding record in the lesson's `exportMeta`:
+- `gtm/instagram-launch-playbook.md`
+- `workflows/instagram-launch-workflow.md`
+- `data/abc-beginner.json`
+- `data/abc-medium.json`
+- `data/abc-expert.json`
+- `data/platforms.json`
+- `data/design-tokens.json`
+- `app/src/data/lessons.ts` (React app lesson registry)
+- `app/src/utils/exportFunctions.ts` (export helpers)
+
+## Implementation Goals
+
+Build or update support for:
+
+1. Instagram content records
+2. ABC post exports
+3. CTA tracking
+4. Post status logic
+5. Metadata fields
+6. Design token references
+7. Launch grid tracking
+8. Simple content package exports for Cowork and Claude Code
+
+## Recommended Data Fields
+
+Each Instagram post record should support:
+
+- id
+- platform
+- postType
+- title
+- hook
+- caption
+- visualPrompt
+- designNotes
+- cta
+- linkTarget
+- contentBucket
+- abcLetter
+- abcLevel
+- status
+- publishDate
+- assetPath
+- sourceDoc
+- repurposeTargets
+- learningSignals
+
+## Export Helpers (App Layer)
+
+The React app exposes these functions in `app/src/utils/exportFunctions.ts`:
 
 ```ts
-exportMeta: {
-  reelScript: boolean;          // true when script is written + approved
-  carouselCopy: boolean;        // true when slides are written + approved
-  notebookLMPrompt: boolean;
-  googleOmniPrompt: boolean;
-  publishedPlatforms: Platform[]; // add "instagram" when post goes live
-}
+exportReelScript(lesson)                       // → reel script
+exportCarouselCopy(lesson)                     // → slide-by-slide copy
+exportPlatformCaption(lesson, "instagram")     // → caption with hashtags
+exportNotebookLMPrompt(lesson)                 // → NotebookLM source doc
+exportGoogleOmniPrompt(lesson)                 // → Gemini prompt
 ```
 
-When a post is published to Instagram:
-1. Add `"instagram"` to `publishedPlatforms`
-2. Update `lesson.status` to `"published"`
-3. Commit the change to GitHub
+Run these against any lesson in `app/src/data/lessons.ts` to generate export-ready content.
 
----
+## Status Logic
 
-## Export Helpers to Use
+Use this status ladder:
 
-All export functions are in `src/utils/exportFunctions.ts`:
+- Draft
+- Ready to Publish
+- Scheduled
+- Published
+- Post-Publish Completion
+- Complete
 
-```ts
-exportReelScript(lesson)         // → reel script for Canva / HeyGen
-exportCarouselCopy(lesson)       // → slide-by-slide copy
-exportPlatformCaption(lesson, "instagram")  // → caption with hashtags
-```
+Do not treat missing archive metadata as a blocker to publishing.
 
-For each of the 9 launch grid posts, run the appropriate export function and surface the output for Claude Code review.
+## Launch Grid
 
----
+Create or support the first 9-post launch grid:
 
-## Launch Grid Status Tracking
-
-Maintain a status table in `gtm/launch-grid-status.md`:
-
-```markdown
-| # | Letter | Concept | Script | Visual | Approved | Scheduled | Published |
-|---|--------|---------|--------|--------|----------|-----------|-----------|
-| 1 | A | Awareness | ✅ | ⬜ | ⬜ | ⬜ | ⬜ |
-...
-```
-
-Update this file after every status change. Commit to GitHub.
-
----
+1. What is Major AI Mindset?
+2. A is for Awareness
+3. Free Webinar Announcement
+4. B is for Belief
+5. Why AI is not just for tech people
+6. C is for Context
+7. The A-Z Roadmap
+8. 3 things AI can help you do this week
+9. Founder post: why Major is building MAIM
 
 ## Visual Brief Template
 
-When requesting a visual from Canva or another design tool, use this brief:
-
 ```
 DESIGN BRIEF — [Letter] is for [Concept]
-Series: Major AI Mindset ABCs
-Level: [BEGINNER / INTERMEDIATE / ADVANCED]
-
-Layout:
-- Background: #050505 (deep black)
-- Letter mark: [LETTER] — Cinzel font, #D4AF37 gold, top-left
-- Concept name: [CONCEPT] — Cinzel font, centered
-- Level badge: [LEVEL] — JetBrains Mono, bottom-right
-- Optional: subtle gold gradient glow behind letter
-
-Do NOT use:
-- White or light backgrounds
-- Generic AI robot imagery
-- Generic stock photos
-- Any font other than Cinzel + Inter + JetBrains Mono
+Background: #050505 | Letter mark: Cinzel, #D4AF37 gold | Level badge: JetBrains Mono
+Do NOT use white backgrounds, generic AI imagery, or non-brand fonts.
 ```
 
----
+## Acceptance Criteria
 
-## Workflow Steps (per post)
+- Content records can represent all first 9 posts.
+- ABC lesson content can be exported into Instagram-ready packages.
+- CTA field is always present.
+- Status logic separates publish readiness from archive completion.
+- Brand tokens are referenced consistently.
+- No implementation depends on a paid tool unless explicitly configured.
 
-```
-1. Identify next lesson in sequence (A → Z order within each level)
-2. Run exportReelScript(lesson) or exportCarouselCopy(lesson)
-3. Create design brief using template above
-4. Output both to Claude Code for review
-5. On approval: schedule in Meta Business Suite or n8n
-6. On publish: update lesson exportMeta + status in GitHub
-7. Update gtm/launch-grid-status.md
-8. Commit all changes
-```
+## Constraints
 
----
-
-## Do Not Do
-
-- Do not publish without Claude Code review
-- Do not change the brand voice or CTA without Major's approval
-- Do not use external images that violate brand aesthetic
-- Do not hardcode captions — always generate from exportPlatformCaption()
+Keep the system lightweight. This launch needs momentum before complexity.

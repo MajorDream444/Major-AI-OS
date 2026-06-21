@@ -1,5 +1,5 @@
 ---
-version: "major-ai-mindset-abc-studio-v1"
+version: "major-ai-mindset-abc-studio-v1.1"
 name: "Major AI Mindset ABC Studio Design System"
 source_templates:
   primary_interface: "Aurelis - Intelligence Beyond Boundaries"
@@ -49,6 +49,7 @@ guardrails:
   - "Keep the system premium, sovereign, technical, and readable."
   - "Use Aurelis as the primary interface language."
   - "Use System Initializing as the technical overlay/loading/agent-console language."
+  - "Do not confuse Google Opal with Google Omni. Opal is interactive app flow; Omni is video."
 ---
 
 # Major AI Mindset ABC Studio — DESIGN.md
@@ -88,6 +89,7 @@ Use Aurelis for:
 - Podcast builder
 - Course overview
 - Marketing/sales pages
+- Opal mini-app previews
 
 Core motifs:
 
@@ -106,8 +108,10 @@ Use System Initializing for:
 - App loading screen
 - AI generation states
 - Prompt builder
+- Google Opal prompt generation
 - Google Omni prompt generation
 - NotebookLM export screen
+- Obsidian context export screen
 - Workflow automation console
 - Technical metadata overlays
 - GitHub sync status
@@ -120,6 +124,62 @@ Core motifs:
 - Initialization messages
 - Marquee/system notices
 - Operator terminal feel
+
+## Full Production Stack
+
+```txt
+GitHub        = source of truth
+ABC Studio    = production dashboard
+Google Drive  = master binary asset vault
+Airtable      = production status + scheduling database
+Notion        = creative review + human-readable asset pages
+Obsidian      = relationship context + private knowledge graph
+NotebookLM    = research, podcast, study-guide engine
+Google Opal   = interactive mini-app / experience layer
+Google Omni   = video generation layer
+Codex         = implementation engineer
+Claude Code   = review/refactor architecture engineer
+Cowork        = weekly operator/reporting layer
+```
+
+## Tool-Specific Design Roles
+
+### NotebookLM
+
+Use NotebookLM for research, podcast outlines, study guides, FAQ development, intermediate/advanced expansions, and source-grounded lesson deepening.
+
+### Google Opal
+
+Use Google Opal for interactive experiences:
+
+- Assessments
+- Audits
+- Calculators
+- Guided workflows
+- Mini-apps per letter
+- Lead capture experiences
+
+Example: `A = Awareness` can become an **AI Awareness Audit**.
+
+### Google Omni
+
+Use Google Omni for video generation:
+
+- 30-second reels
+- 60-second reels
+- teaser videos
+- motion graphics
+- short-form video prompts
+
+### Obsidian
+
+Use Obsidian for relationship context:
+
+- Who should see an asset
+- Who asked a question
+- Which relationships connect to the concept
+- Strategic decisions and meeting context
+- Private memory that should not be public in GitHub
 
 ## Key Pages
 
@@ -160,9 +220,12 @@ Each lesson page includes:
 - 5-minute action
 - Reel script
 - Carousel copy
+- Platform captions
 - Podcast angle
-- Google Omni prompt
 - NotebookLM prompt
+- Google Opal mini-app prompt
+- Google Omni video prompt
+- Obsidian context note
 - Export buttons
 
 ### 4. Generator Console
@@ -173,8 +236,10 @@ When generating content, show system-style progress states:
 
 - `SYS.CHK.LESSON`
 - `PROMPT.PACK.BUILDING`
+- `OPAL.APP.COMPILING`
 - `OMNI.SCENE.COMPILING`
 - `NOTEBOOKLM.SOURCE.READY`
+- `OBSIDIAN.CONTEXT.NOTE.READY`
 - `GITHUB.SOURCE.TRUTH.SYNCED`
 
 ### 5. Workflow Board
@@ -236,6 +301,7 @@ export const designTokens = {
 - Keep WebGL/canvas effects optional and non-blocking.
 - Prioritize readable content production workflows over decorative effects.
 - Use the design system to support the ABC curriculum, not distract from it.
+- Build explicit export surfaces for NotebookLM, Google Opal, Google Omni, Obsidian, Airtable, and Notion.
 
 ## File References
 
