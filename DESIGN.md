@@ -1,313 +1,161 @@
 ---
-version: "major-ai-mindset-abc-studio-v1.1"
-name: "Major AI Mindset ABC Studio Design System"
-source_templates:
-  primary_interface: "Aurelis - Intelligence Beyond Boundaries"
-  technical_background: "System Initializing"
-brand:
-  project: "Major AI Mindset ABC Studio"
-  repo: "MajorDream444/Major-AI-OS"
-  doctrine: "GitHub is the source of truth. The app is the production dashboard."
-colors:
-  sovereign_gold: "#D4AF37"
-  deep_black: "#050505"
-  near_black: "#080808"
-  parchment_surface: "#EAE2D3"
-  system_lime: "#A3E635"
-  dark_surface: "#18181B"
-  text_primary_dark: "#FFFFFF"
-  text_primary_light: "#111827"
-  text_secondary_dark: "#A1A1AA"
-  text_secondary_light: "#4B5563"
-  border_dark: "#27272A"
-  border_light: "#E5E7EB"
-typography:
-  display:
-    fontFamily: "Cinzel"
-    usage: "Hero titles, major letter marks, sovereign/intelligence moments"
-  body:
-    fontFamily: "Inter"
-    usage: "Lesson copy, cards, interface text"
-  technical:
-    fontFamily: "JetBrains Mono"
-    usage: "Labels, status badges, system logs, prompt metadata"
-layout:
-  card_radius: "16px for Aurelis editorial cards; 8px for technical/system cards"
-  section_padding: "80px"
-  base_spacing: "8px"
-  gap: "16px"
-motion:
-  principles:
-    - "Smooth masked reveals"
-    - "Staggered entrance"
-    - "Hover lift"
-    - "Subtle ambient technical motion"
-    - "WebGL/canvas effects stay behind content"
-guardrails:
-  - "Do not flatten the design into a generic SaaS card grid."
-  - "Preserve first-screen signal, hierarchy, and density from the HTML references."
-  - "Keep the system premium, sovereign, technical, and readable."
-  - "Use Aurelis as the primary interface language."
-  - "Use System Initializing as the technical overlay/loading/agent-console language."
-  - "Do not confuse Google Opal with Google Omni. Opal is interactive app flow; Omni is video."
+version: "major-ai-mindset-design-system-v2.0"
+name: "Major AI Mindset Design System"
+repo: "MajorDream444/Major-AI-OS"
+updated: "2026-06-23"
 ---
 
-# Major AI Mindset ABC Studio — DESIGN.md
+# Major AI Mindset Design System
 
-This file is the canonical design source for the **Major AI Mindset ABC Studio** app.
+This is the canonical design system for MAIM.
 
-The app should feel like a sovereign AI education command center, not a generic course dashboard. It combines two uploaded Neuform-inspired design references:
+No random visuals. No generic AI brand. Everything should feel like one world.
 
-1. **Aurelis - Intelligence Beyond Boundaries**  
-   Use this as the primary interface language: sovereign gold, premium intelligence, Cinzel display typography, dark cinematic AI background, bento cards, navigation, and enterprise-grade structure.
+## Brand Feeling
 
-2. **System Initializing**  
-   Use this as the technical system layer: JetBrains Mono, lime secure-link indicators, system logs, initialization states, processing screens, operator console, and AI workflow status surfaces.
+Caribbean diaspora. New York championship energy. AI sovereignty. Beginner-friendly empowerment. Legacy-building. Human confidence. Spiritual intelligence. Operator clarity.
 
-## Product Personality
+Premium but not distant. Powerful but not intimidating. Warm but not soft. Cultural but not cliché. Technical but not cold.
 
-Major AI Mindset ABC Studio should communicate:
+## Visual Law
 
-- Sovereign intelligence
-- Beginner-safe clarity
-- Builder/operator discipline
-- Caribbean-rooted future literacy
-- Premium educational infrastructure
-- AI as leverage, not hype
+Black foundation. Gold authority. Jamaican green legacy. Knicks blue/orange champion energy. White clarity.
 
-## Visual Hierarchy
+## Color Tokens
 
-### Primary Experience: Aurelis
+Foundation:
 
-Use Aurelis for:
+- MAIM Black `#050505`
+- Deep Charcoal `#111111`
+- Dark Surface `#18181B`
+- Border Dark `#27272A`
 
-- Landing page
-- Dashboard
-- ABC library
-- Lesson detail pages
-- Level selection
-- Podcast builder
-- Course overview
-- Marketing/sales pages
-- Opal mini-app previews
+Gold:
 
-Core motifs:
+- Crown Gold `#D8AF55`
+- Sovereign Gold `#D4AF37`
+- Legacy Gold `#9F742C`
 
-- Dark cinematic background
-- Gold intelligence glow
-- Premium serif hero typography
-- Bento card layout
-- Subtle WebGL/canvas atmosphere
-- Controlled grid rhythm
-- "Built for Visionaries" energy adapted to "Built for Builders"
+Legacy / Energy:
 
-### Secondary Experience: System Initializing
+- Jamaican Legacy Green `#1F7A3A`
+- Champion Blue `#006BB6`
+- Champion Orange `#F58426`
+- System Lime `#A3E635`
 
-Use System Initializing for:
+Text:
 
-- App loading screen
-- AI generation states
-- Prompt builder
-- Google Opal prompt generation
-- Google Omni prompt generation
-- NotebookLM export screen
-- Obsidian context export screen
-- Workflow automation console
-- Technical metadata overlays
-- GitHub sync status
+- Clarity White `#F7F4EA`
+- Pure White `#FFFFFF`
+- Smoke Gray `#A8A8A8`
+- Text Dark `#111827`
+- Muted Light `#4B5563`
+- Border Light `#E5E7EB`
 
-Core motifs:
+Usage ratio:
 
-- Mono typography
-- Lime secure-link status
-- Thin technical borders
-- Initialization messages
-- Marquee/system notices
-- Operator terminal feel
+70% black/charcoal  
+15% gold  
+5% green  
+5% blue/orange  
+5% white
 
-## Full Production Stack
+## Typography
 
-```txt
-GitHub        = source of truth
-ABC Studio    = production dashboard
-Google Drive  = master binary asset vault
-Airtable      = production status + scheduling database
-Notion        = creative review + human-readable asset pages
-Obsidian      = relationship context + private knowledge graph
-NotebookLM    = research, podcast, study-guide engine
-Google Opal   = interactive mini-app / experience layer
-Google Omni   = video generation layer
-Codex         = implementation engineer
-Claude Code   = review/refactor architecture engineer
-Cowork        = weekly operator/reporting layer
-```
+Headlines: Anton, Bebas Neue, League Spartan, Montserrat ExtraBold, Archivo Black, Cinzel for sovereign moments.
 
-## Tool-Specific Design Roles
+Body: Inter, Manrope, Montserrat.
 
-### NotebookLM
+Technical: JetBrains Mono, IBM Plex Mono.
 
-Use NotebookLM for research, podcast outlines, study guides, FAQ development, intermediate/advanced expansions, and source-grounded lesson deepening.
+## Crown System
 
-### Google Opal
+The woven palm crown is the signature artifact. Use it as hero object, founder symbol, highlight icon, badge, pin, merchandise concept, course emblem, and community totem.
 
-Use Google Opal for interactive experiences:
+The crown represents Caribbean roots, ancestral wisdom, humility, authority, memory, legacy, and builder identity.
 
-- Assessments
-- Audits
-- Calculators
-- Guided workflows
-- Mini-apps per letter
-- Lead capture experiences
+Use it with reverence.
 
-Example: `A = Awareness` can become an **AI Awareness Audit**.
+## Layout Rules
 
-### Google Omni
+Every social asset must pass the 5-second scroll test.
 
-Use Google Omni for video generation:
+Use one strong headline, one visual metaphor, one CTA, clear logo placement, safe margins, and high contrast.
 
-- 30-second reels
-- 60-second reels
-- teaser videos
-- motion graphics
-- short-form video prompts
+The image carries clarity. The caption carries depth.
 
-### Obsidian
+## Claude Design Projects
 
-Use Obsidian for relationship context:
+1. MAIM 00 Brand System
+2. MAIM 01 Instagram Launch Grid
+3. MAIM 02 Webinar Funnel
+4. MAIM 03 ABC Roadmap
+5. MAIM 04 YouTube Thumbnail System
+6. MAIM 05 Lead Magnets + Ebooks
+7. MAIM 06 Landing Pages + Wireframes
+8. MAIM 07 Course + Skool Assets
+9. MAIM 08 Hanzo Powered-By Assets
 
-- Who should see an asset
-- Who asked a question
-- Which relationships connect to the concept
-- Strategic decisions and meeting context
-- Private memory that should not be public in GitHub
+`MAIM 00 Brand System` is the parent project. All other projects reference it.
 
-## Key Pages
+## Export Sizes
 
-### 1. Home / Hero
+Instagram Feed: 1080 x 1350  
+Instagram Square: 1080 x 1080  
+Instagram Story/Reel: 1080 x 1920  
+YouTube Thumbnail: 1280 x 720  
+LinkedIn Feed: 1200 x 1500  
+X / Twitter: 1600 x 900  
+Webinar Slide: 1920 x 1080  
+PDF Cover: 1600 x 2400  
+Skool Banner: 1920 x 480  
+Website Hero: 1920 x 1080
 
-Headline examples:
+## Template Rules
 
-- `MAJOR AI MINDSET`
-- `ABC STUDIO`
-- `INTELLIGENCE FOR BUILDERS`
-- `FROM AWARENESS TO AGENTS`
+Instagram Feed: 1080 x 1350. One idea per post. Big headline. Strong visual. Minimal copy.
 
-Primary CTA:
+Story/Reel: 1080 x 1920. Hook top, visual center, CTA lower third, logo bottom.
 
-- `Enter Studio`
-- `Open ABC Library`
-- `Generate Content Pack`
+Carousel: one idea per slide. Hook, problem, reframe, lesson, example, action, CTA.
 
-### 2. ABC Library
+YouTube: 1280 x 720. Three to five words max. Big readable text.
 
-A-Z cards must feel like premium intelligence modules.
+Webinar: clean feed flyer plus detailed distribution flyer.
 
-Each card shows:
+Ebook: black background, gold title, crown/logo, one strong visual.
 
-- Letter
-- Concept
-- Level
-- Status
-- Content readiness
-- Export readiness
+Landing page: dark, premium, warm, focused. Hero, audience, problem, promise, what they get, how it works, founder note, CTA, FAQ.
 
-### 3. Lesson Detail
+## Motion / Remotion
 
-Each lesson page includes:
+Motion should be cinematic, warm, human, reflective, and premium.
 
-- Big idea
-- Explanation
-- 5-minute action
-- Reel script
-- Carousel copy
-- Platform captions
-- Podcast angle
-- NotebookLM prompt
-- Google Opal mini-app prompt
-- Google Omni video prompt
-- Obsidian context note
-- Export buttons
+Remotion should become the reusable code-driven video system for intro/outro, lower thirds, quote cards, reel frameworks, webinar countdowns, ABC animations, podcast clips, and client templates.
 
-### 4. Generator Console
+## Open-Source Local Direction
 
-Blend Aurelis layout with System Initializing behavior.
+Keep the design system portable.
 
-When generating content, show system-style progress states:
+Fallbacks:
 
-- `SYS.CHK.LESSON`
-- `PROMPT.PACK.BUILDING`
-- `OPAL.APP.COMPILING`
-- `OMNI.SCENE.COMPILING`
-- `NOTEBOOKLM.SOURCE.READY`
-- `OBSIDIAN.CONTEXT.NOTE.READY`
-- `GITHUB.SOURCE.TRUTH.SYNCED`
+Airtable → Baserow / NocoDB / SQLite  
+Notion → Obsidian / Markdown / GitHub Pages  
+Claude Design / Canva → Figma / Penpot / Excalidraw / HTML templates  
+HeyGen / proprietary video → Remotion + FFmpeg  
+Make / Zapier → n8n  
+Cloud docs → local Markdown vault  
+Hosted deployment → self-hosted cloud later
 
-### 5. Workflow Board
+## Final Design Test
 
-Use bento sections for statuses:
+Is it clear in five seconds?  
+Does it feel like MAIM?  
+Does it honor the crown?  
+Does it help a beginner feel safe?  
+Does it look premium?  
+Is there one main idea?  
+Can it be reused as a system?  
+Would Major post this proudly?
 
-- Idea
-- Drafted
-- Designed
-- Recorded
-- Edited
-- Scheduled
-- Published
-- Repurposed
-
-## Design Tokens
-
-```ts
-export const designTokens = {
-  colors: {
-    gold: "#D4AF37",
-    black: "#050505",
-    nearBlack: "#080808",
-    parchment: "#EAE2D3",
-    lime: "#A3E635",
-    darkSurface: "#18181B",
-    textLight: "#FFFFFF",
-    textDark: "#111827",
-    mutedDark: "#A1A1AA",
-    mutedLight: "#4B5563",
-    borderDark: "#27272A",
-    borderLight: "#E5E7EB",
-  },
-  fonts: {
-    display: "Cinzel",
-    body: "Inter",
-    mono: "JetBrains Mono",
-  },
-  radii: {
-    editorialCard: "16px",
-    systemCard: "8px",
-    pill: "9999px",
-  },
-  spacing: {
-    base: "8px",
-    gap: "16px",
-    cardPadding: "24px",
-    sectionPadding: "80px",
-  },
-};
-```
-
-## Implementation Notes for Codex / Claude Code
-
-- Preserve the uploaded HTML references in `/references/html`.
-- Preserve the uploaded design specs in `/references/design`.
-- Do not import the raw HTML directly into the React app.
-- Rebuild the visual language as reusable React/Tailwind components.
-- Keep WebGL/canvas effects optional and non-blocking.
-- Prioritize readable content production workflows over decorative effects.
-- Use the design system to support the ABC curriculum, not distract from it.
-- Build explicit export surfaces for NotebookLM, Google Opal, Google Omni, Obsidian, Airtable, and Notion.
-
-## File References
-
-Canonical references:
-
-- `/references/design/aurelis-intelligence-beyond-boundaries-DESIGN.md`
-- `/references/html/aurelis-intelligence-beyond-boundaries.html`
-- `/references/design/system-initializing-DESIGN.md`
-- `/references/html/system-initializing.html`
+If yes, approve. If not, simplify.
