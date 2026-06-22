@@ -1,90 +1,69 @@
-# Major AI Mindset ABC Studio — Source of Truth
+# Major AI Mindset OS — Source of Truth
 
-## Doctrine
+GitHub is the source of truth. Claude Design is the visual factory. The app is the production dashboard. Airtable tracks production state. Google Drive stores final binary assets. Obsidian stores local/private context. Claude Code and Codex implement. Cowork operates the weekly rhythm.
 
-GitHub is the source of truth. The app is the production dashboard.
+## Why This Exists
 
-Every generated asset should have:
+MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, and local-first knowledge management.
 
-1. A canonical asset ID
-2. A GitHub metadata record
-3. A Google Drive master file link when binary media is involved
-4. An Airtable production record
-5. A Notion creative review page
-6. An Obsidian relationship/context note when people, partners, or strategic memory are involved
+Every repeatable process should become a system, skill, plugin, template, or playbook.
 
-## Full Operating Stack
+## Canonical Stack
 
-| Layer | Role | Source-of-Truth Behavior |
-|---|---|---|
-| GitHub | Canonical code, docs, prompts, metadata | Master source |
-| ABC Studio | Production dashboard | Reads from GitHub / exports to tools |
-| Google Drive | Master binary asset storage | Stores PNG/video/audio masters |
-| Airtable | Production status + scheduling ops | Tracks asset pipeline |
-| Notion | Creative review + human-readable pages | Review/approval layer |
-| Obsidian | Relationship context + private knowledge graph | Strategic memory layer |
-| NotebookLM | Research + podcast/study guide engine | Reads curated sources |
-| Google Opal | Interactive app/assessment layer | Builds mini-apps from lessons |
-| Google Omni | Video generation layer | Builds video from prompts/scripts |
-| Codex | Implementation engineer | Builds app/data/export helpers |
-| Claude Code | Review/refactor architect | Audits and improves repo |
-| Cowork | Weekly operator | Produces reports/checklists |
+GitHub = source of truth  
+Claude Design = visual factory  
+Claude Code = review/refactor engineer  
+Codex = implementation engineer  
+Cowork = operator workflow  
+Airtable = status database  
+Google Drive = binary vault  
+Obsidian = private knowledge graph  
+NotebookLM = research/podcast engine  
+Google Opal = interactive mini-app layer  
+Google Omni / Flow = video layer  
+Remotion = programmable video templates  
+n8n = automation  
+Vercel = current deployment  
+Self-hosted cloud = sovereignty path
 
-## Important Distinction
+## Claude Design Project System
 
-Google Opal and Google Omni are both included, but they are not the same layer.
+1. MAIM 00 Brand System
+2. MAIM 01 Instagram Launch Grid
+3. MAIM 02 Webinar Funnel
+4. MAIM 03 ABC Roadmap
+5. MAIM 04 YouTube Thumbnail System
+6. MAIM 05 Lead Magnets + Ebooks
+7. MAIM 06 Landing Pages + Wireframes
+8. MAIM 07 Course + Skool Assets
+9. MAIM 08 Hanzo Powered-By Assets
 
-- **Google Opal** = interactive experiences, mini-apps, audits, calculators, and guided workflows.
-- **Google Omni** = video generation, motion prompts, video briefs, shorts, and visual content.
+`MAIM 00 Brand System` is the parent. All other projects reference it.
 
-## Obsidian Layer
+## Context Loading Order
 
-Obsidian is where relationship context lives.
+1. Attach `README.md`
+2. Attach `CLAUDE.md`
+3. Attach `DESIGN.md`
+4. Attach `data/design-tokens.json`
+5. Attach project-specific brief
+6. Reference `MAIM 00 Brand System`
+7. Connect GitHub if needed
+8. Add screenshots/visual references
 
-Use Obsidian for:
+## Status Logic
 
-- Relationship history
-- Partner context
-- Strategic decisions
-- Meeting notes
-- Trust context
-- Voice-of-customer patterns
-- Community leader memory
-- Personal context that should not be forced into public-facing GitHub docs
+Idea → Briefed → Designed → Needs Review → Approved → Exported → Uploaded → Tracked → Scheduled → Published → Archived
 
-Obsidian should not replace GitHub. It supports GitHub by preserving relational and strategic context around why decisions were made.
+Ready to Publish = enough to go live.  
+Complete = full package archived.
 
-## Per-Letter Asset Model
+Do not let archive work block momentum.
 
-Each ABC letter can produce:
+## Client Replication Doctrine
 
-1. Lesson
-2. Thumbnail
-3. Carousel
-4. Reel script
-5. Platform captions
-6. NotebookLM prompt
-7. Google Opal mini-app prompt
-8. Google Omni video prompt
-9. Newsletter/Substack draft
-10. Obsidian context note
-11. Community challenge
-12. Worksheet or implementation action
+Anything built for MAIM should be reusable for clients.
 
-## Current Approved Prototype
+Every workflow should become a template, playbook, skill, prompt pack, component, plugin, SOP, intake form, or launch kit.
 
-`MAIM-ABC-BEG-A-AWARENESS-THUMBNAIL-V001`
-
-A is approved visually. Its production exports still need to be committed into lesson data before publishing.
-
-## Week 1 Scope
-
-Beginner letters:
-
-- A = Awareness
-- B = Basics / Belief decision pending
-- C = Context
-- D = Delegation
-- E = Experiments
-
-Cowork flagged A as designed but not fully production-ready because reel, carousel, NotebookLM, Omni, and platform captions were not yet committed into the repo data layer.
+Likkle by likkle, we build the future.
