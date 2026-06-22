@@ -1,0 +1,41 @@
+{
+  "name": "Major AI Mindset Design Tokens",
+  "version": "2.0",
+  "updated": "2026-06-23",
+  "colors": {
+    "maimBlack": "#050505",
+    "deepCharcoal": "#111111",
+    "darkSurface": "#18181B",
+    "borderDark": "#27272A",
+    "crownGold": "#D8AF55",
+    "sovereignGold": "#D4AF37",
+    "legacyGold": "#9F742C",
+    "jamaicanLegacyGreen": "#1F7A3A",
+    "championBlue": "#006BB6",
+    "championOrange": "#F58426",
+    "clarityWhite": "#F7F4EA",
+    "pureWhite": "#FFFFFF",
+    "smokeGray": "#A8A8A8",
+    "systemLime": "#A3E635",
+    "textDark": "#111827",
+    "mutedLight": "#4B5563",
+    "borderLight": "#E5E7EB"
+  },
+  "typography": {
+    "headline": ["Anton", "Bebas Neue", "League Spartan", "Montserrat ExtraBold", "Archivo Black", "Cinzel"],
+    "body": ["Inter", "Manrope", "Montserrat"],
+    "mono": ["JetBrains Mono", "IBM Plex Mono"]
+  },
+  "exports": {
+    "instagramFeed": "1080x1350",
+    "instagramSquare": "1080x1080",
+    "instagramStoryReel": "1080x1920",
+    "youtubeThumbnail": "1280x720",
+    "linkedinFeed": "1200x1500",
+    "xTwitter": "1600x900",
+    "webinarSlide": "1920x1080",
+    "pdfCover": "1600x2400",
+    "skoolBanner": "1920x480",
+    "websiteHero": "1920x1080"
+  }
+}
