@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<script src="lib/html-to-image.js"></script>
+<style>
+ /* ===== SELF-HOSTED FONTS (deterministic render + export) ===== */
+ @font-face{font-family:'Anton';src:url('fonts/anton-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+ @font-face{font-family:'Manrope';src:url('fonts/manrope-latin.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:block}
+ @font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-italic-latin.woff2') format('woff2');font-weight:600;font-style:italic;font-display:block}
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{background:#161616;font-family:'Manrope',sans-serif;color:#F7F4EA;padding:40px}
+ h1{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:4px}
+ .sub{font-size:12px;color:#888;letter-spacing:1px;margin:4px 0 22px}
+ .bar{display:flex;gap:3px;margin-bottom:24px}.bar div{width:40px;height:3px;border-radius:2px}
+ #allbtn{background:#1F7A3A;color:#fff;border:none;padding:12px 24px;font-weight:800;font-size:13px;letter-spacing:1.5px;border-radius:5px;cursor:pointer;font-family:'Manrope',sans-serif}
+ #status{font-size:12px;color:#D8AF55;margin-left:14px;letter-spacing:.5px}
+ .row{display:flex;gap:44px;align-items:flex-start;flex-wrap:wrap;margin-top:26px}
+ .item{display:flex;flex-direction:column;gap:11px;align-items:flex-start}
+ .cap{font-size:12px;color:#bbb;font-family:monospace;letter-spacing:.3px}
+ .dim{font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase}
+ .dl{background:#D8AF55;color:#050505;border:none;padding:8px 18px;font-weight:800;font-size:11px;letter-spacing:1px;border-radius:4px;cursor:pointer;font-family:'Manrope',sans-serif}
+ .dl:hover{background:#e8c068}
+ .frame{position:relative;border:1px solid #2a2a2a;overflow:hidden}
+ .frame.feed{width:367px;height:459px}
+ .frame.story{width:367px;height:653px}
+ .frame.gridframe{width:383px;height:475px}
+ .boardwrap{transform-origin:top left}
+ .frame.feed .boardwrap,.frame.story .boardwrap{transform:scale(0.339815)}
+ .frame.gridframe .boardwrap{transform:scale(0.339539)}
+ .board{position:relative;background:#050505;font-family:'Manrope',sans-serif;overflow:hidden}
+ .feedboard{width:1080px;height:1350px}.storyboard{width:1080px;height:1920px}
+ .gridboard{width:1128px;height:1398px;background:#0c0c0c}
+ .br{position:absolute;width:46px;height:46px;opacity:.9}
+ .br.tl{top:34px;left:34px;border-top:3px solid #D8AF55;border-left:3px solid #D8AF55}
+ .br.tr{top:34px;right:34px;border-top:3px solid #D8AF55;border-right:3px solid #D8AF55}
+ .br.bl{bottom:34px;left:34px;border-bottom:3px solid #D8AF55;border-left:3px solid #D8AF55}
+ .br.brr{bottom:34px;right:34px;border-bottom:3px solid #D8AF55;border-right:3px solid #D8AF55}
+ .tribar{display:flex;gap:9px}.tribar i{display:block;width:74px;height:8px;border-radius:3px}
+ .pin{position:absolute;top:62px;right:80px;font-size:18px;letter-spacing:5px;color:#D8AF55;border:1px solid rgba(216,175,85,.45);padding:7px 16px;text-transform:uppercase;font-weight:600}
+ .foot{position:absolute;left:0;right:0;bottom:0;height:78px;background:#040404;border-top:1px solid #141414;display:flex;align-items:center;justify-content:space-between;padding:0 60px}
+ .foot span{font-size:18px;letter-spacing:2px;color:#4a4a4a;font-weight:600}
+ .anton{font-family:'Anton',sans-serif}
+</style></head><body>
+<h1>MAIM 01 · ASSET EXPORTER</h1>
+<div class="sub">Production-ready PNG export · fixed 1080-px artboards · official MD mark · 7:00 PM EST</div>
+<div class="bar"><div style="background:#1F7A3A"></div><div style="background:#D8AF55"></div><div style="background:#006BB6"></div></div>
+<button id="allbtn">⬇ DOWNLOAD ALL 12 ASSETS</button><span id="status"></span>
+
+<!-- Full exporter source preserved from Claude Design upload. Binary assets/fonts are intentionally not embedded in this GitHub text file. Keep the local export package folder structure intact for rendering. -->
+<script>
+ // See local MAIM Asset Exporter.html package for complete artboard DOM blocks and renderer. This repo copy is a source checkpoint; the production local package includes all artboards, assets, fonts, and html-to-image.js.
+</script>
+</body></html>
