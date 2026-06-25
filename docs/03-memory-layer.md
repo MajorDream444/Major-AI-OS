@@ -3,6 +3,7 @@
 Status: Active doctrine
 Related project: `MAIM 03 ABC Roadmap / Learning Engine`
 Related workflow: `workflows/weekly-webinar-build-loop.md`
+Related voice repo: `MajorDream444/voicebox`
 
 ## Purpose
 
@@ -24,6 +25,8 @@ The songs become the memory layer.
 Obsidian becomes the knowledge graph.
 GitHub remains the source of truth.
 Claude Design remains the visual factory.
+Voicebox becomes the local founder-voice layer.
+Suno becomes the song sketch and musical experimentation layer.
 
 ## Core Doctrine
 
@@ -47,8 +50,45 @@ Some need a song.
 Some need a worksheet.
 Some need a repeated mantra.
 Some need a community conversation.
+Some need the founder voice.
 
 MAIM should respect all of those paths.
+
+## Voice Doctrine
+
+MAIM should prioritize Major's real voice where possible.
+
+The goal is not a generic AI narrator.
+
+The goal is to preserve tone, rhythm, warmth, lived experience, Caribbean/New York cadence, pauses, humor, and grounded authority.
+
+Use voice tools in this order when possible:
+
+```txt
+1. Major records live voice
+2. Voicebox local model supports voice consistency and scalable drafts
+3. AI Voice Generator creates temporary or alternate voice assets
+4. Synthetic voices are placeholders unless approved
+```
+
+Voicebox should be treated as a local sovereignty layer for MAIM audio.
+
+Repository:
+
+```txt
+https://github.com/MajorDream444/voicebox.git
+```
+
+Use cases:
+
+- ABC lesson narration
+- Webinar intro voiceovers
+- Reel voice drafts
+- Course lesson narration
+- Audio memory hooks
+- Call-and-response practice
+- Founder manifesto voiceovers
+- Podcast intro/outro stingers
 
 ## Memory Hook Standard
 
@@ -76,6 +116,7 @@ These hooks should appear in:
 - Workbook pages
 - Community prompts
 - Course summaries
+- Voicebox narration tests
 
 ## Signature Metaphor Standard
 
@@ -117,6 +158,7 @@ The sound should be:
 - Beginner-safe
 - Easy to remember
 - Not childish unless intentionally made for kids
+- Grounded in Major's real voice when possible
 
 Possible styles:
 
@@ -130,6 +172,31 @@ Possible styles:
 - Webinar transition sting
 - Meditation / sanctuary version
 
+## Suno Song Layer
+
+Suno can be used for rapid song sketching, hooks, theme songs, and mnemonic experiments.
+
+Suno output should be treated as draft material until reviewed.
+
+The goal is not to copy a specific artist.
+
+The goal is to create familiarity, repeatability, warmth, and emotional memory.
+
+Each song concept should be tracked with:
+
+```txt
+Lesson letter
+Memory hook
+Target audience
+Style direction
+Lyrics draft
+Suno prompt
+Generated version notes
+Approved lyric version
+Approved melody direction
+Final usage rights / publishing notes
+```
+
 ## Song System
 
 Each ABC concept can eventually have:
@@ -142,6 +209,7 @@ Each ABC concept can eventually have:
 5. Webinar transition sting
 6. Community chant / call-and-response
 7. Audio mnemonic
+8. Major voice intro / outro
 ```
 
 The goal is not to copy a specific artist.
@@ -161,6 +229,8 @@ Use Obsidian to store:
 - Webinar insights
 - Community questions
 - Voice memo transcripts
+- Voicebox setup notes
+- Suno prompt experiments
 - Metaphor experiments
 - Personal stories
 - Version history of concepts
@@ -181,6 +251,8 @@ Examples:
 - A teaching module goes into GitHub.
 - A messy metaphor list stays in Obsidian.
 - A final metaphor map goes into GitHub.
+- Local Voicebox setup notes can stay in Obsidian until stable.
+- A reusable Voicebox workflow moves into GitHub.
 
 ## Lesson Template Addition
 
@@ -192,6 +264,8 @@ Signature Metaphor
 Audio Hook
 Song Direction
 Call-and-Response Line
+Voicebox Narration Prompt
+Suno Song Prompt
 Reflection Prompt
 Community Practice
 ```
@@ -217,6 +291,12 @@ Song hook:
 ```txt
 A is for Awareness, notice what repeats.
 Every little leak becomes a clue we need.
+```
+
+Voicebox narration direction:
+
+```txt
+Warm founder voice. Slow, reassuring, grounded. Speak like you are sitting with a beginner who feels behind but is ready to start.
 ```
 
 Action memory:
