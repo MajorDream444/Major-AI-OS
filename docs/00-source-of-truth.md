@@ -4,7 +4,7 @@ GitHub is the source of truth. Claude Design is the visual factory. The app is t
 
 ## Why This Exists
 
-MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, local-first knowledge management, and multimodal learning systems.
+MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, local-first knowledge management, multimodal learning systems, and sonic memory systems.
 
 Every repeatable process should become a system, skill, plugin, template, or playbook.
 
@@ -21,11 +21,29 @@ Obsidian = private knowledge graph
 NotebookLM = research/podcast engine  
 Google Opal = interactive mini-app layer  
 Google Omni / Flow = video layer  
-AI Voice Generator = sonic memory layer  
+Voicebox = local founder-voice layer  
+AI Voice Generator = temporary / alternate voice layer  
+Suno = song sketch and musical memory layer  
 Remotion = programmable video templates  
 n8n = automation  
 Vercel = current deployment  
 Self-hosted cloud = sovereignty path
+
+## Connected Repositories
+
+Primary MAIM OS repo:
+
+```txt
+https://github.com/MajorDream444/Major-AI-OS.git
+```
+
+Local voice layer repo:
+
+```txt
+https://github.com/MajorDream444/voicebox.git
+```
+
+Voicebox supports local voice experimentation so MAIM can use Major's actual voice and cadence rather than relying only on generic synthetic narration.
 
 ## Claude Design Project System
 
@@ -75,7 +93,7 @@ Share it
 Remember it
 ```
 
-The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The songs become the memory layer. Obsidian becomes the knowledge graph.
+The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The songs become the memory layer. Obsidian becomes the knowledge graph. Voicebox becomes the local founder-voice layer.
 
 See: `docs/03-memory-layer.md`
 
