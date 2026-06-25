@@ -4,7 +4,7 @@ GitHub is the source of truth. Claude Design is the visual factory. The app is t
 
 ## Why This Exists
 
-MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, and local-first knowledge management.
+MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, local-first knowledge management, and multimodal learning systems.
 
 Every repeatable process should become a system, skill, plugin, template, or playbook.
 
@@ -21,6 +21,7 @@ Obsidian = private knowledge graph
 NotebookLM = research/podcast engine  
 Google Opal = interactive mini-app layer  
 Google Omni / Flow = video layer  
+AI Voice Generator = sonic memory layer  
 Remotion = programmable video templates  
 n8n = automation  
 Vercel = current deployment  
@@ -57,6 +58,26 @@ The visible Claude Design list stays numbered by project, but the operating prio
 The ABC Roadmap is now treated as the MAIM Learning Engine.
 
 The webinar teaches the ABCs. The lead magnet comes from the ABCs. The course expands the ABCs. YouTube, podcast, newsletter, and community prompts repurpose the ABCs.
+
+## Multimodal Memory Layer
+
+MAIM should not only teach through text and slides.
+
+Each lesson should be able to become:
+
+```txt
+See it
+Hear it
+Say it
+Write it
+Practice it
+Share it
+Remember it
+```
+
+The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The songs become the memory layer. Obsidian becomes the knowledge graph.
+
+See: `docs/03-memory-layer.md`
 
 ## Weekly Webinar Rhythm
 
