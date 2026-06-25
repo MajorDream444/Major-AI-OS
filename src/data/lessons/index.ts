@@ -9,11 +9,25 @@
  */
 
 import { lessonAwareness } from "./A-awareness";
+import { lessonBelief } from "./B-belief";
+import { lessonContext } from "./C-context";
+import { lessonDirection } from "./D-direction";
+import { lessonExperiment } from "./E-experiment";
 import type { Lesson } from "../../types/lesson";
 
 export const allLessons: Lesson[] = [
   lessonAwareness,
-  // B-Z lessons go here as they are created
+  lessonBelief,
+  lessonContext,
+  lessonDirection,
+  lessonExperiment,
+  // F-Z lessons go here as they are created
 ];
 
-export { lessonAwareness };
+export {
+  lessonAwareness,
+  lessonBelief,
+  lessonContext,
+  lessonDirection,
+  lessonExperiment,
+};
