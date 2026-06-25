@@ -1,8 +1,8 @@
 ---
-version: "major-ai-mindset-design-system-v2.0"
+version: "major-ai-mindset-design-system-v2.1"
 name: "Major AI Mindset Design System"
 repo: "MajorDream444/Major-AI-OS"
-updated: "2026-06-23"
+updated: "2026-06-25"
 ---
 
 # Major AI Mindset Design System
@@ -68,6 +68,30 @@ Body: Inter, Manrope, Montserrat.
 
 Technical: JetBrains Mono, IBM Plex Mono.
 
+## Logo System
+
+Primary MAIM logo preference:
+
+Use the circular gold seal logo that combines the `MD` mark with the woven palm hat / crown.
+
+This is the preferred identity mark for MAIM because it carries the founder signature and the crown symbolism in one asset.
+
+Use this circular gold seal for:
+
+- Instagram posts
+- Reel covers
+- Webinar graphics
+- Course visuals
+- Watermarks
+- Footer marks
+- Thumbnail stamps
+- Community badges
+- Lead magnets
+
+Avoid using the square green/gold `MD` mark as the primary logo unless a specific template, technical UI, or older asset requires it.
+
+The circular gold hat + MD seal should be treated as the default trust stamp.
+
 ## Crown System
 
 The woven palm crown is the signature artifact. Use it as hero object, founder symbol, highlight icon, badge, pin, merchandise concept, course emblem, and community totem.
@@ -89,7 +113,7 @@ The image carries clarity. The caption carries depth.
 1. MAIM 00 Brand System
 2. MAIM 01 Instagram Launch Grid
 3. MAIM 02 Webinar Funnel
-4. MAIM 03 ABC Roadmap
+4. MAIM 03 ABC Roadmap / Learning Engine
 5. MAIM 04 YouTube Thumbnail System
 6. MAIM 05 Lead Magnets + Ebooks
 7. MAIM 06 Landing Pages + Wireframes
@@ -152,6 +176,7 @@ Hosted deployment → self-hosted cloud later
 Is it clear in five seconds?  
 Does it feel like MAIM?  
 Does it honor the crown?  
+Does it use the preferred circular gold MD + crown seal when a logo is needed?  
 Does it help a beginner feel safe?  
 Does it look premium?  
 Is there one main idea?  
