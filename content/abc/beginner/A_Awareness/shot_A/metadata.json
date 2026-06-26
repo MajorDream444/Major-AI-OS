@@ -1,0 +1,15 @@
+{
+  "id": "A_shot_A",
+  "letter": "A",
+  "title": "Invisible Weight",
+  "durationSeconds": 10,
+  "aspectRatio": "9:16",
+  "purpose": "Emotional hook",
+  "status": "prompt_ready",
+  "generationTool": "Google Gemini/Veo/Omni",
+  "localVideoFile": "video.mp4",
+  "promptFile": "prompt.md",
+  "recommendedUse": ["reel_opening", "webinar_broll", "course_intro", "website_loop"],
+  "visualMotifs": ["invisible backpacks", "repeated tasks", "city movement", "gold letter A"],
+  "brandContinuity": true
+}
