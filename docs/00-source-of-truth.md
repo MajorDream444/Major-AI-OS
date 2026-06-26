@@ -19,6 +19,7 @@ Airtable = status database
 Google Drive = binary vault  
 Obsidian = private knowledge graph  
 NotebookLM = research/podcast engine  
+Open Notebook = local multi-host podcast / research conversation layer  
 Google Opal = interactive mini-app layer  
 Google Omni / Flow = video layer  
 Voicebox = local founder-voice layer  
@@ -44,6 +45,14 @@ https://github.com/MajorDream444/voicebox.git
 ```
 
 Voicebox supports local voice experimentation so MAIM can use Major's actual voice and cadence rather than relying only on generic synthetic narration.
+
+Local notebook / podcast layer repo:
+
+```txt
+https://github.com/MajorDream444/open-notebook.git
+```
+
+Open Notebook is identified as the future local NotebookLM-style research and multi-host podcast layer. It is not integrated yet.
 
 ## Claude Design Project System
 
@@ -76,6 +85,37 @@ The visible Claude Design list stays numbered by project, but the operating prio
 The ABC Roadmap is now treated as the MAIM Learning Engine.
 
 The webinar teaches the ABCs. The lead magnet comes from the ABCs. The course expands the ABCs. YouTube, podcast, newsletter, and community prompts repurpose the ABCs.
+
+## MAIM 03 Learning Engine v1
+
+Status: `Version 1.0 Complete`
+
+Reference summary:
+
+```txt
+references/claude-design/maim-03-learning-engine-v1-summary.md
+```
+
+MAIM 03 now has:
+
+- Bento System selected as the master engine
+- Editorial Split reserved for hero energy
+- Workbook Page reserved for printable / downloadable lessons
+- Crown coin seal confirmed as the primary mark
+- Green MD reserved for sparing / OG use
+- Reusable 9-slot module anatomy
+- Clickable A-Z spine
+- A-E live modules
+- F-Z roadmap placeholders
+- Memory hooks
+- Next-level nudges
+- Frozen standalone offline HTML reference bundle
+
+The standalone bundle is a design reference, not production code yet.
+
+Implementation waits until the build phase.
+
+No MCP wiring or Codex build should happen from this bundle until explicitly started.
 
 ## Multimodal Memory Layer
 
