@@ -1,0 +1,15 @@
+{
+  "id": "A_shot_B",
+  "letter": "A",
+  "title": "Notice The Leak",
+  "durationSeconds": 10,
+  "aspectRatio": "9:16",
+  "purpose": "Practical teaching moment",
+  "status": "prompt_ready",
+  "generationTool": "Google Gemini/Veo/Omni",
+  "localVideoFile": "video.mp4",
+  "promptFile": "prompt.md",
+  "recommendedUse": ["reel_body", "lesson_demo", "course_broll", "website_loop"],
+  "visualMotifs": ["opened backpack", "weekly email replies", "workflow card", "dissolving burden"],
+  "brandContinuity": true
+}
