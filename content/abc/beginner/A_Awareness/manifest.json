@@ -1,0 +1,54 @@
+{
+  "series": "Major AI Mindset ABC Series",
+  "version": "v2_master_canon",
+  "letter": "A",
+  "title": "Awareness",
+  "theme": "Notice before you automate",
+  "bigIdea": "Awareness comes before automation.",
+  "doctrine": "You cannot improve what you have not noticed. AI amplifies awareness.",
+  "audience": "Beginner",
+  "emotionalObjective": "Recognition: I have been repeating this without noticing it.",
+  "learningObjective": "Learners identify three repeated weekly tasks that could become AI-supported workflows.",
+  "durationSeconds": 20,
+  "generationLimit": {
+    "videosPerDay": 2,
+    "secondsPerVideo": 10,
+    "shotsPerLetter": 2
+  },
+  "shots": [
+    {
+      "id": "A_shot_A",
+      "title": "Invisible Weight",
+      "purpose": "Emotional hook",
+      "durationSeconds": 10,
+      "path": "shot_A/prompt.md"
+    },
+    {
+      "id": "A_shot_B",
+      "title": "Notice The Leak",
+      "purpose": "Practical teaching moment",
+      "durationSeconds": 10,
+      "path": "shot_B/prompt.md"
+    }
+  ],
+  "voiceover": "03_Voiceover.md",
+  "caption": "04_Caption.md",
+  "cta": "Comment AWARE",
+  "brand": {
+    "handle": "@major_ai_mindset",
+    "tagline": "Likkle by likkle, we build the future.",
+    "colors": ["black", "gold", "Jamaican green", "champion blue", "orange", "white clarity"],
+    "style": "premium editorial, cinematic realism, Afro-Caribbean futurism, beginner-safe"
+  },
+  "futureUses": [
+    "instagram_reel",
+    "youtube_short",
+    "tiktok",
+    "website_loop",
+    "webinar_broll",
+    "course_module",
+    "remotion_scene",
+    "documentary_clip"
+  ],
+  "status": "production_ready"
+}
