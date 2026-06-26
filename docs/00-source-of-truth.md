@@ -117,6 +117,52 @@ Implementation waits until the build phase.
 
 No MCP wiring or Codex build should happen from this bundle until explicitly started.
 
+## MAIM 02 Webinar Funnel
+
+Status: `Active Build`
+
+Reference brief:
+
+```txt
+references/claude-design/maim-02-webinar-funnel-brief.md
+```
+
+Sprint workflow:
+
+```txt
+workflows/maim-02-webinar-funnel-sprint.md
+```
+
+MAIM 02 turns the Learning Engine into the first live community conversion experience.
+
+The first webinar theme is:
+
+```txt
+AI Mindset: See It. Believe It. Build It.
+```
+
+Primary teaching spine:
+
+```txt
+A — Awareness
+B — Belief
+C — Context
+```
+
+The webinar should function as the doorway from Instagram / DM / WhatsApp into weekly community learning, the ABC lessons, the 7-Day Digital Asset Lab, and the 4-Week Leverage Cohort.
+
+Production rule:
+
+```txt
+Ready to Teach ≠ Complete Funnel
+```
+
+Ready to Teach means the deck is clear, the registration path is clear, the CTA is clear, and the room has one next step.
+
+Complete Funnel means all promo assets, reminders, replay assets, emails, analytics, tracking, and archived exports are finished.
+
+Do not let completion-layer assets block the first webinar.
+
 ## Multimodal Memory Layer
 
 MAIM should not only teach through text and slides.
