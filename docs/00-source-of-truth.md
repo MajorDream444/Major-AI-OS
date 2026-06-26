@@ -4,9 +4,9 @@ GitHub is the source of truth. Claude Design is the visual factory. The app is t
 
 ## Why This Exists
 
-MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, local-first knowledge management, multimodal learning systems, and sonic memory systems.
+MAIM is becoming a reusable operating system for brand systems, design systems, content engines, client launch kits, AI education products, visual production loops, video workflows, interactive apps, local-first knowledge management, multimodal learning systems, sonic memory systems, owned media libraries, merchandise artifacts, and IP vaults.
 
-Every repeatable process should become a system, skill, plugin, template, or playbook.
+Every repeatable process should become a system, skill, plugin, template, playbook, asset, or owned intellectual property.
 
 ## Canonical Stack
 
@@ -18,7 +18,7 @@ Cowork = operator workflow
 Airtable = status database  
 Google Drive = binary vault  
 Obsidian = private knowledge graph  
-NotebookLM = research/podcast engine  
+NotebookLM = research/podcast/story engine  
 Open Notebook = local multi-host podcast / research conversation layer  
 Google Opal = interactive mini-app layer  
 Google Omni / Flow = video layer  
@@ -28,6 +28,7 @@ Suno = song sketch and musical memory layer
 Remotion = programmable video templates  
 n8n = automation  
 Vercel = current deployment  
+Shopify = future merch / artifact store  
 Self-hosted cloud = sovereignty path
 
 ## Connected Repositories
@@ -65,6 +66,7 @@ Open Notebook is identified as the future local NotebookLM-style research and mu
 7. MAIM 06 Landing Pages + Wireframes
 8. MAIM 07 Course + Skool Assets
 9. MAIM 08 Hanzo Powered-By Assets
+10. MAIM 09 Media Vault + Merch Artifacts
 
 `MAIM 00 Brand System` is the parent. All other projects reference it.
 
@@ -76,15 +78,16 @@ The visible Claude Design list stays numbered by project, but the operating prio
 2. `MAIM 01 Instagram Launch Grid` — how people find us
 3. `MAIM 03 ABC Roadmap / Learning Engine` — what we teach
 4. `MAIM 02 Webinar Funnel` — how we convert trust into action
-5. `MAIM 05 Lead Magnets + Ebooks` — how we capture relationships
-6. `MAIM 06 Landing Pages + Wireframes` — how we sell
-7. `MAIM 07 Course + Skool Assets` — how we deliver transformation
-8. `MAIM 04 YouTube Thumbnail System` — how we scale authority
-9. `MAIM 08 Hanzo Powered-By Assets` — how we show infrastructure
+5. `MAIM 09 Media Vault + Merch Artifacts` — how we own and package IP
+6. `MAIM 05 Lead Magnets + Ebooks` — how we capture relationships
+7. `MAIM 06 Landing Pages + Wireframes` — how we sell
+8. `MAIM 07 Course + Skool Assets` — how we deliver transformation
+9. `MAIM 04 YouTube Thumbnail System` — how we scale authority
+10. `MAIM 08 Hanzo Powered-By Assets` — how we show infrastructure
 
 The ABC Roadmap is now treated as the MAIM Learning Engine.
 
-The webinar teaches the ABCs. The lead magnet comes from the ABCs. The course expands the ABCs. YouTube, podcast, newsletter, and community prompts repurpose the ABCs.
+The webinar teaches the ABCs. The lead magnet comes from the ABCs. The course expands the ABCs. YouTube, podcast, newsletter, community prompts, merch, and vault assets repurpose the ABCs.
 
 ## MAIM 03 Learning Engine v1
 
@@ -133,6 +136,12 @@ Sprint workflow:
 workflows/maim-02-webinar-funnel-sprint.md
 ```
 
+Live show segment library:
+
+```txt
+references/claude-design/maim-02-live-show-segment-library.md
+```
+
 MAIM 02 turns the Learning Engine into the first live community conversion experience.
 
 The first webinar theme is:
@@ -163,6 +172,72 @@ Complete Funnel means all promo assets, reminders, replay assets, emails, analyt
 
 Do not let completion-layer assets block the first webinar.
 
+## MAIM Media Vault
+
+Status: `Active Architecture`
+
+Reference:
+
+```txt
+vault/maim-media-vault-architecture.md
+```
+
+Google Drive root:
+
+```txt
+https://drive.google.com/drive/folders/16AzMGVOO5DdxMEyS3GbJrlxm5k5ZFVir
+```
+
+Episode 001 folder:
+
+```txt
+https://drive.google.com/drive/folders/1FhUYFABEOWiDOrlVf8a-aC3PUHNLYE1T
+```
+
+The Vault is the owned IP layer.
+
+Each episode should create a Creator Kit containing decks, videos, transcripts, articles, shorts, thumbnails, challenges, prompt packs, merch concepts, analytics, and replay assets.
+
+Core doctrine:
+
+```txt
+Teach once.
+Capture everything.
+Repurpose intentionally.
+Own the archive.
+```
+
+## MAIM Merch + Artifacts
+
+Status: `Active Concept Pack`
+
+Reference:
+
+```txt
+merch/maim-founders-and-abc-shirt-prompts.md
+```
+
+Merch is not decoration.
+
+Merch is identity.
+
+Approved phrase:
+
+```txt
+AI is the Intelligence. You are the Wisdom.
+```
+
+Initial merch categories:
+
+```txt
+Founder Collection
+ABC Collection
+Vault / IP Collection
+Builder Challenge Collection
+HAMAL Wellness Collection
+Kids / Family Collection
+```
+
 ## Multimodal Memory Layer
 
 MAIM should not only teach through text and slides.
@@ -177,9 +252,11 @@ Write it
 Practice it
 Share it
 Remember it
+Wear it
+Own it
 ```
 
-The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The songs become the memory layer. Obsidian becomes the knowledge graph. Voicebox becomes the local founder-voice layer.
+The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The stories become the media engine. The songs become the memory layer. The merch becomes the identity layer. The Vault becomes the IP layer. Obsidian becomes the knowledge graph. Voicebox becomes the local founder-voice layer.
 
 See: `docs/03-memory-layer.md`
 
@@ -233,6 +310,6 @@ Do not let archive work block momentum.
 
 Anything built for MAIM should be reusable for clients.
 
-Every workflow should become a template, playbook, skill, prompt pack, component, plugin, SOP, intake form, or launch kit.
+Every workflow should become a template, playbook, skill, prompt pack, component, plugin, SOP, intake form, launch kit, media vault, or merch/artifact system.
 
 Likkle by likkle, we build the future.
