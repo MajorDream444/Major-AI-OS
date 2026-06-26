@@ -16,14 +16,47 @@ It is the doorway where strangers become learners, learners become community mem
 
 The first webinar should make AI feel safe, human, useful, and beginner-accessible.
 
+## Live Show Evolution
+
+MAIM 02 is evolving from a standard webinar into a recurring weekly edutainment show.
+
+Working show identity:
+
+```txt
+Major AI Mindset Live
+```
+
+Working show promise:
+
+```txt
+A weekly room where people stop fearing AI and start building with it.
+```
+
+The show should still teach clearly.
+
+It should still convert.
+
+But it should not feel like a dry webinar that only leads to a pitch.
+
+It should feel like:
+
+```txt
+A weekly live learning show
+A confidence room
+A future translation room
+A community classroom
+An edutainment engine
+```
+
 ## Core Funnel Path
 
 ```txt
 Instagram / DM / WhatsApp
 → Registration / Interest Form
-→ Free Live Webinar
+→ Free Live Show
 → Weekly Action
 → Community / Email Follow-Up
+→ Replay / Vault Access
 → 7-Day Digital Asset Lab
 → 4-Week Leverage Cohort
 → Advanced MAIM / Hanzo ecosystem
@@ -106,14 +139,14 @@ Green MD mark sparingly / OG use only
 
 The deck should feel like a premium community classroom, not a tech conference.
 
-It should be clear enough for beginners and polished enough to become reusable webinar IP.
+It should be clear enough for beginners and polished enough to become reusable weekly show IP.
 
 ## Required Claude Design Outputs
 
-Create a complete webinar funnel visual system:
+Create a complete webinar / live show visual system:
 
 ```txt
-1. Webinar title slide
+1. Webinar / show title slide
 2. Founder / guide slide
 3. Movement / why MAIM exists slide
 4. AI is not just for tech people slide
@@ -131,9 +164,16 @@ Create a complete webinar funnel visual system:
 16. Reminder graphic
 17. Replay / thank-you graphic
 18. Follow-up email visual header
+19. Segment transition card
+20. NotebookLM-style AI News segment card
+21. Community question card
+22. Builder spotlight card
+23. Replay / Vault access card
 ```
 
 ## 60-Minute Flow
+
+Standard teaching flow:
 
 ```txt
 0–5 min      Welcome + grounding
@@ -144,6 +184,50 @@ Create a complete webinar funnel visual system:
 42–52 min    C is for Context
 52–58 min    Weekly action + community invitation
 58–60 min    Closing: Likkle by likkle
+```
+
+Edutainment show flow:
+
+```txt
+0–5 min      Opening + grounding
+5–10 min     Major's opening frame / founder note
+10–18 min    Lesson Block 1
+18–22 min    NotebookLM-style AI News / Roundtable Segment
+22–32 min    Lesson Block 2
+32–37 min    Live demo / interaction / chat exercise
+37–47 min    Lesson Block 3
+47–52 min    Builder story / visual explainer / recap segment
+52–57 min    Weekly challenge + CTA
+57–60 min    Closing reflection + next episode teaser
+```
+
+The first episode can stay simple.
+
+The design system should still include reusable segment cards so the show can evolve over time.
+
+## Reusable Segment Library
+
+Design cards / templates for these recurring segments:
+
+```txt
+Opening Sequence
+Major's Opening Frame
+ABC Lesson Block
+NotebookLM-style AI News / Roundtable
+Live Demo
+Community Question
+Builder Spotlight
+Visual Explainer
+Weekly Challenge
+CTA / Invitation
+Replay / Vault Access
+Closing Sequence
+```
+
+See full reference:
+
+```txt
+references/claude-design/maim-02-live-show-segment-library.md
 ```
 
 ## Slide Rule
@@ -255,17 +339,33 @@ Future CTA:
 Apply for the 4-Week Business Leverage Cohort.
 ```
 
+Future monetization layer:
+
+```txt
+Vault access
+Membership tiers
+Membership pins / physical starter kit
+Shopify store
+Replay archive
+Prompt packs / templates
+Sponsorships later
+```
+
 ## Design Assets To Produce First
 
 Today's minimum viable output:
 
 ```txt
-1. Webinar title slide
+1. Webinar / show title slide
 2. 12-slide deck shell
 3. A-C teaching slides
 4. CTA / closing slide
 5. Instagram promo graphic
 6. Story reminder graphic
+7. Segment transition card
+8. NotebookLM-style AI News card
+9. Weekly Challenge card
+10. Replay / Vault placeholder card
 ```
 
 Do not design the entire funnel before the first teaching flow is clear.
@@ -302,13 +402,15 @@ Build the MAIM 02 Webinar Funnel using MAIM 00 Brand System as the parent and MA
 
 Create a beginner-safe, premium 60-minute webinar deck and promo asset system for the first MAIM live session: "AI Mindset: See It. Believe It. Build It."
 
+This should feel like the first version of Major AI Mindset Live, a recurring weekly edutainment show, not a dry webinar.
+
 The webinar should introduce Major AI Mindset, explain why AI is not just for tech people, introduce the ABC Learning Engine, and teach A Awareness, B Belief, and C Context.
 
 Use the MAIM visual system: black foundation, gold authority, Jamaican green legacy, Knicks blue/orange champion energy, white clarity, and the crown coin seal as primary mark. Keep the green MD mark sparing and legacy-coded.
 
 Make the deck feel like a premium community classroom, not a tech conference. Avoid generic robots, cold SaaS visuals, and overcrowded slides.
 
-Create first: title slide, 12-slide deck shell, A-C teaching slides, CTA slide, Instagram promo graphic, and story reminder graphic.
+Create first: title slide, 12-slide deck shell, A-C teaching slides, CTA slide, Instagram promo graphic, story reminder graphic, segment transition card, NotebookLM-style AI News card, Weekly Challenge card, and Replay / Vault placeholder card.
 
 Every slide should have one idea, minimal text, strong hierarchy, and beginner-safe language.
 ```
@@ -320,6 +422,7 @@ MAIM 02 should reference:
 ```txt
 references/claude-design/maim-03-learning-engine-v1-summary.md
 workflows/weekly-webinar-build-loop.md
+references/claude-design/maim-02-live-show-segment-library.md
 ```
 
 The webinar funnel should become a reusable client template later.
