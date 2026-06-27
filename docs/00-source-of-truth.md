@@ -64,7 +64,7 @@ Open Notebook is identified as the future local NotebookLM-style research and mu
 5. MAIM 04 YouTube Thumbnail System
 6. MAIM 05 Lead Magnets + Ebooks
 7. MAIM 06 Landing Pages + Wireframes
-8. MAIM 07 Course + Skool Assets
+8. MAIM 07 Course + Cohort Assets
 9. MAIM 08 Hanzo Powered-By Assets
 10. MAIM 09 Media Vault + Merch Artifacts
 
@@ -81,7 +81,7 @@ The visible Claude Design list stays numbered by project, but the operating prio
 5. `MAIM 09 Media Vault + Merch Artifacts` — how we own and package IP
 6. `MAIM 05 Lead Magnets + Ebooks` — how we capture relationships
 7. `MAIM 06 Landing Pages + Wireframes` — how we sell
-8. `MAIM 07 Course + Skool Assets` — how we deliver transformation
+8. `MAIM 07 Course + Cohort Assets` — how we deliver transformation
 9. `MAIM 04 YouTube Thumbnail System` — how we scale authority
 10. `MAIM 08 Hanzo Powered-By Assets` — how we show infrastructure
 
@@ -237,79 +237,3 @@ Builder Challenge Collection
 HAMAL Wellness Collection
 Kids / Family Collection
 ```
-
-## Multimodal Memory Layer
-
-MAIM should not only teach through text and slides.
-
-Each lesson should be able to become:
-
-```txt
-See it
-Hear it
-Say it
-Write it
-Practice it
-Share it
-Remember it
-Wear it
-Own it
-```
-
-The ABCs become the curriculum. The webinars become the classroom. The community becomes the practice field. The stories become the media engine. The songs become the memory layer. The merch becomes the identity layer. The Vault becomes the IP layer. Obsidian becomes the knowledge graph. Voicebox becomes the local founder-voice layer.
-
-See: `docs/03-memory-layer.md`
-
-## Weekly Webinar Rhythm
-
-The weekly 60-minute webinar is a grounding room for the community and a feedback loop for the curriculum.
-
-MAIM does not wait for perfect completion before teaching.
-
-The rhythm is:
-
-```txt
-Build → Teach → Learn → Improve → Repeat
-```
-
-Weekly cadence:
-
-```txt
-Monday      Build
-Tuesday     Design
-Wednesday   Create
-Thursday    Refine
-Friday      Test
-Saturday    Prepare
-Sunday      Teach
-```
-
-Each webinar should produce learning signals, better examples, community questions, short clips, and updates to the ABC modules.
-
-## Context Loading Order
-
-1. Attach `README.md`
-2. Attach `CLAUDE.md`
-3. Attach `DESIGN.md`
-4. Attach `data/design-tokens.json`
-5. Attach project-specific brief
-6. Reference `MAIM 00 Brand System`
-7. Connect GitHub if needed
-8. Add screenshots/visual references
-
-## Status Logic
-
-Idea → Briefed → Designed → Needs Review → Approved → Exported → Uploaded → Tracked → Scheduled → Published → Archived
-
-Ready to Publish = enough to go live.  
-Complete = full package archived.
-
-Do not let archive work block momentum.
-
-## Client Replication Doctrine
-
-Anything built for MAIM should be reusable for clients.
-
-Every workflow should become a template, playbook, skill, prompt pack, component, plugin, SOP, intake form, launch kit, media vault, or merch/artifact system.
-
-Likkle by likkle, we build the future.
