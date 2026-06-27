@@ -1,7 +1,7 @@
 {
   "name": "Major AI Mindset Design Tokens",
-  "version": "2.0",
-  "updated": "2026-06-23",
+  "version": "2.1",
+  "updated": "2026-06-27",
   "colors": {
     "maimBlack": "#050505",
     "deepCharcoal": "#111111",
@@ -35,7 +35,7 @@
     "xTwitter": "1600x900",
     "webinarSlide": "1920x1080",
     "pdfCover": "1600x2400",
-    "skoolBanner": "1920x480",
+    "cohortBanner": "1920x480",
     "websiteHero": "1920x1080"
   }
 }
