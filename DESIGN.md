@@ -1,8 +1,8 @@
 ---
-version: "major-ai-mindset-design-system-v2.1"
+version: "major-ai-mindset-design-system-v2.2"
 name: "Major AI Mindset Design System"
 repo: "MajorDream444/Major-AI-OS"
-updated: "2026-06-25"
+updated: "2026-06-27"
 ---
 
 # Major AI Mindset Design System
@@ -117,7 +117,7 @@ The image carries clarity. The caption carries depth.
 5. MAIM 04 YouTube Thumbnail System
 6. MAIM 05 Lead Magnets + Ebooks
 7. MAIM 06 Landing Pages + Wireframes
-8. MAIM 07 Course + Skool Assets
+8. MAIM 07 Course + Cohort Assets
 9. MAIM 08 Hanzo Powered-By Assets
 
 `MAIM 00 Brand System` is the parent project. All other projects reference it.
@@ -132,7 +132,7 @@ LinkedIn Feed: 1200 x 1500
 X / Twitter: 1600 x 900  
 Webinar Slide: 1920 x 1080  
 PDF Cover: 1600 x 2400  
-Skool Banner: 1920 x 480  
+Cohort Banner: 1920 x 480  
 Website Hero: 1920 x 1080
 
 ## Template Rules
