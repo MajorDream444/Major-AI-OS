@@ -7,7 +7,7 @@ Meta / Instagram ID: `17841468044783727`
 
 Instagram is the front door for Major AI Mindset.
 
-This is not an AI news page. It is the doorway into the MAIM ecosystem: beginner education, webinar activation, lead capture, Skool community, digital asset lab, leverage cohorts, and Hanzo-powered implementation.
+This is not an AI news page. It is the doorway into the MAIM ecosystem: beginner education, webinar activation, lead capture, MAIM Cohort, digital asset lab, leverage cohorts, and Hanzo-powered implementation.
 
 ## Positioning
 
@@ -104,7 +104,7 @@ Show practical examples for barbers, coaches, realtors, church leaders, parents,
 
 ### 3. Build With Me
 
-Behind the scenes: setting up Skool, building agent systems, creating the webinar, launching the roadmap, testing automations, and improving the machine in public.
+Behind the scenes: setting up the MAIM Cohort, building agent systems, creating the webinar, launching the roadmap, testing automations, and improving the machine in public.
 
 ### 4. Mindset + Legacy
 
@@ -143,7 +143,7 @@ Create these highlights:
 - Webinar
 - Tools
 - Wins
-- Skool
+- Cohort
 
 ## Launch Caption
 
@@ -172,7 +172,7 @@ Comment MAIM if you want the beginner roadmap.
 
 ## Funnel
 
-Instagram → Intake Form → WhatsApp / Email → Beginner Cohort → Digital Asset Lab → Leverage Cohort → Hanzo Services
+Instagram → Intake Form → WhatsApp / Email → MAIM Cohort → Digital Asset Lab → Leverage Cohort → Hanzo Services
 
 ## Writing Standard
 
