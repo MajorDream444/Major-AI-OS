@@ -34,7 +34,7 @@ Track in Airtable or fallback tracker with Asset ID, title, campaign, status, pl
 
 ## Publish
 
-Publishing can happen through Meta Business Suite, Postiz, Instagram native, Skool, Substack, YouTube, or LinkedIn.
+Publishing can happen through Meta Business Suite, Postiz, Instagram native, MAIM Cohort, Substack, YouTube, or LinkedIn.
 
 ## Archive
 
@@ -42,4 +42,4 @@ Archive in Drive, GitHub metadata, local folder, and Obsidian when relationship 
 
 ## Improve
 
-Weekly, review what shipped, what got delayed, what templates were reused, and what should become a skill/plugin.
+Weekly, review what shipped, what got delayed, what templates were reused, and what should become a reusable system.
