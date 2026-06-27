@@ -11,7 +11,7 @@ Use this guide to set up the nine blank Claude Design projects.
 5. MAIM 04 YouTube Thumbnail System
 6. MAIM 05 Lead Magnets + Ebooks
 7. MAIM 06 Landing Pages + Wireframes
-8. MAIM 07 Course + Skool Assets
+8. MAIM 07 Course + Cohort Assets
 9. MAIM 08 Hanzo Powered-By Assets
 
 `MAIM 00 Brand System` is the parent project.
