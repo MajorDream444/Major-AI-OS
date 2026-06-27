@@ -14,7 +14,7 @@ Instagram is the front door. The goal is not to look busy. The goal is to move t
 2. Set name field: `Major AI Mindset | AI for Builders`.
 3. Set bio using the launch playbook.
 4. Put one intake link in bio.
-5. Create highlights: Start Here, A-Z AI, Webinar, Tools, Wins, Skool.
+5. Create highlights: Start Here, A-Z AI, Webinar, Tools, Wins, Cohort.
 
 ### Phase 2 — First 9 Posts
 
