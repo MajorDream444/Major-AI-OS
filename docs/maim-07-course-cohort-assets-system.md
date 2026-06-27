@@ -1,6 +1,6 @@
 # MAIM 07 — Course + Cohort Assets
 
-Status: Design board complete / curriculum QA needed
+Status: Design board complete / curriculum QA resolved / rhythm clarified
 Date: 2026-06-27
 Project: Major AI Mindset
 Layer: Delivery Layer / Volume 07
@@ -65,6 +65,7 @@ Notes:
 - Built in the established MAIM volume format.
 - Dark, gold-led, tri-bar, mono-labeled system.
 - Reuses MAIM crown / mark assets.
+- Curriculum corrections applied from MAIM 03 / ABC canon.
 
 ## The 10 Sections
 
@@ -85,25 +86,49 @@ Lead Magnet
 → Week 4
 → Graduation
 → MAIM Alumni
+→ Ambassador
+→ Referral
 ```
 
-### 02 — Cohort Structure
+### 02 — Weekly Member Rhythm
 
-Purpose: Establish the rhythm of the MAIM Cohort.
+Purpose: Establish the rhythm of the MAIM Cohort from the member's point of view.
 
-Example weekly heartbeat:
+This is the member experience rhythm, not the internal production rhythm.
+
+Member weekly heartbeat:
 
 ```txt
 Sunday — Major AI Mindset Live
-Monday — Lesson
-Tuesday — AI Build Session
+Monday — Replay Available + Key Takeaways
+Tuesday — AI Prompt Lab
 Wednesday — Office Hours
-Thursday — Accountability
-Friday — Wins + Reflection
-Saturday — Prep for Live
+Thursday — Implementation Day
+Friday — Community Wins
+Saturday — Reflection + Preparation
 ```
 
-The rhythm can evolve, but every cohort needs a heartbeat.
+The live experience launches the week. The rest of the week helps members apply, ask questions, implement, celebrate, and prepare for the next live.
+
+Flywheel:
+
+```txt
+Live Experience
+→ Replay
+→ Prompt Lab
+→ Office Hours
+→ Implementation
+→ Community Wins
+→ Reflection
+→ Next Live
+```
+
+Important distinction:
+
+```txt
+MAIM 07 = member-facing delivery rhythm.
+MAIM 08 = Hanzo / operator production rhythm behind the scenes.
+```
 
 ### 03 — Curriculum System
 
@@ -111,18 +136,42 @@ Purpose: Connect MAIM 03 Learning Engine to cohort delivery.
 
 The board maps the A–Z learning spine into a four-week cohort model.
 
-Current design board mapping:
+Canonical four-week mapping:
 
 ```txt
-Week 1 — A / B / C
-Week 2 — D / E / F
-Week 3 — Systems G / H / I
-Week 4 — Leverage J / K / L
+Week 1 — Foundation
+A = Awareness
+B = Belief
+C = Context
+
+Week 2 — Application
+D = Direction
+E = Experiment
+F = Future
+
+Week 3 — Human-Centered Building
+G = Growth
+H = Human
+I = Imagination
+
+Week 4 — Leverage
+J = Judgment
+K = Keep Learning
+L = Leverage
 ```
 
-QA note: letters G–L were authored to complete the visual board because the spec left them open. Before final lock, compare against MAIM 03 canonical definitions and rename if needed.
+Resolved QA:
 
-### 04 — Lesson Anatomy
+```txt
+F = Future, not Feedback.
+G = Growth, not Generate.
+H = Human, not Habit.
+I = Imagination, not Iterate.
+K = Keep Learning, not Knowledge.
+L = Leverage, not Launch.
+```
+
+### 04 — Lesson Anatomy / MAIM Learning Loop
 
 Purpose: Make every MAIM lesson repeatable.
 
@@ -210,11 +259,13 @@ Registered
 → Attended
 → Downloaded
 → Participated
+→ Applied
 → Completed Week 1
 → Completed Week 2
 → Completed Week 3
 → Graduated
 → Alumni
+→ Ambassador
 → Referral
 ```
 
@@ -231,7 +282,8 @@ Graduation Certificate
 Digital Badge
 Portfolio
 Builder Spotlight
-Alumni
+Alumni Invitation
+Ambassador Path
 Referral Invitation
 Next Cohort
 ```
@@ -293,16 +345,58 @@ AI habits formed
 
 Sample graduation snapshot should reflect tangible outcomes, not only attendance.
 
-## QA Before Final Lock
+## Rhythm Decision Lock
 
-Required review:
+There are two different MAIM rhythms.
+
+### Member Rhythm
+
+The member rhythm belongs in MAIM 07 because MAIM 07 is about delivery and transformation.
 
 ```txt
-1. Compare G–L definitions against MAIM 03 Learning Engine.
-2. Confirm whether Week 3 and Week 4 names should remain Systems / Leverage or use canonical MAIM curriculum language.
-3. Confirm graduation artifact names: Certificate, Badge, Builder Spotlight, Alumni, Referral.
-4. Ensure all community references use MAIM Cohort when referring to the product layer.
-5. Confirm no Skool references remain.
+Sunday — Major AI Mindset Live
+Monday — Replay Available + Key Takeaways
+Tuesday — AI Prompt Lab
+Wednesday — Office Hours
+Thursday — Implementation Day
+Friday — Community Wins
+Saturday — Reflection + Preparation
+```
+
+### Production Rhythm
+
+The production rhythm belongs in MAIM 08 because MAIM 08 is the Hanzo Powered-By layer.
+
+```txt
+Monday — Review previous live + plan content
+Tuesday — Record / generate content + prompt development
+Wednesday — Office Hours support + production check
+Thursday — Newsletter + community engagement
+Friday — Final webinar prep + slides + tech check
+Saturday — Promotion + reminders + rehearsal
+Sunday — Major AI Mindset Live
+```
+
+These are related, but they are not the same. Do not blend them in the same section.
+
+## QA Before Final Lock
+
+Resolved:
+
+```txt
+1. G–L definitions checked against MAIM 03 / ABC canon.
+2. Week 3 and Week 4 names clarified.
+3. Paid community language uses MAIM Cohort.
+4. No Skool references remain.
+5. Member rhythm and production rhythm are now separated.
+```
+
+Still confirm before final lock:
+
+```txt
+1. Final live time and timezone.
+2. Office Hours time and timezone.
+3. Replay access rule: immediate, same day, or later in week.
 ```
 
 ## Relationship to MAIM 08
@@ -321,13 +415,14 @@ Asset routing
 Automation
 Agent support
 Infrastructure
+Production rhythm
 ```
 
 ## Current Decision
 
-MAIM 07 is approved as the Course + Cohort Assets design system, pending curriculum QA before final lock.
+MAIM 07 is approved as the Course + Cohort Assets design system, with final scheduling details still pending.
 
-Next project after QA:
+Next project:
 
 ```txt
 MAIM 08 — Hanzo Powered-By Assets
