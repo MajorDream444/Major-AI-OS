@@ -1,0 +1,25 @@
+{
+  "name": "maim-remotion",
+  "version": "1.0.0",
+  "description": "MAIM ABC Reel Template — content assembly line for Major AI OS",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render",
+    "render:a": "remotion render MAIMReelA --output ./vault/MAIM_Reel_A.mp4",
+    "render:b": "remotion render MAIMReelB --output ./vault/MAIM_Reel_B.mp4",
+    "render:c": "remotion render MAIMReelC --output ./vault/MAIM_Reel_C.mp4",
+    "render:all": "npm run render:a && npm run render:b && npm run render:c"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.225",
+    "remotion": "4.0.225"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "remotion": {
+    "entryPoint": "./src/index.ts"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "_meta": {
+    "title": "MAIM Learning Engine — Canonical Module Data",
+    "source": "MAIM Learning Engine Vol. 03 (standalone doc, June 2026)",
+    "purpose": "Single source of truth for all A–Z curriculum content. Every format (Remotion reel, Instagram story, carousel, workbook page, course lesson, podcast episode, newsletter, webinar slide, community thread) must pull from this file — never hardcode module content directly into a template.",
+    "rule": "If a letter's content needs to change, change it here first. Templates read from this file; they do not define curriculum.",
+    "status": "A–E verified against canonical source. F–Z not yet authored — do not invent content for unauthored letters; flag as pending instead.",
+    "lastUpdated": "2026-06-30"
+  },
+
+  "moduleSchema": {
+    "description": "Every letter is built from the same 9 fixed slots, per Learning Engine doctrine. Do not add, remove, or rename slots without updating this schema and every template that consumes it.",
+    "slots": [
+      { "key": "letter", "name": "Letter", "description": "Single uppercase character, A–Z." },
+      { "key": "word", "name": "Word", "description": "The one concept the letter stands for. One word." },
+      { "key": "question", "name": "The One Question", "description": "A single, simple question a beginner is actually asking. This is the slot 'Reel cover' format sources from, paired with the letter." },
+      { "key": "metaphorTag", "name": "Metaphor Tag", "description": "Short bracketed visual description, e.g. '[ a torch lighting one corner of a dark room ]'. For art direction / future illustration." },
+      { "key": "metaphorLine", "name": "Metaphor Line", "description": "One sentence stating the metaphor in plain language." },
+      { "key": "lesson", "name": "The Lesson", "description": "Short, warm teaching body. Calm authority, never overwhelming. 2-4 sentences." },
+      { "key": "mantra", "name": "Mantra", "description": "Short, quotable, repeatable phrase capturing the lesson's core." },
+      { "key": "avoid", "name": "What to Avoid", "description": "The common beginner mistake or trap for this concept." },
+      { "key": "reflect", "name": "Reflect / Discuss", "description": "An open question for journaling or community discussion." },
+      { "key": "action", "name": "The 5-Minute Action", "description": "One small, concrete thing the learner can do in under five minutes." },
+      { "key": "hook", "name": "Memory Hook", "description": "A quotable, punchy line built for clips and cards — distinct from the mantra, more bite-sized." },
+      { "key": "nudge", "name": "Next Level Nudge", "description": "A forward-looking tip pointing toward applying the concept more deeply." }
+    ]
+  },
+
+  "formatSourceMap": {
+    "description": "Per the Learning Engine 'One Module → Ten Formats' table. Defines which slots each output format should pull from. Templates should reference this map rather than hardcoding slot selection.",
+    "formats": [
+      { "name": "Instagram post", "sourceSlots": ["hook", "metaphorLine"] },
+      { "name": "Carousel", "sourceSlots": ["letter", "word", "question", "metaphorTag", "metaphorLine", "lesson", "mantra", "avoid", "reflect", "action", "hook"] },
+      { "name": "Reel cover", "sourceSlots": ["letter", "question"] },
+      { "name": "Story", "sourceSlots": ["action"] },
+      { "name": "Webinar slide", "sourceSlots": ["question", "lesson"] },
+      { "name": "Workbook page", "sourceSlots": ["letter", "word", "question", "metaphorTag", "metaphorLine", "lesson", "mantra", "avoid", "reflect", "action", "hook", "nudge"] },
+      { "name": "Podcast episode", "sourceSlots": ["lesson", "reflect"] },
+      { "name": "Newsletter", "sourceSlots": ["lesson", "mantra"] },
+      { "name": "Community thread", "sourceSlots": ["reflect"] },
+      { "name": "Course lesson", "sourceSlots": ["letter", "word", "question", "metaphorTag", "metaphorLine", "lesson", "mantra", "avoid", "reflect", "action", "hook", "nudge"] }
+    ]
+  },
+
+  "letterColorRotation": {
+    "description": "Confirmed from shipped static assets and the A–Z roadmap card. Rotation repeats every 4 letters: gold, green, blue, orange.",
+    "pattern": ["gold", "green", "blue", "orange"],
+    "confirmed": {
+      "A": "gold",
+      "B": "green",
+      "C": "blue",
+      "D": "orange",
+      "E": "gold"
+    },
+    "note": "F onward should continue the 4-color rotation (green, blue, orange, gold, ...) unless a future brand doc overrides this."
+  },
+
+  "track": {
+    "name": "Beginner",
+    "totalLetters": 26,
+    "liveCount": 5,
+    "order": ["A", "B", "C", "D", "E"],
+    "note": "F–Z are not yet authored. liveCount reflects how many letters currently have verified canonical content."
+  },
+
+  "modules": {
+    "A": {
+      "letter": "A",
+      "word": "Awareness",
+      "question": "Where in my day could a little help go a long way?",
+      "metaphorTag": "[ a torch lighting one corner of a dark room ]",
+      "metaphorLine": "Awareness is noticing where the light needs to point.",
+      "lesson": "AI doesn't start with tools. It starts with noticing. Before you open any app, look at your ordinary day — the message you rewrite five times, the email you keep putting off, the caption you can't find words for. That little friction is the signal. Awareness is simply naming one spot where a bit of help would go a long way.",
+      "mantra": "AI begins the moment you notice.",
+      "avoid": "Thinking you need to learn everything before you start. You don't — you just need to notice one thing.",
+      "reflect": "What task have you been avoiding simply because it drains you?",
+      "action": "Write down three moments today where you felt stuck, slow, or unsure. Circle the one that costs you the most time. That's your starting point.",
+      "hook": "You can't automate what you haven't noticed.",
+      "nudge": "Once you can spot friction, start grouping it — repeated patterns reveal your highest-leverage place to bring AI in first."
+    },
+    "B": {
+      "letter": "B",
+      "word": "Belief",
+      "question": "What could I do if I trusted that I could learn this?",
+      "metaphorTag": "[ stepping onto the first plank of a bridge into fog ]",
+      "metaphorLine": "Belief is trusting the first plank before you can see the whole bridge.",
+      "lesson": "Most people don't quit AI because it's too hard — they quit because they decided in advance it wasn't for them. Belief isn't blind hype. It's the working assumption that you can figure out the next small step. Skill grows from reps, and you only take the reps when you believe they'll add up to something.",
+      "mantra": "You learn it by believing you can.",
+      "avoid": "Waiting until you \"feel ready.\" Confidence is built by doing, not before it.",
+      "reflect": "Where has doubt stopped you before you even gave yourself a chance to try?",
+      "action": "Write one sentence: \"I am becoming the kind of person who ____.\" Fill it with who you're growing into, not who you are today. Read it out loud once.",
+      "hook": "Belief comes before skill.",
+      "nudge": "Catch the story you tell yourself mid-task and rewrite it in real time — from \"I can't\" to \"I haven't yet.\""
+    },
+    "C": {
+      "letter": "C",
+      "word": "Context",
+      "question": "What does the AI actually need to know to help me well?",
+      "metaphorTag": "[ handing a clear map to a helpful stranger ]",
+      "metaphorLine": "Context is telling the AI where you're trying to go.",
+      "lesson": "AI isn't a mind reader. A vague ask gets a vague answer. The difference between a flat reply and a brilliant one is almost always context — who you are, who it's for, what you want, and what to avoid. You don't need perfect prompts. You just need to share the picture that's already in your head.",
+      "mantra": "Better context, better answers.",
+      "avoid": "Blaming the tool for a generic answer when it never got the full picture from you.",
+      "reflect": "When you ask people for help, how much of the picture do you usually leave out?",
+      "action": "Take one thing you asked AI recently and add three lines: who it's for, the tone you want, and one thing to avoid. Run it again and compare the two.",
+      "hook": "Context creates clarity.",
+      "nudge": "Save a reusable \"about me\" block you can paste into any tool, so every conversation starts with full context instantly."
+    },
+    "D": {
+      "letter": "D",
+      "word": "Direction",
+      "question": "What is the one outcome I actually want here?",
+      "metaphorTag": "[ a fast car finally pointed at one destination ]",
+      "metaphorLine": "Direction is choosing where the energy goes.",
+      "lesson": "AI makes it easy to do more, faster — which also makes it easy to race in the wrong direction. Speed without direction is just busywork with better tools. Before you generate anything, decide what \"done\" looks like. One clear outcome quietly focuses every prompt that follows it.",
+      "mantra": "Decide where you're going first.",
+      "avoid": "Generating endless options because you haven't decided what you actually want yet.",
+      "reflect": "Where in your life are you moving fast but not quite sure what you're moving toward?",
+      "action": "Before your next AI task, finish this line in one sentence: \"This is done when ____.\" Keep it short enough to say out loud.",
+      "hook": "Direction beats speed.",
+      "nudge": "Set the outcome first, then work backward into the three steps that actually reach it — plan in reverse."
+    },
+    "E": {
+      "letter": "E",
+      "word": "Experiment",
+      "question": "What's the smallest thing I could just try right now?",
+      "metaphorTag": "[ a scientist running one small, safe test ]",
+      "metaphorLine": "Experiments are small tries that teach you something.",
+      "lesson": "You won't think your way to confidence — you'll experiment your way there. Treat every AI attempt as a test, not a verdict on your ability. A \"bad\" result isn't failure; it's data. The people who get good aren't smarter, they just run more small experiments and keep whatever works.",
+      "mantra": "Try small, learn fast.",
+      "avoid": "Waiting for the perfect plan instead of running a quick five-minute test.",
+      "reflect": "What would you attempt if you knew a messy result still counted as progress?",
+      "action": "Pick one tiny task and try it with AI right now — no stakes, no perfection. Note one thing that worked and one thing you'd change next time.",
+      "hook": "Progress belongs to the people who experiment.",
+      "nudge": "Keep a running log of your experiments — over time, your small wins become your own personal playbook."
+    }
+  },
+
+  "pendingLetters": {
+    "description": "Letters F through Z have not been authored in the canonical Learning Engine doc as of this file's lastUpdated date. Do not invent content for these. When new letters are authored, add them to the modules object above following the exact moduleSchema, and move them from order/pendingLetters into the track.order array.",
+    "letters": ["F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  }
+}
