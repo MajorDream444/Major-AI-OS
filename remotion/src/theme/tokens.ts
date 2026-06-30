@@ -1,0 +1,30 @@
+export const maimTokens = {
+  colors: {
+    black: '#050505',
+    charcoal: '#111111',
+    darkSurface: '#18181B',
+    borderDark: '#27272A',
+    crownGold: '#D8AF55',
+    sovereignGold: '#D4AF37',
+    legacyGold: '#9F742C',
+    jamaicanGreen: '#1F7A3A',
+    championBlue: '#006BB6',
+    championOrange: '#F58426',
+    clarityWhite: '#F7F4EA',
+    pureWhite: '#FFFFFF',
+    smokeGray: '#A8A8A8',
+    systemLime: '#A3E635',
+  },
+  fonts: {
+    headline: 'Arial Black, Impact, sans-serif',
+    body: 'Inter, Manrope, Arial, sans-serif',
+    mono: 'JetBrains Mono, IBM Plex Mono, monospace',
+  },
+  layout: {
+    width: 1080,
+    height: 1920,
+    safeX: 88,
+    safeTop: 110,
+    safeBottom: 130,
+  },
+};

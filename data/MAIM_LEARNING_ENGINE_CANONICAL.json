@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "name": "MAIM Learning Engine Canonical",
+    "version": "0.1.0",
+    "status": "seed",
+    "sourceRule": "This file is the canonical curriculum source for MAIM ABC modules. Templates must consume this file or generated derivatives instead of inventing or hardcoding module content.",
+    "verifiedRange": "A-E",
+    "pendingRange": "F-Z"
+  },
+  "moduleSchema": {
+    "fixedSlots": ["letter", "word", "question", "metaphor", "bigIdea", "lessonBody", "fiveMinuteAction", "reflectDiscuss", "memoryHook"],
+    "slotDescriptions": {
+      "letter": "Single alphabet letter.",
+      "word": "The canonical mindset word for the letter.",
+      "question": "Question-led reel cover or prompt hook.",
+      "metaphor": "Simple image or life metaphor used to teach the concept.",
+      "bigIdea": "One-sentence core idea.",
+      "lessonBody": "Short teaching paragraph for captions, course pages, and scripts.",
+      "fiveMinuteAction": "Beginner-safe practical action.",
+      "reflectDiscuss": "Reflection or community discussion prompt.",
+      "memoryHook": "Memorable line the learner should keep."
+    }
+  },
+  "formatSourceMap": {
+    "reelCover": ["letter", "word", "question"],
+    "reelScript": ["letter", "word", "question", "bigIdea", "memoryHook"],
+    "story": ["letter", "word", "question", "fiveMinuteAction", "memoryHook"],
+    "carousel": ["letter", "word", "question", "metaphor", "bigIdea", "lessonBody", "fiveMinuteAction", "memoryHook"],
+    "caption": ["question", "metaphor", "bigIdea", "lessonBody", "fiveMinuteAction", "reflectDiscuss", "memoryHook"],
+    "workbookPage": ["letter", "word", "question", "metaphor", "lessonBody", "fiveMinuteAction", "reflectDiscuss", "memoryHook"],
+    "courseLesson": ["letter", "word", "question", "metaphor", "bigIdea", "lessonBody", "fiveMinuteAction", "reflectDiscuss", "memoryHook"],
+    "podcastOutline": ["question", "metaphor", "bigIdea", "lessonBody", "reflectDiscuss", "memoryHook"],
+    "youtubeSection": ["letter", "word", "question", "bigIdea", "lessonBody", "memoryHook"],
+    "remotionTemplate": ["letter", "word", "question", "bigIdea", "lessonBody", "fiveMinuteAction", "memoryHook"]
+  },
+  "modules": {
+    "A": {
+      "letter": "A",
+      "word": "Awareness",
+      "question": "Where is your time leaking?",
+      "metaphor": "Before you fix a leak, you have to notice the water on the floor.",
+      "bigIdea": "Notice before you automate.",
+      "lessonBody": "AI starts with awareness. Before you ask AI to help you, notice what repeats, what drains energy, what gets delayed, and where your attention keeps leaking. Do not start with the tool. Start with the bottleneck.",
+      "fiveMinuteAction": "Write down three tasks you repeat every week.",
+      "reflectDiscuss": "What is one task you keep doing manually that could be turned into a system?",
+      "memoryHook": "You cannot automate what you have not noticed."
+    },
+    "B": {
+      "letter": "B",
+      "word": "Belief",
+      "question": "What would change if you believed you could start?",
+      "metaphor": "A locked door feels impossible until someone shows you the key is already in your hand.",
+      "bigIdea": "If you can text, you can use AI.",
+      "lessonBody": "Belief comes before skill. AI is not only for coders, engineers, or tech insiders. Plain language is now an interface. If you can explain what you need in your own words, you can begin.",
+      "fiveMinuteAction": "Ask AI one question in your own words about a real problem in your life or business.",
+      "reflectDiscuss": "Where have you been telling yourself AI is not for you?",
+      "memoryHook": "Belief comes before skill."
+    },
+    "C": {
+      "letter": "C",
+      "word": "Context",
+      "question": "What are you leaving out of the prompt?",
+      "metaphor": "A map only helps when it shows where you are, where you are going, and what roads are available.",
+      "bigIdea": "Better input creates better output.",
+      "lessonBody": "AI does not read your mind. It responds to the context you give it. The better you explain the situation, the audience, the goal, the constraints, and the desired outcome, the better the answer becomes.",
+      "fiveMinuteAction": "Ask AI the same question twice: first with one sentence, then with full context. Compare the results.",
+      "reflectDiscuss": "What context would make your current problem easier for someone else to help solve?",
+      "memoryHook": "AI does not read your mind. It reads your context."
+    },
+    "D": {
+      "letter": "D",
+      "word": "Direction",
+      "question": "Where are you trying to go?",
+      "metaphor": "A powerful car still needs a destination before it can help you arrive.",
+      "bigIdea": "Know where you are going before asking AI to help.",
+      "lessonBody": "AI can move fast, but speed without direction becomes distraction. Before using the tool, name the outcome. Are you trying to save time, make money, organize knowledge, serve people, or build an asset? Direction turns AI from noise into leverage.",
+      "fiveMinuteAction": "Write one sentence that starts: I want AI to help me accomplish...",
+      "reflectDiscuss": "What outcome matters most for you this week?",
+      "memoryHook": "A powerful tool without direction becomes distraction."
+    },
+    "E": {
+      "letter": "E",
+      "word": "Experiment",
+      "question": "What can you try today?",
+      "metaphor": "Learning happens by testing, observing, adjusting, and trying again.",
+      "bigIdea": "You do not have to master AI. You have to start.",
+      "lessonBody": "Experimentation removes pressure. You do not need the perfect prompt, the perfect tool, or the perfect plan. You need a safe test. Try one thing, observe what happens, adjust, and try again. Progress belongs to people willing to practice.",
+      "fiveMinuteAction": "Run one small AI experiment today: rewrite a message, summarize a note, plan a task, or generate three ideas.",
+      "reflectDiscuss": "What is one small experiment you can run without fear of failing?",
+      "memoryHook": "Progress belongs to the people willing to try."
+    }
+  },
+  "pendingLetters": ["F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+  "doNotInventRule": "Pending letters are not permission to improvise. Add future letters only after they are reviewed and committed into this file."
+}
