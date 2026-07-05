@@ -1,0 +1,389 @@
+# Instincts generated from https://github.com/MajorDream444/Major-AI-OS
+# Generated: 2026-07-05T04:49:24.627Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Major-AI-OS-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Commit Length
+
+## Action
+
+Keep commit messages concise (~45 characters)
+
+## Evidence
+
+- Average commit message length: 45 chars
+- Based on 5 commits
+
+---
+id: Major-AI-OS-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: Major-AI-OS-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Major-AI-OS-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Major-AI-OS-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Major-AI-OS-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~30x per month
+- Files: 
+
+---
+id: Major-AI-OS-workflow-add-new-experiment-landing-page
+trigger: "when doing add new experiment landing page"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/MajorDream444/Major-AI-OS
+---
+
+# Major AI OS Workflow Add New Experiment Landing Page
+
+## Action
+
+Follow the add-new-experiment-landing-page workflow:
+1. Create a new directory under experiments/landing-pages/<experiment-name>/
+2. Add README.md with experiment brief
+3. Add decision-notes.md with decision documentation
+4. Add performance-checklist.md for performance criteria
+5. Add index.html as the prototype or main file
+6. Add pro-max-uiux-review.md for UI/UX review notes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: experiments/landing-pages/*/README.md, experiments/landing-pages/*/decision-notes.md, experiments/landing-pages/*/performance-checklist.md
+
+---
+id: major-ai-os-instinct-file-naming
+trigger: "When creating a new file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct File Naming
+
+## Action
+
+Name the file using kebab-case (e.g., gravity-well-maim.ts)
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Seen in experiments/landing-pages/gravity-well-maim/README.md
+
+---
+id: major-ai-os-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions
+
+---
+id: major-ai-os-instinct-class-naming
+trigger: "When creating a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: major-ai-os-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: major-ai-os-instinct-import-style
+trigger: "When importing modules in TypeScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: major-ai-os-instinct-export-style
+trigger: "When exporting from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: major-ai-os-instinct-test-location
+trigger: "When writing tests for a feature"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source files
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+
+---
+id: major-ai-os-instinct-feature-test-pattern
+trigger: "When implementing a new feature"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Feature Test Pattern
+
+## Action
+
+Add tests for the feature immediately after implementation
+
+## Evidence
+
+- Pattern in feature-development workflow: 'Add tests for feature' follows 'Add feature implementation'
+
+---
+id: major-ai-os-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Commit Format
+
+## Action
+
+Start the commit message with an imperative verb and a brief description (e.g., 'Add MAIM gravity well landing experiment brief')
+
+## Evidence
+
+- Seen in commit examples: 'Add MAIM gravity well landing experiment brief'
+- Pattern in commit examples
+
+---
+id: major-ai-os-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 45 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 45
+
+---
+id: major-ai-os-instinct-feature-dev-workflow
+trigger: "When implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct Feature Dev Workflow
+
+## Action
+
+Follow the sequence: Add feature implementation → Add tests for feature → Update documentation
+
+## Evidence
+
+- feature-development workflow commitSequence
+- Seen in example commits for feature-development
+
+---
+id: major-ai-os-instinct-new-experiment-landing-page-workflow
+trigger: "When starting a new landing page experiment"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: MajorDream444/Major-AI-OS
+---
+
+# Major Ai Os Instinct New Experiment Landing Page Workflow
+
+## Action
+
+Create a new directory under experiments/landing-pages/<experiment-name>/ and add standard files: README.md, decision-notes.md, performance-checklist.md, index.html, pro-max-uiux-review.md
+
+## Evidence
+
+- add-new-experiment-landing-page workflow steps and filesInvolved
+- Seen in example commits for add-new-experiment-landing-page
+
