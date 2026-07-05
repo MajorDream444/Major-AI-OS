@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #030304;
+  --color-brand-black-light: #0c0c0f;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-muted: #BFA14A;
+  --color-brand-green: #1F7A3A;
+  --color-brand-blue: #006BB6;
+  --color-brand-orange: #F58426;
+  --color-brand-white: #F7F4EA;
+  --color-brand-muted: #B8B8B8;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.tribar-line {
+  height: 2px;
+  background: linear-gradient(to right, #1F7A3A 0%, #1F7A3A 33.3%, #D4AF37 33.3%, #D4AF37 66.6%, #006BB6 66.6%, #006BB6 100%);
+}
+
+.portal-bg {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(212,175,55,0.2), transparent 35%),
+    radial-gradient(circle at 18% 32%, rgba(31,122,58,0.16), transparent 32%),
+    radial-gradient(circle at 82% 32%, rgba(0,107,182,0.16), transparent 32%),
+    #030304;
+}
