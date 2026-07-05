@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #030304;
+  --color-brand-black-light: #0c0c0f;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-muted: #BFA14A;
+  --color-brand-green: #1F7A3A;
+  --color-brand-blue: #006BB6;
+  --color-brand-orange: #F58426;
+  --color-brand-white: #F7F4EA;
+  --color-brand-muted: #B8B8B8;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-black);
+    color: var(--color-brand-white);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #1c1c24;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
+}
+
+/* Custom Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+.portal-glow {
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+/* Custom Tri-Bar Separator line */
+.tribar-line {
+  height: 2px;
+  background: linear-gradient(to right, #1F7A3A 0%, #1F7A3A 33.3%, #D4AF37 33.3%, #D4AF37 66.6%, #006BB6 66.6%, #006BB6 100%);
+}
