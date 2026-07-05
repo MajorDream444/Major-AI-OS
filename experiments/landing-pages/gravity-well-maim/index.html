@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Major AI Mindset — Live Knowledge Sessions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    :root {
+      --maim-black: #030304;
+      --maim-surface: #0f0f10;
+      --maim-white: #F7F4EA;
+      --maim-gold: #D8AF55;
+      --maim-gold-deep: #D4AF37;
+      --maim-green: #1F7A3A;
+      --maim-blue: #006BB6;
+      --maim-orange: #F58426;
+      --maim-muted: rgba(247, 244, 234, 0.62);
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--maim-black);
+      color: var(--maim-white);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(216, 175, 85, 0.28); }
+    ::-webkit-scrollbar { width: 0; height: 0; }
+
+    .hero-shell {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      background: #030304;
+    }
+
+    #canvas-container {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% -20%, rgba(216,175,85,0.18), transparent 38%),
+        radial-gradient(circle at 20% 20%, rgba(31,122,58,0.12), transparent 32%),
+        radial-gradient(circle at 82% 24%, rgba(0,107,182,0.14), transparent 32%),
+        linear-gradient(to bottom, rgba(3,3,4,0.2), rgba(3,3,4,0.96));
+    }
+
+    .hero-ui {
+      position: relative;
+      z-index: 5;
+      pointer-events: none;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-ui { padding: 32px; }
+    }
+
+    .pointer-on { pointer-events: auto; }
+
+    .tri-bar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tri-bar span {
+      display: block;
+      width: 56px;
+      height: 5px;
+      border-radius: 999px;
+    }
+
+    .glass-panel {
+      background: rgba(15, 15, 16, 0.62);
+      border: 1px solid rgba(247, 244, 234, 0.12);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+    }
+
+    .gold-button {
+      background: linear-gradient(135deg, var(--maim-gold), var(--maim-gold-deep));
+      color: #060606;
+      box-shadow: 0 0 28px rgba(216, 175, 85, 0.24);
+    }
+
+    .section-card {
+      background: rgba(15, 15, 16, 0.72);
+      border: 1px solid rgba(247, 244, 234, 0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .animate-in {
+      animation: animationIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes animationIn {
+      0% { opacity: 0; transform: translateY(28px); filter: blur(8px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      #canvas-container { display: none; }
+      .hero-shell {
+        background:
+          radial-gradient(circle at 50% 15%, rgba(216,175,85,0.22), transparent 35%),
+          radial-gradient(circle at 20% 30%, rgba(31,122,58,0.16), transparent 38%),
+          radial-gradient(circle at 80% 30%, rgba(0,107,182,0.16), transparent 38%),
+          #030304;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero-shell" aria-label="Major AI Mindset universe hero">
+      <div id="canvas-container" aria-hidden="true"></div>
+      <div class="vignette"></div>
+
+      <div class="hero-ui">
+        <header class="flex items-center justify-between w-full">
+          <div class="opacity-70 text-xs font-medium tracking-[0.28em] uppercase flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full" style="background: var(--maim-gold);"></span>
+            Major AI Mindset
+          </div>
+          <a class="pointer-on hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs uppercase tracking-[0.22em] glass-panel hover:border-yellow-400/40 transition" href="#reserve">
+            Reserve Seat
+          </a>
+        </header>
+
+        <div class="mx-auto max-w-5xl text-center px-2 animate-in" style="animation-delay: 0.12s;">
+          <div class="inline-flex items-center gap-3 rounded-full px-4 py-2 mb-6 glass-panel text-xs uppercase tracking-[0.28em] text-white/70">
+            <span class="w-2 h-2 rounded-full" style="background: var(--maim-green);"></span>
+            Live Knowledge Sessions
+          </div>
+
+          <p class="text-sm md:text-base uppercase tracking-[0.42em] text-white/60 mb-4">Free</p>
+          <h1 class="text-5xl sm:text-6xl md:text-8xl font-black tracking-[-0.07em] leading-[0.86] uppercase">
+            Major AI<br />Mindset
+          </h1>
+
+          <div class="tri-bar mt-8 mb-8" aria-hidden="true">
+            <span style="background: var(--maim-green);"></span>
+            <span style="background: var(--maim-gold);"></span>
+            <span style="background: var(--maim-blue);"></span>
+          </div>
+
+          <h2 class="text-2xl md:text-4xl font-semibold tracking-[-0.04em] text-white">
+            The Mindset Operating System for the AI Age
+          </h2>
+
+          <p class="mx-auto mt-5 max-w-2xl text-base md:text-xl leading-relaxed" style="color: var(--maim-muted);">
+            Learn how to see opportunities, build with confidence, and use AI without shame, overwhelm, or technical confusion.
+          </p>
+
+          <div class="pointer-on mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#reserve" class="gold-button rounded-full px-8 py-4 text-sm font-black uppercase tracking-[0.18em] hover:scale-[1.02] transition">
+              Reserve Your Seat
+            </a>
+            <a href="#roadmap" class="rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] glass-panel hover:border-white/30 transition">
+              Explore the ABCs
+            </a>
+          </div>
+
+          <p class="mt-6 text-sm md:text-base text-white/58">
+            If you can text, you can use AI.
+          </p>
+        </div>
+
+        <div class="flex items-end justify-between w-full">
+          <div class="hidden md:flex flex-col gap-1 opacity-35 text-xs font-mono tracking-tight">
+            <span>COORD: <span id="coord-display">00.00, 00.00</span></span>
+            <span>MODE: <span id="mode-display">ROADMAP</span></span>
+          </div>
+
+          <div class="pointer-on flex items-center gap-3">
+            <div class="glass-panel rounded-full p-1 flex items-center gap-1">
+              <button id="btn-portrait" class="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all" onclick="setMode('portrait')" aria-label="Show roadmap stack">
+                <iconify-icon icon="solar:layers-minimalistic-linear" width="16" stroke-width="1.5"></iconify-icon>
+                <span class="text-xs font-medium tracking-tight pr-1">Roadmap</span>
+              </button>
+              <button id="btn-wide" class="flex items-center gap-2 px-3 py-2 rounded-full text-white/40 hover:text-white hover:bg-white/5 transition-all" onclick="setMode('wide')" aria-label="Show universe orbit">
+                <iconify-icon icon="solar:planet-linear" width="16" stroke-width="1.5"></iconify-icon>
+                <span class="text-xs font-medium tracking-tight pr-1">Universe</span>
+              </button>
+            </div>
+
+            <button id="btn-pause" class="glass-panel rounded-full w-10 h-10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all" onclick="togglePause()" aria-label="Pause or play animation">
+              <iconify-icon id="icon-pause" icon="solar:pause-linear" width="18" stroke-width="1.5"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 px-6 md:px-8 py-20 md:py-28 bg-[#030304]">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-white/40 mb-4">What this is</p>
+          <h2 class="text-4xl md:text-6xl font-black tracking-[-0.06em] leading-none">
+            Not an AI course.<br />A new way to think.
+          </h2>
+        </div>
+        <div class="section-card rounded-[28px] p-6 md:p-8 text-lg leading-relaxed text-white/70">
+          <p>
+            Major AI Mindset helps beginners, builders, creators, parents, leaders, and business owners understand AI without feeling left behind.
+          </p>
+          <p class="mt-5">
+            We start with mindset, then move into tools, workflows, digital assets, automation, and legacy.
+          </p>
+          <p class="mt-5 text-white">
+            Likkle by likkle, we build the future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="relative z-10 px-6 md:px-8 py-20 md:py-28 bg-[#050505]">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-xs uppercase tracking-[0.28em] text-white/40 mb-4">The ABC Roadmap</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-[-0.06em] leading-none mb-10">One letter. One lesson. One action.</h2>
+        <div class="grid md:grid-cols-5 gap-4">
+          <div class="section-card rounded-3xl p-6"><span class="text-5xl font-black text-[#D8AF55]">A</span><h3 class="mt-5 text-xl font-bold">Awareness</h3><p class="mt-2 text-white/55">Notice before you automate.</p></div>
+          <div class="section-card rounded-3xl p-6"><span class="text-5xl font-black text-[#1F7A3A]">B</span><h3 class="mt-5 text-xl font-bold">Belief</h3><p class="mt-2 text-white/55">If you can text, you can use AI.</p></div>
+          <div class="section-card rounded-3xl p-6"><span class="text-5xl font-black text-[#006BB6]">C</span><h3 class="mt-5 text-xl font-bold">Context</h3><p class="mt-2 text-white/55">Clear input. Clear output.</p></div>
+          <div class="section-card rounded-3xl p-6"><span class="text-5xl font-black text-[#F58426]">D</span><h3 class="mt-5 text-xl font-bold">Direction</h3><p class="mt-2 text-white/55">Aim AI at your goal.</p></div>
+          <div class="section-card rounded-3xl p-6"><span class="text-5xl font-black text-[#D8AF55]">E</span><h3 class="mt-5 text-xl font-bold">Execution</h3><p class="mt-2 text-white/55">Take action. Get results.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserve" class="relative z-10 px-6 md:px-8 py-20 md:py-28 bg-[#030304]">
+      <div class="max-w-4xl mx-auto text-center section-card rounded-[36px] p-8 md:p-12">
+        <p class="text-xs uppercase tracking-[0.28em] text-white/40 mb-4">Next Live Session</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-[-0.06em] leading-none">Reserve your seat</h2>
+        <p class="mt-5 text-lg text-white/65 max-w-2xl mx-auto">
+          Join the next Major AI Mindset live knowledge session and start learning the ABCs of building with AI.
+        </p>
+        <a href="https://forms.gle/RdSX2R6dyRJLqjkk7" class="inline-flex mt-8 gold-button rounded-full px-10 py-4 text-sm font-black uppercase tracking-[0.18em] hover:scale-[1.02] transition">
+          Register Free
+        </a>
+        <p class="mt-6 text-sm text-white/40">@major_ai_mindset · majoraimindset.com</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion) {
+      import('https://esm.sh/three@0.160.0').then((THREE) => {
+        const CONFIG = {
+          colors: {
+            green: 0x1F7A3A,
+            orange: 0xF58426,
+            purple: 0x6200EA,
+            blue: 0x006BB6,
+            gold: 0xD8AF55,
+            bg: 0x030304,
+            lines: 0x444444
+          },
+          rings: 24,
+          ringMinRadius: 1.5,
+          ringMaxRadius: 18
+        };
+
+        let state = {
+          mode: 'portrait',
+          paused: false,
+          time: 0,
+          mouse: new THREE.Vector2(),
+          targetTilt: new THREE.Vector2()
+        };
+
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(CONFIG.colors.bg, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 2, 25);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(CONFIG.colors.bg, 1);
+        container.appendChild(renderer.domElement);
+
+        const worldGroup = new THREE.Group();
+        const ringsGroup = new THREE.Group();
+        const spheresGroup = new THREE.Group();
+        const starfieldGroup = new THREE.Group();
+        scene.add(worldGroup);
+        worldGroup.add(ringsGroup, spheresGroup, starfieldGroup);
+
+        function createStarfield() {
+          const geometry = new THREE.BufferGeometry();
+          const count = 400;
+          const positions = new Float32Array(count * 3);
+          for (let i = 0; i < count; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 60;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 30 - 10;
+          }
+          geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+          const material = new THREE.PointsMaterial({ color: 0x666666, size: 0.05, sizeAttenuation: true, transparent: true, opacity: 0.4 });
+          starfieldGroup.add(new THREE.Points(geometry, material));
+        }
+
+        const ringMeshes = [];
+        function createRings() {
+          const baseMat = new THREE.LineBasicMaterial({ color: 0x666666, transparent: true, opacity: 0.4, linewidth: 1 });
+          for (let i = 0; i < CONFIG.rings; i++) {
+            const t = i / (CONFIG.rings - 1);
+            const radius = CONFIG.ringMinRadius + (CONFIG.ringMaxRadius - CONFIG.ringMinRadius) * (t * t * 0.4 + t * 0.6);
+            const points = [];
+            for (let j = 0; j <= 128; j++) {
+              const theta = (j / 128) * Math.PI * 2;
+              points.push(new THREE.Vector3(Math.cos(theta) * radius, 0, Math.sin(theta) * radius));
+            }
+            const ring = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(points), baseMat.clone());
+            ring.position.y = -Math.exp(-t * 4) * 2;
+            ring.userData = { radius, index: i };
+            ringsGroup.add(ring);
+            ringMeshes.push(ring);
+          }
+        }
+
+        const sphereData = [
+          { color: CONFIG.colors.gold, size: 0.7, yOffset: -2, speed: 0.04, radius: 2.5 },
+          { color: CONFIG.colors.blue, size: 0.6, yOffset: -1, speed: 0.05, radius: 4 },
+          { color: CONFIG.colors.green, size: 0.55, yOffset: 0, speed: 0.06, radius: 5.5 },
+          { color: CONFIG.colors.orange, size: 0.5, yOffset: 1, speed: 0.07, radius: 7 },
+          { color: CONFIG.colors.gold, size: 0.45, yOffset: 2, speed: 0.08, radius: 8.5 },
+          { color: CONFIG.colors.green, size: 0.4, yOffset: 3, speed: 0.09, radius: 10 },
+          { color: CONFIG.colors.blue, size: 0.35, yOffset: 4, speed: 0.1, radius: 11.5 },
+          { color: CONFIG.colors.orange, size: 0.3, yOffset: 5, speed: 0.11, radius: 13 },
+          { color: CONFIG.colors.gold, size: 0.25, yOffset: 6, speed: 0.12, radius: 14.5 },
+          { color: CONFIG.colors.green, size: 0.2, yOffset: 7, speed: 0.13, radius: 16 },
+          { color: CONFIG.colors.blue, size: 0.15, yOffset: 8, speed: 0.14, radius: 17.5 }
+        ];
+
+        const spheres = [];
+        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.BackSide });
+        function createSpheres() {
+          const geometry = new THREE.SphereGeometry(1, 64, 64);
+          sphereData.forEach((data, index) => {
+            const group = new THREE.Group();
+            const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: data.color }));
+            const outline = new THREE.Mesh(geometry, outlineMaterial);
+            mesh.scale.setScalar(data.size);
+            outline.scale.setScalar(data.size * 1.03);
+            group.add(outline, mesh);
+            group.userData = {
+              baseScale: data.size,
+              currentScale: data.size,
+              orbitRadius: data.radius,
+              orbitSpeed: data.speed,
+              angle: Math.random() * Math.PI * 2,
+              yBasePortrait: data.yOffset - 1,
+              hovered: false,
+              targetPos: new THREE.Vector3()
+            };
+            spheresGroup.add(group);
+            spheres.push(group);
+          });
+        }
+
+        const raycaster = new THREE.Raycaster();
+        function handleMouse(event) {
+          state.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          state.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+          state.targetTilt.x = state.mouse.x * 0.1;
+          state.targetTilt.y = state.mouse.y * 0.1;
+          const coord = document.getElementById('coord-display');
+          if (coord) coord.innerText = `${state.mouse.x.toFixed(2)}, ${state.mouse.y.toFixed(2)}`;
+        }
+
+        let rippleTime = 0;
+        let rippleActive = false;
+        function ripplePulse() {
+          rippleActive = true;
+          rippleTime = 0;
+        }
+
+        window.setMode = (mode) => {
+          state.mode = mode;
+          document.getElementById('mode-display').innerText = mode === 'portrait' ? 'ROADMAP' : 'UNIVERSE';
+          const p = document.getElementById('btn-portrait');
+          const w = document.getElementById('btn-wide');
+          if (mode === 'portrait') {
+            p.className = 'flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all';
+            w.className = 'flex items-center gap-2 px-3 py-2 rounded-full text-white/40 hover:text-white hover:bg-white/5 transition-all';
+          } else {
+            w.className = 'flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all';
+            p.className = 'flex items-center gap-2 px-3 py-2 rounded-full text-white/40 hover:text-white hover:bg-white/5 transition-all';
+          }
+        };
+
+        window.togglePause = () => {
+          state.paused = !state.paused;
+          document.getElementById('icon-pause').setAttribute('icon', state.paused ? 'solar:play-linear' : 'solar:pause-linear');
+        };
+
+        window.addEventListener('mousemove', handleMouse);
+        window.addEventListener('click', () => {
+          raycaster.setFromCamera(state.mouse, camera);
+          const intersects = raycaster.intersectObjects(spheresGroup.children, true);
+          if (intersects.length > 0) ripplePulse();
+        });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          const dt = 0.016;
+          if (!state.paused) state.time += dt;
+
+          worldGroup.rotation.y += (state.targetTilt.x * 0.5 - worldGroup.rotation.y) * 0.05;
+          worldGroup.rotation.x += (-state.targetTilt.y * 0.5 - worldGroup.rotation.x) * 0.05;
+
+          const targetCamPos = state.mode === 'portrait' ? new THREE.Vector3(0, 1, 28) : new THREE.Vector3(0, 6, 22);
+          const targetLookAt = state.mode === 'portrait' ? new THREE.Vector3(0, 2, 0) : new THREE.Vector3(0, -2, 0);
+          camera.position.lerp(targetCamPos, 0.03);
+          const currentLook = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion).add(camera.position);
+          camera.lookAt(currentLook.lerp(targetLookAt, 0.03));
+
+          if (rippleActive) {
+            rippleTime += dt * 2;
+            if (rippleTime > 4) rippleActive = false;
+          }
+
+          ringMeshes.forEach((ring, i) => {
+            const breath = Math.sin(state.time * 0.5 + i * 0.2) * 0.1 + 0.5;
+            let rippleBrightness = 0;
+            if (rippleActive) {
+              const wavePos = rippleTime * 15;
+              const diff = Math.abs(ring.userData.radius - wavePos);
+              if (diff < 3) rippleBrightness = (1 - diff / 3) * 0.8;
+            }
+            ring.material.opacity = 0.18 + breath * 0.1 + rippleBrightness;
+            ring.material.color.setHSL(0.12, rippleBrightness * 0.6, 0.35 + rippleBrightness * 0.45);
+            ring.rotation.z = Math.sin(state.time * 0.1 + i * 0.1) * 0.02;
+          });
+
+          raycaster.setFromCamera(state.mouse, camera);
+          const intersects = raycaster.intersectObjects(spheresGroup.children, true);
+          spheres.forEach(group => group.userData.hovered = false);
+          if (intersects.length > 0) {
+            let obj = intersects[0].object;
+            while (obj.parent && obj.parent !== spheresGroup) obj = obj.parent;
+            obj.userData.hovered = true;
+            document.body.style.cursor = 'pointer';
+          } else {
+            document.body.style.cursor = 'default';
+          }
+
+          spheres.forEach((group, i) => {
+            const d = group.userData;
+            const targetScale = d.hovered ? d.baseScale * 1.05 : d.baseScale;
+            d.currentScale += (targetScale - d.currentScale) * 0.1;
+            group.children[1].scale.setScalar(d.currentScale);
+            group.children[0].scale.setScalar(d.currentScale * 1.03);
+
+            if (state.mode === 'portrait') {
+              d.targetPos.set(0, d.yBasePortrait + Math.sin(state.time + i) * 0.1, 0);
+            } else {
+              d.angle += d.orbitSpeed * dt * (state.paused ? 0 : 1);
+              d.targetPos.set(Math.cos(d.angle) * d.orbitRadius, Math.sin(d.angle * 2 + state.time) * 0.5, Math.sin(d.angle) * d.orbitRadius);
+            }
+            group.position.lerp(d.targetPos, 0.05);
+          });
+
+          renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        createStarfield();
+        createRings();
+        createSpheres();
+        animate();
+      });
+    }
+  </script>
+</body>
+</html>
