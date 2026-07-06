@@ -4,43 +4,18 @@
     "heading": "This is the room for the next step.",
     "location": "Live on Google Meet",
     "closingLine": "If you can text, you can use AI.",
-    "bali": {
-      "label": "Bali / WITA",
-      "date": "Sunday, July 12, 2026",
-      "time": "7:00 AM"
-    },
-    "newYork": {
-      "label": "New York / ET",
-      "date": "Saturday, July 11, 2026",
-      "time": "7:00 PM"
-    },
-    "weekItems": [
-      "A live idea",
-      "A working example",
-      "A simple action",
-      "Replay and follow up"
-    ]
+    "bali": { "label": "Bali / WITA", "date": "Sunday, July 12, 2026", "time": "7:00 AM" },
+    "newYork": { "label": "New York / ET", "date": "Saturday, July 11, 2026", "time": "7:00 PM" },
+    "weekItems": ["A live idea", "A working example", "A simple action", "Replay and follow up"]
   },
   "facts": {
     "eyebrow": "The signal deck",
     "heading": "The room is simple. The work is real.",
     "intro": "No mystery, no tool-chasing, no jargon wall. Each live session turns one AI idea into one useful action.",
     "items": [
-      {
-        "icon": "video",
-        "title": "Format",
-        "description": "Free live knowledge sessions on Google Meet."
-      },
-      {
-        "icon": "calendar",
-        "title": "Rhythm",
-        "description": "Weekly or biweekly sessions with reminders, replay access, and next steps."
-      },
-      {
-        "icon": "users",
-        "title": "Audience",
-        "description": "Creators, parents, founders, professionals, students, coaches, athletes, and community builders."
-      }
+      { "icon": "video", "title": "Format", "description": "Free live knowledge sessions on Google Meet." },
+      { "icon": "calendar", "title": "Rhythm", "description": "Weekly or biweekly sessions with reminders, replay access, and next steps." },
+      { "icon": "users", "title": "Audience", "description": "Creators, parents, founders, professionals, students, coaches, athletes, and community builders." }
     ]
   },
   "rhythm": {
@@ -48,21 +23,9 @@
     "heading": "What happens inside a knowledge session",
     "intro": "Each session is built like a clean operator loop: Major explains the idea, shows a real example, then gives you one practical action to take before the next room opens.",
     "items": [
-      {
-        "number": "01",
-        "title": "A clear idea",
-        "copy": "One mindset principle for the session."
-      },
-      {
-        "number": "02",
-        "title": "A live example",
-        "copy": "AI used in plain language for real work, business, content, or life."
-      },
-      {
-        "number": "03",
-        "title": "A simple action",
-        "copy": "One thing to try immediately after the session."
-      }
+      { "number": "01", "title": "A clear idea", "copy": "One mindset principle for the session." },
+      { "number": "02", "title": "A live example", "copy": "AI used in plain language for real work, business, content, or life." },
+      { "number": "03", "title": "A simple action", "copy": "One thing to try immediately after the session." }
     ]
   },
   "meetMajor": {
@@ -79,75 +42,27 @@
     "eyebrow": "Frequently asked",
     "heading": "Questions before you join",
     "items": [
-      {
-        "question": "Do I need to know AI already?",
-        "answer": "No. The sessions are built for beginners first. We use plain language and real examples."
-      },
-      {
-        "question": "Is this only for business owners?",
-        "answer": "No. It is for anyone who wants to understand AI and start building with more confidence."
-      },
-      {
-        "question": "What happens after the session?",
-        "answer": "You can join future sessions, book a discovery call, or move into a beginner lab when you are ready."
-      }
+      { "question": "Do I need to know AI already?", "answer": "No. The sessions are built for beginners first. We use plain language and real examples." },
+      { "question": "Is this only for business owners?", "answer": "No. It is for anyone who wants to understand AI and start building with more confidence." },
+      { "question": "What happens after the session?", "answer": "You can join future sessions, book a discovery call, or move into a beginner lab when you are ready." }
     ]
   },
   "abc": {
     "eyebrow": "ABC roadmap",
     "headingLines": [
-      {
-        "text": "One letter.",
-        "colorClass": "text-brand-gold"
-      },
-      {
-        "text": "One lesson.",
-        "colorClass": "text-brand-white"
-      },
-      {
-        "text": "One action.",
-        "colorClass": "text-brand-blue"
-      }
+      { "text": "One letter.", "colorClass": "text-brand-gold" },
+      { "text": "One lesson.", "colorClass": "text-brand-white" },
+      { "text": "One action.", "colorClass": "text-brand-blue" }
     ],
     "intro": "A calm learning path for people who want AI to become understandable, usable, and connected to real life.",
     "countLine": "26 letters · 26 lessons · 26 actions",
     "footerLine": "Likkle by likkle, we build the future.",
     "cards": [
-      {
-        "letter": "A",
-        "word": "Awareness",
-        "phrase": "Notice the opportunity.",
-        "details": "Find the repeated task, the time leak, and the place where help is needed.",
-        "colorClass": "text-brand-gold"
-      },
-      {
-        "letter": "B",
-        "word": "Belief",
-        "phrase": "You can do this.",
-        "details": "AI begins as communication. Plain language is enough to start.",
-        "colorClass": "text-brand-green"
-      },
-      {
-        "letter": "C",
-        "word": "Context",
-        "phrase": "Clear input, clear output.",
-        "details": "The better you explain the situation, the better AI can support the work.",
-        "colorClass": "text-brand-blue"
-      },
-      {
-        "letter": "D",
-        "word": "Direction",
-        "phrase": "Aim AI at your goal.",
-        "details": "Do not collect tools. Build toward a useful result.",
-        "colorClass": "text-brand-orange"
-      },
-      {
-        "letter": "E",
-        "word": "Execution",
-        "phrase": "Take action. Get results.",
-        "details": "The mindset becomes real when you test, improve, and ship.",
-        "colorClass": "text-brand-gold"
-      }
+      { "letter": "A", "word": "Awareness", "phrase": "Notice the opportunity.", "details": "Find the repeated task, the time leak, and the place where help is needed.", "colorClass": "text-brand-gold" },
+      { "letter": "B", "word": "Belief", "phrase": "You can do this.", "details": "AI begins as communication. Plain language is enough to start.", "colorClass": "text-brand-green" },
+      { "letter": "C", "word": "Context", "phrase": "Clear input, clear output.", "details": "The better you explain the situation, the better AI can support the work.", "colorClass": "text-brand-blue" },
+      { "letter": "D", "word": "Direction", "phrase": "Aim AI at your goal.", "details": "Do not collect tools. Build toward a useful result.", "colorClass": "text-brand-orange" },
+      { "letter": "E", "word": "Experiment", "phrase": "Test before you systemize.", "details": "Run one small AI test, observe what changed, and improve the next attempt.", "colorClass": "text-brand-gold" }
     ]
   }
 }
