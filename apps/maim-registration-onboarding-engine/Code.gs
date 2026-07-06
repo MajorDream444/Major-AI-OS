@@ -11,9 +11,10 @@
  * 1. Create a MAIM registration Google Sheet.
  * 2. Copy this file into Apps Script.
  * 3. Set REGISTRATION_SPREADSHEET_ID in Script Properties.
- * 4. Keep DRY_RUN_MODE=true until live routing is approved.
- * 5. Run setupMaimRegistrationSheets().
- * 6. Deploy as a web app.
+ * 4. Keep PIPELINE_MODE=registration_sprint until the first loop is approved.
+ * 5. Keep DRY_RUN_MODE=true until live sends are approved.
+ * 6. Run setupMaimRegistrationSheets().
+ * 7. Deploy as a web app.
  *
  * Secrets belong in Apps Script Properties, never in this file.
  */
@@ -25,10 +26,12 @@ const MAIM_CONFIG = {
     syncErrors: 'sync_errors',
     sessions: 'sessions',
     agentRoutes: 'agent_routes',
+    welcomeEmailPreviews: 'welcome_email_previews',
     config: 'config',
   },
   properties: {
     spreadsheetId: 'REGISTRATION_SPREADSHEET_ID',
+    pipelineMode: 'PIPELINE_MODE',
     dryRunMode: 'DRY_RUN_MODE',
     allowedTestEmails: 'ALLOWED_TEST_EMAILS',
     airtableApiKey: 'AIRTABLE_API_KEY',
@@ -81,6 +84,16 @@ const PIPELINE_EVENT_HEADERS = [
   'step',
   'status',
   'message',
+];
+
+const WELCOME_EMAIL_PREVIEW_HEADERS = [
+  'preview_id',
+  'lead_id',
+  'created_at',
+  'to',
+  'subject',
+  'body',
+  'status',
 ];
 
 const SYNC_ERROR_HEADERS = [
@@ -149,6 +162,7 @@ function doPost(e) {
     logPipelineEvent_(spreadsheet, registration.lead_id, 'submitted', 'ok', 'Registration captured.');
     logPipelineEvent_(spreadsheet, registration.lead_id, 'agent_route_resolved', 'ok', 'Route selected: ' + registration.agent_route_id);
     runPipeline_(spreadsheet, registration);
+    SpreadsheetApp.flush();
 
     return jsonResponse_({ ok: true, lead_id: registration.lead_id });
   } catch (error) {
@@ -162,11 +176,12 @@ function setupMaimRegistrationSheets() {
 }
 
 function testMaimRegistrationDryRun() {
+  const testId = Utilities.getUuid().slice(0, 8);
   const fakeEvent = {
     postData: {
       contents: JSON.stringify({
         fullName: 'Test Lead',
-        email: 'test@example.com',
+        email: 'test+' + testId + '@example.com',
         role: 'Beginner',
         aiGoal: 'Major AI Mindset live knowledge session',
         notes: 'Dry-run test from Apps Script.',
@@ -184,6 +199,12 @@ function testMaimRegistrationDryRun() {
 }
 
 function runPipeline_(spreadsheet, registration) {
+  const pipelineMode = getProperty_(MAIM_CONFIG.properties.pipelineMode, 'registration_sprint');
+  if (pipelineMode === 'registration_sprint') {
+    runRegistrationSprint_(spreadsheet, registration);
+    return;
+  }
+
   const dryRun = getProperty_(MAIM_CONFIG.properties.dryRunMode, 'true') !== 'false';
 
   runStep_(spreadsheet, registration, 'airtable_synced', dryRun, syncAirtable_);
@@ -192,6 +213,13 @@ function runPipeline_(spreadsheet, registration) {
   runStep_(spreadsheet, registration, 'manychat_queued', dryRun, queueManyChat_);
   runStep_(spreadsheet, registration, 'crm_created', dryRun, createCrmRecord_);
   logPipelineEvent_(spreadsheet, registration.lead_id, 'complete', dryRun ? 'dry_run' : 'ok', 'Pipeline pass finished.');
+}
+
+function runRegistrationSprint_(spreadsheet, registration) {
+  logPipelineEvent_(spreadsheet, registration.lead_id, 'sheet_recorded', 'ok', 'Registration row written to Google Sheet.');
+  appendWelcomeEmailPreview_(spreadsheet, registration);
+  logPipelineEvent_(spreadsheet, registration.lead_id, 'welcome_email_dry_run', 'dry_run', 'Welcome email preview generated. No email sent.');
+  logPipelineEvent_(spreadsheet, registration.lead_id, 'complete', 'dry_run', 'Registration sprint loop complete.');
 }
 
 function runStep_(spreadsheet, registration, step, dryRun, handler) {
@@ -251,22 +279,12 @@ function sendWelcomeEmail_(registration) {
 
   const fromName = getProperty_(MAIM_CONFIG.properties.welcomeFromName, 'Major AI Mindset');
   const replyTo = getProperty_(MAIM_CONFIG.properties.welcomeReplyTo, '');
-  const subject = 'You are in the room: ' + registration.session_title;
-  const body = [
-    'Hi ' + registration.full_name + ',',
-    '',
-    'Your seat is reserved for ' + registration.session_title + '.',
-    'Session: ' + registration.session_date_local + ' (' + registration.session_timezone + ')',
-    '',
-    'This room is simple: one clear idea, one useful example, one action you can take.',
-    '',
-    'Major AI Mindset',
-  ].join('\n');
+  const email = buildWelcomeEmail_(registration);
 
   MailApp.sendEmail({
     to: registration.email,
-    subject: subject,
-    body: body,
+    subject: email.subject,
+    body: email.body,
     name: fromName,
     replyTo: replyTo || undefined,
   });
@@ -408,6 +426,39 @@ function logPipelineEvent_(spreadsheet, leadId, step, status, message) {
   ]);
 }
 
+function appendWelcomeEmailPreview_(spreadsheet, registration) {
+  const sheet = spreadsheet.getSheetByName(MAIM_CONFIG.tabs.welcomeEmailPreviews);
+  const email = buildWelcomeEmail_(registration);
+  sheet.appendRow([
+    Utilities.getUuid(),
+    registration.lead_id,
+    new Date().toISOString(),
+    registration.email,
+    email.subject,
+    email.body,
+    'dry_run',
+  ]);
+}
+
+function buildWelcomeEmail_(registration) {
+  const subject = 'You are in the room: ' + registration.session_title;
+  const body = [
+    'Hi ' + registration.full_name + ',',
+    '',
+    'Your seat is reserved for ' + registration.session_title + '.',
+    'Session: ' + registration.session_date_local + ' (' + registration.session_timezone + ')',
+    '',
+    'Your lane: ' + registration.current_lane,
+    'Your suggested path: ' + registration.lesson_path,
+    '',
+    'This room is simple: one clear idea, one useful example, one action you can take.',
+    '',
+    'Major AI Mindset',
+  ].join('\n');
+
+  return { subject: subject, body: body };
+}
+
 function logSyncError_(spreadsheet, leadId, step, message, payload) {
   const sheet = spreadsheet.getSheetByName(MAIM_CONFIG.tabs.syncErrors);
   sheet.appendRow([
@@ -427,6 +478,7 @@ function ensureSheets_(spreadsheet) {
   ensureSheet_(spreadsheet, MAIM_CONFIG.tabs.syncErrors, SYNC_ERROR_HEADERS);
   ensureSheet_(spreadsheet, MAIM_CONFIG.tabs.sessions, SESSION_HEADERS);
   ensureSheet_(spreadsheet, MAIM_CONFIG.tabs.agentRoutes, AGENT_ROUTE_HEADERS);
+  ensureSheet_(spreadsheet, MAIM_CONFIG.tabs.welcomeEmailPreviews, WELCOME_EMAIL_PREVIEW_HEADERS);
   ensureSheet_(spreadsheet, MAIM_CONFIG.tabs.config, CONFIG_HEADERS);
   seedAgentRoutes_(spreadsheet);
 }

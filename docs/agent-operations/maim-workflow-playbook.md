@@ -253,6 +253,20 @@ https://forms.gle/RdSX2R6dyRJLqjkk7
 
 Phase 2 target:
 
+First sprint:
+
+```txt
+Landing page
+→ Google Apps Script intake
+→ Google Sheet source log
+→ Welcome email dry-run
+→ Pipeline event log
+```
+
+Do not add Airtable, calendar, ManyChat, or CRM routing until this loop is verified with real test submissions.
+
+Full engine:
+
 ```txt
 Landing page
 → Google Apps Script intake
