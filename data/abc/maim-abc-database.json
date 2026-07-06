@@ -1,11 +1,11 @@
 {
   "meta": {
     "name": "MAIM ABC Database",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "status": "phase_2_seed",
     "sourceRule": "Use this file as the Phase 2 data source for ABC lessons, downloads, videos, prompts, landing-page sections, and future Airtable sync.",
     "recordCount": 26,
-    "primarySpine": ["Awareness", "Belief", "Context", "Direction", "Execution"],
+    "primarySpine": ["Awareness", "Belief", "Context", "Direction", "Experiment"],
     "updatedAt": "2026-07-06"
   },
   "fields": [
@@ -66,14 +66,14 @@
     },
     {
       "letter": "E",
-      "title": "Execution",
-      "lesson": "Ideas become useful when they move. Execution means using AI to finish one real action, not just collect more inspiration.",
-      "exercise": "Use AI to complete one small task you have been avoiding: an email, caption, plan, outline, checklist, or summary.",
-      "prompt": "Help me execute one small task today. The task is: [insert task]. Give me a draft, a checklist, and the next action I should take in the next five minutes.",
-      "video": "60-second teaching clip: Take action. Get results.",
-      "download": "E - Execution Five-Minute Action Sheet",
-      "cta": "Comment EXECUTE after you finish one small task.",
-      "relatedAgent": "Execution Sprint Agent"
+      "title": "Experiment",
+      "lesson": "Experiment means testing one small idea before turning it into a system. AI gets useful when you try, observe, adjust, and try again.",
+      "exercise": "Run one small AI test today: rewrite a message, summarize a note, draft a caption, map a task, or compare two options.",
+      "prompt": "Help me design a small AI experiment I can run today. My idea or problem is: [insert idea]. Give me the test, the expected result, how to measure it, and what to change if it does not work.",
+      "video": "60-second teaching clip: Run the small test before the big build.",
+      "download": "E - Experiment Test Card",
+      "cta": "Comment EXPERIMENT after you run one small AI test.",
+      "relatedAgent": "Experiment Designer"
     },
     {
       "letter": "F",
