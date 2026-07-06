@@ -8,19 +8,30 @@ const facts = [
 
 export default function FactsSection() {
   return (
-    <section className="bg-brand-black py-24 md:py-32 border-b border-brand-gold/10">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
-        <div className="w-16 h-px bg-brand-gold mx-auto mb-8" />
-        <p className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-16">The facts at a glance</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
+    <section className="bg-brand-black py-20 md:py-28 border-b border-brand-gold/10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div>
+            <div className="w-16 h-px bg-brand-gold mb-7" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-4">The signal deck</p>
+            <h2 className="font-display uppercase text-4xl md:text-6xl leading-[0.95] text-brand-white">The room is simple. The work is real.</h2>
+          </div>
+          <p className="max-w-md text-brand-muted leading-relaxed">No mystery, no tool-chasing, no jargon wall. Each live session turns one AI idea into one useful action.</p>
+        </div>
+        <div className="soft-divider mb-2" />
+        <div className="divide-y divide-brand-gold/15">
           {facts.map((fact, index) => {
             const Icon = fact.icon;
             return (
-              <div key={fact.title} className={`px-8 ${index < 2 ? 'md:border-r md:border-brand-gold/20' : ''}`}>
-                <Icon className="mx-auto text-brand-gold mb-6" size={36} strokeWidth={1.5} />
-                <h2 className="text-sm uppercase tracking-[0.2em] text-brand-white mb-4">{fact.title}</h2>
-                <p className="text-brand-muted leading-relaxed">{fact.description}</p>
-              </div>
+              <article key={fact.title} className="grid grid-cols-[3rem_1fr] md:grid-cols-[5rem_0.65fr_1fr_2rem] gap-5 md:gap-8 items-start py-8">
+                <span className="font-mono text-xs text-brand-gold pt-2">0{index + 1}</span>
+                <div className="flex items-center gap-4">
+                  <Icon className="text-brand-green shrink-0" size={22} strokeWidth={1.6} />
+                  <h3 className="font-display uppercase text-2xl md:text-3xl text-brand-white">{fact.title}</h3>
+                </div>
+                <p className="col-start-2 md:col-start-3 text-brand-muted leading-relaxed">{fact.description}</p>
+                <span className="hidden md:block h-2 w-2 rounded-full bg-brand-blue mt-3" />
+              </article>
             );
           })}
         </div>

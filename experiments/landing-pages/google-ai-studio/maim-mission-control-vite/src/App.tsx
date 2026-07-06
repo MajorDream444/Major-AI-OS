@@ -1,4 +1,5 @@
 import HeroSection from './components/HeroSection';
+import ScheduleSection from './components/ScheduleSection';
 import FactsSection from './components/FactsSection';
 import MethodologySection from './components/MethodologySection';
 import RhythmSection from './components/RhythmSection';
@@ -18,6 +19,7 @@ export default function App() {
       <div className="fixed top-0 inset-x-0 h-1 tribar-line z-50 opacity-90" />
       <main>
         <HeroSection onReserveClick={() => scrollToSection('register')} onExploreClick={() => scrollToSection('abc')} />
+        <ScheduleSection />
         <FactsSection />
         <MethodologySection />
         <RhythmSection />
