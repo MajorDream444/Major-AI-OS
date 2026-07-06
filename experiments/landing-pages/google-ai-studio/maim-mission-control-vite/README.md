@@ -45,11 +45,56 @@ Backup form:
 https://forms.gle/RdSX2R6dyRJLqjkk7
 ```
 
+Phase 2 onboarding engine contract:
+
+```txt
+docs/agent-operations/maim-registration-onboarding-engine.md
+```
+
+Starter Apps Script module:
+
+```txt
+apps/maim-registration-onboarding-engine/
+```
+
+Agent personalization map:
+
+```txt
+data/agents/maim-agent-routing.json
+```
+
+Runtime CMS content fallback:
+
+```txt
+public/cms/maim-command-room-content.json
+```
+
+Production CMS endpoint:
+
+```txt
+VITE_MAIM_CMS_CONTENT_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?slug=maim-command-room
+```
+
+Target pipeline:
+
+```txt
+Landing Page
+-> Google Apps Script
+-> Google Sheet
+-> Airtable
+-> Welcome Email
+-> Calendar Invite
+-> ManyChat
+-> CRM
+```
+
 ## Next pass
 
 Run local QA.
 
 Test the webhook from the deployed environment.
+
+Install and test the Apps Script intake module from the Phase 2 onboarding engine contract.
 
 Add the approved Major portrait and logo assets.
 

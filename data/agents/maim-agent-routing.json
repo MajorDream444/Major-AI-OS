@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "name": "MAIM Agent Routing Map",
+    "version": "0.1.0",
+    "status": "phase_2_seed",
+    "sourceRule": "Use this file to route landing-page registrants from current_lane into agent-specific follow-up paths.",
+    "updatedAt": "2026-07-06",
+    "landingPageField": "current_lane"
+  },
+  "fields": [
+    "lane",
+    "agentId",
+    "agentName",
+    "agentMission",
+    "emailSequenceId",
+    "promptPackId",
+    "lessonPath",
+    "downloadPath",
+    "manychatTag",
+    "crmSegment",
+    "nextCta"
+  ],
+  "routes": [
+    {
+      "lane": "Beginner",
+      "agentId": "maim-agent-beginner-guide",
+      "agentName": "Beginner Guide Agent",
+      "agentMission": "Help new learners feel safe, clear, and ready to take one simple AI action.",
+      "emailSequenceId": "maim-email-beginner-abc-start",
+      "promptPackId": "maim-prompts-beginner-first-steps",
+      "lessonPath": ["A", "B", "C", "D", "E"],
+      "downloadPath": ["A - Awareness Task Leak Worksheet", "B - Belief Beginner Confidence Reset", "C - Context Prompt Builder"],
+      "manychatTag": "lane_beginner",
+      "crmSegment": "MAIM Beginner",
+      "nextCta": "Start with the A-B-C quick path."
+    },
+    {
+      "lane": "Creator",
+      "agentId": "maim-agent-creator",
+      "agentName": "Creator Agent",
+      "agentMission": "Help creators turn ideas into repeatable content, prompts, videos, downloads, and publishing rhythm.",
+      "emailSequenceId": "maim-email-creator-content-path",
+      "promptPackId": "maim-prompts-creator-content-engine",
+      "lessonPath": ["A", "C", "I", "P", "Y", "X"],
+      "downloadPath": ["C - Context Prompt Builder", "I - Imagination Prototype Canvas", "P - Prompt Formula Card"],
+      "manychatTag": "lane_creator",
+      "crmSegment": "MAIM Creator",
+      "nextCta": "Build your first AI-assisted content asset."
+    },
+    {
+      "lane": "Entrepreneur",
+      "agentId": "maim-agent-entrepreneur",
+      "agentName": "Entrepreneur Agent",
+      "agentMission": "Help business owners turn AI into leverage, workflow, offer clarity, and operational follow-through.",
+      "emailSequenceId": "maim-email-entrepreneur-leverage-path",
+      "promptPackId": "maim-prompts-entrepreneur-systems",
+      "lessonPath": ["A", "D", "F", "L", "O", "T"],
+      "downloadPath": ["D - Direction Goal-to-Prompt Map", "F - Flow Mapping Template", "L - Leverage Template Builder"],
+      "manychatTag": "lane_entrepreneur",
+      "crmSegment": "MAIM Entrepreneur",
+      "nextCta": "Map one workflow that can become leverage."
+    },
+    {
+      "lane": "Coach",
+      "agentId": "maim-agent-coach",
+      "agentName": "Coach Agent",
+      "agentMission": "Help coaches translate AI into client support, lesson plans, prompts, intake, and accountability loops.",
+      "emailSequenceId": "maim-email-coach-client-path",
+      "promptPackId": "maim-prompts-coach-client-support",
+      "lessonPath": ["B", "H", "K", "Q", "S", "W"],
+      "downloadPath": ["H - Human Voice Editing Checklist", "K - Knowledge Teaching Card", "Q - Better Questions Bank"],
+      "manychatTag": "lane_coach",
+      "crmSegment": "MAIM Coach",
+      "nextCta": "Turn one coaching insight into a reusable client prompt."
+    },
+    {
+      "lane": "Parent",
+      "agentId": "maim-agent-parent",
+      "agentName": "Parent Guide Agent",
+      "agentMission": "Help parents and family leaders use AI safely, clearly, and practically for learning, planning, and support.",
+      "emailSequenceId": "maim-email-parent-family-path",
+      "promptPackId": "maim-prompts-parent-safe-ai",
+      "lessonPath": ["B", "C", "H", "R", "U", "W"],
+      "downloadPath": ["B - Belief Beginner Confidence Reset", "R - Responsible AI Safety Check", "U - Understanding Strengths and Limits Map"],
+      "manychatTag": "lane_parent",
+      "crmSegment": "MAIM Parent",
+      "nextCta": "Learn one safe AI habit for the household."
+    },
+    {
+      "lane": "Professional",
+      "agentId": "maim-agent-professional",
+      "agentName": "Professional Agent",
+      "agentMission": "Help professionals use AI to save time, communicate better, organize knowledge, and stay relevant.",
+      "emailSequenceId": "maim-email-professional-work-path",
+      "promptPackId": "maim-prompts-professional-productivity",
+      "lessonPath": ["C", "D", "J", "S", "T", "V"],
+      "downloadPath": ["C - Context Prompt Builder", "J - Judgment Review Checklist", "T - Time Back Audit"],
+      "manychatTag": "lane_professional",
+      "crmSegment": "MAIM Professional",
+      "nextCta": "Use AI to reclaim time from one work task."
+    }
+  ]
+}

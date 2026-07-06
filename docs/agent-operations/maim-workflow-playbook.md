@@ -251,7 +251,44 @@ Backup form:
 https://forms.gle/RdSX2R6dyRJLqjkk7
 ```
 
+Phase 2 target:
+
+```txt
+Landing page
+→ Google Apps Script intake
+→ Google Sheet source log
+→ Airtable
+→ Welcome email
+→ Calendar invite
+→ ManyChat
+→ CRM
+```
+
+System contract:
+
+```txt
+docs/agent-operations/maim-registration-onboarding-engine.md
+```
+
+Agent personalization contract:
+
+```txt
+docs/agent-operations/maim-agent-personalization-layer.md
+```
+
+Landing CMS content contract:
+
+```txt
+docs/agent-operations/maim-landing-cms-content-layer.md
+```
+
 ## Content Workflow
+
+ABC lesson database:
+
+```txt
+data/abc/maim-abc-database.json
+```
 
 For ABC content:
 

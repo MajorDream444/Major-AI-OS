@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "name": "MAIM ABC Database",
+    "version": "0.1.0",
+    "status": "phase_2_seed",
+    "sourceRule": "Use this file as the Phase 2 data source for ABC lessons, downloads, videos, prompts, landing-page sections, and future Airtable sync.",
+    "recordCount": 26,
+    "primarySpine": ["Awareness", "Belief", "Context", "Direction", "Execution"],
+    "updatedAt": "2026-07-06"
+  },
+  "fields": [
+    "letter",
+    "title",
+    "lesson",
+    "exercise",
+    "prompt",
+    "video",
+    "download",
+    "cta",
+    "relatedAgent"
+  ],
+  "records": [
+    {
+      "letter": "A",
+      "title": "Awareness",
+      "lesson": "Notice the opportunity before you chase the tool. AI starts when you can see where time, energy, attention, or money is leaking.",
+      "exercise": "Write down three tasks you repeat every week. Circle the one that feels most draining.",
+      "prompt": "Act as my AI workflow coach. Help me identify three repeating tasks in my week that could become a simple AI-assisted workflow. Ask me one question at a time.",
+      "video": "60-second teaching clip: Where is your time leaking?",
+      "download": "A - Awareness Task Leak Worksheet",
+      "cta": "Comment AWARE when you find one task AI can help with.",
+      "relatedAgent": "Awareness Mapper"
+    },
+    {
+      "letter": "B",
+      "title": "Belief",
+      "lesson": "Belief comes before skill. If you can explain what you need in plain language, you can begin using AI.",
+      "exercise": "Ask AI one question about a real problem in your life, work, family, or business.",
+      "prompt": "You are a beginner-friendly AI guide. Explain how someone like me can start using AI today without technical language. Make it practical and encouraging.",
+      "video": "60-second teaching clip: If you can text, you can use AI.",
+      "download": "B - Belief Beginner Confidence Reset",
+      "cta": "Comment BELIEVE if you are done waiting for perfect.",
+      "relatedAgent": "Confidence Coach"
+    },
+    {
+      "letter": "C",
+      "title": "Context",
+      "lesson": "AI does not read your mind. Better context creates better output because the tool can only work with what you give it.",
+      "exercise": "Rewrite one vague prompt with your goal, audience, situation, and desired format.",
+      "prompt": "Improve this prompt by adding context, goal, audience, constraints, and output format: [paste my rough prompt]. Then explain why the new version is stronger.",
+      "video": "60-second teaching clip: Clear input, clear output.",
+      "download": "C - Context Prompt Builder",
+      "cta": "Comment CONTEXT if your second prompt got better.",
+      "relatedAgent": "Context Builder"
+    },
+    {
+      "letter": "D",
+      "title": "Direction",
+      "lesson": "A powerful tool still needs a destination. Direction turns AI from noise into leverage.",
+      "exercise": "Finish this sentence: I want AI to help me accomplish...",
+      "prompt": "Help me turn this goal into a clear AI task: [insert goal]. Give me the outcome, first step, best tool type, and a simple prompt to begin.",
+      "video": "60-second teaching clip: Aim AI at your goal.",
+      "download": "D - Direction Goal-to-Prompt Map",
+      "cta": "Comment DIRECTION with the outcome you want this week.",
+      "relatedAgent": "Direction Planner"
+    },
+    {
+      "letter": "E",
+      "title": "Execution",
+      "lesson": "Ideas become useful when they move. Execution means using AI to finish one real action, not just collect more inspiration.",
+      "exercise": "Use AI to complete one small task you have been avoiding: an email, caption, plan, outline, checklist, or summary.",
+      "prompt": "Help me execute one small task today. The task is: [insert task]. Give me a draft, a checklist, and the next action I should take in the next five minutes.",
+      "video": "60-second teaching clip: Take action. Get results.",
+      "download": "E - Execution Five-Minute Action Sheet",
+      "cta": "Comment EXECUTE after you finish one small task.",
+      "relatedAgent": "Execution Sprint Agent"
+    },
+    {
+      "letter": "F",
+      "title": "Flow",
+      "lesson": "AI becomes powerful when it fits into a repeatable flow instead of staying as a one-off prompt.",
+      "exercise": "Map one workflow you repeat every week from start to finish.",
+      "prompt": "Turn this repeated workflow into an AI-assisted flow: [describe workflow]. Identify each step, where AI can help, and what human judgment should stay with me.",
+      "video": "60-second teaching clip: From prompt to workflow.",
+      "download": "F - Flow Mapping Template",
+      "cta": "Comment FLOW if you mapped one repeatable process.",
+      "relatedAgent": "Workflow Mapper"
+    },
+    {
+      "letter": "G",
+      "title": "Growth",
+      "lesson": "AI confidence grows through practice, feedback, and adjustment. You get better by using it, not by watching from the sidelines.",
+      "exercise": "Run three versions of the same prompt and compare what changed.",
+      "prompt": "Give me three versions of this prompt: beginner, sharper, and expert. Then explain what improved in each version: [paste prompt].",
+      "video": "60-second teaching clip: Practice beats perfection.",
+      "download": "G - Growth Prompt Practice Sheet",
+      "cta": "Comment GROWTH if you practiced instead of overthinking.",
+      "relatedAgent": "Practice Coach"
+    },
+    {
+      "letter": "H",
+      "title": "Human",
+      "lesson": "The tool can generate, but the human still gives taste, values, lived experience, and trust.",
+      "exercise": "Take one AI answer and edit it until it sounds like you.",
+      "prompt": "Rewrite this AI draft so it keeps my meaning but sounds more human, warm, direct, and like my voice: [paste draft]. Ask me for voice examples if needed.",
+      "video": "60-second teaching clip: Keep the human in the loop.",
+      "download": "H - Human Voice Editing Checklist",
+      "cta": "Comment HUMAN if you rewrote the output in your voice.",
+      "relatedAgent": "Voice Keeper"
+    },
+    {
+      "letter": "I",
+      "title": "Imagination",
+      "lesson": "AI helps you see options faster. It can turn rough thoughts into drafts, directions, scenes, and prototypes.",
+      "exercise": "Ask AI to turn one dream idea into three possible first versions.",
+      "prompt": "Take this rough idea and imagine three practical versions I could build or test this month: [insert idea]. Include the easiest first version.",
+      "video": "60-second teaching clip: Turn the idea into a first draft.",
+      "download": "I - Imagination Prototype Canvas",
+      "cta": "Comment IMAGINE if you want to see your idea take shape.",
+      "relatedAgent": "Idea Expander"
+    },
+    {
+      "letter": "J",
+      "title": "Judgment",
+      "lesson": "AI can sound confident and still be wrong. Judgment is the human layer that checks truth, fit, tone, and consequence.",
+      "exercise": "Review one AI answer and mark what you would verify, edit, or reject.",
+      "prompt": "Review this AI output with human judgment. Flag weak claims, missing context, tone issues, risks, and what I should verify before using it: [paste output].",
+      "video": "60-second teaching clip: Verify before you trust.",
+      "download": "J - Judgment Review Checklist",
+      "cta": "Comment JUDGMENT if you checked before sharing.",
+      "relatedAgent": "Truth Checker"
+    },
+    {
+      "letter": "K",
+      "title": "Knowledge",
+      "lesson": "Knowledge becomes real when you can explain it, apply it, and return to it later.",
+      "exercise": "Teach one AI tip you learned today to another person in plain language.",
+      "prompt": "Turn this AI concept into a simple lesson I can explain to a beginner in under two minutes: [insert concept]. Include an example and one action.",
+      "video": "60-second teaching clip: If you can teach it, you own it.",
+      "download": "K - Knowledge Teaching Card",
+      "cta": "Comment KNOWLEDGE with the tip you can now teach.",
+      "relatedAgent": "Lesson Distiller"
+    },
+    {
+      "letter": "L",
+      "title": "Leverage",
+      "lesson": "Leverage means one good input can create repeated value. AI helps when it turns effort into reusable assets.",
+      "exercise": "Create one reusable template for a task you do every week.",
+      "prompt": "Help me create a reusable template for this weekly task: [describe task]. Make it simple, repeatable, and easy to customize.",
+      "video": "60-second teaching clip: Build once, reuse often.",
+      "download": "L - Leverage Template Builder",
+      "cta": "Comment LEVERAGE if you created something reusable.",
+      "relatedAgent": "Template Builder"
+    },
+    {
+      "letter": "M",
+      "title": "Mindset",
+      "lesson": "Tools change fast, but mindset travels. Curiosity, responsibility, and action help you adapt as AI evolves.",
+      "exercise": "Finish this sentence: My AI mindset is...",
+      "prompt": "Help me define my AI mindset in one sentence based on my goals, fears, strengths, and current stage: [describe yourself].",
+      "video": "60-second teaching clip: Mindset outlasts the tool.",
+      "download": "M - Mindset Statement Worksheet",
+      "cta": "Comment MINDSET with one word for your approach.",
+      "relatedAgent": "Mindset Mirror"
+    },
+    {
+      "letter": "N",
+      "title": "Network",
+      "lesson": "Learning gets easier when ideas move through people. Community makes examples, questions, and wins visible.",
+      "exercise": "Share one AI lesson with one person or one group today.",
+      "prompt": "Help me write a short message sharing one AI lesson with my community in a helpful, non-hype way: [insert lesson].",
+      "video": "60-second teaching clip: Do not learn alone.",
+      "download": "N - Network Learning Share Card",
+      "cta": "Tag someone who should start this roadmap with you.",
+      "relatedAgent": "Community Connector"
+    },
+    {
+      "letter": "O",
+      "title": "Opportunity",
+      "lesson": "Opportunity often starts as a small experiment before it looks like a big win.",
+      "exercise": "Use AI to improve one thing you already do for work, content, family, school, or business.",
+      "prompt": "Find three practical AI opportunities inside this work I already do: [describe work]. Rank them by easiest, most useful, and highest upside.",
+      "video": "60-second teaching clip: Start with a tiny test.",
+      "download": "O - Opportunity Finder Sheet",
+      "cta": "Comment OPPORTUNITY with what you improved.",
+      "relatedAgent": "Opportunity Scanner"
+    },
+    {
+      "letter": "P",
+      "title": "Prompt",
+      "lesson": "A prompt is an instruction. Better prompts give role, goal, context, constraints, and format.",
+      "exercise": "Use the frame: Act as [role]. Help me [goal] for [audience] in [format].",
+      "prompt": "Act as my prompt coach. Improve this prompt using role, goal, context, constraints, examples, and output format: [paste prompt].",
+      "video": "60-second teaching clip: Better prompts make AI feel smarter.",
+      "download": "P - Prompt Formula Card",
+      "cta": "Comment PROMPT if you want the beginner prompt pack.",
+      "relatedAgent": "Prompt Coach"
+    },
+    {
+      "letter": "Q",
+      "title": "Questions",
+      "lesson": "The next useful question is often where the clarity starts. Follow-ups turn okay answers into better ones.",
+      "exercise": "Ask one follow-up: Can you simplify that? Can you give three options? What am I missing?",
+      "prompt": "Ask me five follow-up questions that would help you give a better answer to this problem: [describe problem]. Wait for my answers before solving.",
+      "video": "60-second teaching clip: Ask the next better question.",
+      "download": "Q - Better Questions Bank",
+      "cta": "Comment QUESTIONS with your best follow-up prompt.",
+      "relatedAgent": "Question Generator"
+    },
+    {
+      "letter": "R",
+      "title": "Responsibility",
+      "lesson": "Powerful tools require responsible habits. Check facts, protect sensitive information, and respect people.",
+      "exercise": "Review one AI output for errors, bias, private details, or anything that should not be shared.",
+      "prompt": "Audit this AI output for accuracy, privacy, bias, tone, and risk. Tell me what to fix before I use it: [paste output].",
+      "video": "60-second teaching clip: Fast is not enough.",
+      "download": "R - Responsible AI Safety Check",
+      "cta": "Comment RESPONSIBLE if you fixed something before posting.",
+      "relatedAgent": "Safety Reviewer"
+    },
+    {
+      "letter": "S",
+      "title": "Skills",
+      "lesson": "Skills turn AI from entertainment into capability. Summarizing, rewriting, planning, researching, and organizing improve with reps.",
+      "exercise": "Practice one AI skill three times today: summarize, brainstorm, rewrite, plan, or organize.",
+      "prompt": "Help me practice the AI skill of [skill]. Give me three short exercises, review my attempts, and tell me what improved.",
+      "video": "60-second teaching clip: Build skills, not opinions.",
+      "download": "S - Skills Practice Tracker",
+      "cta": "Comment SKILLS with the skill you are building.",
+      "relatedAgent": "Skill Trainer"
+    },
+    {
+      "letter": "T",
+      "title": "Time",
+      "lesson": "AI should give time back for higher-value work, deeper thought, better service, and rest.",
+      "exercise": "Use AI on one repetitive task and spend the saved minutes on something more valuable.",
+      "prompt": "Find three ways AI can save time in my week based on this schedule or task list: [paste schedule/task list]. Estimate the smallest first win.",
+      "video": "60-second teaching clip: Reclaim the first five minutes.",
+      "download": "T - Time Back Audit",
+      "cta": "Comment TIME if AI helped you reclaim even five minutes.",
+      "relatedAgent": "Time Auditor"
+    },
+    {
+      "letter": "U",
+      "title": "Understanding",
+      "lesson": "Use AI with clear eyes. Know what it can help with, where it fails, and what still needs human review.",
+      "exercise": "Make two lists: AI helps me with... and I still need to verify...",
+      "prompt": "Explain what AI can and cannot do for this use case: [describe use case]. Give me strengths, limits, risks, and a smart beginner workflow.",
+      "video": "60-second teaching clip: Know the strengths and the limits.",
+      "download": "U - Understanding Strengths and Limits Map",
+      "cta": "Comment UNDERSTAND if the limits changed how you will use AI.",
+      "relatedAgent": "Clarity Explainer"
+    },
+    {
+      "letter": "V",
+      "title": "Vision",
+      "lesson": "AI works best when it serves a clear vision. Without a vision, tools become noise.",
+      "exercise": "Write one goal AI can support this month.",
+      "prompt": "Help me connect AI to this bigger goal: [insert goal]. Break it into milestones, weekly actions, and one first prompt.",
+      "video": "60-second teaching clip: Vision leads the tech.",
+      "download": "V - Vision-to-AI Roadmap",
+      "cta": "Comment VISION with the goal AI will support.",
+      "relatedAgent": "Vision Strategist"
+    },
+    {
+      "letter": "W",
+      "title": "Wisdom",
+      "lesson": "Wisdom is knowing when to use AI, when to edit it, and when to leave the human moment untouched.",
+      "exercise": "Take one AI answer and decide: use it, edit it, or reject it.",
+      "prompt": "Help me decide whether to use, edit, or reject this AI output. Consider trust, timing, relationship, accuracy, and tone: [paste output].",
+      "video": "60-second teaching clip: Wisdom decides what belongs.",
+      "download": "W - Wisdom Decision Card",
+      "cta": "Comment WISDOM with the choice you made.",
+      "relatedAgent": "Wisdom Filter"
+    },
+    {
+      "letter": "X",
+      "title": "eXecution",
+      "lesson": "Execution is the bridge between inspiration and real change. Tiny shipped outputs compound.",
+      "exercise": "Ship one tiny output today: a caption, email, plan, checklist, summary, or first draft.",
+      "prompt": "Help me ship this tiny output in the next 20 minutes: [describe output]. Give me a draft, final checklist, and publish/send step.",
+      "video": "60-second teaching clip: Ship one tiny thing.",
+      "download": "X - eXecution Shipping Checklist",
+      "cta": "Comment SHIPPED when one tiny output is done.",
+      "relatedAgent": "Shipping Agent"
+    },
+    {
+      "letter": "Y",
+      "title": "You",
+      "lesson": "Your story, taste, and lived experience are still your edge. AI should support your voice, not erase it.",
+      "exercise": "Ask AI to help express one personal story more clearly while keeping your voice.",
+      "prompt": "Help me shape this personal story without making it generic. Preserve my voice, values, and details: [paste story].",
+      "video": "60-second teaching clip: Your voice is the edge.",
+      "download": "Y - You Voice and Story Worksheet",
+      "cta": "Comment YOU if you used AI without losing yourself.",
+      "relatedAgent": "Story Keeper"
+    },
+    {
+      "letter": "Z",
+      "title": "Zero Excuses",
+      "lesson": "You can start with what you have right now. Five focused minutes is enough to begin.",
+      "exercise": "Spend five minutes using one AI tool before today ends.",
+      "prompt": "Give me a five-minute AI starter task based on what I have available right now: [describe phone/computer/time/goal]. Keep it simple enough to finish today.",
+      "video": "60-second teaching clip: Five minutes is enough to begin.",
+      "download": "Z - Zero Excuses Starter Card",
+      "cta": "Comment ZERO EXCUSES when you take the first step.",
+      "relatedAgent": "Start Now Agent"
+    }
+  ]
+}

@@ -1,11 +1,16 @@
 import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import type { LandingContent } from '../content/types';
 
 const WEBHOOK_URL = 'https://script.google.com/a/macros/hanzo.ai/s/AKfycbxpxqKd_unYrHyen2cpxAU85_H4oEU_76Ck4wn2Wpf_rHq2XSl4kOVqpWTEJ0bUZis6/exec';
 const GOOGLE_FORM_URL = 'https://forms.gle/RdSX2R6dyRJLqjkk7';
 
-export default function RegisterSection() {
+type RegisterSectionProps = {
+  session: LandingContent['schedule'];
+};
+
+export default function RegisterSection({ session }: RegisterSectionProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [audience, setAudience] = useState('Beginner');
@@ -20,7 +25,16 @@ export default function RegisterSection() {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName: name, email, role: audience, aiGoal: 'Major AI Mindset live knowledge session', notes: 'Submitted from MAIM Mission Control landing page' }),
+        body: JSON.stringify({
+          fullName: name,
+          email,
+          role: audience,
+          aiGoal: 'Major AI Mindset live knowledge session',
+          notes: 'Submitted from MAIM Mission Control landing page',
+          sessionTitle: session.heading,
+          sessionDateLocal: `${session.bali.date} / ${session.newYork.date}`,
+          sessionTimezone: `${session.bali.label}; ${session.newYork.label}`,
+        }),
       });
       setStatus('success');
       setName('');

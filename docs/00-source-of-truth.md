@@ -114,6 +114,34 @@ MAIM 03 now has:
 - Next-level nudges
 - Frozen standalone offline HTML reference bundle
 
+Phase 2 ABC lesson database:
+
+```txt
+data/abc/maim-abc-database.json
+```
+
+This is the current 26-record source for letter, title, lesson, exercise, prompt, video, download, CTA, and related agent routing.
+
+Phase 2 agent routing map:
+
+```txt
+data/agents/maim-agent-routing.json
+```
+
+This maps landing-page lanes into personalized agent, email, prompt, lesson, ManyChat, and CRM paths.
+
+Phase 2 landing CMS content layer:
+
+```txt
+docs/agent-operations/maim-landing-cms-content-layer.md
+```
+
+The current Vite fallback content is:
+
+```txt
+experiments/landing-pages/google-ai-studio/maim-mission-control-vite/public/cms/maim-command-room-content.json
+```
+
 The standalone bundle is a design reference, not production code yet.
 
 Implementation waits until the build phase.
