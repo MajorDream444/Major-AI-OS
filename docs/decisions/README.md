@@ -31,6 +31,7 @@ ADR-0003-e-is-experiment.md
 ADR-0004-landing-page-philosophy.md
 ADR-0005-documentation-is-product.md
 ADR-0006-preserve-ideas-implement-deliberately.md
+ADR-0007-agent-workspace-architecture.md
 ```
 
 ## Rule

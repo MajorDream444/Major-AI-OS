@@ -116,6 +116,12 @@ Before agent-scoped work, read the relevant playbook in:
 docs/agents/
 ```
 
+Before designing agent collaboration or memory workflows, read:
+
+```txt
+docs/architecture/agent-workspace-architecture.md
+```
+
 MAIM engineering principle:
 
 ```txt
