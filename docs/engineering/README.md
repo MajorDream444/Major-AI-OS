@@ -9,6 +9,14 @@ The goal is not just to ask, "Did it work?"
 
 The goal is to ask, "Can this become a repeatable system that future agents can safely extend?"
 
+## MAIM Engineering Principle
+
+```txt
+Preserve ideas immediately. Implement ideas deliberately.
+```
+
+Capture useful ideas in the right layer. Build them only when the architecture, documentation, specification, verification, and release gate are ready.
+
 ## Manuals
 
 ```txt

@@ -100,6 +100,7 @@ Before planning major work, read:
 
 ```txt
 docs/roadmap/MAIM_MASTER_ROADMAP.md
+docs/decisions/
 ```
 
 For teaching assets, distinguish:
@@ -113,6 +114,18 @@ Before agent-scoped work, read the relevant playbook in:
 
 ```txt
 docs/agents/
+```
+
+Before designing agent collaboration or memory workflows, read:
+
+```txt
+docs/architecture/agent-workspace-architecture.md
+```
+
+MAIM engineering principle:
+
+```txt
+Preserve ideas immediately. Implement ideas deliberately.
 ```
 
 ## Approved Prototype
