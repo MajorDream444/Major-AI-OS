@@ -198,6 +198,41 @@ function testMaimRegistrationDryRun() {
   return doPost(fakeEvent).getContent();
 }
 
+function testMaimDuplicateRegistrationDryRun() {
+  const spreadsheet = getSpreadsheet_();
+  ensureSheets_(spreadsheet);
+
+  const testId = Utilities.getUuid().slice(0, 8);
+  const fakeEvent = {
+    postData: {
+      contents: JSON.stringify({
+        fullName: 'Duplicate Test Lead',
+        email: 'duplicate+' + testId + '@example.com',
+        role: 'Creator',
+        aiGoal: 'Duplicate protection dry-run test.',
+        notes: 'Same email and same sessionId submitted twice from Apps Script.',
+        sourcePage: 'local-duplicate-test',
+        sourceForm: 'maim-command-room',
+        sessionId: 'maim-command-room-duplicate-test-' + testId,
+        sessionTitle: 'MAIM Command Room Duplicate Test',
+        sessionDateLocal: 'Sunday, July 12, 2026',
+        sessionTimezone: 'Asia/Makassar',
+      }),
+    },
+  };
+
+  const firstResponse = JSON.parse(doPost(fakeEvent).getContent());
+  const secondResponse = JSON.parse(doPost(fakeEvent).getContent());
+
+  return JSON.stringify({
+    first_response: firstResponse,
+    second_response: secondResponse,
+    registration_row_count: countSheetDataRows_(spreadsheet, MAIM_CONFIG.tabs.registrations),
+    welcome_preview_row_count: countSheetDataRows_(spreadsheet, MAIM_CONFIG.tabs.welcomeEmailPreviews),
+    duplicate_pipeline_event_found: hasPipelineEvent_(spreadsheet, secondResponse.lead_id, 'submitted', 'duplicate'),
+  });
+}
+
 function runPipeline_(spreadsheet, registration) {
   const pipelineMode = getProperty_(MAIM_CONFIG.properties.pipelineMode, 'registration_sprint');
   if (pipelineMode === 'registration_sprint') {
@@ -412,6 +447,29 @@ function findExistingRegistration_(spreadsheet, idempotencyKey) {
   }
 
   return null;
+}
+
+function countSheetDataRows_(spreadsheet, sheetName) {
+  const sheet = spreadsheet.getSheetByName(sheetName);
+  if (!sheet) return 0;
+
+  return Math.max(sheet.getLastRow() - 1, 0);
+}
+
+function hasPipelineEvent_(spreadsheet, leadId, step, status) {
+  const sheet = spreadsheet.getSheetByName(MAIM_CONFIG.tabs.pipelineEvents);
+  const values = sheet.getDataRange().getValues();
+  const leadIndex = PIPELINE_EVENT_HEADERS.indexOf('lead_id');
+  const stepIndex = PIPELINE_EVENT_HEADERS.indexOf('step');
+  const statusIndex = PIPELINE_EVENT_HEADERS.indexOf('status');
+
+  for (var i = 1; i < values.length; i++) {
+    if (values[i][leadIndex] === leadId && values[i][stepIndex] === step && values[i][statusIndex] === status) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function logPipelineEvent_(spreadsheet, leadId, step, status, message) {
