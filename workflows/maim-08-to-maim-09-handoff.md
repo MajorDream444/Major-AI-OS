@@ -29,7 +29,7 @@ Core doctrine:
 ```txt
 Do not automate people.
 Automate everything around people.
-Humans create. Hanzo orchestrates.
+Humans create. HAMAL orchestrates. Hanzo powers AI infrastructure.
 ```
 
 ## MAIM 08 Sections
@@ -58,7 +58,7 @@ Google Drive stores assets.
 Airtable tracks state.
 Notion stores operating context.
 Google Calendar protects rhythm.
-Hanzo orchestrates the system.
+HAMAL orchestrates the system. Hanzo powers AI infrastructure.
 ```
 
 ## What MAIM 09 Should Do

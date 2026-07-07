@@ -30,7 +30,7 @@ Do not automate people.
 Automate everything around people.
 
 Humans create.
-Hanzo orchestrates.
+HAMAL orchestrates. Hanzo powers AI infrastructure.
 ```
 
 ## Brand System Applied
@@ -100,7 +100,7 @@ Core idea:
 
 ```txt
 Hanzo is not a tool.
-Hanzo is the orchestration layer.
+HAMAL is the orchestration layer. Hanzo is the AI infrastructure layer.
 ```
 
 ### 02 — Production Rhythm
@@ -323,7 +323,7 @@ KPIs
 MAIM volumes powered
 ```
 
-This is the bridge toward the future 144-agent Hanzo ecosystem.
+This is the bridge toward the future 144-agent AMA ecosystem powered by HAMAL.
 
 ## QA Before Final Lock
 
@@ -371,6 +371,6 @@ MAIM 09 — Media Vault + Merch Artifacts
 Guiding line:
 
 ```txt
-Humans create. Hanzo orchestrates.
+Humans create. HAMAL orchestrates. Hanzo powers AI infrastructure.
 Likkle by likkle, we build the future.
 ```

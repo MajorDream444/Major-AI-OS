@@ -32,6 +32,7 @@ ADR-0004-landing-page-philosophy.md
 ADR-0005-documentation-is-product.md
 ADR-0006-preserve-ideas-implement-deliberately.md
 ADR-0007-agent-workspace-architecture.md
+ADR-0008-repository-is-not-memory.md
 ```
 
 ## Rule

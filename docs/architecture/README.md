@@ -11,8 +11,9 @@ Architecture docs should explain how MAIM works without requiring someone to ins
 
 ```txt
 agent-workspace-architecture.md
+ecosystem-map.md
 engine-contract-template.md
-hanzo-legacy-media-engine.md
+hamal-legacy-intelligence-vault.md
 maim-command-room-system.md
 maim-platform-engines.md
 ```

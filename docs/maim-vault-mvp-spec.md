@@ -64,7 +64,7 @@ Major can add assets, organize sessions, review status, and identify what needs 
 
 ### Agent / Assistant
 
-ChatGPT, Claude, Codex, Cowork, and future Hanzo agents can use the Vault structure to understand what exists and what needs to happen next.
+ChatGPT, Claude, Codex, Cowork, and future AMA agents using Hanzo infrastructure can use the Vault structure to understand what exists and what needs to happen next.
 
 ### Future Member
 
@@ -325,7 +325,7 @@ Notion
 Slack
 n8n
 Obsidian
-Hanzo agents
+AMA agents using Hanzo infrastructure
 ```
 
 ## What Is Not Included In MVP
