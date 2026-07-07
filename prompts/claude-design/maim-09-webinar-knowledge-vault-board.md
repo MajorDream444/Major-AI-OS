@@ -14,7 +14,7 @@ Core formula:
 Webinar → Transcript → Clips → Articles → Prompts → Lessons → Vault → Revenue.
 
 Strategic insight:
-Marketing focuses on one primary action: get people into the weekly live room. After the live, Hanzo / Google Meet / ChatGPT / Claude turn the recording and transcript into the week's content, curriculum, community prompts, and Vault assets.
+Marketing focuses on one primary action: get people into the weekly live room. After the live, HAMAL using Hanzo, Google Meet, ChatGPT, and Claude turn the recording and transcript into the week's content, curriculum, community prompts, and Vault assets.
 
 Use a flywheel and vault-engine visual language.
 

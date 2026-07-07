@@ -1,4 +1,4 @@
-# Hanzo Legacy Media Engine
+# HAMAL Legacy Intelligence Vault
 
 Status: Vision capture
 Owner: Major Dream Williams
@@ -6,7 +6,7 @@ Date: 2026-07-07
 
 ## Purpose
 
-This document captures a new strategic layer for MAIM and Hanzo before it becomes an implementation task.
+This document captures a new strategic layer for MAIM and HAMAL before it becomes an implementation task.
 
 Do not hand this to Codex yet.
 
@@ -22,14 +22,14 @@ The value is also in recovering, organizing, understanding, tagging, repurposing
 
 ## Working Name
 
-Hanzo Legacy Media Engine
+HAMAL Legacy Intelligence Vault
 
 Other possible names:
 
 - Legacy Media OS
 - Memory-to-Media Engine
 - Ancestral Media Vault
-- Hanzo Signal Vault
+- HAMAL Signal Vault
 - Personal Media Intelligence Layer
 - Legacy Content Engine
 
@@ -37,7 +37,7 @@ Other possible names:
 
 MAIM teaches people to think with AI.
 
-Hanzo can help people operationalize the media and knowledge they already created.
+HAMAL can help people operationalize the media and knowledge they already created.
 
 This engine turns dormant media into usable intelligence, searchable memory, repurposable content, and long-term legacy assets.
 
@@ -214,7 +214,7 @@ Different models can be used for different media tasks:
 - creative model for repurposed captions and titles
 - local model for private archive scanning
 
-This keeps Hanzo from depending on one model or one vendor.
+This keeps HAMAL from depending on one model or one vendor, while allowing Hanzo to power model-routing where appropriate.
 
 ## Video Intelligence Layer
 
@@ -248,7 +248,7 @@ A family video without context is just a file.
 
 A family video with names, dates, places, transcript, story, lessons, and tags becomes an inheritance.
 
-For MAIM and Hanzo, this matters because the mission is not only content creation.
+For MAIM and HAMAL, this matters because the mission is not only content creation.
 
 The mission is memory, sovereignty, wisdom, and continuity.
 
@@ -278,9 +278,9 @@ Each recording can become:
 - training asset
 - legacy artifact
 
-## Relationship To Hanzo
+## Relationship To HAMAL, Hanzo, AMA, and Lux
 
-Hanzo can become the infrastructure layer behind:
+HAMAL owns the orchestration and product architecture. Hanzo can provide AI infrastructure behind:
 
 - media ingestion
 - transcription
@@ -292,7 +292,7 @@ Hanzo can become the infrastructure layer behind:
 - asset repurposing
 - creator/business media vaults
 
-This gives Hanzo a practical product lane beyond generic AI automation.
+This gives HAMAL a practical product lane that can use Hanzo without redefining Hanzo.
 
 ## Possible Architecture
 
@@ -406,7 +406,7 @@ Never publish or repurpose private media without approval.
 
 ## Strategic Position
 
-This could become one of Hanzo's strongest product directions:
+This could become one of HAMAL's strongest product directions:
 
 ```txt
 We do not just help you create new content.

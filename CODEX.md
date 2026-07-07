@@ -99,6 +99,7 @@ docs/release-gates/
 Before planning major work, read:
 
 ```txt
+docs/architecture/ecosystem-map.md
 docs/roadmap/MAIM_MASTER_ROADMAP.md
 docs/decisions/
 ```

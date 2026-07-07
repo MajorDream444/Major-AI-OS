@@ -147,11 +147,11 @@ Promote
 
 ### 03 — Recording + Transcript Intake
 
-Show how Hanzo / Google Meet creates the recording, transcript, notes, and strategic cuts.
+Show how HAMAL using Hanzo and Google Meet creates the recording, transcript, notes, and strategic cuts.
 
 ### 04 — Knowledge Extraction Layer
 
-Show how ChatGPT, Claude, NotebookLM, and Hanzo agents extract themes, quotes, timestamps, lessons, prompts, and tasks.
+Show how ChatGPT, Claude, NotebookLM, and AMA agents using Hanzo infrastructure extract themes, quotes, timestamps, lessons, prompts, and tasks.
 
 ### 05 — Clip + Social Repurposing Engine
 
@@ -260,7 +260,7 @@ The weekly webinar becomes the primary marketing and IP-production engine.
 
 The team focuses promotion on getting people into the live room.
 
-After the live, Hanzo / Google Meet / ChatGPT / Claude turn the session into the week's content and Vault assets.
+After the live, HAMAL using Hanzo, Google Meet, ChatGPT, and Claude turn the session into the week's content and Vault assets.
 
 Guiding line:
 
