@@ -11,6 +11,7 @@ Architecture docs should explain how MAIM works without requiring someone to ins
 
 ```txt
 maim-command-room-system.md
+maim-platform-engines.md
 ```
 
 ## Diagram Rule

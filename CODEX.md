@@ -96,6 +96,19 @@ docs/engineering/definition-of-done.md
 docs/release-gates/
 ```
 
+Before planning major work, read:
+
+```txt
+docs/roadmap/MAIM_MASTER_ROADMAP.md
+```
+
+For teaching assets, distinguish:
+
+```txt
+docs/ = how MAIM operates
+knowledge/ = what MAIM teaches
+```
+
 Before agent-scoped work, read the relevant playbook in:
 
 ```txt
