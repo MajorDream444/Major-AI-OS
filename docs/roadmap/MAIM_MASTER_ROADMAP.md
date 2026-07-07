@@ -9,6 +9,18 @@ This is the alignment map for the MAIM Platform.
 
 Every agent should read this before planning major work.
 
+## Roadmap Boundary
+
+Keep these layers separate:
+
+```txt
+Vision  = 10-year direction
+Roadmap = season objectives
+Backlog = implementation tasks
+```
+
+Do not turn this roadmap into a task list.
+
 ## Platform Model
 
 ```txt
@@ -139,6 +151,7 @@ What stays disabled?
 ## Related Manuals
 
 ```txt
+docs/decisions/
 docs/design-system/
 docs/engineering/
 docs/agents/

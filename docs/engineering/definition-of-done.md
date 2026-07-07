@@ -7,6 +7,10 @@ MAIM work is not done just because it compiles.
 
 It is done when the system proves it is safe, understandable, reversible, and ready for the next agent to extend.
 
+Documentation is part of the product.
+
+If a feature is not documented, it is not finished.
+
 ## Level 1: Code Quality
 
 Required when applicable:
@@ -17,6 +21,7 @@ Required when applicable:
 - formatting / whitespace check
 - no committed secrets
 - no accidental generated files
+- relevant docs updated
 
 ## Level 2: Logic Safety
 
@@ -53,6 +58,7 @@ Required before calling the work shipped:
 - production deployment completed
 - smoke test completed
 - release gate documented
+- decision record added when the work changes platform direction
 - tag created when appropriate
 - disabled systems explicitly listed
 

@@ -10,6 +10,8 @@ Architecture docs should explain how MAIM works without requiring someone to ins
 ## Current Diagrams
 
 ```txt
+engine-contract-template.md
+hanzo-legacy-media-engine.md
 maim-command-room-system.md
 maim-platform-engines.md
 ```
@@ -24,6 +26,26 @@ Every major subsystem should have:
 - disabled pieces
 - rollback point
 - related release gate
+
+## Engine Contract Rule
+
+Every engine should use `engine-contract-template.md` before implementation.
+
+The contract must identify:
+
+- mission
+- owner
+- inputs
+- outputs
+- dependencies
+- configuration
+- data model
+- API contracts
+- release gates
+- tests
+- rollback
+- roadmap
+- future ideas
 
 ## Current Platform Direction
 
