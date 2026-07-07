@@ -2,7 +2,19 @@
 
 Status: Phase 2 starter module
 
-This Apps Script module is the backend starting point for the MAIM registration pipeline:
+This Apps Script module is the backend starting point for the MAIM registration pipeline.
+
+The active sprint is intentionally smaller than the full pipeline:
+
+```txt
+Landing Page
+-> Google Apps Script
+-> Google Sheet
+-> Welcome Email dry-run
+-> Pipeline event log
+```
+
+Later phases expand into:
 
 ```txt
 Landing Page
@@ -15,7 +27,7 @@ Landing Page
 -> CRM
 ```
 
-The script is dry-run-first. It records registrations and pipeline events before any downstream write is enabled.
+The script is dry-run-first. It records registrations, welcome email previews, and pipeline events before any live downstream write is enabled.
 
 ## Install
 
@@ -31,6 +43,7 @@ The script is dry-run-first. It records registrations and pipeline events before
 
 ```txt
 REGISTRATION_SPREADSHEET_ID
+PIPELINE_MODE=registration_sprint
 DRY_RUN_MODE=true
 ```
 
@@ -57,5 +70,18 @@ Run `testMaimRegistrationDryRun` in Apps Script. Confirm rows are created in:
 - `registrations`
 - `pipeline_events`
 - `agent_routes`
+- `welcome_email_previews`
 
-Only turn `DRY_RUN_MODE` off after Major approves the live routing behavior.
+Expected first-loop events:
+
+```txt
+submitted
+agent_route_resolved
+sheet_recorded
+welcome_email_dry_run
+complete
+```
+
+Only move beyond `PIPELINE_MODE=registration_sprint` after this loop works perfectly.
+
+Only turn `DRY_RUN_MODE` off after Major approves live email, calendar, ManyChat, and CRM behavior.

@@ -12,6 +12,18 @@ The form should still feel calm and human. The backend should become operational
 
 ## Target Pipeline
 
+Current sprint:
+
+```txt
+Landing Page
+-> Google Apps Script intake
+-> Google Sheet source log
+-> Welcome email dry-run
+-> Pipeline event log
+```
+
+Full target:
+
 ```txt
 Landing Page
 -> Google Apps Script intake
@@ -83,6 +95,7 @@ The Apps Script project should maintain these tabs:
 - `sync_errors`: failed downstream actions and retry notes
 - `sessions`: editable session schedule and meeting metadata
 - `agent_routes`: lane-to-agent routing map for personalized follow-up
+- `welcome_email_previews`: dry-run welcome email subject/body for review
 - `config`: non-secret labels, routing names, and enabled/disabled flags
 
 Secrets must stay in Apps Script Properties, not in the sheet and not in repo files.
@@ -91,7 +104,9 @@ Secrets must stay in Apps Script Properties, not in the sheet and not in repo fi
 
 ```txt
 submitted
+agent_route_resolved
 sheet_recorded
+welcome_email_dry_run
 airtable_synced
 welcome_email_sent
 calendar_invite_sent
@@ -120,6 +135,7 @@ Do not turn on all actions at once.
 Use Apps Script Properties for secret or environment-specific values:
 
 ```txt
+PIPELINE_MODE
 AIRTABLE_API_KEY
 AIRTABLE_BASE_ID
 AIRTABLE_TABLE_NAME
@@ -181,6 +197,8 @@ Required behavior:
 Phase 2 is ready when:
 
 - A test form submission creates one clean Google Sheet row.
+- The same test creates one welcome email preview row.
+- The same test writes `submitted`, `agent_route_resolved`, `sheet_recorded`, `welcome_email_dry_run`, and `complete` pipeline events.
 - The same lead syncs once to Airtable.
 - Duplicate submissions do not create duplicate Airtable records for the same session.
 - Welcome email can run in dry-run and live test modes.
