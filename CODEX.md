@@ -78,9 +78,29 @@ docs/
   02-obsidian-context-layer.md
 ```
 
-## Design Source
+## Foundation Manuals
 
 Always use `DESIGN.md`.
+
+Before UI work, also read:
+
+```txt
+docs/design-system/maim-design-philosophy.md
+docs/design-system/landing-page-philosophy.md
+```
+
+Before integration or automation work, read:
+
+```txt
+docs/engineering/definition-of-done.md
+docs/release-gates/
+```
+
+Before agent-scoped work, read the relevant playbook in:
+
+```txt
+docs/agents/
+```
 
 ## Approved Prototype
 
