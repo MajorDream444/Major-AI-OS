@@ -15,7 +15,9 @@ ecosystem-map.md
 engine-contract-template.md
 hamal-legacy-intelligence-vault.md
 maim-command-room-system.md
+maim-ecosystem-wireframe-v2.md
 maim-platform-engines.md
+maim-service-blueprint.md
 ```
 
 ## Diagram Rule
