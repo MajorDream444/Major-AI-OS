@@ -321,12 +321,12 @@ footer{
   <span class="s-gold"></span><span class="s-green"></span><span class="s-blue"></span>
 </div>
 
-<!-- ══ THREE ACTIONS ══ -->
+<!-- ══ NEXT ACTION ══ -->
 <section class="actions-sec">
   <div class="actions-inner">
     <div class="s-label">Do these in order</div>
-    <h2>Three moves, right now.</h2>
-    <p class="actions-lede">Most people buy something and never open it. You are going to be different — and it starts in the next ten minutes.</p>
+    <h2>Your next MAIM move.</h2>
+    <p class="actions-lede">Open the receipt, confirm the purchase email below, then bring one real question to the next live room.</p>
     <div class="actions">
       <a class="action" data-step="1" style="--ac:var(--gold)" href="#access">
         <div class="action-step">Step 01</div>
@@ -336,9 +336,9 @@ footer{
       </a>
       <a class="action" data-step="2" style="--ac:var(--green)" href="#access">
         <div class="action-step">Step 02</div>
-        <div class="action-name">Enter the ABC Studio</div>
-        <p class="action-desc">Your product is the material. The Studio is where you put it to work — your A·B·C path, the replay library, and the other builders moving alongside you.</p>
-        <div class="action-go">Claim your seat →</div>
+        <div class="action-name">Confirm your purchase email</div>
+        <p class="action-desc">Use the same email from Gumroad so MAIM can keep your product and next actions connected.</p>
+        <div class="action-go">Confirm below →</div>
       </a>
       <a class="action" data-step="3" style="--ac:var(--blue)" href="#room">
         <div class="action-step">Step 03</div>
@@ -355,8 +355,8 @@ footer{
   <div class="access-inner">
     <div class="access-copy">
       <h2>Bring your purchase <em>into the campus.</em></h2>
-      <p>Checkout happens on Gumroad. Everything after that happens here. Confirm the email you purchased with and we will attach your product to your MAIM record.</p>
-      <p>Same email, same person, one record — your product, your A·B·C path, your live room seat, and anything you add later.</p>
+      <p>Checkout happens on Gumroad. Everything after that returns here. Confirm the email you purchased with so your MAIM record stays connected.</p>
+      <p>Same email, same person, one record — your product, your live room seat, and anything you add later.</p>
       <div class="access-note">
         Use the email on your receipt.<br>
         That address is your MAIM identity.
@@ -380,8 +380,6 @@ footer{
           <label for="a-product">What you purchased</label>
           <select id="a-product" name="product">
             <option value="pillar_scroll">The Pillar Scroll — $27</option>
-            <option value="emerald_awakening">Emerald Awakening — $97</option>
-            <option value="pillar_code_vault">The Pillar Code Vault — $297</option>
           </select>
         </div>
         <input type="hidden" name="source" value="post_purchase_return">
@@ -411,8 +409,8 @@ footer{
       </div>
       <div class="shelf-item pending" style="--sc:var(--muted)">
         <div class="shelf-state">Activating</div>
-        <div class="shelf-name">Studio access</div>
-        <p class="shelf-desc">Replays, prompt cards, and the community. Activates once you confirm your purchase email above.</p>
+        <div class="shelf-name">Next MAIM action</div>
+        <p class="shelf-desc">Use the form above to stay connected to the next room and follow-up.</p>
       </div>
     </div>
   </div>
@@ -467,7 +465,7 @@ footer{
 </footer>
 
 <script>
-/* Adapt the page to the product purchased.
+/* Adapt the page to the V1 product purchased.
    Gumroad redirects here with ?product=<key>; default is the entry tier. */
 (function () {
   var CATALOG = {
@@ -475,16 +473,6 @@ footer{
       label: 'The Pillar Scroll · Tier 1',
       shelf: 'The Pillar Scroll',
       desc: 'The complete 10 Pillars, with full deep dives on the foundation — Diaspora Empowerment, Mindset Shift, and Gamified Education.'
-    },
-    emerald_awakening: {
-      label: 'Emerald Awakening · Tier 2',
-      shelf: 'Emerald Awakening',
-      desc: 'All ten Pillars unlocked, journal prompts, the Emerald Tablet art, and the AI Move Strategist.'
-    },
-    pillar_code_vault: {
-      label: 'The Pillar Code Vault · Tier 3 · Dynasty',
-      shelf: 'The Pillar Code Vault',
-      desc: 'Everything, plus the AI Mind Architect, the 30-60-90 roadmap, DAO architecture, and lifetime access.'
     }
   };
 
