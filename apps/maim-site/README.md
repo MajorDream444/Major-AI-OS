@@ -50,9 +50,13 @@ automation expansion.
 
 Open gates before a full production cutover:
 
-- Attach `majoraimindset.com` and `www.majoraimindset.com`.
+- Preserve `https://www.majoraimindset.com` as the V1 canonical domain and keep
+  `https://majoraimindset.com` redirecting to `www`.
 - Verify Kit registration destination and member-record path.
-- Verify Gumroad return URLs.
+- Verify the $27 Pillar Scroll Gumroad URL and return behavior.
 - Run a real purchase to return to delivery test.
 - Decide section-by-section whether this Public Sanctuary or the existing
   Command Room experiment is canonical for the next MAIM front-door release.
+
+For the current V1 revenue-loop gate, use
+[`LAUNCH_CHECKLIST.md`](./LAUNCH_CHECKLIST.md).

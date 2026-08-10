@@ -24,7 +24,7 @@ from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DIST = ROOT / "dist"
-ORIGIN = "https://majoraimindset.com"
+ORIGIN = "https://www.majoraimindset.com"
 
 # source fragment -> (output file, route, description)
 PAGES = {
