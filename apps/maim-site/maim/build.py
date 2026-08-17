@@ -109,13 +109,25 @@ def main() -> int:
     if logo.exists():
         shutil.copy(logo, DIST / "favicon.png")
         favicon_href = "/favicon.png"
-        # double as the social preview until a dedicated card exists
-        shutil.copy(logo, DIST / "social-preview.png")
-        print("favicon + social preview: md-medallion.png")
+        print("favicon: md-medallion.png")
     else:
         (DIST / "favicon.svg").write_text(FALLBACK_FAVICON)
         favicon_href = "/favicon.svg"
         print("favicon: drawn fallback (no md-medallion.png yet)")
+
+    # Social preview must be 1200x630 landscape. The square medallion gets
+    # centre-cropped by every major unfurler, so only use it as a last
+    # resort — generate the real card with make-social-card.py.
+    social = ROOT / "assets" / "social-preview.png"
+    if social.exists():
+        shutil.copy(social, DIST / "social-preview.png")
+        print("social preview: assets/social-preview.png (1200x630)")
+    elif logo.exists():
+        shutil.copy(logo, DIST / "social-preview.png")
+        print("social preview: !! falling back to square medallion — "
+              "run `python3 maim/make-social-card.py` to fix cropping")
+    else:
+        print("social preview: !! none available")
 
     routes = []
     for src_name, (out_name, route, description) in PAGES.items():

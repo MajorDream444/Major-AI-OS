@@ -67,23 +67,32 @@ FAQ + Footer
 
 ### Hero
 
-Primary line:
+Primary structure — a question, then the answer:
 
-> AI is the tool. You are the future.
-
-Supporting thought:
-
-> Most people do not need more AI tools. They need a safe place to begin.
+> What becomes possible when you finally understand your own mind — and you
+> learn how to use artificial intelligence without surrendering your own
+> intelligence?
+>
+> **This is where you find out.**
 
 Primary CTA:
 
-`Reserve your seat`
+`Reserve your free seat`
 
-Secondary CTA:
+Secondary CTAs:
 
-`Explore the ABCs`
+`Watch the welcome film` · `Get the 10 Pillars`
 
 The hero must remain calm, cinematic, and focused. One emotional anchor. One primary action.
+
+> **Amended 2026-08-17.** The original v1 line was `AI is the tool. You are the
+> future.` with the supporting thought `Most people do not need more AI tools.
+> They need a safe place to begin.` The shipped front door replaced it with
+> Major's actual opening question and the three-line answer above. The
+> question-then-answer structure carries the same thesis in Major's own voice
+> and tests better as an emotional anchor, so the shipped version is now
+> canonical and this document follows it. Recorded rather than silently
+> reverted.
 
 ### Founder Welcome
 
@@ -143,14 +152,24 @@ Live room promise:
 
 Initial lanes:
 
-- Beginner
+- Athlete
 - Creator
 - Entrepreneur
-- Coach
-- Parent
+- Educator
+- Healer
 - Professional
+- Parent
+- I just know there's more
 
 Selecting a lane should pre-fill registration information and later shape the member's Studio path.
+
+> **Amended 2026-08-17.** The original list was Beginner / Creator /
+> Entrepreneur / Coach / Parent / Professional. The shipped front door drops
+> `Beginner` (it labels people by what they lack rather than who they are),
+> replaces `Coach` with the wider `Educator` and `Healer`, and adds `Athlete`
+> plus the open door `I just know there's more`. The shipped list is now
+> canonical. The lane chips and the registration `select` must stay in sync —
+> they are two representations of one list.
 
 ### Reserve Your Free Seat
 
@@ -238,6 +257,13 @@ Target experience:
 - May be retaken as the member grows
 
 The test is not a detached quiz. It is the bridge into a recommended learning path.
+
+> **Clarified 2026-08-17.** The public front door carries a one-question
+> *preview* of the Pressure Test, clearly labelled as a preview, whose only
+> action is to reserve a seat. The engine itself — the remaining nine
+> questions, scoring, and the personalized path — remains a Studio (Layer 2)
+> capability and does not exist yet. The public preview must never present
+> itself as delivering a result it cannot produce.
 
 ### Recommended Path
 
