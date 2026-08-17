@@ -1078,6 +1078,105 @@ nav {
   display: flex;
   gap: 20px;
 }
+.pressure-preview-note {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+  margin: 18px 0 26px;
+}
+.pressure-next {
+  display: block;
+  margin-top: 18px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.pressure-next:hover { color: var(--gold2); }
+
+/* ── Meet the Builders (community proof) ── */
+.builders-sec {
+  padding: 100px 32px;
+  border-top: 1px solid var(--border);
+  background: var(--ink2);
+}
+.builders-inner { max-width: 1100px; margin: 0 auto; }
+.builders-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.builders-inner h2 {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 48px);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.builders-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 60ch;
+  line-height: 1.7;
+}
+.builders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.builder-card {
+  background: var(--ink);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.builder-lane {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.builder-win {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.builder-name {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-top: auto;
+  padding-top: 10px;
+}
+.builder-letter {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--dim);
+}
+.builders-note {
+  margin-top: 32px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.builders-note a { color: var(--gold); }
 .pressure-card {
   background: var(--ink);
   border: 1px solid var(--border);
@@ -1681,13 +1780,14 @@ footer {
       <div class="pressure-meta">
         <span>10 questions</span>
         <span>7 minutes</span>
-        <span>Personalized result</span>
+        <span>Opens in the Studio</span>
       </div>
       <p>This isn't a quiz. It's a map. Answer honestly and you'll walk away knowing exactly where to start — and what's actually been holding you back.</p>
-      <a class="btn-primary" href="#register">Find your biggest bottleneck →</a>
+      <p class="pressure-preview-note">Try the first question on the right. The full Pressure Test and your personal map open in the Studio the moment you reserve your seat.</p>
+      <a class="btn-primary" href="#register">Reserve your seat to take it →</a>
     </div>
     <div class="pressure-card bracket">
-      <div class="pressure-card-tag">Pressure Test · Q1 of 10</div>
+      <div class="pressure-card-tag">Pressure Test · Preview · Q1 of 10</div>
       <div class="pressure-q">When you think about using AI, the first thing you feel is…</div>
       <div class="pressure-options">
         <div class="pressure-opt" tabindex="0" role="radio" aria-checked="false"><span class="pressure-opt-dot" aria-hidden="true"></span>Excitement — I just don't know where to begin</div>
@@ -1699,6 +1799,7 @@ footer {
         <div class="pressure-bar-wrap"><div class="pressure-bar" id="pbar"></div></div>
         <span class="pressure-count" id="pcnt">1 / 10</span>
       </div>
+      <a class="pressure-next" id="pressure-next" href="#register" hidden>Good. Nine more waiting in the Studio — reserve your seat →</a>
     </div>
   </div>
 </section>
@@ -1733,6 +1834,47 @@ footer {
 </section>
 
 <!-- REGISTER -->
+<!-- MEET THE BUILDERS · community proof layer (wireframe v2)
+     ============================================================
+     PLACEHOLDER CONTENT — DO NOT LAUNCH AS-IS.
+     Every card below is a template slot, not a real person. Replace each
+     one with a real, permissioned win from a real member before this
+     section goes public. Never ship invented testimonials.
+     Source real wins from: Instagram comments/DMs, live-room check-ins,
+     the community wins wall. Get explicit permission to use a name.
+     Delete any card you cannot fill with something true.
+     ============================================================ -->
+<section class="builders-sec" id="builders">
+  <div class="builders-inner">
+    <div class="builders-tag">Meet the Builders</div>
+    <h2>It's not a following.<br>It's a workshop.</h2>
+    <p class="builders-sub">MAIM is measured in actions taken, not followers counted. These are people who started where you are — one letter, one lesson, one action at a time.</p>
+
+    <div class="builders-grid">
+      <div class="builder-card">
+        <div class="builder-letter">A</div>
+        <div class="builder-lane">Lane · [lane]</div>
+        <div class="builder-win">[Replace with a real win, in the member's own words. One or two sentences. What they actually did, not how they felt.]</div>
+        <div class="builder-name">— [First name], [City]</div>
+      </div>
+      <div class="builder-card">
+        <div class="builder-letter">B</div>
+        <div class="builder-lane">Lane · [lane]</div>
+        <div class="builder-win">[Replace with a real win. Prefer concrete outcomes: a thing built, a task cut, a first client, a system that now runs itself.]</div>
+        <div class="builder-name">— [First name], [City]</div>
+      </div>
+      <div class="builder-card">
+        <div class="builder-letter">C</div>
+        <div class="builder-lane">Lane · [lane]</div>
+        <div class="builder-win">[Replace with a real win. Beginner wins are the most valuable ones here — they prove the room is safe to walk into.]</div>
+        <div class="builder-name">— [First name], [City]</div>
+      </div>
+    </div>
+
+    <p class="builders-note">Built something, however likkle? Bring it to the room — or tag <a href="https://www.instagram.com/major_ai_mindset/">@major_ai_mindset</a>. The wins wall is how we prove this works.</p>
+  </div>
+</section>
+
 <section id="register" style="border-top:1px solid var(--border)">
   <div class="register-sec">
     <div class="register-inner">
@@ -1815,6 +1957,73 @@ function setLane(el) {
   if (sel) sel.value = el.textContent;
 }
 
+// ── First-party registration capture ──────────────────────────────
+// The form posts to Kit, which owns email delivery. But the handoff is
+// cross-origin, so without this we keep no record of our own and the
+// `lane` value is silently dropped unless Kit has a matching custom
+// field. Write to Supabase first, then let the native submit proceed.
+//
+// This is fire-and-forget by design: `keepalive` lets the request
+// survive the navigation, and we never preventDefault. If Supabase is
+// down, slow, or misconfigured, the visitor still reaches Kit. Capture
+// must never block conversion.
+const MAIM_SUPABASE_URL = 'https://fsrskmlsxqtxduhdfhnd.supabase.co';
+// Publishable (anon) key — safe to ship client-side. It grants only what
+// row-level security allows, so the `registrations` table must have an
+// insert-only RLS policy. See supabase/migrations/ in this repo.
+const MAIM_SUPABASE_KEY = 'sb_publishable_qqh58usxUcdgpF0Paew0XA_PS9iE7sp';
+
+function maimCaptureRegistration(form) {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const payload = {
+      full_name: (form.querySelector('#r-name') || {}).value || null,
+      email:     (form.querySelector('#r-email') || {}).value || null,
+      lane:      (form.querySelector('#r-lane') || {}).value || null,
+      source:       params.get('source')   || 'majoraimindset.com',
+      utm_source:   params.get('utm_source')   || null,
+      utm_medium:   params.get('utm_medium')   || null,
+      utm_campaign: params.get('utm_campaign') || null,
+      referrer:     document.referrer || null
+    };
+    fetch(MAIM_SUPABASE_URL + '/rest/v1/registrations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': MAIM_SUPABASE_KEY,
+        'Authorization': 'Bearer ' + MAIM_SUPABASE_KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(() => {});
+  } catch (e) {
+    // Never let capture interfere with the Kit submit.
+  }
+}
+
+const maimForm = document.querySelector('.register-form');
+if (maimForm) {
+  maimForm.addEventListener('submit', () => maimCaptureRegistration(maimForm));
+}
+
+// Carry the chosen lane into the Kit querystring too, so the value
+// survives even if the POST field name does not match Kit's schema.
+if (maimForm) {
+  maimForm.addEventListener('submit', () => {
+    const lane = (maimForm.querySelector('#r-lane') || {}).value;
+    if (!lane) return;
+    let existing = maimForm.querySelector('input[name="fields[lane]"]');
+    if (!existing) {
+      existing = document.createElement('input');
+      existing.type = 'hidden';
+      existing.name = 'fields[lane]';
+      maimForm.appendChild(existing);
+    }
+    existing.value = lane;
+  });
+}
+
 // Pressure test
 const opts = document.querySelectorAll('.pressure-opt');
 const bar = document.getElementById('pbar');
@@ -1836,9 +2045,13 @@ opts.forEach(opt => {
     const dot = opt.querySelector('.pressure-opt-dot');
     dot.style.background = '#C9931A';
     dot.style.borderColor = '#C9931A';
-    answered = Math.min(answered + 1, 9);
-    if (bar) bar.style.width = ((answered + 1) / 10 * 100) + '%';
-    if (cnt) cnt.textContent = (answered + 1) + ' / 10';
+    // Preview is one question only. Show real progress (1 of 10), then
+    // hand off to registration rather than faking the remaining nine.
+    answered = 1;
+    if (bar) bar.style.width = '10%';
+    if (cnt) cnt.textContent = '1 / 10';
+    const cta = document.getElementById('pressure-next');
+    if (cta) cta.hidden = false;
   });
   opt.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); opt.click(); }
