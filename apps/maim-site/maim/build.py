@@ -70,6 +70,15 @@ FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48
 def document(title, description, route, body, favicon_href):
     canonical = ORIGIN + route
     social = f"{ORIGIN}/social-preview.png"
+    # Contact details appear on every generated page without duplicating the
+    # footer markup in the three independently maintained source fragments.
+    contact_links = (
+        '<a href="mailto:contact@majoraimindset.com">Contact</a>'
+        '<a href="mailto:major@majoraimindset.com">Email Major</a>'
+        '<a href="tel:+61450461470">+61 450 461 470</a>'
+    )
+    body = body.replace('<div class="footer-links">',
+                        '<div class="footer-links">' + contact_links, 1)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +100,7 @@ def document(title, description, route, body, favicon_href):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{social}">
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 {body}
@@ -114,6 +124,10 @@ def main() -> int:
         (DIST / "favicon.svg").write_text(FALLBACK_FAVICON)
         favicon_href = "/favicon.svg"
         print("favicon: drawn fallback (no md-medallion.png yet)")
+
+    email_logo = ROOT / "assets" / "maim-email-logo.png"
+    if email_logo.exists():
+        shutil.copy(email_logo, DIST / email_logo.name)
 
     # Social preview must be 1200x630 landscape. The square medallion gets
     # centre-cropped by every major unfurler, so only use it as a last
