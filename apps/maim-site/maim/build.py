@@ -125,10 +125,6 @@ def main() -> int:
         favicon_href = "/favicon.svg"
         print("favicon: drawn fallback (no md-medallion.png yet)")
 
-    email_logo = ROOT / "assets" / "maim-email-logo.png"
-    if email_logo.exists():
-        shutil.copy(email_logo, DIST / email_logo.name)
-
     # Social preview must be 1200x630 landscape. The square medallion gets
     # centre-cropped by every major unfurler, so only use it as a last
     # resort — generate the real card with make-social-card.py.
