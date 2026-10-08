@@ -32,6 +32,10 @@
     {
       "source": "/library",
       "destination": "/library.html"
+    },
+    {
+      "source": "/vault",
+      "destination": "/vault.html"
     }
   ],
   "redirects": [
