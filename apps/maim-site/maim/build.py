@@ -49,7 +49,8 @@ PAGES = {
     "shop.html": ("shop.html", "/shop", "Explore MAIM digital learning guides and resources."),
     "pillar-scroll.html": ("shop/pillar-scroll.html", "/shop/pillar-scroll", "Explore the $27 Pillar Scroll and its deeper 10-Pillar learning framework."),
     "coaching.html": ("coaching.html", "/coaching", "Learn about MAIM coaching and workshops."),
-    "library.html": ("library.html", "/library", "Find guidance for accessing your MAIM digital purchases."),
+    "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
+    "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
 }
 
 # old relative links -> clean routes
