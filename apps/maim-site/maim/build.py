@@ -51,6 +51,7 @@ PAGES = {
     "coaching.html": ("coaching.html", "/coaching", "Learn about MAIM coaching and workshops."),
     "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
+    "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
 }
 
 # old relative links -> clean routes
