@@ -46,6 +46,11 @@ PAGES = {
         "Your asset is ready. This is not the end of the purchase — it is your "
         "first brick inside MAIM.",
     ),
+    "shop.html": ("shop.html", "/shop", "Explore MAIM digital learning guides and resources."),
+    "pillar-scroll.html": ("shop/pillar-scroll.html", "/shop/pillar-scroll", "Explore the $27 Pillar Scroll and its deeper 10-Pillar learning framework."),
+    "coaching.html": ("coaching.html", "/coaching", "Learn about MAIM coaching and workshops."),
+    "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
+    "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
 }
 
 # old relative links -> clean routes
@@ -158,6 +163,7 @@ def main() -> int:
         for old, new in LINK_MAP.items():
             body = body.replace(old, new)
 
+        (DIST / out_name).parent.mkdir(parents=True, exist_ok=True)
         (DIST / out_name).write_text(
             document(title, description, route, body, favicon_href)
         )
