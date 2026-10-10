@@ -63,3 +63,13 @@ This file is the shared strategic source of truth for Claude Code, Codex and Cha
 3. Run build, mobile, keyboard and link QA on Vercel preview.
 4. Reconcile Pillar Scroll deliverables and complete Stripe-to-Airtable-to-Resend fulfillment tests.
 5. Only then authorize production checkout migration.
+
+## 11. Founder media / YouTube canonical alignment (2026-10-10)
+**Domain handover:** `docs/handoffs/MAIM_YOUTUBE_FOUNDER_MEDIA_HANDOVER_2026-10-10.md`. Read it alongside this canon for YouTube, founder visuals, voice, short-form video and worldview extraction. This section records shared principles; mutable channel metadata belongs in the handover and must be reverified.
+
+- The founder's lived experience and worldview are **MAIM's initial blueprint**, not a universal truth, personality clone, or fixed learner identity. Source personal claims to recordings; distinguish observation, belief, analogy, heuristic, test and independently verified outcome.
+- **Founder source 001:** published 18:03 YouTube origin episode `https://youtu.be/xPLxHxVTdeo`, spanning 1980s NYC/Jamaican upbringing, sports, finance, entrepreneurship, early computing, blockchain, AI, ABCs and intergenerational legacy. Use this as an attributable primary source for curriculum, not independent verification of every anecdote.
+- **Narrative-to-learning pipeline:** capture with consent → archive/transcribe → extract worldview with counterpoints → map to Awareness, Belief, Context, Direction, Experiment → build lessons/quests/tests → collect minimum necessary participant feedback → version and review framework changes. Human autonomy and stewardship are essential.
+- **Visual canon:** retrieve actual founder portraits and MD crown emblem from ChatGPT File Library `/MAIM/Brand/Founder Reference Images/`. Use supplied original emblem **once per design**. Selected `THE FUTURE-PROOF MINDSET` Option 2 is a creative direction, not evidence of publication or approval of synthetic likeness. Production protocol: `skills/shared/maim-founder-visual-identity-and-thumbnails.md`.
+- **Voice canon:** natural founder recordings are primary; previously auditioned synthetic HeyGen voices were rejected as robotic. Any new voice model requires authorized audio, technical QC, founder listening test, explicit approval and provenance. Transcript availability does not imply raw voice access.
+- **Publishing truth:** distinguish proposed metadata, verified live metadata, design concept, approved export and confirmed live upload. Require explicit authorization for video/thumbnail changes; verify post-publish state. No claims that proposed skills are already automated.
