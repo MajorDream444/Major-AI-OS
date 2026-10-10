@@ -51,6 +51,7 @@ PAGES = {
     "coaching.html": ("coaching.html", "/coaching", "Learn about MAIM coaching and workshops."),
     "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
+    "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
 }
 
 # old relative links -> clean routes
@@ -159,6 +160,30 @@ def main() -> int:
             return 1
         title = m.group(1).strip()
         body = TITLE_RE.sub("", body, count=1).lstrip()
+
+        # Founder signature quote: shared homepage element, independent of fragment markup.
+        if route == "/":
+            founder_quote = """
+<style>
+.maim-founder-quote{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at 85% 15%,rgba(31,138,76,.17),transparent 45%),#141618;color:#f8f5ec;padding:clamp(64px,9vw,132px) 24px;text-align:center;border-block:1px solid rgba(201,147,26,.35)}
+.maim-founder-quote:before{content:"“";position:absolute;z-index:-1;left:4%;top:-110px;font:clamp(230px,38vw,530px) Georgia,serif;color:rgba(201,147,26,.09);line-height:1}
+.maim-founder-quote blockquote{margin:0 auto;max-width:1040px;font:clamp(31px,5.4vw,72px)/1.16 Georgia,serif;letter-spacing:-.035em}
+.maim-founder-quote strong{color:#d9ad55;font-weight:normal}
+.maim-founder-quote figcaption{margin-top:36px;color:#d5d6d1;font:600 12px/1.8 Arial,sans-serif;letter-spacing:.19em;text-transform:uppercase}
+.maim-founder-quote a{color:#e5bf76;text-underline-offset:5px}
+.maim-founder-quote a:focus-visible{outline:3px solid #d9ad55;outline-offset:5px}
+</style>
+<section class="maim-founder-quote" aria-label="A thought from founder Major Dream Williams">
+<figure><blockquote>“The most future-proof technology you will ever develop is <strong>your own mindset.</strong>”</blockquote>
+<figcaption>Major Dream Williams · Founder, Major AI Mindset</figcaption></figure>
+<p><a href="/campus">Discover the philosophy behind MAIM →</a></p>
+</section>
+"""
+            # Place before the footer where possible; otherwise append after main content.
+            if "</footer>" in body:
+                body = body.replace("<footer", founder_quote + "<footer", 1)
+            else:
+                body += founder_quote
 
         for old, new in LINK_MAP.items():
             body = body.replace(old, new)
