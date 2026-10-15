@@ -1,7 +1,11 @@
 # Canonical Sources
 
 Status: canonical
-Last reviewed: 2026-08-17
+Last reviewed: 2026-10-15
+
+Current commerce authority: `docs/RETIRED_PLATFORMS_2026-10-15.md` and `docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`. Shopify, Gumroad and Kit are retired for owned operations. Account deactivation/billing cancellation must be verified separately.
+
+The Command repository remains the active Yawdie orchestration source; its former MAIM site copy is historical. MAIM site changes still belong in this repository.
 
 Read this before deploying anything or creating another front-end. It
 exists because MAIM briefly had the same website living in two repositories
@@ -95,9 +99,8 @@ that document for the pattern.
 | System | Purpose | Status |
 | --- | --- | --- |
 | Supabase `fsrskmlsxqtxduhdfhnd` | First-party registration capture | Table defined in `supabase/migrations/`, needs applying |
-| Kit | Email delivery and sequences | Live |
-| Gumroad | $27 Pillar Scroll | Live |
+| Resend | Selected email delivery and sequences | Integration/delivery verification required |
+| Stripe | Selected payment processing and product entitlements | End-to-end verification required |
 | Airtable | Asset and status tracking | Not yet wired to the site |
 
-The registration form writes to Supabase first, then hands off to Kit. The
-Supabase write is fire-and-forget and must never block the Kit submit.
+Legacy implementation used a Supabase write followed by Kit submission. This is historical behavior, not the current target architecture. Remove Kit submission dependencies through tested source changes; verify owned intake/operational records and Resend delivery before claiming migration complete.
