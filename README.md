@@ -128,3 +128,7 @@ Likkle by likkle, we build the future.
 ## Start Here — Current Context for Every Agent (2026-10-15)
 
 **Required before MAIM daily briefs, publishing, automation, or strategic builds:** read [MAIM Ecosystem Context Sync & Daily Operations Handover](docs/handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md). This dated handover records the newer lifelong-learning direction, HAMAL agency model, YouTube/voice/visual standards, Substack automation pilot, REA approval state, Lucky Library expansion, and daily change-reconciliation procedure. Check live systems and open PRs before treating any proposal as deployed. The canonical philosophy and YouTube domain handover currently reside on draft PR #33, not main.
+
+## Retired providers — 15 October 2026
+
+Shopify, Gumroad and Kit are RETIRED / DO NOT USE for owned MAIM/AMA/HAMAL operations. Read [the retirement directive](docs/RETIRED_PLATFORMS_2026-10-15.md) before commerce, email or platform recommendations. Selected stack: existing owned Vercel site, Stripe, Resend and Airtable. Account closure, billing cancellation, source migration and verified deployed behavior are separate tasks; do not report them complete from documentation alone.
