@@ -1,5 +1,5 @@
 # MAIM ECOSYSTEM — CANONICAL CONTEXT SYNC & DAILY OPERATIONS HANDOVER
-**Version:** 1.1 | **Date:** 2026-10-15 | **Status:** Cross-agent handover and operating directive
+**Version:** 1.2 | **Date:** 2026-10-15 | **Status:** Cross-agent handover and operating directive
 **Repository:** `MajorDream444/Major-AI-OS`
 **Audience:** MAIM Daily Brief, ChatGPT project chats, Codex, Claude Code, Claude Cowork, HAMAL Mob, AMA Solutions operators, media/publishing agents, researchers and future collaborators.
 **Purpose:** Prevent context drift across conversations, repositories, tools and daily procedures. This document records founder-directed strategic decisions and operational state, not proof that every proposed integration is already live.
@@ -8,7 +8,7 @@
 
 
 ## Current founder decisions — reconciled 15 October 2026
-- Commerce authority: `docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`. Owned MAIM website/shop/library, Stripe payments, Resend delivery. Business Pressure Test leads the funnel. No Gumroad, Kit or Shopify launch dependency. References below to old providers describe history only.
+- Commerce authority: `docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md` and [Retired Platforms directive](../RETIRED_PLATFORMS_2026-10-15.md). Shopify, Gumroad and Kit/ConvertKit are **RETIRED / DO NOT USE** for owned MAIM/AMA/HAMAL operations. Selected stack: the existing owned Vercel website/shop/library, Stripe payments, Resend email and Airtable operational records. Business Pressure Test leads the funnel. Preserve reusable assets and historical records; do not reactivate old-provider skills or integrations. Provider accounts and billing were not deactivated by these documentation changes.
 - Orchestration authority: ChatGPT/Yawdie (Yawds/Yadi/Yads) coordinates the 12-seat HAMAL nucleus. GitHub holds operating instructions; Codex, Claude Code and CoWork perform bounded delegated work. Read `docs/YAWDIE_OPERATING_CHARTER_2026-10-15.md` and `docs/YAWDIE_RUNTIME_HANDOFF_2026-10-15.md` in `MajorDream444/Major-OS-AMA-OS--Command` for current routing, economics and runtime limits. These documents do not prove deployed autonomous workers.
 - Use deterministic processing and local models where suitable; subscription tools and paid APIs are distinct execution/billing paths. No silent paid fallback. API keys or installed CLIs do not prove usage or a running service.
 - Rabbit engagements target 21 days; most projects should fit within 12 weeks. Preserve nested rabbit/elephant/whale segmentation from the charter; do not invent elephant/whale prices.
@@ -23,7 +23,7 @@
 3. **HAMAL is the lead mob** (H = Hanzo; AMA = Art Mob AGInts; L = Lux), spelled **HAMAL**, never HAMEL. AMA Solutions is the commercial agency/contracting front; HAMAL Mob is the specialist delivery nucleus.
 4. **The founder is the initial blueprint, not the template for cloning learners.** Capture lived experiences, voice, worldview, values and decision heuristics; turn them into source-attributed lessons, tests and quests; evaluate outcomes and evolve versions.
 5. **YouTube and Substack are knowledge capture, publishing and learning interfaces.** Repurpose authorized recordings and transcripts into newsletters, video, short-form, lessons and exercises; keep each brand's voice distinct.
-6. **REA (Reverse Engineer Anything) is proposed for investigation and interoperability research, not installed or verified on the founder's Mac.** Install only after review and explicit approval. It is not itself an automation orchestrator.
+6. **REA (Reverse Engineer Anything) is proposed for investigation and interoperability research, installation and current agent connectivity not verified on the founder's Mac.** Install only after review and explicit approval. It is not itself an automation orchestrator.
 7. **The MAIM Lucky Library is a separate, connected educational repository** with a 27-volume canon, Major's Reading Room, Living World Research, and personalized learning paths.
 8. **Daily agents must reconcile decisions and progress across repos, approved files, meetings and current deployments** instead of summarizing only the latest chat.
 
@@ -70,20 +70,20 @@ The founder wants a dependable system to speak naturally, capture his historical
 2. **MAIM:** accessible lessons, ABCs, learning quests, parents/teachers/community, personal capability.
 3. **AMA / HAMAL:** agency engineering, automation case studies, applied business outcomes and original systems.
 **Proposed pipeline:** capture (audio/video/transcript) → source manifest and consent → transcription → thesis/claim extraction → source checks and counterpoints → editorial adaptation by brand → human review → schedule using authorized integration → verify published state → measure response and learning → archive and iterate.
-**Cadence:** prior planning discussed founder Substack twice weekly as a 90-day experiment. Not proof that scheduling or automatic posting is enabled. Avoid inventing a native Substack API or claiming unattended publication is authorized. First pilot should create reviewable drafts before any automated publishing.
+**Cadence:** the earlier twice-weekly Substack pilot is historical. The founder's current target is daily production, including a Substack article, vertical video and YouTube/community presence, with at least 12 placements across channels overall. This is not 12 placements per channel and is not proof of a functioning publisher. Reuse authorized source material, adapt each placement, and track draft/scheduled/published states separately with receipts. Avoid inventing a native Substack API or treating a scheduled brief as a publishing worker. Produce reviewable drafts and verify authorized publication paths.
 **Skills to formalize:** Founder Story-to-Curriculum; Voice Identity Quality Gate; YouTube SEO & Publishing QA; Transcript-to-Multi-Channel Editorial; Editorial Calendar & Approval; Source/Claims Ledger; Repurposing & Remotion; Feedback-to-Doctrine Versioning.
 
 ## 5. REA and reverse engineering — controlled proposal
 **Source:** https://github.com/morluto/rea ; npm package `rea-agents`. Repo version inspected 6.4.0 on 2026-10-13; verify current npm release before installation.
 **Value:** inspect authorized JS/Electron/web/native systems and document evidence for original interoperable implementations. **REA is investigative tooling, not a production workflow engine.**
-**Current state:** Setup plan presented; **no verified installation on founder Mac, no verified Codex MCP connection**.
+**Current state:** Setup was previously discussed and approval is reported in prior conversation context; **installation and Codex MCP connectivity have not been verified in this session**. Retrieve the accepted scope and any installation evidence before repeating setup. Lack of verification is not proof of absence.
 **Initial scope:** Mac + Codex only; no Hopper or other optional native analysis engines by default; review plan and changes before approval.
 **Read-only preview:**
 ```bash
 node --version && npm --version
 npx rea-agents@latest setup --client codex --dry-run --json
 ```
-**After separate approval:** `npx rea-agents@latest setup --client codex`; restart agent; verify with `npx rea-agents@latest doctor --client codex --json` and `npx rea-agents@latest doctor --skill --json`; confirm tools actually callable in agent.
+**Within the previously approved setup scope, after checking for an existing installation:** `npx rea-agents@latest setup --client codex`; restart agent; verify with `npx rea-agents@latest doctor --client codex --json` and `npx rea-agents@latest doctor --skill --json`; confirm tools actually callable in agent.
 **Safeguards:** do not copy proprietary code without rights, bypass access controls or harvest protected data. Analyze authorized targets and public interfaces. Archive architecture observations, evidence, limitations, tests and independent implementation notes.
 
 ## 6. Lucky Library — newly relevant MAIM educational expansion
@@ -119,7 +119,7 @@ npx rea-agents@latest setup --client codex --dry-run --json
 
 ## 9. Required MAIM Daily Brief procedure (start of every run)
 **Do not generate a “daily update” from chat memory alone.**
-1. **Load:** the current launch directive and Current founder decisions above; this context sync; the Yawdie charter/runtime handoff in the Command repository; main README; current canonical philosophy branch/main status; latest relevant handovers and active skills; daily-brief specification.
+1. **Load:** the current launch directive, retired-platform directive and Current founder decisions above; this context sync; the Yawdie charter/runtime handoff in the Command repository; main README; current canonical philosophy branch/main status; latest relevant handovers and active skills; daily-brief specification.
 2. **Discover deltas:** compare commits/PRs across MAIM, Lucky Library, AMA and other scoped repos since last run; check actual deployments; read recent approved meeting/action notes and connected operational records where available.
 3. **Classify:** separate founder decisions, new proposals, built-but-not-merged work, verified live changes, risks, blockers and external research. Tag source, date and confidence.
 4. **Reconcile:** update claim/decision ledger; flag contradictions (e.g., branch vs main; concept vs published; proposed vs live); avoid repeating stale tasks as new.
@@ -147,26 +147,67 @@ Coverage: repos / deployments / media / agency / library / meetings [checked vs 
 ## 10. Workstream register — immediate follow-through
 | Priority | Workstream | State | Next evidence-based action |
 |---|---|---|---|
-| P0 | Context drift in daily MAIM updates | Handover issued | Wire daily agent prompt to read this file and diff sources |
+| P0 | Context drift in daily MAIM updates | Brief prompt updated; automation remains paused | Free one scheduled-task slot, enable the saved 08:00/19:00 Asia/Makassar schedule, verify a successful run |
 | P0 | Canonical philosophy / campus PR #33 | Draft, not main | QA, founder approval, merge only after review |
 | P1 | YouTube thumbnail Option 2 | Direction selected | Final faithful export, founder sign-off, verify upload |
 | P1 | Founder voice | Authentic recording exists | Clean audio and test with consent; reject robotic models |
 | P1 | Substack editorial automation | Planned | Build draft-first pilot with schedule and approval gate |
 | P1 | HAMAL agency | Strategy being refined | Validate 5 core offers, ideal customers, pricing and delivery |
-| P1 | REA | Not installed/verified | Mac Codex dry-run plan; obtain approval |
+| P1 | REA | Installation/connectivity unverified; prior approval reported | Recover accepted setup scope and verify installation before repeating it |
 | P1 | Lucky Library | Architecture reported in repo | Book A founder interview; rights/safety pilot |
 | P2 | Newsletter split MAIM / AMA | Proposed | Editorial positioning and subscriber consent/segmentation |
 | P0 | Owned MAIM store / Stripe / Resend | Founder-selected, mixed implementation readiness | Verify checkout, durable order, delivery and paid access before activation |
+| P0 | Shopify / Gumroad / Kit retirement | Directive committed; accounts and billing not deactivated | Export assets and consent/order records; replace source links, deploy, verify and deactivate provider services |
+| P1 | Shared operating context / three Drives | Three source documents mirrored to each account | Extend the tracked mirror deliberately; verify hashes and conflicts; continuous sync is not installed |
+| P1 | Local administration / Sheetal handoff | Initial inventory and partial upload only | Hydrate placeholders, analyze/tag and verify uploads; remove local originals only after preservation and permitted write access |
 
 ## 11. Agent startup instruction — copy into system/workflow
-> Before generating a MAIM brief or modifying MAIM content, load `docs/handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md` from `MajorDream444/Major-AI-OS`. Then read current `README.md`, check `main` and open PRs for canonical updates, load the relevant domain handover and skills, and verify actual live status. Distinguish PROPOSED from VERIFIED-LIVE. Reconcile deltas since the previous run and cite evidence. Do not assume a chat message is automatically persisted or that an unmerged PR is deployed. Preserve founder decisions, voice, provenance, consent, and learner autonomy. Route changes into the appropriate repo through reviewed commits/PRs.
+> Before generating a MAIM brief or modifying MAIM content, load `docs/handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md` from `MajorDream444/Major-AI-OS`. Then read `docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`, `docs/RETIRED_PLATFORMS_2026-10-15.md`, the Yawdie charter/runtime handoff in the Command repository and current `README.md`, check `main` and open PRs for canonical updates, load the relevant domain handover and skills, and verify actual live status. Distinguish PROPOSED from VERIFIED-LIVE. Reconcile deltas since the previous run and cite evidence. Do not assume a chat message is automatically persisted or that an unmerged PR is deployed. Preserve founder decisions, voice, provenance, consent, and learner autonomy. Route changes into the appropriate repo through reviewed commits/PRs.
 
 ## 12. Distribution and governance
 - **Canonical discovery path on main:** this file. Agents should link here first.
-- **Proposed follow-up:** add an `AGENTS.md` or agent bootstrap pointer in each relevant repo, update the daily automation prompt to read this file, and implement a context-diff/decision-ledger job. These actions are **not completed by creating this document**.
+- **Completed follow-through:** the existing MAIM Daily Brief prompt was updated to load current canonical documents and check evidence; an 08:00/19:00 Asia/Makassar schedule was saved. Activation failed because the plan already has five active scheduled tasks, so the brief remains paused. A saved prompt is not a running automation.
+- **Remaining follow-through:** add or reconcile bootstrap pointers in each relevant repo and implement a context-diff/decision-ledger job. Updating this handover does not synchronize all chats, workers or Drive copies automatically.
 - **Branch hygiene:** do not merge PR #33 implicitly; the existing draft documents remain on their branch.
 - **Security:** no API keys, bank credentials, private member health data or raw voice files in public repositories. Keep raw media in controlled storage; commit only safe manifests and references.
 - **Review cadence:** daily operational deltas; weekly cross-agent reconciliation; canon changes by deliberate founder review.
+
+
+## 13. Verified execution checkpoint — 15 October 2026, Asia/Makassar
+
+### Commercial retirement
+The MAIM and Command repositories now contain `docs/RETIRED_PLATFORMS_2026-10-15.md`. MAIM daily sync, launch checklist, canonical source map and README were updated. Command commerce workflow/handoff/orchestrator documentation was updated to route retired-provider requests into migration review. These are documentation changes; runtime enforcement and full portfolio coverage remain unverified.
+
+Known remaining source dependencies include the Pillar Scroll Gumroad checkout link and a Kit guide link in MAIM site pages. They require source replacement, deployment and production checks. Account exports, automation disablement, plan cancellation and account closure remain pending. Do not delete subscriber consent/suppression records or earlier purchasers' access. No direct account-management connector for these providers was available in this session.
+
+### Yawdie, workers and costs
+Yawdie is the daily chief-of-staff interface and coordinator, not proof that 12 autonomous workers are running. The Command repository contains an additive local Python/SQLite content worker with persistence, deduplication, exclusive claims, retries and a local Ollama adapter; its ten tests passed during implementation. Persistent host activation, publishers and Codex/Claude Code/CoWork dispatch were not established. The existing dashboard remains separate from that runtime.
+
+Ollama, Claude Code and Codex executables were found. Ollama's local endpoint connection was denied by this execution environment; that does not establish that Ollama is stopped. Ollama alone does not grant access to Claude, subscription entitlements or every configured API. Audit invocation logs and receipts before reporting tool/model usage.
+
+### Shared files and local administration
+All three Drive connections were verified: Art Mob AGI, Major NFTs and Hanzo. The initial shared instruction mirror contains three existing public operating documents copied to each account: nine text-verified copies, with 14 metadata tags per document in account manifests. See [Command Drive alignment index](https://github.com/MajorDream444/Major-OS-AMA-OS--Command/tree/main/docs/drive-alignment). This covers the operating charter, runtime handoff and runtime README; it is not a complete archive or continuous synchronization service. This MAIM handover is not automatically part of that mirrored set.
+
+The local audit observed approximately 31.7 GB free on the internal disk and 2.14 TB free on the APFS volume at audit time. Macintosh HD resolves to the same internal disk, not an additional disk. Downloads occupied about 44.5 GB; caches about 31.3 GB are review candidates, not a certified reclaimable total. Five large duplicate groups totaling about 946 MB were confirmed by content hashes. No source originals were deleted or moved. Local source folders and APFS were not writable in this session.
+
+The founder wants daily Downloads analysis, meaningful tagging and routing so the intake folder is emptied through filing. Retain uncertain items for review; verify preservation before removing originals. The earlier cleaner design and maintenance audit were located, but no daily cleanup execution was activated. Do not invent an unattended service from a plan or a read-only audit.
+
+### Separate client migration — Sheetal Kandola
+The owner directs Sheetal/Sri/Shri Shakti Shala material to the Major NFTs Shakti Legacy Vault intake and ultimately a complete client handoff map in [shakti-system-os](https://github.com/MajorDream444/shakti-system-os). That repository was verified public; raw private client records and media remain in controlled Drive storage. The project handoff map is `docs/handoff/ASSET_REGISTER_AND_DRIVE_HANDOFF.md`. Keep private file paths, identifiers and manifests out of MAIM's public repository.
+
+Initial path-based inventory: 3,451 files, approximately 6.91 GB. Of these, 1,893 were resident and source-hashed; 1,558 were cloud-only placeholders. An initial 99-file ZIP (101.6 MB) was uploaded; remote size and destination were verified, remote checksum verification remains pending. Three additional Instagram scrape formats (JSON, CSV, HTML) were uploaded individually and their remote sizes/parents checked. Their content includes Sheetal/Shakti identifiers and another source account; retain mixed-source provenance. Sixteen contextual tags per export were saved in a private research register.
+
+Expanded discovery includes Instagram/Apify/scraping datasets, tantra and relevant Indian-tradition research, plus a Shakti Tantra audio/transcript pair. A broader topical scan surfaced 346 topic-only candidates for review; subject matter alone does not establish ownership or permission to assign them to Sheetal. Tags so far are manifest metadata, not native Drive labels, and do not certify complete content analysis.
+
+The migration is incomplete. Cloud-only hydration, remaining original uploads, full analysis, final library routing, checksum verification and local removal remain pending. Connector transfer limit: 100 MiB per file; direct browser upload was unavailable due to a browser policy-loading error. Original files were preserved. No client handoff/access transfer was completed.
+
+## 14. Revision ledger
+| Version | Date | Change |
+| --- | --- | --- |
+| 1.0 | 2026-10-15 | Initial cross-agent context and daily reconciliation procedure |
+| 1.1 | 2026-10-15 | Owned Stripe/Resend launch priority; Yawdie authority and current production targets |
+| 1.2 | 2026-10-15 | Explicit retired-platform directive; corrected daily automation status/cadence; worker, Drive mirror and client migration evidence and limits |
+
 
 ---
 **Handover issued 2026-10-15.** This is a durable snapshot and procedure, not a claim that every connected app has been audited today. Maintain an evidence-based change log and update this document when the founder approves new strategic direction.
