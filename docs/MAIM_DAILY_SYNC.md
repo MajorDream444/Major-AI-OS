@@ -1,50 +1,20 @@
 # MAIM Daily Sync
 
-## Current Goal
+Updated: 15 October 2026. Read `MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`, `RETIRED_PLATFORMS_2026-10-15.md` and `handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md` before every run.
 
-Commission one complete V1 revenue loop:
+## Current goal
+Commission the owned MAIM revenue journey: visitor -> welcome / Business Pressure Test or shop -> first-party intake -> Stripe checkout for a ready product -> durable order and entitlement -> Resend delivery -> correct protected asset -> MAIM return/support.
 
-```txt
-Visitor
--> MAIM
--> Welcome / trust
--> Kit registration
--> Pillars
--> $27 Pillar Scroll
--> Gumroad
--> MAIM Return
--> Next MAIM action
-```
+## Platform decision
+Shopify, Gumroad and Kit are RETIRED / DO NOT USE for owned operations. Their reported active accounts and legacy links require migration and provider-level deactivation; no account closure, billing cancellation or live-site change is implied by this document. The old Kit/Gumroad commissioning instructions are superseded.
 
-## Current Status
+## Status
+MAIM website source and canonical domain https://www.majoraimindset.com exist. Current deployment commit, checkout, registration, webhook processing, email delivery, customer access and revenue must each be verified from authoritative evidence. Do not describe a configured domain, catalog product or test payment as complete live fulfillment.
 
-- Site status: live
-- Canonical domain: `https://www.majoraimindset.com`
-- Apex domain: redirects to `www`
-- Kit: live
-- $27 Gumroad product: live
-- Welcome film: good enough for V1
+## Technical ownership and acceptance
+Yawdie coordinates; Codex/Claude Code/CoWork perform bounded work with current handoffs. Prioritize reconciling branches, implementing selected integrations, testing sandbox flows, merging verified changes and checking the deployed commit. No new platform purchase is required. Keep client Shakti assets and merchant links separate.
 
-## Technical Ownership
+Completion requires visitor-to-payment-to-delivery verification, failure/retry checks, correct product access and support routing. Record exact commit, mode, product and delivery evidence without secrets/customer data in public GitHub. Real purchases require specific authorization.
 
-- Codex owns technical commissioning, build QA, route QA, mobile QA, console QA,
-  PR notes, and production-readiness reporting.
-- Major owns live Kit submission approval, commercial purchase authorization,
-  Gumroad dashboard confirmation, product delivery confirmation, return-flow
-  confirmation, and public launch approval.
-
-## Active Guardrails
-
-- Do not redesign.
-- Do not add features.
-- Do not build Studio.
-- Do not build the operator console.
-- Do not build archetypes or a diagnostic engine.
-- Do not add custom checkout.
-- Do not expand CRM, ManyChat, Airtable, or Buzz automation in V1.
-
-## Deferred Next
-
-- Buzz context mapping can begin after the V1 revenue loop is green.
-- Premium welcome-film production can begin after launch confirmation.
-- Studio, operator console, and deeper automation remain future gates.
+## Reporting
+Distinguish designed, implemented, tested, deployed, customer-usable and revenue-verified work. List checked versus unchecked sources, top three actions, owners and blockers. Twelve daily content placements is a target; published counts require receipts. Do not fabricate runtime or publication activity.
