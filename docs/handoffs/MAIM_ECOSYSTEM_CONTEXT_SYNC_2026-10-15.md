@@ -1,10 +1,21 @@
 # MAIM ECOSYSTEM — CANONICAL CONTEXT SYNC & DAILY OPERATIONS HANDOVER
-**Version:** 1.0 | **Date:** 2026-10-15 | **Status:** Cross-agent handover and operating directive
+**Version:** 1.1 | **Date:** 2026-10-15 | **Status:** Cross-agent handover and operating directive
 **Repository:** `MajorDream444/Major-AI-OS`
 **Audience:** MAIM Daily Brief, ChatGPT project chats, Codex, Claude Code, Claude Cowork, HAMAL Mob, AMA Solutions operators, media/publishing agents, researchers and future collaborators.
 **Purpose:** Prevent context drift across conversations, repositories, tools and daily procedures. This document records founder-directed strategic decisions and operational state, not proof that every proposed integration is already live.
 
 > **Core instruction:** Read this file at the beginning of every MAIM daily briefing or material build. Read the referenced domain-specific handovers and live system state before making decisions. Never mistake a proposed plan, a draft PR, a generated concept, or a chat discussion for a deployed and verified capability.
+
+
+## Current founder decisions — reconciled 15 October 2026
+- Commerce authority: `docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`. Owned MAIM website/shop/library, Stripe payments, Resend delivery. Business Pressure Test leads the funnel. No Gumroad, Kit or Shopify launch dependency. References below to old providers describe history only.
+- Orchestration authority: ChatGPT/Yawdie (Yawds/Yadi/Yads) coordinates the 12-seat HAMAL nucleus. GitHub holds operating instructions; Codex, Claude Code and CoWork perform bounded delegated work. Read `docs/YAWDIE_OPERATING_CHARTER_2026-10-15.md` and `docs/YAWDIE_RUNTIME_HANDOFF_2026-10-15.md` in `MajorDream444/Major-OS-AMA-OS--Command` for current routing, economics and runtime limits. These documents do not prove deployed autonomous workers.
+- Use deterministic processing and local models where suitable; subscription tools and paid APIs are distinct execution/billing paths. No silent paid fallback. API keys or installed CLIs do not prove usage or a running service.
+- Rabbit engagements target 21 days; most projects should fit within 12 weeks. Preserve nested rabbit/elephant/whale segmentation from the charter; do not invent elephant/whale prices.
+- Founder now targets daily multichannel content with at least 12 placements. This supersedes the older twice-weekly target as the desired cadence; scheduled and published output still requires receipts. Each placement needs its own channel/URL/status. Source recordings remain preserved.
+- Asset organization requires content understanding and at least 12 evidence-supported tags, source/version/checksum relationships and a private asset registry. Instructions can be mirrored to the three Drives under the Command repository's `docs/drive-alignment/`; the initial mirror covers three operating docs, not all content or continuous sync.
+- Sheetal/Shakti client material belongs in its separate client vault and handoff repository. Do not ingest private client data into MAIM or public GitHub. Local migration and the daily Downloads cleaner remain incomplete; filesystem access, cloud placeholders and transfer limits are tracked separately.
+- Founder-approved direction is sufficient to reconcile these planning documents. Preserve separate release/testing gates; do not repeatedly request approval for the same already-authorized direction.
 
 ## 0. Executive update: what changed
 1. **MAIM is a lifelong-learning and development ecosystem**, not merely a 13-week AI course, funnel, newsletter or shop. It connects timeless wisdom, emerging technology, generational learning, practical capability, ethical character and opportunity.
@@ -92,7 +103,7 @@ npx rea-agents@latest setup --client codex --dry-run --json
 **Draft-branch YouTube handover:** `docs/handoffs/MAIM_YOUTUBE_FOUNDER_MEDIA_HANDOVER_2026-10-10.md`.
 **Draft-branch visual skill:** `skills/shared/maim-founder-visual-identity-and-thumbnails.md`.
 **Other relevant repos:** `MajorDream444/MAIM-LUCKY-LIBRARY`, `MajorDream444/FOUNDRY-SPORTS`, `MajorDream444/optionality`, AMA website repository `amasolagi-site` (verify exact current repo name), and HAMAL/agency documents. Do not treat adjacent initiatives as automatically in scope of MAIM Daily.
-**Commerce:** Legacy Gumroad/Kit flow and newer Stripe/Airtable/Resend integrations are at different readiness stages. Do not turn on checkout, promise delivery or send transactional emails until entitlements, webhooks and end-to-end delivery are verified. Recheck current state from source systems.
+**Commerce:** Stripe and Resend are the selected owned-store launch stack. Legacy Gumroad/Kit instructions are SUPERSEDED; they are not a competing launch option. Existing implementations remain at different readiness stages. Do not turn on checkout, promise delivery or send transactional emails until entitlements, webhooks and end-to-end delivery are verified. Recheck current state from source systems.
 
 ## 8. The canonical truth layer — precedence and update policy
 **Truth priority (use with explicit timestamps):**
@@ -108,7 +119,7 @@ npx rea-agents@latest setup --client codex --dry-run --json
 
 ## 9. Required MAIM Daily Brief procedure (start of every run)
 **Do not generate a “daily update” from chat memory alone.**
-1. **Load:** this context sync; main README; current canonical philosophy branch/main status; latest relevant handovers and active skills; daily-brief specification.
+1. **Load:** the current launch directive and Current founder decisions above; this context sync; the Yawdie charter/runtime handoff in the Command repository; main README; current canonical philosophy branch/main status; latest relevant handovers and active skills; daily-brief specification.
 2. **Discover deltas:** compare commits/PRs across MAIM, Lucky Library, AMA and other scoped repos since last run; check actual deployments; read recent approved meeting/action notes and connected operational records where available.
 3. **Classify:** separate founder decisions, new proposals, built-but-not-merged work, verified live changes, risks, blockers and external research. Tag source, date and confidence.
 4. **Reconcile:** update claim/decision ledger; flag contradictions (e.g., branch vs main; concept vs published; proposed vs live); avoid repeating stale tasks as new.
@@ -145,7 +156,7 @@ Coverage: repos / deployments / media / agency / library / meetings [checked vs 
 | P1 | REA | Not installed/verified | Mac Codex dry-run plan; obtain approval |
 | P1 | Lucky Library | Architecture reported in repo | Book A founder interview; rights/safety pilot |
 | P2 | Newsletter split MAIM / AMA | Proposed | Editorial positioning and subscriber consent/segmentation |
-| P2 | Stripe/Airtable/Resend | Mixed readiness | Validate purchase-to-fulfillment before activation |
+| P0 | Owned MAIM store / Stripe / Resend | Founder-selected, mixed implementation readiness | Verify checkout, durable order, delivery and paid access before activation |
 
 ## 11. Agent startup instruction — copy into system/workflow
 > Before generating a MAIM brief or modifying MAIM content, load `docs/handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md` from `MajorDream444/Major-AI-OS`. Then read current `README.md`, check `main` and open PRs for canonical updates, load the relevant domain handover and skills, and verify actual live status. Distinguish PROPOSED from VERIFIED-LIVE. Reconcile deltas since the previous run and cite evidence. Do not assume a chat message is automatically persisted or that an unmerged PR is deployed. Preserve founder decisions, voice, provenance, consent, and learner autonomy. Route changes into the appropriate repo through reviewed commits/PRs.
