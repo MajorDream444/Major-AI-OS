@@ -1,70 +1,20 @@
-# MAIM V1 Launch Checklist
+# MAIM owned-store launch checklist
 
-This checklist covers the live-service gates for the MAIM V1 Public Sanctuary.
-It separates technical QA from Major's commercial approval. Do not store API
-keys, secrets, purchase credentials, private tokens, or dashboard screenshots in
-this repository.
+Updated 15 October 2026. Authority: docs/MAIM_LAUNCH_DIRECTIVE_2026-10-15.md and docs/RETIRED_PLATFORMS_2026-10-15.md. Old Kit/Gumroad gates are superseded.
 
-## V1 Revenue Loop
+- [ ] Inventory legacy forms, checkout links, redirects, webhooks, sequences and billing in Shopify/Gumroad/Kit. Export owned assets and order/subscriber/consent/suppression history before closure.
+- [ ] Replace legacy site entry points with working owned routes; never invent a successful signup or checkout state.
+- [ ] Preserve canonical www.majoraimindset.com and apex redirect.
+- [ ] Verify first-party intake and operational records with proper error handling.
+- [ ] Use Stripe sandbox credentials consistently; verify webhook signatures, durable orders, idempotency and correct entitlements.
+- [ ] Verify Resend delivery, bounce/error handling, retries and usable purchased-file access. Provider acceptance and inbox delivery are distinct.
+- [ ] Keep Blueprint booking fulfillment separate from book/digital-asset delivery.
+- [ ] Test success, failure, duplicate/retried webhook and unauthorized download paths.
+- [ ] Build with python3 maim/build.py; verify routes, mobile rendering, console, canonical metadata and redirects.
+- [ ] Verify public pages and generated output have no active Shopify, Gumroad or Kit dependencies.
+- [ ] Deploy the tested commit and smoke-test exact production routes; record the commit and deployment evidence.
+- [ ] Configure live credentials/endpoints only for delivery-ready products; leave client products and links untouched.
+- [ ] Deactivate retired-provider forms, campaigns and checkouts; cancel plans and record receipts after migration checks. Account deletion remains separate.
+- [ ] Verify support, returns/refunds and continuing access for earlier customers before account closure.
 
-```txt
-Visitor
--> MAIM
--> Welcome / trust
--> Kit registration
--> Pillars
--> $27 Pillar Scroll
--> Gumroad
--> MAIM Return
--> Next MAIM action
-```
-
-## Canonical URLs
-
-- Production canonical domain: `https://www.majoraimindset.com`
-- Apex behavior: `https://majoraimindset.com` redirects to `www`
-- Pillars route: `https://www.majoraimindset.com/pillars`
-- Return route: `https://www.majoraimindset.com/return`
-
-## Live Destinations
-
-- Kit registration destination:
-  `https://maim-the-10-pillars.kit.com/products/5-ai-moves`
-- V1 paid product:
-  `https://majordream.gumroad.com/l/hsyotb`
-- Welcome film:
-  `https://youtu.be/OZ10QdrUxl8`
-
-## Technical QA
-
-- Build passes with `python3 maim/build.py`.
-- No source or built route links to broken `/quiz`.
-- `/`, `/pillars`, and `/return` load cleanly.
-- `/10-pillars` redirects to `/pillars`.
-- `/thank-you` redirects to `/return`.
-- Mobile rendering passes at `375`, `390`, and `414` widths.
-- Browser console is clean on `/`, `/pillars`, and `/return`.
-- Generated canonical, Open Graph, sitemap, and robots URLs use `www`.
-
-## Major Approval Gates
-
-- Run one Kit registration test.
-- Confirm the subscriber/member appears in Kit.
-- Authorize one $27 purchase test.
-- Confirm purchase appears in Gumroad.
-- Confirm product delivery works.
-- Confirm Gumroad returns to MAIM.
-- Approve public launch status.
-
-## Deferred From V1
-
-- Studio
-- Operator console
-- Archetypes
-- Diagnostic engine
-- Custom checkout
-- CRM
-- ManyChat
-- Airtable expansion
-- Premium welcome film
-- Buzz automation
+No checkbox is complete merely because this checklist exists. Real purchase tests require specific authorization. Keep secrets, private records and dashboard screenshots out of this public repository.
