@@ -51,6 +51,22 @@ test('integration identifier carries an eight-letter random suffix', () => {
   assert.match(integrationIdentifier(), /^maim_owned_[a-z]{8}$/);
 });
 
+test('fulfillment refuses to send confirmation when booking URL is invalid', async () => {
+  process.env.STRIPE_MODE = 'test'; process.env.STRIPE_BLUEPRINT_PRICE_ID = 'price_test'; process.env.AIRTABLE_ORDERS_TABLE_ID = 'orders'; process.env.BLUEPRINT_BOOKING_URL = 'not-a-booking-url';
+  let writes = 0; let emails = 0;
+  const deps: FulfillmentDeps = {
+    findOne: async () => undefined,
+    upsert: async () => { writes += 1; return { id: 'rec', fields: {} }; },
+    updateRecord: async () => { writes += 1; return { id: 'rec', fields: {} }; },
+    syncContact: async () => { writes += 1; return 'rec_contact'; },
+    sendEmail: async () => { emails += 1; return 'accepted'; },
+    now: () => '2026-10-16T00:00:00.000Z',
+  };
+  await assert.rejects(() => fulfillBlueprint(session(), 'evt_invalid_booking', deps), /booking URL/i);
+  assert.equal(writes, 0);
+  assert.equal(emails, 0);
+});
+
 test('duplicate paid events upsert one order and send one idempotent email', async () => {
   process.env.STRIPE_MODE = 'test'; process.env.STRIPE_BLUEPRINT_PRICE_ID = 'price_test'; process.env.AIRTABLE_ORDERS_TABLE_ID = 'orders'; process.env.BLUEPRINT_BOOKING_URL = 'https://calendar.google.com/example';
   const records = new Map<string, AirtableRecord>(); let emails = 0;

@@ -44,6 +44,10 @@
     {
       "source": "/checkout/return",
       "destination": "/checkout/return.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
     }
   ],
   "redirects": [

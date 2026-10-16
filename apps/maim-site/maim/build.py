@@ -53,6 +53,7 @@ PAGES = {
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
     "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
     "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
+    "terms.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
 }
 
 # old relative links -> clean routes
@@ -93,6 +94,7 @@ def document(title, description, route, body, favicon_href):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+{"<meta name=\"robots\" content=\"noindex,nofollow\">" if route == "/terms" else ""}
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#111111">
 <link rel="icon" href="{favicon_href}">

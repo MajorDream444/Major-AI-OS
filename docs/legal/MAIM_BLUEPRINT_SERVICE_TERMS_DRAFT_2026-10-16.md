@@ -7,6 +7,18 @@
 
 These terms apply to a one-time purchase of the **MAIM Client System Blueprint** service (the “Service”). By completing checkout, the purchaser (“you”) agrees to these terms.
 
+## Owner decisions still open
+
+| Decision | Proposed review position | Status |
+|---|---|---|
+| Provider identity | AMA Solutions Corporation, trading as Major AI Mindset | Confirm legal display name |
+| Scheduling | Owned HTTPS booking page; 24-hour rescheduling notice | URL and rule required |
+| Delivery | Electronic delivery within five business days after the session and required inputs | Approve timeframe |
+| Refunds | Requests before scheduling; reasonable work deduction where lawful; generally non-refundable after delivery | Owner/legal approval required |
+| Privacy | Approved MAIM privacy notice; disclose Stripe, Airtable, and Resend processing | Privacy URL required |
+| Legal venue | Governing law, venue, business address, and mandatory consumer disclosures | Legal decision required |
+| Publication | Final terms at an owned HTTPS URL with an immutable version | Final URL/version required |
+
 ## 1. What you receive
 
 The Service includes:
@@ -78,17 +90,4 @@ The version accepted at checkout governs that purchase. Material changes apply o
 
 Questions, scheduling changes, or support requests: `contact@majoraimindset.com`. Do not email card numbers or account credentials.
 
----
-
-## Approval checklist
-
-- [ ] Legal entity/display name confirmed
-- [ ] Real scheduling URL approved
-- [ ] Rescheduling/no-show policy approved
-- [ ] Delivery timeframe approved
-- [ ] Cancellation/refund policy approved
-- [ ] Privacy notice URL approved
-- [ ] Governing law, venue, address, and mandatory disclosures approved
-- [ ] Final public URL created
-- [ ] Immutable agreement version assigned
-- [ ] Owner sets `CHECKOUT_TERMS_APPROVED=true` for Preview only after the published page matches the approved version
+`CHECKOUT_TERMS_APPROVED` must remain `false` until every row in the owner-decision table is resolved and the published page matches the approved immutable version.

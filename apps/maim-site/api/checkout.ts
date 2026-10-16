@@ -40,7 +40,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
       consent_collection: { terms_of_service: 'required' },
       success_url: `${origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/shop?checkout=cancelled`,
-      custom_text: { submit: { message: 'Includes one personal review and the stated blueprint deliverables. Implementation and ongoing coaching are separately scoped.' } },
+      custom_text: {
+        terms_of_service_acceptance: { message: `You agree to the ${process.env.CHECKOUT_AGREEMENT_VERSION} MAIM Client System Blueprint Service Terms.` },
+        submit: { message: 'Includes one personal review and the stated blueprint deliverables. Implementation and ongoing coaching are separately scoped.' },
+      },
     }, { idempotencyKey: `maim-checkout-${requestId}` });
     if (!httpsUrl(session.url ?? '')) throw new Error('Missing checkout URL');
     res.status(200).json({ url: session.url });

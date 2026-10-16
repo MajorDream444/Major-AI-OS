@@ -15,6 +15,8 @@ const defaults: FulfillmentDeps = { findOne, upsert, updateRecord, syncContact, 
 
 export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId: string, deps: FulfillmentDeps = defaults): Promise<'fulfilled' | 'ignored' | 'pending_email'> {
   if (!isPaidBlueprint(session)) return 'ignored';
+  const booking = httpsUrl(process.env.BLUEPRINT_BOOKING_URL);
+  if (!booking) throw new Error('Blueprint booking URL is not a valid HTTPS URL');
   const email = session.customer_details?.email?.trim().toLowerCase();
   if (!email) throw new Error('Paid checkout is missing customer email');
   const name = session.customer_details?.name?.trim() || 'MAIM participant';
@@ -47,7 +49,6 @@ export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId
     : await deps.upsert(orders, 'Stripe Session ID', orderFields);
   const contactId = await deps.syncContact(email, name);
   const alreadyAccepted = prior?.fields['Receipt Email Status'] === 'accepted' || record.fields['Receipt Email Status'] === 'accepted';
-  const booking = httpsUrl(process.env.BLUEPRINT_BOOKING_URL);
   const support = process.env.SUPPORT_EMAIL || 'contact@majoraimindset.com';
   const emailStatus = alreadyAccepted ? 'accepted' : await deps.sendEmail({
     to: email,
