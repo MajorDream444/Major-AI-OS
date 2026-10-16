@@ -29,6 +29,7 @@ NOINDEX_ROUTES = {
     "/terms",
     "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
     "/terms/blueprint/blueprint-terms-2026-10-16.1",
+    "/terms/blueprint/blueprint-terms-2026-10-16.2",
     "/privacy",
     "/privacy/maim/maim-privacy-2026-10-16.1",
 }
@@ -60,7 +61,7 @@ PAGES = {
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
     "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
     "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
-    "terms.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
+    "terms-2026-10-16.2.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
     "privacy.html": ("privacy.html", "/privacy", "Review the proposed MAIM privacy notice."),
 }
 
@@ -78,6 +79,12 @@ VERSIONED_PAGES = [
         "terms/blueprint/blueprint-terms-2026-10-16.1.html",
         "/terms/blueprint/blueprint-terms-2026-10-16.1",
         "Review the approval-candidate terms for the MAIM Client System Blueprint service.",
+    ),
+    (
+        "terms-2026-10-16.2.html",
+        "terms/blueprint/blueprint-terms-2026-10-16.2.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16.2",
+        "Review the successor approval-candidate terms for the MAIM Client System Blueprint service.",
     ),
     (
         "privacy.html",

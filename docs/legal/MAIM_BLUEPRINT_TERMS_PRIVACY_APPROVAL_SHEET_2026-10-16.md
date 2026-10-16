@@ -9,21 +9,27 @@
 | Document | Proposed immutable version | Review route | Current status |
 |---|---|---|---|
 | Blueprint Service Terms | `blueprint-terms-2026-10-16.1` | `/terms/blueprint/blueprint-terms-2026-10-16.1` | Final candidate; owner/legal approval required |
+| Blueprint Service Terms successor | `blueprint-terms-2026-10-16.2` | `/terms/blueprint/blueprint-terms-2026-10-16.2` | Incorporates approved commercial policies; recording and legal decisions remain open |
 | MAIM Privacy Notice | `maim-privacy-2026-10-16.1` | `/privacy/maim/maim-privacy-2026-10-16.1` | Final candidate; owner/legal approval required |
 
 The historical draft remains separately reviewable at
 `/terms/blueprint/blueprint-terms-2026-10-16-draft.1`. Approval of a final
 candidate must not overwrite that version.
 
+The `2026-10-16.1` terms and privacy candidates remain frozen, unapproved
+review artifacts. The successor terms candidate does not approve or replace
+the privacy candidate.
+
 ## Decisions required before approval
 
 | Area | Owner/legal decision |
 |---|---|
-| Provider/controller | Confirm the exact legal entity, trading name, business address, and contact details |
+| Provider/controller | AMA Solutions Corporation is supported as MAIM parent/default contracting entity by the recovered formation handover; confirm the current publishable mailing/business address and do not present its formation-era registered office as current headquarters |
 | Governing law | Confirm governing law, venue, consumer disclosures, and privacy jurisdiction |
-| Scheduling | Approve the 24-hour rescheduling/no-show rule and Asia/Makassar availability intent |
-| Delivery | Approve the proposed five-business-day delivery target |
-| Refunds | Approve cancellation, work-performed deduction, post-delivery, partial-refund, and mandatory-rights language |
+| Scheduling | Approved: one free reschedule with at least 24 hours’ notice plus one courtesy rebooking; confirm Asia/Makassar availability intent |
+| Delivery | Approved: electronic delivery within five business days after the review and receipt of required assessment results and the business challenge |
+| Refunds | Approved: full refund before preparation; customer-agreed deduction for completed preparation afterward; exceptions handled by Major through the configured contact mailbox |
+| Recording/transcription | Approved in principle; select the tool/media and approve notice, participant consent and decline handling, purpose, access, storage, retention/deletion, and training/reuse wording before use |
 | Privacy retention | Approve financial, service, support, and deletion periods |
 | Privacy age/transfer | Confirm adult-purchaser statement and international-processing safeguards |
 | Publication | Approve exact version strings, immutable URLs, effective dates, and removal of `noindex` |
