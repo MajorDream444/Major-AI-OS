@@ -18,11 +18,16 @@ export function httpsUrl(value: string | undefined): string {
   }
 }
 
+export function agreementVersion(value: string | undefined): string {
+  const version = value?.trim() ?? '';
+  return /^[a-z0-9][a-z0-9._-]{1,100}$/i.test(version) ? version : '';
+}
+
 export function checkoutReady(env: NodeJS.ProcessEnv = process.env): boolean {
   return env.ENABLE_BLUEPRINT_CHECKOUT === 'true'
     && env.CHECKOUT_TERMS_APPROVED === 'true'
     && Boolean(httpsUrl(env.CHECKOUT_TERMS_URL))
-    && Boolean(env.CHECKOUT_AGREEMENT_VERSION)
+    && Boolean(agreementVersion(env.CHECKOUT_AGREEMENT_VERSION))
     && Boolean(env.STRIPE_RESTRICTED_KEY)
     && Boolean(env.STRIPE_WEBHOOK_SECRET)
     && Boolean(env.STRIPE_BLUEPRINT_PRICE_ID)
@@ -47,6 +52,7 @@ export function isPaidBlueprint(session: Stripe.Checkout.Session, env: NodeJS.Pr
   if (session.metadata?.sku !== OFFER.sku || session.mode !== 'payment' || session.payment_status !== 'paid') return false;
   if (session.currency !== OFFER.currency || session.amount_subtotal !== OFFER.amount) throw new Error('Order amount mismatch');
   if (session.livemode !== (env.STRIPE_MODE === 'live')) throw new Error('Stripe mode mismatch');
+  if (!agreementVersion(session.metadata?.agreement_version) || !httpsUrl(session.metadata?.terms_url)) throw new Error('Order agreement provenance is missing');
   const items = session.line_items?.data ?? [];
   if (items.length !== 1 || items[0]?.quantity !== 1 || items[0]?.price?.id !== env.STRIPE_BLUEPRINT_PRICE_ID) {
     throw new Error('Order price mismatch');

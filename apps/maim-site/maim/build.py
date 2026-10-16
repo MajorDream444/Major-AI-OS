@@ -25,6 +25,10 @@ from datetime import date
 ROOT = pathlib.Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 ORIGIN = "https://www.majoraimindset.com"
+NOINDEX_ROUTES = {
+    "/terms",
+    "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+}
 
 # source fragment -> (output file, route, description)
 PAGES = {
@@ -56,6 +60,17 @@ PAGES = {
     "terms.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
 }
 
+# Reuse the same reviewed source for the convenience and immutable candidate
+# routes so legal copy cannot drift between two hand-maintained files.
+VERSIONED_PAGES = [
+    (
+        "terms.html",
+        "terms/blueprint/blueprint-terms-2026-10-16-draft.1.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+        "Review the proposed versioned terms for the MAIM Client System Blueprint service.",
+    ),
+]
+
 # old relative links -> clean routes
 LINK_MAP = {
     "./majoraimindset_front_door.html": "/",
@@ -78,6 +93,7 @@ FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48
 def document(title, description, route, body, favicon_href):
     canonical = ORIGIN + route
     social = f"{ORIGIN}/social-preview.png"
+    robots = '<meta name="robots" content="noindex,nofollow">' if route in NOINDEX_ROUTES else ""
     # Contact details appear on every generated page without duplicating the
     # footer markup in the three independently maintained source fragments.
     contact_links = (
@@ -94,7 +110,7 @@ def document(title, description, route, body, favicon_href):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
-{"<meta name=\"robots\" content=\"noindex,nofollow\">" if route == "/terms" else ""}
+{robots}
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#111111">
 <link rel="icon" href="{favicon_href}">
@@ -119,6 +135,7 @@ def document(title, description, route, body, favicon_href):
 
 
 def main() -> int:
+    print(f"build interpreter: Python {sys.version.split()[0]}")
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
@@ -150,7 +167,11 @@ def main() -> int:
         print("social preview: !! none available")
 
     routes = []
-    for src_name, (out_name, route, description) in PAGES.items():
+    page_entries = [
+        (src_name, out_name, route, description)
+        for src_name, (out_name, route, description) in PAGES.items()
+    ] + VERSIONED_PAGES
+    for src_name, out_name, route, description in page_entries:
         src = ROOT / src_name
         if not src.exists():
             print(f"  !! missing source {src_name}")
@@ -196,7 +217,8 @@ def main() -> int:
         (DIST / out_name).write_text(
             document(title, description, route, body, favicon_href)
         )
-        routes.append(route)
+        if route not in NOINDEX_ROUTES:
+            routes.append(route)
         print(f"  {src_name} -> dist/{out_name}  ({route})")
 
     (DIST / "robots.txt").write_text(
@@ -214,7 +236,7 @@ def main() -> int:
         f"{urls}\n</urlset>\n"
     )
 
-    print(f"\nBuilt {len(routes)} pages + robots.txt + sitemap.xml into maim/dist/")
+    print(f"\nBuilt {len(page_entries)} pages ({len(routes)} indexed) + robots.txt + sitemap.xml into maim/dist/")
     print("Deploy that directory. vercel.json already points at it.")
     return 0
 

@@ -33,7 +33,7 @@ export default async function handler(req: ApiRequest & Partial<IncomingMessage>
     if (event.type === 'checkout.session.completed' || event.type === 'checkout.session.async_payment_succeeded') {
       const session = await stripe.checkout.sessions.retrieve((event.data.object as Stripe.Checkout.Session).id, { expand: ['line_items.data.price.product'] });
       const result = await fulfillBlueprint(session, event.id);
-      if (result === 'pending_email') { res.status(503).json({ error: 'Order saved; confirmation email pending retry' }); return; }
+      if (result === 'pending_email' || result === 'pending_booking') { res.status(503).json({ error: 'Order saved; fulfillment pending retry' }); return; }
       res.status(200).json({ received: true, result }); return;
     }
     if (event.type === 'charge.refunded') {

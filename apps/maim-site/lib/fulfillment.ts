@@ -13,10 +13,8 @@ export type FulfillmentDeps = {
 
 const defaults: FulfillmentDeps = { findOne, upsert, updateRecord, syncContact, sendEmail: sendTransactionalEmail, now: () => new Date().toISOString() };
 
-export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId: string, deps: FulfillmentDeps = defaults): Promise<'fulfilled' | 'ignored' | 'pending_email'> {
+export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId: string, deps: FulfillmentDeps = defaults): Promise<'fulfilled' | 'ignored' | 'pending_email' | 'pending_booking'> {
   if (!isPaidBlueprint(session)) return 'ignored';
-  const booking = httpsUrl(process.env.BLUEPRINT_BOOKING_URL);
-  if (!booking) throw new Error('Blueprint booking URL is not a valid HTTPS URL');
   const email = session.customer_details?.email?.trim().toLowerCase();
   if (!email) throw new Error('Paid checkout is missing customer email');
   const name = session.customer_details?.name?.trim() || 'MAIM participant';
@@ -42,13 +40,26 @@ export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId
     'Amount Minor Units': session.amount_total,
     Currency: session.currency,
     Livemode: String(session.livemode),
+    'Agreement Version': session.metadata?.agreement_version || '',
+    'Terms URL': httpsUrl(session.metadata?.terms_url),
     'Paid At': prior?.fields['Paid At'] || deps.now(),
   };
   const record = paymentPrior && !sessionPrior
     ? await deps.updateRecord(orders, paymentPrior.id, orderFields)
     : await deps.upsert(orders, 'Stripe Session ID', orderFields);
-  const contactId = await deps.syncContact(email, name);
   const alreadyAccepted = prior?.fields['Receipt Email Status'] === 'accepted' || record.fields['Receipt Email Status'] === 'accepted';
+  if (alreadyAccepted) return 'fulfilled';
+  const booking = httpsUrl(process.env.BLUEPRINT_BOOKING_URL);
+  if (!booking) {
+    await deps.upsert(orders, 'Stripe Session ID', {
+      'Stripe Session ID': session.id,
+      'Fulfillment Status': 'blocked: booking configuration',
+      'Receipt Email Status': 'withheld: invalid booking',
+      'Receipt Email Updated At': deps.now(),
+    });
+    return 'pending_booking';
+  }
+  const contactId = await deps.syncContact(email, name);
   const support = process.env.SUPPORT_EMAIL || 'contact@majoraimindset.com';
   const emailStatus = alreadyAccepted ? 'accepted' : await deps.sendEmail({
     to: email,
@@ -61,6 +72,7 @@ export async function fulfillBlueprint(session: Stripe.Checkout.Session, eventId
     'Contact Record ID': contactId,
     'Receipt Email Status': emailStatus,
     'Receipt Email Updated At': deps.now(),
+    'Fulfillment Status': emailStatus === 'accepted' ? 'awaiting scheduling' : 'confirmation email pending',
   });
   return emailStatus === 'accepted' ? 'fulfilled' : 'pending_email';
 }

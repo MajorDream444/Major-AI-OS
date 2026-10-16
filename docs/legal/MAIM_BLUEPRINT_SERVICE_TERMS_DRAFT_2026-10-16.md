@@ -3,6 +3,7 @@
 **Status:** PROPOSAL — owner and legal review required  
 **Draft version:** `blueprint-terms-2026-10-16-draft.1`  
 **Publication:** Not approved; do not use as `CHECKOUT_TERMS_URL` yet  
+**Candidate immutable route:** `/terms/blueprint/blueprint-terms-2026-10-16-draft.1`
 **Provider:** AMA Solutions Corporation, trading as Major AI Mindset (confirm legal display name)
 
 These terms apply to a one-time purchase of the **MAIM Client System Blueprint** service (the “Service”). By completing checkout, the purchaser (“you”) agrees to these terms.
@@ -17,7 +18,7 @@ These terms apply to a one-time purchase of the **MAIM Client System Blueprint**
 | Refunds | Requests before scheduling; reasonable work deduction where lawful; generally non-refundable after delivery | Owner/legal approval required |
 | Privacy | Approved MAIM privacy notice; disclose Stripe, Airtable, and Resend processing | Privacy URL required |
 | Legal venue | Governing law, venue, business address, and mandatory consumer disclosures | Legal decision required |
-| Publication | Final terms at an owned HTTPS URL with an immutable version | Final URL/version required |
+| Publication | Approve a versioned, never-reused URL so each order retains the exact agreement URL and version | Final URL/version required |
 
 ## 1. What you receive
 

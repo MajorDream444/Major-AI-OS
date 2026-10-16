@@ -37,6 +37,7 @@ Vercel is configured by `vercel.json` with:
 - `/return`
 - `/return?product=pillar_scroll`
 - `/terms` (no-index review draft until owner/legal approval)
+- `/terms/blueprint/blueprint-terms-2026-10-16-draft.1` (immutable candidate URL; no-index and unapproved)
 
 Legacy routes:
 
@@ -79,3 +80,7 @@ per-session terms URL. Before enabling Preview checkout:
 Treat a missing, mismatched, redirected-to-draft, or inaccessible link as a
 failed release gate. Keep `CHECKOUT_TERMS_APPROVED=false` until this inspection
 can be performed against the approved document.
+
+The build is pinned to Python 3.12 through `.python-version`, prints the actual
+interpreter version in build logs, and remains syntax-compatible with Python
+3.11. Draft/no-index terms routes are deliberately excluded from `sitemap.xml`.

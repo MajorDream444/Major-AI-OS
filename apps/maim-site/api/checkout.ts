@@ -1,7 +1,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import type Stripe from 'stripe';
 import type { ApiRequest, ApiResponse } from './_types.js';
-import { checkoutReady, httpsUrl, integrationIdentifier, OFFER, requestOriginAllowed, stripeClient } from '../lib/commerce.js';
+import { agreementVersion, checkoutReady, httpsUrl, integrationIdentifier, OFFER, requestOriginAllowed, stripeClient } from '../lib/commerce.js';
 
 const attempts = new Map<string, { count: number; resetAt: number }>();
 function allow(key: string): boolean {
@@ -27,6 +27,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
     const body = (typeof req.body === 'string' ? JSON.parse(req.body) : req.body) as { requestId?: string };
     const requestId = body?.requestId || randomUUID();
     if (!/^[a-f0-9-]{36}$/.test(requestId)) { res.status(400).json({ error: 'Please refresh and try again.' }); return; }
+    const acceptedAgreementVersion = agreementVersion(process.env.CHECKOUT_AGREEMENT_VERSION);
+    const acceptedTermsUrl = httpsUrl(process.env.CHECKOUT_TERMS_URL);
+    if (!acceptedAgreementVersion || !acceptedTermsUrl) throw new Error('Checkout agreement is not configured');
     const stripe = stripeClient();
     const price = await stripe.prices.retrieve(process.env.STRIPE_BLUEPRINT_PRICE_ID ?? '', { expand: ['product'] });
     const product = price.product as Stripe.Product;
@@ -36,12 +39,12 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
       line_items: [{ price: price.id, quantity: 1 }],
       customer_creation: 'always',
       integration_identifier: integrationIdentifier(),
-      metadata: { sku: OFFER.sku, source: 'maim-owned-site', agreement_version: process.env.CHECKOUT_AGREEMENT_VERSION ?? '' },
+      metadata: { sku: OFFER.sku, source: 'maim-owned-site', agreement_version: acceptedAgreementVersion, terms_url: acceptedTermsUrl },
       consent_collection: { terms_of_service: 'required' },
       success_url: `${origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/shop?checkout=cancelled`,
       custom_text: {
-        terms_of_service_acceptance: { message: `You agree to the ${process.env.CHECKOUT_AGREEMENT_VERSION} MAIM Client System Blueprint Service Terms.` },
+        terms_of_service_acceptance: { message: `You agree to the ${acceptedAgreementVersion} MAIM Client System Blueprint Service Terms.` },
         submit: { message: 'Includes one personal review and the stated blueprint deliverables. Implementation and ongoing coaching are separately scoped.' },
       },
     }, { idempotencyKey: `maim-checkout-${requestId}` });
