@@ -36,8 +36,11 @@ Vercel is configured by `vercel.json` with:
 - `/pillars`
 - `/return`
 - `/return?product=pillar_scroll`
-- `/terms` (no-index review draft until owner/legal approval)
+- `/terms` (no-index final approval candidate until owner/legal approval)
 - `/terms/blueprint/blueprint-terms-2026-10-16-draft.1` (immutable candidate URL; no-index and unapproved)
+- `/terms/blueprint/blueprint-terms-2026-10-16.1` (final approval candidate; no-index and unapproved)
+- `/privacy` (privacy approval candidate; no-index and not effective)
+- `/privacy/maim/maim-privacy-2026-10-16.1` (versioned privacy approval candidate)
 
 Legacy routes:
 
@@ -84,3 +87,5 @@ can be performed against the approved document.
 The build is pinned to Python 3.12 through `.python-version`, prints the actual
 interpreter version in build logs, and remains syntax-compatible with Python
 3.11. Draft/no-index terms routes are deliberately excluded from `sitemap.xml`.
+The same exclusion applies to unapproved privacy routes. Versioned legal routes
+must never be reused for changed content after approval.

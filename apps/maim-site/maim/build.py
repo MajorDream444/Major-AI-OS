@@ -28,6 +28,9 @@ ORIGIN = "https://www.majoraimindset.com"
 NOINDEX_ROUTES = {
     "/terms",
     "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+    "/terms/blueprint/blueprint-terms-2026-10-16.1",
+    "/privacy",
+    "/privacy/maim/maim-privacy-2026-10-16.1",
 }
 
 # source fragment -> (output file, route, description)
@@ -58,6 +61,7 @@ PAGES = {
     "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
     "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
     "terms.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
+    "privacy.html": ("privacy.html", "/privacy", "Review the proposed MAIM privacy notice."),
 }
 
 # Reuse the same reviewed source for the convenience and immutable candidate
@@ -69,6 +73,18 @@ VERSIONED_PAGES = [
         "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
         "Review the proposed versioned terms for the MAIM Client System Blueprint service.",
     ),
+    (
+        "terms.html",
+        "terms/blueprint/blueprint-terms-2026-10-16.1.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16.1",
+        "Review the approval-candidate terms for the MAIM Client System Blueprint service.",
+    ),
+    (
+        "privacy.html",
+        "privacy/maim/maim-privacy-2026-10-16.1.html",
+        "/privacy/maim/maim-privacy-2026-10-16.1",
+        "Review the approval-candidate MAIM privacy notice.",
+    ),
 ]
 
 # old relative links -> clean routes
@@ -79,6 +95,25 @@ LINK_MAP = {
 }
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.DOTALL)
+
+TERMS_VARIANTS = {
+    "/terms/blueprint/blueprint-terms-2026-10-16-draft.1": {
+        "{{STATUS_SHORT}}": "Review Draft",
+        "{{STATUS_HEADING}}": "Review draft — not approved for checkout.",
+        "{{TERMS_VERSION}}": "blueprint-terms-2026-10-16-draft.1",
+        "{{TERMS_LABEL}}": "PROPOSAL",
+        "{{TERMS_ROUTE}}": "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+        "{{FOOTER_STATUS}}": "Review draft · Not approved for checkout",
+    },
+    "default": {
+        "{{STATUS_SHORT}}": "Approval Candidate",
+        "{{STATUS_HEADING}}": "Approval candidate — not approved for checkout.",
+        "{{TERMS_VERSION}}": "blueprint-terms-2026-10-16.1",
+        "{{TERMS_LABEL}}": "FINAL CANDIDATE · PENDING APPROVAL",
+        "{{TERMS_ROUTE}}": "/terms/blueprint/blueprint-terms-2026-10-16.1",
+        "{{FOOTER_STATUS}}": "Approval candidate · Not approved for checkout",
+    },
+}
 
 # Gold medallion mark. Replaced by the real asset when it exists.
 FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -178,6 +213,14 @@ def main() -> int:
             return 1
 
         body = src.read_text()
+
+        if src_name == "terms.html":
+            replacements = TERMS_VARIANTS.get(route, TERMS_VARIANTS["default"])
+            for old, new in replacements.items():
+                body = body.replace(old, new)
+            if any(marker in body for marker in TERMS_VARIANTS["default"]):
+                print(f"  !! unresolved terms template marker for {route}")
+                return 1
 
         m = TITLE_RE.search(body)
         if not m:

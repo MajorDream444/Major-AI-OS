@@ -52,6 +52,18 @@
     {
       "source": "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
       "destination": "/terms/blueprint/blueprint-terms-2026-10-16-draft.1.html"
+    },
+    {
+      "source": "/terms/blueprint/blueprint-terms-2026-10-16.1",
+      "destination": "/terms/blueprint/blueprint-terms-2026-10-16.1.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/privacy/maim/maim-privacy-2026-10-16.1",
+      "destination": "/privacy/maim/maim-privacy-2026-10-16.1.html"
     }
   ],
   "redirects": [
