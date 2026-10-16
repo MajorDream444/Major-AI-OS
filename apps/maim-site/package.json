@@ -1,0 +1,19 @@
+{
+  "name": "maim-owned-commerce",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 maim/build.py",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "stripe": "^22.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
