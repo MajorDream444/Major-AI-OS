@@ -337,7 +337,7 @@ footer{
       <a class="action" data-step="2" style="--ac:var(--green)" href="#access">
         <div class="action-step">Step 02</div>
         <div class="action-name">Confirm your purchase email</div>
-        <p class="action-desc">Use the same email from Gumroad so MAIM can keep your product and next actions connected.</p>
+        <p class="action-desc">Use the email from your original receipt when contacting support so the order can be verified.</p>
         <div class="action-go">Confirm below →</div>
       </a>
       <a class="action" data-step="3" style="--ac:var(--blue)" href="#room">
@@ -355,8 +355,8 @@ footer{
   <div class="access-inner">
     <div class="access-copy">
       <h2>Bring your purchase <em>into the campus.</em></h2>
-      <p>Checkout happens on Gumroad. Everything after that returns here. Confirm the email you purchased with so your MAIM record stays connected.</p>
-      <p>Same email, same person, one record — your product, your live room seat, and anything you add later.</p>
+      <p>MAIM is moving to its owned checkout and delivery path. This legacy page cannot activate access or prove payment.</p>
+      <p>For an existing order, contact support using the email from your original receipt.</p>
       <div class="access-note">
         Use the email on your receipt.<br>
         That address is your MAIM identity.
@@ -364,29 +364,11 @@ footer{
     </div>
 
     <div class="access-card bracket">
-      <div class="access-card-label">Step 01 + 02 · access</div>
-      <h3>Activate access</h3>
-      <p>Takes about twenty seconds.</p>
-      <form action="https://maim-the-10-pillars.kit.com/products/5-ai-moves" method="POST">
-        <div class="field">
-          <label for="a-email">Purchase email</label>
-          <input id="a-email" name="email" type="email" placeholder="the address on your receipt" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="a-name">Full name</label>
-          <input id="a-name" name="first_name" type="text" placeholder="Your name" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="a-product">What you purchased</label>
-          <select id="a-product" name="product">
-            <option value="pillar_scroll">The Pillar Scroll — $27</option>
-          </select>
-        </div>
-        <input type="hidden" name="source" value="post_purchase_return">
-        <input type="hidden" name="entry_door" id="entry-door" value="gumroad">
-        <button class="btn-gold" type="submit">Activate my access →</button>
-      </form>
-      <p class="form-note">Your product link is re-sent immediately.</p>
+      <div class="access-card-label">Existing order support</div>
+      <h3>Need access help?</h3>
+      <p>MAIM support will verify the order before sending or restoring access.</p>
+      <a class="btn-gold" href="mailto:contact@majoraimindset.com?subject=Existing%20MAIM%20order%20support">Contact support →</a>
+      <p class="form-note">Do not send card numbers or private payment credentials.</p>
     </div>
   </div>
 </section>
@@ -465,8 +447,7 @@ footer{
 </footer>
 
 <script>
-/* Adapt the page to the V1 product purchased.
-   Gumroad redirects here with ?product=<key>; default is the entry tier. */
+/* Adapt this historical page label without treating URL parameters as proof of payment. */
 (function () {
   var CATALOG = {
     pillar_scroll: {

@@ -52,6 +52,7 @@ PAGES = {
     "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
     "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
+    "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
 }
 
 # old relative links -> clean routes
@@ -119,6 +120,7 @@ def main() -> int:
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
+    shutil.copy2(ROOT / "checkout.js", DIST / "checkout.js")
 
     # favicon: real medallion if present, else the drawn mark
     logo = ROOT / "assets" / "md-medallion.png"
