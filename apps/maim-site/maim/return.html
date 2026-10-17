@@ -19,7 +19,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--ink); color:var(--text);
   font-family:Georgia,'Times New Roman',serif;
-  font-size:16px; line-height:1.6;
+  font-size: 17px; line-height:1.6;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -56,16 +56,16 @@ nav{
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-wordmark{display:flex;flex-direction:column;gap:2px}
 .nav-brand{
-  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:12px;
+  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size: 13px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--text);line-height:1
 }
 .nav-tag{
-  font-family:'Courier New',monospace;font-size:8px;letter-spacing:.1em;
+  font-family:'Courier New',monospace;font-size: 10px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--green);line-height:1
 }
 .nav-spacer{flex:1}
 .nav-back{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);text-decoration:none
 }
 .nav-back:hover{color:var(--text)}
@@ -86,7 +86,7 @@ nav{
 }
 @keyframes seal-in{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
 .confirm-status{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.16em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--green);margin-bottom:24px;
   display:flex;align-items:center;justify-content:center;gap:9px
 }
@@ -100,7 +100,7 @@ nav{
 }
 .confirm-line em{font-style:normal;color:var(--gold)}
 .confirm-product{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);margin-top:28px
 }
 
@@ -108,13 +108,13 @@ nav{
 .actions-sec{padding:90px 32px;background:var(--ink2);border-bottom:1px solid var(--border)}
 .actions-inner{max-width:1000px;margin:0 auto}
 .s-label{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--gold);margin-bottom:20px;
   display:flex;align-items:center;gap:12px
 }
 .s-label::before{content:'';width:24px;height:1px;background:currentColor;opacity:.6}
 .actions-inner h2{font-size:clamp(28px,4.2vw,46px);line-height:.98;margin-bottom:12px}
-.actions-lede{font-size:16px;line-height:1.7;color:var(--muted);max-width:520px;margin-bottom:44px}
+.actions-lede{font-size: 17px;line-height:1.7;color:var(--muted);max-width:520px;margin-bottom:44px}
 .actions{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 @media (max-width:800px){.actions{grid-template-columns:1fr}}
 .action{
@@ -125,20 +125,20 @@ nav{
 .action:hover{background:var(--ink3)}
 .action::after{
   content:attr(data-step);position:absolute;right:-4px;bottom:-30px;
-  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:120px;
+  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size: 84px;
   line-height:1;opacity:.05;color:var(--ac);pointer-events:none
 }
 .action-step{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ac)
 }
 .action-name{
-  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:21px;
+  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size: 20px;
   text-transform:uppercase;line-height:1.05;color:var(--text)
 }
 .action-desc{font-size:14px;line-height:1.6;color:var(--muted);flex:1}
 .action-go{
-  font-family:'Courier New',monospace;font-size:10px;font-weight:700;
+  font-family:'Courier New',monospace;font-size: 12px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;color:var(--ac);
   border-top:1px solid var(--border);padding-top:14px;margin-top:4px
 }
@@ -152,43 +152,43 @@ nav{
 @media (max-width:860px){.access-inner{grid-template-columns:1fr;gap:44px}}
 .access-copy h2{font-size:clamp(28px,4vw,44px);line-height:.98;margin-bottom:18px}
 .access-copy h2 em{font-style:normal;color:var(--gold)}
-.access-copy p{font-size:16px;line-height:1.7;color:var(--muted);margin-bottom:16px;max-width:440px}
+.access-copy p{font-size: 17px;line-height:1.7;color:var(--muted);margin-bottom:16px;max-width:440px}
 .access-note{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);
   border-left:2px solid var(--gold);padding:10px 0 10px 14px;margin-top:24px;line-height:1.7
 }
 .access-card{background:var(--ink2);border:1px solid var(--border);padding:32px 28px;position:relative}
 .access-card-label{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--gold);margin-bottom:14px
 }
-.access-card h3{font-size:24px;line-height:1;margin-bottom:10px}
+.access-card h3{font-size: 22px;line-height:1;margin-bottom:10px}
 .access-card > p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:22px}
 .field{margin-bottom:12px;display:flex;flex-direction:column;gap:6px}
 .field label{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.12em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted)
 }
 .field input,.field select{
   width:100%;padding:13px 16px;background:var(--ink);border:1px solid var(--border);
-  color:var(--text);font-family:Georgia,serif;font-size:15px;outline:none;
+  color:var(--text);font-family:Georgia,serif;font-size: 17px;outline:none;
   transition:border-color .15s
 }
-.field select{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.08em;cursor:pointer}
+.field select{font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.08em;cursor:pointer}
 .field input::placeholder{color:var(--dim)}
 .field input:focus,.field select:focus{border-color:rgba(201,147,26,.45)}
 .btn-gold{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
   background:var(--gold);color:#111;border:none;cursor:pointer;padding:16px;
-  font-family:'Courier New',monospace;font-size:11px;font-weight:700;
+  font-family:'Courier New',monospace;font-size: 13px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
   transition:background .15s;margin-top:6px
 }
 .btn-gold:hover{background:var(--gold2)}
 .btn-gold:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .form-note{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.06em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.06em;
   color:var(--muted);text-align:center;margin-top:14px;opacity:.65
 }
 
@@ -203,11 +203,11 @@ nav{
   border-left:3px solid var(--sc)
 }
 .shelf-state{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.12em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--sc)
 }
 .shelf-name{
-  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:17px;
+  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size: 17px;
   text-transform:uppercase;color:var(--text);line-height:1.1
 }
 .shelf-desc{font-size:13.5px;line-height:1.55;color:var(--muted)}
@@ -217,7 +217,7 @@ nav{
 .room-sec{padding:90px 32px;text-align:center;border-bottom:1px solid var(--border)}
 .room-inner{max-width:640px;margin:0 auto}
 .room-eyebrow{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--green);margin-bottom:22px;
   display:flex;align-items:center;justify-content:center;gap:9px
 }
@@ -227,7 +227,7 @@ nav{
 }
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 .room-inner h2{font-size:clamp(28px,4.2vw,48px);line-height:.98;margin-bottom:18px}
-.room-inner > p{font-size:16px;line-height:1.7;color:var(--muted);margin-bottom:30px}
+.room-inner > p{font-size: 17px;line-height:1.7;color:var(--muted);margin-bottom:30px}
 .session-times{
   display:flex;justify-content:center;gap:0;margin-bottom:32px;
   border:1px solid var(--border);background:var(--ink2)
@@ -235,16 +235,16 @@ nav{
 .session-tz{flex:1;padding:18px 20px}
 .session-tz + .session-tz{border-left:1px solid var(--border)}
 .session-zone{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);margin-bottom:5px
 }
 .session-time{
-  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size:22px;
+  font-family:'Arial Narrow',Arial,sans-serif;font-weight:900;font-size: 21px;
   color:var(--text);font-variant-numeric:tabular-nums
 }
 .btn-green{
   display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#F0EDE5;
-  font-family:'Courier New',monospace;font-size:11px;font-weight:700;
+  font-family:'Courier New',monospace;font-size: 13px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
   padding:15px 32px;transition:background .15s
 }
@@ -259,7 +259,7 @@ nav{
 }
 .closing-quote em{font-style:normal;color:var(--gold)}
 .closing-byline{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted);margin-bottom:48px
 }
 .closing-taglines{display:flex;flex-direction:column;gap:5px}
@@ -270,7 +270,7 @@ nav{
 }
 .closing-line.gold{color:var(--gold)}
 .closing-mark{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted);margin-top:20px
 }
 
@@ -279,15 +279,15 @@ footer{
   border-top:1px solid var(--border);padding:26px 32px;
   display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
 }
-.footer-handle{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.footer-handle{font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.1em;color:var(--muted)}
 .footer-links{display:flex;gap:22px;flex-wrap:wrap}
 .footer-links a{
-  font-family:'Courier New',monospace;font-size:9px;letter-spacing:.1em;
+  font-family:'Courier New',monospace;font-size: 11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);text-decoration:none
 }
 .footer-links a:hover{color:var(--gold)}
 .footer-domain{
-  font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;
+  font-family:'Courier New',monospace;font-size: 12px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--gold)
 }
 </style>

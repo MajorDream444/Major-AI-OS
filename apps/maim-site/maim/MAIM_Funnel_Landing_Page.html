@@ -30,7 +30,7 @@ body {
   background: var(--ink);
   color: var(--text);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -88,18 +88,18 @@ nav {
 .nav-wordmark { display: flex; flex-direction: column; gap: 2px; }
 .nav-brand {
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text); line-height: 1;
 }
 .nav-tag {
-  font-family: 'Courier New', monospace; font-size: 8px;
+  font-family: 'Courier New', monospace; font-size: 10px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--gold); line-height: 1;
 }
 .nav-spacer { flex: 1; }
 .nav-links { display: flex; gap: 26px; list-style: none; }
 .nav-links a {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); text-decoration: none; transition: color 0.15s;
 }
@@ -110,13 +110,13 @@ nav {
 .btn-gold {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   background: var(--gold); color: #111;
-  font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700;
+  font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
   padding: 14px 28px; border: none; cursor: pointer; transition: background 0.15s;
 }
 .btn-gold:hover { background: var(--gold2); }
 .btn-gold:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.btn-sm { padding: 9px 18px; font-size: 10px; }
+.btn-sm { padding: 9px 18px; font-size: 12px; }
 
 /* ── Hero ── */
 .hero {
@@ -143,7 +143,7 @@ nav {
 }
 @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; gap: 48px; } }
 .hero-eyebrow {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 28px;
   display: flex; align-items: center; gap: 12px;
@@ -161,7 +161,7 @@ nav {
 }
 .hero-proof { display: flex; flex-wrap: wrap; gap: 10px 24px; }
 .proof-item {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); display: flex; align-items: center; gap: 7px;
 }
@@ -173,32 +173,32 @@ nav {
   padding: 34px 30px; position: relative;
 }
 .form-card-label {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 14px;
 }
-.form-card h3 { font-size: 26px; line-height: 1; margin-bottom: 10px; }
+.form-card h3 { font-size: 24px; line-height: 1; margin-bottom: 10px; }
 .form-card > p {
   font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 22px;
 }
 .field { margin-bottom: 10px; }
 .field label {
   display: block;
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 6px;
 }
 .field input {
   width: 100%; padding: 13px 16px;
   background: var(--ink); border: 1px solid var(--border);
-  color: var(--text); font-family: Georgia, serif; font-size: 15px;
+  color: var(--text); font-family: Georgia, serif; font-size: 17px;
   outline: none; transition: border-color 0.15s;
 }
 .field input::placeholder { color: var(--dim); }
 .field input:focus { border-color: rgba(201,147,26,0.45); }
 .form-card button { width: 100%; margin-top: 8px; padding: 16px; }
 .form-note {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.06em; color: var(--muted);
   text-align: center; margin-top: 14px; opacity: 0.65;
 }
@@ -207,16 +207,16 @@ nav {
 .section { padding: 100px 32px; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .s-label {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 22px;
   display: flex; align-items: center; gap: 12px;
 }
 .s-label::before { content: ''; width: 24px; height: 1px; background: currentColor; opacity: 0.6; }
-.section h2 { font-size: clamp(32px, 5vw, 60px); line-height: 0.95; margin-bottom: 18px; }
+.section h2 { font-size: clamp(29px, 4.3vw, 49px); line-height: 0.95; margin-bottom: 18px; }
 .section h2 em { font-style: normal; color: var(--gold); }
 .section-lede {
-  font-size: 16px; line-height: 1.7; color: var(--muted);
+  font-size: 17px; line-height: 1.7; color: var(--muted);
   max-width: 560px; margin-bottom: 48px;
 }
 .alt { background: var(--ink2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -232,18 +232,18 @@ nav {
   content: attr(data-n); position: absolute;
   right: -6px; bottom: -34px;
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 130px; line-height: 1; opacity: 0.045;
+  font-size: 92px; line-height: 1; opacity: 0.045;
   color: var(--mc); pointer-events: none;
 }
 .move-n {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--mc); margin-bottom: 16px;
 }
-.move h4 { font-size: 19px; line-height: 1.1; margin-bottom: 12px; }
+.move h4 { font-size: 18px; line-height: 1.1; margin-bottom: 12px; }
 .move p { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; }
 .move-meta {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px;
   border-top: 1px solid var(--border); padding-top: 14px;
@@ -259,10 +259,10 @@ nav {
 }
 .pillar-group-name {
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 20px; text-transform: uppercase; letter-spacing: 0.01em;
+  font-size: 19px; text-transform: uppercase; letter-spacing: 0.01em;
 }
 .pillar-group-note {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
 }
 .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
@@ -276,18 +276,18 @@ nav {
 .pillar:hover { background: var(--ink3); }
 .pillar-n {
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 34px; line-height: 1; letter-spacing: -0.03em;
+  font-size: 30px; line-height: 1; letter-spacing: -0.03em;
   color: var(--pc); font-variant-numeric: tabular-nums;
 }
 .pillar-name {
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 16px; text-transform: uppercase; line-height: 1.1;
+  font-size: 17px; text-transform: uppercase; line-height: 1.1;
   color: var(--text);
 }
 .pillar-desc { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
 .pillar.locked { opacity: 0.6; }
 .pillar-access {
-  font-family: 'Courier New', monospace; font-size: 8px;
+  font-family: 'Courier New', monospace; font-size: 10px;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--pc); margin-top: auto; padding-top: 8px;
 }
@@ -300,7 +300,7 @@ nav {
 .quiz h2 { font-size: clamp(32px, 5vw, 56px); }
 .quiz h2 em { font-style: normal; color: var(--green); }
 .quiz-lede {
-  font-size: 16px; line-height: 1.7; color: var(--muted);
+  font-size: 17px; line-height: 1.7; color: var(--muted);
   max-width: 520px; margin: 0 auto 40px;
 }
 .result-preview {
@@ -319,13 +319,13 @@ nav {
   font-size: 17px; text-transform: uppercase; color: var(--text);
 }
 .result-value {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
 }
 .btn-green {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--green); color: #F0EDE5;
-  font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700;
+  font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
   padding: 14px 30px; border: none; cursor: pointer; transition: background 0.15s;
 }
@@ -338,7 +338,7 @@ nav {
 }
 .quote-inner { max-width: 820px; margin: 0 auto; }
 .quote-eyebrow {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
   margin-bottom: 44px;
   display: flex; align-items: center; justify-content: center; gap: 16px;
@@ -353,7 +353,7 @@ nav {
 }
 .quote-text em { font-style: normal; color: var(--gold); }
 .quote-byline {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
 }
 
@@ -366,14 +366,14 @@ nav {
   border-top: 3px solid var(--tc);
 }
 .tier-label {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--tc); margin-bottom: 12px;
 }
-.tier-name { font-size: 24px; line-height: 1; margin-bottom: 8px; }
+.tier-name { font-size: 22px; line-height: 1; margin-bottom: 8px; }
 .tier-price {
   font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900;
-  font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+  font-size: 40px; line-height: 1; letter-spacing: -0.03em;
   color: var(--tc); margin-bottom: 8px; font-variant-numeric: tabular-nums;
 }
 .tier-tagline {
@@ -387,12 +387,12 @@ nav {
   font-size: 14px; color: var(--muted); line-height: 1.5;
   display: flex; gap: 10px; align-items: baseline;
 }
-.tier-features li::before { content: '◉'; font-size: 7px; color: var(--tc); flex-shrink: 0; }
+.tier-features li::before { content: '◉'; font-size: 10px; color: var(--tc); flex-shrink: 0; }
 .tier-cta {
   margin-top: auto;
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 14px; text-decoration: none;
-  font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700;
+  font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   border: 1px solid var(--tc); color: var(--tc);
   background: transparent; transition: background 0.15s, color 0.15s;
@@ -404,7 +404,7 @@ nav {
   margin-top: auto;
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 14px;
-  font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700;
+  font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   border: 1px solid rgba(240,237,229,0.18); color: var(--muted);
 }
@@ -416,14 +416,14 @@ nav {
 }
 .closing-inner { max-width: 640px; margin: 0 auto; }
 .closing-eyebrow {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 24px;
 }
 .closing h2 { font-size: clamp(36px, 6vw, 68px); line-height: 0.92; margin-bottom: 20px; }
 .closing h2 em { font-style: normal; color: var(--gold); }
 .closing > .closing-inner > p {
-  font-size: 16px; line-height: 1.7; color: var(--muted);
+  font-size: 17px; line-height: 1.7; color: var(--muted);
   max-width: 460px; margin: 0 auto 36px;
 }
 .closing-taglines {
@@ -436,7 +436,7 @@ nav {
 }
 .closing-line.gold { color: var(--gold); }
 .closing-mark {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--muted); margin-top: 20px;
 }
@@ -448,18 +448,18 @@ footer {
   gap: 16px; flex-wrap: wrap;
 }
 .footer-handle {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.1em; color: var(--muted);
 }
 .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
 .footer-links a {
-  font-family: 'Courier New', monospace; font-size: 9px;
+  font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); text-decoration: none; transition: color 0.15s;
 }
 .footer-links a:hover { color: var(--gold); }
 .footer-domain {
-  font-family: 'Courier New', monospace; font-size: 10px;
+  font-family: 'Courier New', monospace; font-size: 12px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
 }
 </style>
