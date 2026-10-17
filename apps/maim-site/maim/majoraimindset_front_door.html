@@ -148,7 +148,7 @@ nav {
 .nav-brand {
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-weight: 900;
-  font-size: calc(12px + 2pt);
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text);
@@ -156,7 +156,7 @@ nav {
 }
 .nav-tag {
   font-family: 'Courier New', monospace;
-  font-size: calc(8px + 2pt);
+  font-size: 8px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green);
@@ -174,14 +174,14 @@ nav {
   transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--text); }
-@media (max-width: 1100px) {
+@media (max-width: 640px) {
   nav { padding: 0 16px; gap: 10px; }
   .nav-links { display: none; }
   .nav-logo { gap: 8px; min-width: 0; }
   .nav-medallion { width: 32px; height: 32px; }
-  .nav-brand { font-size: calc(10px + 2pt); letter-spacing: 0.1em; }
+  .nav-brand { font-size: 10px; letter-spacing: 0.1em; }
   .nav-tag { display: none; }
-  .btn-seat { padding: 9px 11px; font-size: calc(9px + 2pt); letter-spacing: 0.06em; white-space: nowrap; }
+  .btn-seat { padding: 9px 11px; font-size: 9px; letter-spacing: 0.06em; white-space: nowrap; }
 }
 .btn-seat {
   display: inline-flex;
@@ -190,7 +190,7 @@ nav {
   background: var(--gold);
   color: #111;
   font-family: 'Courier New', monospace;
-  font-size: calc(10px + 2pt);
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
