@@ -183,6 +183,12 @@ def main() -> int:
     DIST.mkdir(parents=True)
     shutil.copy2(ROOT / "checkout.js", DIST / "checkout.js")
 
+    # Publish only explicitly public assets. Paid source files stay out of dist.
+    public_assets = ("major-dream-williams.jpg", "MAIM_Free_Guide_5_AI_Moves.pdf")
+    (DIST / "assets").mkdir(exist_ok=True)
+    for name in public_assets:
+        shutil.copy2(ROOT / "assets" / name, DIST / "assets" / name)
+
     # favicon: real medallion if present, else the drawn mark
     logo = ROOT / "assets" / "md-medallion.png"
     if logo.exists():
