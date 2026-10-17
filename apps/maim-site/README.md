@@ -36,6 +36,11 @@ Vercel is configured by `vercel.json` with:
 - `/pillars`
 - `/return`
 - `/return?product=pillar_scroll`
+- `/terms` (no-index final approval candidate until owner/legal approval)
+- `/terms/blueprint/blueprint-terms-2026-10-16-draft.1` (immutable candidate URL; no-index and unapproved)
+- `/terms/blueprint/blueprint-terms-2026-10-16.1` (final approval candidate; no-index and unapproved)
+- `/privacy` (privacy approval candidate; no-index and not effective)
+- `/privacy/maim/maim-privacy-2026-10-16.1` (versioned privacy approval candidate)
 
 Legacy routes:
 
@@ -60,3 +65,27 @@ Open gates before a full production cutover:
 
 For the current V1 revenue-loop gate, use
 [`LAUNCH_CHECKLIST.md`](./LAUNCH_CHECKLIST.md).
+
+## Stripe-hosted terms verification
+
+`consent_collection.terms_of_service = required` makes acceptance mandatory in
+Stripe-hosted Checkout. Stripe supplies the linked terms destination from the
+account's public business details; the Checkout Session API does not accept a
+per-session terms URL. Before enabling Preview checkout:
+
+1. approve and publish the immutable terms version;
+2. set Stripe TEST mode's public terms URL to the exact `CHECKOUT_TERMS_URL`;
+3. create a fresh session through `/api/checkout`;
+4. open the hosted Checkout page and confirm its terms link resolves to that
+   exact approved URL and displays `CHECKOUT_AGREEMENT_VERSION`;
+5. retain a redacted screenshot or browser receipt in Issue #37.
+
+Treat a missing, mismatched, redirected-to-draft, or inaccessible link as a
+failed release gate. Keep `CHECKOUT_TERMS_APPROVED=false` until this inspection
+can be performed against the approved document.
+
+The build is pinned to Python 3.12 through `.python-version`, prints the actual
+interpreter version in build logs, and remains syntax-compatible with Python
+3.11. Draft/no-index terms routes are deliberately excluded from `sitemap.xml`.
+The same exclusion applies to unapproved privacy routes. Versioned legal routes
+must never be reused for changed content after approval.

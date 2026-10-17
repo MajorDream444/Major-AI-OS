@@ -25,6 +25,14 @@ from datetime import date
 ROOT = pathlib.Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 ORIGIN = "https://www.majoraimindset.com"
+NOINDEX_ROUTES = {
+    "/terms",
+    "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+    "/terms/blueprint/blueprint-terms-2026-10-16.1",
+    "/terms/blueprint/blueprint-terms-2026-10-16.2",
+    "/privacy",
+    "/privacy/maim/maim-privacy-2026-10-16.1",
+}
 
 # source fragment -> (output file, route, description)
 PAGES = {
@@ -53,7 +61,38 @@ PAGES = {
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
     "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
     "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
+    "terms-2026-10-16.2.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
+    "privacy.html": ("privacy.html", "/privacy", "Review the proposed MAIM privacy notice."),
 }
+
+# Reuse the same reviewed source for the convenience and immutable candidate
+# routes so legal copy cannot drift between two hand-maintained files.
+VERSIONED_PAGES = [
+    (
+        "terms.html",
+        "terms/blueprint/blueprint-terms-2026-10-16-draft.1.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+        "Review the proposed versioned terms for the MAIM Client System Blueprint service.",
+    ),
+    (
+        "terms.html",
+        "terms/blueprint/blueprint-terms-2026-10-16.1.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16.1",
+        "Review the approval-candidate terms for the MAIM Client System Blueprint service.",
+    ),
+    (
+        "terms-2026-10-16.2.html",
+        "terms/blueprint/blueprint-terms-2026-10-16.2.html",
+        "/terms/blueprint/blueprint-terms-2026-10-16.2",
+        "Review the successor approval-candidate terms for the MAIM Client System Blueprint service.",
+    ),
+    (
+        "privacy.html",
+        "privacy/maim/maim-privacy-2026-10-16.1.html",
+        "/privacy/maim/maim-privacy-2026-10-16.1",
+        "Review the approval-candidate MAIM privacy notice.",
+    ),
+]
 
 # old relative links -> clean routes
 LINK_MAP = {
@@ -63,6 +102,25 @@ LINK_MAP = {
 }
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.DOTALL)
+
+TERMS_VARIANTS = {
+    "/terms/blueprint/blueprint-terms-2026-10-16-draft.1": {
+        "{{STATUS_SHORT}}": "Review Draft",
+        "{{STATUS_HEADING}}": "Review draft — not approved for checkout.",
+        "{{TERMS_VERSION}}": "blueprint-terms-2026-10-16-draft.1",
+        "{{TERMS_LABEL}}": "PROPOSAL",
+        "{{TERMS_ROUTE}}": "/terms/blueprint/blueprint-terms-2026-10-16-draft.1",
+        "{{FOOTER_STATUS}}": "Review draft · Not approved for checkout",
+    },
+    "default": {
+        "{{STATUS_SHORT}}": "Approval Candidate",
+        "{{STATUS_HEADING}}": "Approval candidate — not approved for checkout.",
+        "{{TERMS_VERSION}}": "blueprint-terms-2026-10-16.1",
+        "{{TERMS_LABEL}}": "FINAL CANDIDATE · PENDING APPROVAL",
+        "{{TERMS_ROUTE}}": "/terms/blueprint/blueprint-terms-2026-10-16.1",
+        "{{FOOTER_STATUS}}": "Approval candidate · Not approved for checkout",
+    },
+}
 
 # Gold medallion mark. Replaced by the real asset when it exists.
 FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -77,6 +135,7 @@ FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48
 def document(title, description, route, body, favicon_href):
     canonical = ORIGIN + route
     social = f"{ORIGIN}/social-preview.png"
+    robots = '<meta name="robots" content="noindex,nofollow">' if route in NOINDEX_ROUTES else ""
     # Contact details appear on every generated page without duplicating the
     # footer markup in the three independently maintained source fragments.
     contact_links = (
@@ -93,6 +152,7 @@ def document(title, description, route, body, favicon_href):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+{robots}
 <link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#111111">
 <link rel="icon" href="{favicon_href}">
@@ -117,6 +177,7 @@ def document(title, description, route, body, favicon_href):
 
 
 def main() -> int:
+    print(f"build interpreter: Python {sys.version.split()[0]}")
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
@@ -148,13 +209,25 @@ def main() -> int:
         print("social preview: !! none available")
 
     routes = []
-    for src_name, (out_name, route, description) in PAGES.items():
+    page_entries = [
+        (src_name, out_name, route, description)
+        for src_name, (out_name, route, description) in PAGES.items()
+    ] + VERSIONED_PAGES
+    for src_name, out_name, route, description in page_entries:
         src = ROOT / src_name
         if not src.exists():
             print(f"  !! missing source {src_name}")
             return 1
 
         body = src.read_text()
+
+        if src_name == "terms.html":
+            replacements = TERMS_VARIANTS.get(route, TERMS_VARIANTS["default"])
+            for old, new in replacements.items():
+                body = body.replace(old, new)
+            if any(marker in body for marker in TERMS_VARIANTS["default"]):
+                print(f"  !! unresolved terms template marker for {route}")
+                return 1
 
         m = TITLE_RE.search(body)
         if not m:
@@ -194,7 +267,8 @@ def main() -> int:
         (DIST / out_name).write_text(
             document(title, description, route, body, favicon_href)
         )
-        routes.append(route)
+        if route not in NOINDEX_ROUTES:
+            routes.append(route)
         print(f"  {src_name} -> dist/{out_name}  ({route})")
 
     (DIST / "robots.txt").write_text(
@@ -212,7 +286,7 @@ def main() -> int:
         f"{urls}\n</urlset>\n"
     )
 
-    print(f"\nBuilt {len(routes)} pages + robots.txt + sitemap.xml into maim/dist/")
+    print(f"\nBuilt {len(page_entries)} pages ({len(routes)} indexed) + robots.txt + sitemap.xml into maim/dist/")
     print("Deploy that directory. vercel.json already points at it.")
     return 0
 
