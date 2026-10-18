@@ -139,6 +139,7 @@ def document(title, description, route, body, favicon_href):
     # Contact details appear on every generated page without duplicating the
     # footer markup in the three independently maintained source fragments.
     contact_links = (
+        '<a href="https://pillars.majoraimindset.com">Ten Pillars collection</a>'
         '<a href="mailto:contact@majoraimindset.com">Contact</a>'
         '<a href="mailto:major@majoraimindset.com">Email Major</a>'
         '<a href="tel:+61450461470">+61 450 461 470</a>'
