@@ -1,5 +1,25 @@
 # MAIM Daily Sync
 
+## Deployment Watch — 19 October 2026 reconciliation
+
+Current evidence supersedes historical PR/deployment status below: main and the
+www/apex Vercel production deployment match `8ef0c685b92da47a3c5c1fa2fefcdc5afc7f6cac`.
+PRs #33, #38, #40 and #42 are merged. The informational site is reachable;
+production checkout reports `available:false`. Seven commerce tests pass, which
+does not establish end-to-end provider delivery.
+
+See [the current audit](audits/MAIM_SITE_DEPLOYMENT_AUDIT_2026-10-19.md) for
+verified routes, mobile/contrast/CSP defects, the terms .2 clean-route 404,
+Pressure Test retired-provider/source risks, configuration gaps and release
+dependencies. Founder service/terms approval is conditional on MAIM branding
+and colors; final privacy and TEST gates remain open. Existing policies and
+immutable legal versions are preserved. No activation is authorized here.
+
+Every brief should refresh: production SHA vs GitHub main, open/merged PRs,
+public checkout availability, and top release blockers. Compare actual public
+aliases rather than assuming a project's latest staging deployment is production.
+Do not reactivate scheduling or claim an autonomous monitor from this document.
+
 Updated: 15 October 2026. Read `MAIM_LAUNCH_DIRECTIVE_2026-10-15.md`, `RETIRED_PLATFORMS_2026-10-15.md` and `handoffs/MAIM_ECOSYSTEM_CONTEXT_SYNC_2026-10-15.md` before every run.
 
 ## Current goal
