@@ -22,7 +22,7 @@ Use the actual supplied author portrait; no generated replacement likeness or un
 Backs include a blurb, real author photo, short reviewed bio and actual logos. Reserve unassigned barcode/ISBN space. Do not invent endorsements, identifiers, print spines or completion claims.
 
 ## Reusable skill
-Use $maim-integrity-publishing-design, saved in Major's Skills workspace. It bundles exact brand/cover assets, source checksums, a faithful front/back PDF builder, canon and release guidance. Pair with Major Voice & Doctrine and Raw Thought Intake when authoring. Preserve raw interviews unchanged and privately; label editorial adaptation and fiction.
+Use $maim-integrity-publishing-design, saved in Major's Skills workspace. It records exact source checksums and saved asset locations, and includes a faithful front/back PDF builder, canon and release guidance. The binary assets remain in the saved v0.4 source package; restore and verify them before a rebuild. Pair with Major Voice & Doctrine and Raw Thought Intake when authoring. Preserve raw interviews unchanged and privately; label editorial adaptation and fiction.
 
 The Universal Publishing Canon governs the ten teaching lessons. Integrity remains separate from Lucky Library's 27-volume canon.
 
