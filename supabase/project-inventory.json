@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-10-20",
+  "canonical_project_ref": "njpdlomvyalxrkluaige",
+  "projects": [
+    {
+      "connection": "MAIM ECOSYSTEM",
+      "project_ref": "njpdlomvyalxrkluaige",
+      "name": "MAIM Ecosystem",
+      "status": "ACTIVE_HEALTHY",
+      "disposition": "canonical"
+    },
+    {
+      "connection": "Vercel integration",
+      "project_ref": "fsrskmlsxqtxduhdfhnd",
+      "name": "major ai mindset",
+      "status": "ACTIVE_HEALTHY",
+      "disposition": "legacy_dependency_audit"
+    },
+    {
+      "connection": "Vercel integration",
+      "project_ref": "jhoehbqzlyflfzmigfwn",
+      "name": "supabase-aureolin-chair",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    },
+    {
+      "connection": "STB and ACADEMY; duplicate legacy Supabase link",
+      "project_ref": "gacdrenzgqptxzvnmvxd",
+      "name": "MajorDream444's Project",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    },
+    {
+      "connection": "AMA AGINTS & SOLUTIONS",
+      "project_ref": "cjblbybqyimkcjkdudtd",
+      "name": "MAIM-52 in 52",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    },
+    {
+      "connection": "AMA AGINTS & SOLUTIONS",
+      "project_ref": "skxxvaghqpltlelhslix",
+      "name": "Optionality",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    },
+    {
+      "connection": "AMA AGINTS & SOLUTIONS",
+      "project_ref": "qhxwnongsvnqpvdmbner",
+      "name": "MAJORPRIMEOS_OPENCLAW",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    },
+    {
+      "connection": "AMA AGINTS & SOLUTIONS",
+      "project_ref": "lmzkwbbfvqfgwajmglvk",
+      "name": "Money-Temple",
+      "status": "INACTIVE",
+      "disposition": "preserve_inactive"
+    }
+  ]
+}
