@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "useDefineForClassFields": true,
+    "lib": ["ES2023", "DOM"],
+    "allowJs": true,
+    "checkJs": false,
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["src"]
+}
