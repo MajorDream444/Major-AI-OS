@@ -12,8 +12,10 @@ docker exec "$CONTAINER" pg_isready -U postgres -d maim_validation >/dev/null
 psql_file() { docker exec -i "$CONTAINER" psql -X -v ON_ERROR_STOP=1 -U postgres -d maim_validation < "$1"; }
 psql_file "$ROOT/supabase/tests/fixtures/maim_identity_foundation.sql"
 psql_file "$ROOT/supabase/migrations/202610210001_maim_asset_catalogue.sql"
+psql_file "$ROOT/supabase/migrations/202610210002_maim_catalogue_api.sql"
 psql_file "$ROOT/supabase/tests/asset_catalogue_imports.sql"
 psql_file "$ROOT/supabase/tests/asset_catalogue_rls.sql"
+psql_file "$ROOT/supabase/migrations/202610210002_maim_catalogue_api.rollback.sql"
 psql_file "$ROOT/supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql"
 psql_file "$ROOT/supabase/tests/asset_catalogue_rollback_assertions.sql"
 echo 'PASS: disposable PostgreSQL asset catalogue validation completed.'

@@ -5,11 +5,16 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { createClient } from '../apps/maim-creative-studio-catalogue/node_modules/@supabase/supabase-js/dist/index.mjs'
-import { fetchCatalogueRows } from '../apps/maim-creative-studio-catalogue/src/lib/catalogueApi.mjs'
 import { createSupabaseSessionProvider } from '../apps/maim-creative-studio-catalogue/src/lib/supabaseSessionProvider.mjs'
+import { readCatalogue } from '../apps/maim-site/lib/catalogue.ts'
 
 const { API_URL, ANON_KEY, SERVICE_ROLE_KEY, JWT_SECRET } = process.env
 for (const [name, value] of Object.entries({ API_URL, ANON_KEY, SERVICE_ROLE_KEY, JWT_SECRET })) assert.ok(value, `${name} is required`)
+const catalogueEnv = {
+  NODE_ENV: 'test', SUPABASE_URL: API_URL, MAIM_CATALOGUE_TEST_ORIGIN: API_URL,
+  SUPABASE_PUBLISHABLE_KEY: ANON_KEY
+}
+const endpointRead = (session) => readCatalogue(`Bearer ${session.accessToken}`, session.workspaceId, catalogueEnv)
 
 const headers = {
   apikey: SERVICE_ROLE_KEY,
@@ -84,23 +89,23 @@ const providerB = createSupabaseSessionProvider(clientB.auth, workspaceB)
 const sessionA = await providerA.getSession()
 const sessionB = await providerB.getSession()
 assert.ok(sessionA && sessionB)
-const workspaceARows = await fetchCatalogueRows(API_URL, ANON_KEY, sessionA)
-const workspaceBRowsForA = await fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionA, workspaceId: workspaceB })
-const workspaceBRowsForB = await fetchCatalogueRows(API_URL, ANON_KEY, sessionB)
-assert.deepEqual(workspaceARows.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-A', workspace_id: workspaceA }])
-assert.deepEqual(workspaceBRowsForA.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-B', workspace_id: workspaceB }])
-assert.deepEqual(workspaceBRowsForB.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-B', workspace_id: workspaceB }])
-await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionB, workspaceId: workspaceA }), (error) => error.status === 403)
+const workspaceARows = await endpointRead(sessionA)
+const workspaceBRowsForA = await endpointRead({ ...sessionA, workspaceId: workspaceB })
+const workspaceBRowsForB = await endpointRead(sessionB)
+assert.deepEqual(workspaceARows.map(({ stable_id }) => stable_id), ['MAIM-E2E-A'])
+assert.deepEqual(workspaceBRowsForA.map(({ stable_id }) => stable_id), ['MAIM-E2E-B'])
+assert.deepEqual(workspaceBRowsForB.map(({ stable_id }) => stable_id), ['MAIM-E2E-B'])
+await assert.rejects(() => endpointRead({ ...sessionB, workspaceId: workspaceA }), (error) => error.status === 403)
 
 function base64url(value) { return Buffer.from(JSON.stringify(value)).toString('base64url') }
 const jwtHeader = base64url({ alg: 'HS256', typ: 'JWT' })
 const jwtPayload = base64url({ aud: 'authenticated', exp: Math.floor(Date.now() / 1000) - 60, sub: signupA.data.user.id, role: 'authenticated', iss: 'supabase-demo' })
 const signature = crypto.createHmac('sha256', JWT_SECRET).update(`${jwtHeader}.${jwtPayload}`).digest('base64url')
-await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, { accessToken: `${jwtHeader}.${jwtPayload}.${signature}`, workspaceId: workspaceA }), (error) => error.status === 401)
+await assert.rejects(() => endpointRead({ accessToken: `${jwtHeader}.${jwtPayload}.${signature}`, workspaceId: workspaceA }), (error) => error.status === 401)
 
 await serviceRequest(`memberships?workspace_id=eq.${workspaceA}&user_id=eq.${signupA.data.user.id}`, { method: 'DELETE' })
-await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, sessionA), (error) => error.status === 403)
-assert.equal((await fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionA, workspaceId: workspaceB }))[0].stable_id, 'MAIM-E2E-B')
+await assert.rejects(() => endpointRead(sessionA), (error) => error.status === 403)
+assert.equal((await endpointRead({ ...sessionA, workspaceId: workspaceB }))[0].stable_id, 'MAIM-E2E-B')
 
 let signedOut = false
 const unsubscribe = providerA.subscribe((session) => { if (session === null) signedOut = true })

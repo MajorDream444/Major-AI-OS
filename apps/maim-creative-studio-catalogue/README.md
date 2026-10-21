@@ -14,15 +14,17 @@ MAIM application must inject `window.__MAIM_STUDIO_SESSION__` with
 the user access token and owning workspace ID. `createSupabaseSessionProvider()`
 adapts the owning application's existing Supabase Auth client. Live reads require:
 
-- `VITE_SUPABASE_URL` for project `njpdlomvyalxrkluaige`
-- `VITE_SUPABASE_PUBLISHABLE_KEY`
+- `VITE_CATALOGUE_API_URL` when the owning application's route is not
+  `/api/catalogue`
 - an authenticated user's access token supplied by that session provider
 - the owning workspace ID supplied by the same trusted application context
 
 Sanitized fixtures are available only when the build explicitly sets
 `VITE_CATALOGUE_MODE=fixture`. A failed live read, sign-out, or revoked
 membership clears catalogue records and displays the corresponding access state.
-The client verifies workspace membership before requesting catalogue rows.
+The server validates the session and workspace membership before returning the
+selected workspace's allow-listed catalogue projection. The browser does not
+receive a Supabase project key or call the private `maim` schema directly.
 
 Never put a service-role key in this app. Vercel automatically created an
 SSO-protected branch preview using the Vercel project's configured

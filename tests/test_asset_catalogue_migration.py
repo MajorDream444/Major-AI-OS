@@ -5,6 +5,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SQL = (ROOT / "supabase/migrations/202610210001_maim_asset_catalogue.sql").read_text()
 ROLLBACK = (ROOT / "supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql").read_text()
 RLS_TEST = (ROOT / "supabase/tests/asset_catalogue_rls.sql").read_text()
+API_SQL = (ROOT / "supabase/migrations/202610210002_maim_catalogue_api.sql").read_text()
+API_ROLLBACK = (ROOT / "supabase/migrations/202610210002_maim_catalogue_api.rollback.sql").read_text()
 
 
 class AssetCatalogueMigrationContractTests(unittest.TestCase):
@@ -40,6 +42,14 @@ class AssetCatalogueMigrationContractTests(unittest.TestCase):
     def test_cross_user_denial_fixture_exists(self):
         self.assertIn("User A records leaked to User B", RLS_TEST)
         self.assertIn("request.jwt.claim.sub", RLS_TEST)
+
+    def test_narrow_api_is_authenticated_security_invoker_and_reversible(self):
+        lowered = API_SQL.lower()
+        self.assertIn("security invoker", lowered)
+        self.assertIn("revoke all on function public.get_maim_asset_catalogue(uuid) from public, anon", lowered)
+        self.assertIn("grant execute on function public.get_maim_asset_catalogue(uuid) to authenticated", lowered)
+        self.assertIn("m.workspace_id = p_workspace_id", lowered)
+        self.assertIn("drop function if exists public.get_maim_asset_catalogue(uuid)", API_ROLLBACK.lower())
 
 
 if __name__ == "__main__":

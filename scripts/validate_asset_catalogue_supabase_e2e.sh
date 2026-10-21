@@ -14,6 +14,7 @@ cleanup
 "${SUPABASE[@]}" start -x "$EXTRAS,postgrest,kong" --yes >/dev/null
 docker exec -i supabase_db_maim-asset-e2e psql -X -v ON_ERROR_STOP=1 -U postgres -d postgres < supabase/tests/fixtures/maim_supabase_foundation.sql >/dev/null
 docker exec -i supabase_db_maim-asset-e2e psql -X -v ON_ERROR_STOP=1 -U postgres -d postgres < supabase/migrations/202610210001_maim_asset_catalogue.sql >/dev/null
+docker exec -i supabase_db_maim-asset-e2e psql -X -v ON_ERROR_STOP=1 -U postgres -d postgres < supabase/migrations/202610210002_maim_catalogue_api.sql >/dev/null
 "${SUPABASE[@]}" stop >/dev/null
 "${SUPABASE[@]}" start -x "$EXTRAS" --yes >/dev/null
 
@@ -30,4 +31,4 @@ PY
 rm -f "$STATUS_FILE"
 
 node tests/asset_catalogue_supabase_e2e.mjs
-echo 'PASS: disposable Supabase Auth -> PostgREST -> DB -> Studio validation completed.'
+echo 'PASS: disposable Supabase Auth -> server endpoint -> PostgREST RPC -> DB -> Studio validation completed.'
