@@ -1,6 +1,6 @@
 # MAIM asset catalogue and Creative Studio connection
 
-Status: implementation candidate; not applied to hosted Supabase; not deployed
+Status: implementation candidate; not applied to hosted Supabase; Studio not included in the inspected automatic branch deployment
 
 Target project: MAIM Ecosystem `njpdlomvyalxrkluaige`
 Original-source authority: controlled Google Drive archive
@@ -33,6 +33,12 @@ All tables are in the private `maim` schema. RLS reuses existing workspace membe
 4. preserves recovered approval as `unreviewed` while storing completion context separately;
 5. sends one atomic JSON manifest to the server-only RPC only with `--apply`.
 
+Apply mode accepts only the exact origin
+`https://njpdlomvyalxrkluaige.supabase.co`: alternate schemes, hosts, explicit
+ports, userinfo, paths, queries, and fragments are rejected before networking.
+HTTP redirects are refused so service-role headers cannot be replayed to a
+redirect destination.
+
 Dry run:
 
 ```bash
@@ -56,7 +62,18 @@ Never use the service-role credential in Vite, browser code, fixtures, logs or c
 
 The Studio only treats non-blocked images and PDFs as preview-capable. PDFs require an authenticated Drive preview URL and a sandboxed host integration. HTML, JavaScript and other executable recovered content are always source-only links and must never be injected, imported, evaluated, or framed on the Studio origin. Any unresolved dependency sets `preview_blocked`.
 
-The current app is a local fixture-backed preview with a membership-scoped PostgREST adapter. It is not a deployed connection and does not implement hosted sign-in. A host product must provide a normal authenticated user access token; the browser receives only the publishable key.
+The Studio defaults to live mode and consumes the owning application's injected
+authenticated-session provider; it does not implement a parallel sign-in. A
+normal user token is used with the publishable key. Fixture mode requires the
+explicit `VITE_CATALOGUE_MODE=fixture` build setting, and live errors never fall
+back to fixtures. Sign-out and HTTP 403 membership revocation clear all records.
+
+Vercel automatically built the PR branch as deployment
+`dpl_4id5XrJE4utEyxedN71jMWEr6Zjj` on 2026-10-21. Provider inspection showed
+target `preview`, status `Ready`, an SSO redirect for unauthenticated requests,
+and only root `api/checkout` and `api/stripe-webhook` build outputs. It did not
+build this Studio directory. This is automatic repository-branch deployment
+evidence, not a deliberate Studio deployment or a hosted catalogue connection.
 
 ## Validation gates
 

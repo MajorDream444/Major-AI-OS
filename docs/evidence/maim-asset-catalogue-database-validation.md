@@ -21,6 +21,10 @@
 - Confirmed first import, repeat reconciliation, conflicting stable identity,
   missing upload, and documented zero-byte exception behavior. Repeating the
   import leaves one asset, byte version, source, membership, and dependency.
+- Confirmed an existing Drive file ID cannot be reassigned to a different stable
+  asset in the same workspace; the original association remains unchanged.
+- Confirmed importer destination validation rejects noncanonical URLs before a
+  network opener is created and the importer refuses HTTP redirects.
 - Confirmed the project-relative path `  assets/safe.png` is preserved exactly.
 - Found and fixed a rollback dependency-order defect. The rerun confirmed that
   existing vault asset data, foundation tables, and membership/workspace policies
@@ -43,6 +47,9 @@ The script creates and removes `maim-catalogue-validation`. It accepts
   end to end; database reconciliation was tested directly through PostgreSQL.
 - Hosted schema compatibility, Studio authentication, signed/original-source
   links, and browser preview behavior remain unverified.
+- Vercel automatically created an SSO-protected repository-root branch preview,
+  but provider build inspection showed only the existing root API functions and
+  no Studio build output. It does not establish a deployed catalogue connection.
 - The archive receipt reports 162 originals checked with zero mismatches and 22
   provenance files before the receipt itself. This database run did not rehash
   those private files and does not upgrade that reported evidence.

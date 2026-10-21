@@ -1,5 +1,11 @@
 import type { Asset } from '../types'
 
+export class CatalogueAccessError extends Error {
+  constructor(public readonly status: number) {
+    super(status === 401 ? 'Catalogue session is signed out.' : status === 403 ? 'Catalogue membership is not authorized.' : `Catalogue request failed (${status}).`)
+  }
+}
+
 type Row = {
   id: string; stable_id: string; title: string; format: string;
   approval_status: Asset['approvalStatus']; completeness_status: Asset['completenessStatus'];
@@ -14,7 +20,7 @@ export async function fetchCatalogue(accessToken: string): Promise<Asset[]> {
   const response = await fetch(`${endpoint}/rest/v1/asset_catalog_studio?select=*&order=title.asc`, {
     headers: { apikey: publishableKey, Authorization: `Bearer ${accessToken}`, 'Accept-Profile': 'maim' }
   })
-  if (!response.ok) throw new Error(`Catalogue request failed (${response.status}).`)
+  if (!response.ok) throw new CatalogueAccessError(response.status)
   return ((await response.json()) as Row[]).map((row) => ({
     id: row.id, stableId: row.stable_id, title: row.title, format: row.format,
     projectCode: row.project_code, project: row.project, approvalStatus: row.approval_status,

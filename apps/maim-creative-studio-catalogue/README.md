@@ -8,13 +8,23 @@ npm test
 npm run build
 ```
 
-The default build uses sanitized fixtures. Live reads require:
+The default build is live mode and does not fall back to fixtures. The owning
+MAIM application must inject `window.__MAIM_STUDIO_SESSION__` with
+`getAccessToken()` and an auth-change `subscribe()` callback. Live reads require:
 
 - `VITE_SUPABASE_URL` for project `njpdlomvyalxrkluaige`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
-- an authenticated user's access token supplied by the owning host application
+- an authenticated user's access token supplied by that session provider
 
-Never put a service-role key in this app. The current preview is not deployed and does not prove a hosted connection.
+Sanitized fixtures are available only when the build explicitly sets
+`VITE_CATALOGUE_MODE=fixture`. A failed live read, sign-out, or revoked
+membership clears catalogue records and displays the corresponding access state.
+
+Never put a service-role key in this app. Vercel automatically created an
+SSO-protected branch preview for the repository root, but its inspected build
+contained only the root API functions—not this Studio app. That automatic
+preview is not a deliberate Studio deployment and does not prove a hosted
+catalogue connection.
 
 Preview rules:
 
