@@ -47,9 +47,10 @@ The script creates and removes `maim-catalogue-validation`. It accepts
   end to end; database reconciliation was tested directly through PostgreSQL.
 - Hosted schema compatibility, Studio authentication, signed/original-source
   links, and browser preview behavior remain unverified.
-- Vercel automatically created an SSO-protected repository-root branch preview,
-  but provider build inspection showed only the existing root API functions and
-  no Studio build output. It does not establish a deployed catalogue connection.
+- Vercel automatically created an SSO-protected branch preview using its
+  configured `apps/maim-site` root. Provider inspection showed only that site's
+  existing API functions and no Studio output. It does not establish a deployed
+  catalogue connection.
 - The archive receipt reports 162 originals checked with zero mismatches and 22
   provenance files before the receipt itself. This database run did not rehash
   those private files and does not upgrade that reported evidence.

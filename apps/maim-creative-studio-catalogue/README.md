@@ -21,8 +21,9 @@ Sanitized fixtures are available only when the build explicitly sets
 membership clears catalogue records and displays the corresponding access state.
 
 Never put a service-role key in this app. Vercel automatically created an
-SSO-protected branch preview for the repository root, but its inspected build
-contained only the root API functions—not this Studio app. That automatic
+SSO-protected branch preview using the Vercel project's configured
+`apps/maim-site` root directory, but its inspected outputs contained only that
+site's existing API functions—not this Studio app. That automatic
 preview is not a deliberate Studio deployment and does not prove a hosted
 catalogue connection.
 

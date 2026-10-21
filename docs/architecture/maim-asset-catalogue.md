@@ -68,11 +68,12 @@ normal user token is used with the publishable key. Fixture mode requires the
 explicit `VITE_CATALOGUE_MODE=fixture` build setting, and live errors never fall
 back to fixtures. Sign-out and HTTP 403 membership revocation clear all records.
 
-Vercel automatically built the PR branch as deployment
-`dpl_4id5XrJE4utEyxedN71jMWEr6Zjj` on 2026-10-21. Provider inspection showed
-target `preview`, status `Ready`, an SSO redirect for unauthenticated requests,
-and only root `api/checkout` and `api/stripe-webhook` build outputs. It did not
-build this Studio directory. This is automatic repository-branch deployment
+Vercel automatically rebuilt the PR branch as deployment
+`dpl_9g2JfKZUgZzGFqajQ42QBavnZSec` on 2026-10-21. Provider and PR inspection
+showed target `preview`, status `Ready`, configured root directory
+`apps/maim-site`, an SSO redirect for unauthenticated requests, and only that
+site's `api/checkout` and `api/stripe-webhook` function outputs. It did not build
+this Studio directory. This is automatic repository-branch deployment
 evidence, not a deliberate Studio deployment or a hosted catalogue connection.
 
 ## Validation gates
