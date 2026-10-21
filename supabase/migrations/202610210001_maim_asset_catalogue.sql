@@ -229,6 +229,7 @@ declare
   v_project_id uuid;
   v_existing_sha text;
   v_source_workspace uuid;
+  v_source_stable_id text;
   v_inserted integer := 0;
   v_reconciled integer := 0;
   v_conflicts integer := 0;
@@ -265,12 +266,17 @@ begin
       v_conflicts := v_conflicts + 1;
       continue;
     end if;
-    select a.workspace_id into v_source_workspace
+    v_source_workspace := null;
+    v_source_stable_id := null;
+    select a.workspace_id, a.stable_id into v_source_workspace, v_source_stable_id
       from maim.asset_catalog_source_locations s
       join maim.asset_catalog_assets a on a.id = s.asset_id
      where s.provider = 'google_drive'
        and s.external_file_id = item->>'drive_file_id';
-    if v_source_workspace is not null and v_source_workspace <> p_workspace_id then
+    if v_source_workspace is not null and (
+      v_source_workspace <> p_workspace_id
+      or v_source_stable_id <> item->>'stable_id'
+    ) then
       v_conflicts := v_conflicts + 1;
       continue;
     end if;

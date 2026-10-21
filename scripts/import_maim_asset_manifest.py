@@ -20,9 +20,39 @@ from collections import Counter
 from pathlib import Path
 
 PROJECT_REF = "njpdlomvyalxrkluaige"
+APPROVED_SUPABASE_ORIGIN = f"https://{PROJECT_REF}.supabase.co"
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{10,}$")
 ALLOWED_APPROVAL = {"unreviewed", "reference-only", "documented-complete-reference"}
+
+
+class NoCredentialRedirects(urllib.request.HTTPRedirectHandler):
+    """Never replay the service-role request to a redirect destination."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: ANN001
+        raise RuntimeError(f"catalogue RPC refused HTTP redirect ({code})")
+
+
+def validated_supabase_origin(raw: str) -> str:
+    """Return the one approved canonical origin or fail before networking."""
+
+    parsed = urllib.parse.urlsplit(raw)
+    try:
+        port = parsed.port
+    except ValueError as exc:
+        raise RuntimeError("SUPABASE_URL contains an invalid port") from exc
+    if (
+        parsed.scheme != "https"
+        or parsed.hostname != f"{PROJECT_REF}.supabase.co"
+        or port is not None
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.path not in {"", "/"}
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise RuntimeError(f"SUPABASE_URL must exactly match {APPROVED_SUPABASE_ORIGIN}")
+    return APPROVED_SUPABASE_ORIGIN
 
 
 def parse_dependencies(raw: str) -> list[dict[str, object]]:
@@ -138,10 +168,8 @@ def reconcile(records: list[dict[str, object]]) -> dict[str, object]:
 
 
 def apply_manifest(workspace_id: str, records: list[dict[str, object]]) -> dict[str, object]:
-    url = os.environ.get("SUPABASE_URL", "").rstrip("/")
+    url = validated_supabase_origin(os.environ.get("SUPABASE_URL", ""))
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-    if PROJECT_REF not in url:
-        raise RuntimeError(f"SUPABASE_URL must target canonical project {PROJECT_REF}")
     if not key:
         raise RuntimeError("SUPABASE_SERVICE_ROLE_KEY is required only for --apply")
     body = json.dumps({"p_workspace_id": workspace_id, "p_manifest": records}).encode()
@@ -157,8 +185,9 @@ def apply_manifest(workspace_id: str, records: list[dict[str, object]]) -> dict[
             "Accept-Profile": "maim",
         },
     )
+    opener = urllib.request.build_opener(NoCredentialRedirects())
     try:
-        with urllib.request.urlopen(request, timeout=60) as response:
+        with opener.open(request, timeout=60) as response:
             return json.loads(response.read() or b"{}")
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", "replace")[:1000]

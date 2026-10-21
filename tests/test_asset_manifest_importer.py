@@ -3,6 +3,7 @@ import json
 import subprocess
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +40,34 @@ class AssetImporterTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(json.loads(run.stdout)["mode"], "dry-run")
+
+    def test_apply_rejects_noncanonical_destinations_before_networking(self):
+        unsafe = [
+            "http://njpdlomvyalxrkluaige.supabase.co",
+            "https://njpdlomvyalxrkluaige.supabase.co.evil.example",
+            "https://evil.example/njpdlomvyalxrkluaige",
+            "https://user@njpdlomvyalxrkluaige.supabase.co",
+            "https://njpdlomvyalxrkluaige.supabase.co:443",
+            "https://njpdlomvyalxrkluaige.supabase.co/rest",
+            "https://njpdlomvyalxrkluaige.supabase.co?next=evil",
+            "https://njpdlomvyalxrkluaige.supabase.co#fragment",
+        ]
+        with mock.patch.dict("os.environ", {"SUPABASE_SERVICE_ROLE_KEY": "secret"}, clear=True):
+            with mock.patch.object(MODULE.urllib.request, "build_opener") as build_opener:
+                for url in unsafe:
+                    with self.subTest(url=url), mock.patch.dict("os.environ", {"SUPABASE_URL": url}):
+                        with self.assertRaises(RuntimeError):
+                            MODULE.apply_manifest("workspace", [])
+                build_opener.assert_not_called()
+
+    def test_redirect_handler_never_forwards_credentials(self):
+        handler = MODULE.NoCredentialRedirects()
+        request = MODULE.urllib.request.Request(
+            f"{MODULE.APPROVED_SUPABASE_ORIGIN}/rest/v1/rpc/reconcile_asset_catalog_manifest",
+            headers={"Authorization": "Bearer secret"},
+        )
+        with self.assertRaisesRegex(RuntimeError, "refused HTTP redirect"):
+            handler.redirect_request(request, None, 307, "redirect", {}, "https://evil.example/")
 
 
 if __name__ == "__main__":
