@@ -3,10 +3,10 @@ import assert from 'node:assert/strict'
 import crypto from 'node:crypto'
 import process from 'node:process'
 import { createClient } from '@supabase/supabase-js'
-import { assertCleanupBaseline, importerHeaders, PROJECT_REF, readPrivateManifest, renderPluginCleanupSql, renderPluginRevokeSql, renderPluginSetupSql, sanitizeResult, validateHostedDestinations, validateManifestPath, writePrivateManifest } from '../src/lib/hostedE2eCore.mjs'
+import { assertCleanupBaseline, importerHeaders, PROJECT_REF, readPrivateManifest, renderPluginBaselineSql, renderPluginCleanupSql, renderPluginRevokeSql, renderPluginSetupSql, sanitizeResult, validateHostedDestinations, validateManifestPath, writePrivateManifest } from '../src/lib/hostedE2eCore.mjs'
 
 const [phase, manifestArg, ...args] = process.argv.slice(2)
-const phases = ['prepare','record-baseline','execute','plugin-sql','revoked','expiration','record-cleanup','cleanup-auth']
+const phases = ['prepare','record-baseline','create-users','record-setup','execute','plugin-sql','revoked','expiration','record-cleanup','cleanup-auth']
 if (!phases.includes(phase) || !manifestArg) throw new Error(`Usage: hosted-e2e.mjs <${phases.join('|')}> <absolute-private-manifest-path>`)
 const manifestPath = validateManifestPath(manifestArg, process.cwd())
 const log = (name, status, detail) => console.log(JSON.stringify(sanitizeResult(name, status, detail)))
@@ -31,7 +31,8 @@ async function importResult(workspaceId, item) {
   const response = await importManifest(workspaceId, item); const body = await response.json().catch(() => ({}))
   assert.equal(response.status, 200, `import bridge returned ${response.status}: ${String(body.message ?? body.code ?? 'unknown error')}`); return body
 }
-function numericCounts(values) {
+function numericCounts(values, expected) {
+  if (values.length !== expected) throw new Error(`Expected exactly ${expected} plugin counts.`)
   const result = Object.fromEntries(values.map((v,i) => [['assets','projects','sources','byteVersions','runWorkspaces','runAssets'][i], Number(v)]))
   if (Object.values(result).some(v => !Number.isSafeInteger(v) || v < 0)) throw new Error('Plugin counts must be non-negative integers.')
   return result
@@ -42,23 +43,43 @@ async function prepare() {
   const password = `Maim-${crypto.randomBytes(18).toString('base64url')}!`
   const workspaceIds = [crypto.randomUUID(), crypto.randomUUID()]; const orderReferences = [`${runId}-A`, `${runId}-B`]
   const items = ['A','B'].map((label, index) => ({ stable_id: `${runId}-${label}`, sha256: (index ? 'b' : 'a').repeat(64), size_bytes: 12 + index, format: index ? '.svg' : '.png', mime_type: index ? 'image/svg+xml' : 'image/png', original_filename: `synthetic-${label.toLowerCase()}.${index ? 'svg':'png'}`, project_code: `E2E-${label}`, project: `Synthetic ${label}`, project_relative_path: `  assets/synthetic-${label.toLowerCase()}`, drive_file_id: `${runId}-DRIVE-${label}`, drive_url: `https://drive.google.com/file/d/${runId}-DRIVE-${label}/view`, upload_status: 'uploaded', approval_status: 'unreviewed', integrity_status: 'sha256_verified', dependencies: [] }))
-  const records = { userIds: [], workspaceIds, orderReferences, stableIds: items.map(x=>x.stable_id), driveFileIds: items.map(x=>x.drive_file_id), byteVersions: items.map(x=>({sha256:x.sha256,sizeBytes:x.size_bytes})), items }
-  const manifest = { schemaVersion: 2, runId, projectRef: PROJECT_REF, phase: 'preparing', createdAt: new Date().toISOString(), records, sensitive: { password } }
-  await writePrivateManifest(manifestPath, manifest)
   const emails = [`maim-e2e-a+${runId.toLowerCase()}@example.invalid`, `maim-e2e-b+${runId.toLowerCase()}@example.invalid`]
-  try {
-    for (const email of emails) {
-      const { data, error } = await admin.auth.admin.createUser({ email, password, email_confirm: true, user_metadata: { synthetic_run_id: runId } })
-      if (error) throw error
-      records.userIds.push(data.user.id); await writePrivateManifest(manifestPath, manifest)
-    }
-  } catch (error) { for (const id of records.userIds) await deleteUser(id).catch(()=>{}); throw error }
-  manifest.sensitive.emails = emails; manifest.phase = 'plugin_setup_pending'; await writePrivateManifest(manifestPath, manifest)
-  log('prepare','pass','MAIM ECOSYSTEM plugin setup and baseline capture required')
+  const records = { userIds: [], plannedEmails: emails, workspaceIds, orderReferences, stableIds: items.map(x=>x.stable_id), driveFileIds: items.map(x=>x.drive_file_id), byteVersions: items.map(x=>({sha256:x.sha256,sizeBytes:x.size_bytes})), items }
+  const manifest = { schemaVersion: 3, runId, projectRef: PROJECT_REF, phase: 'plugin_baseline_pending', createdAt: new Date().toISOString(), records, sensitive: { password, emails } }
+  await writePrivateManifest(manifestPath, manifest)
+  log('prepare','pass','MAIM ECOSYSTEM plugin baseline required before Auth creation')
 }
 async function recordBaseline() {
-  const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.phase,'plugin_setup_pending')
-  manifest.baseline=numericCounts(args.slice(0,4)); manifest.phase='plugin_ready'; await writePrivateManifest(manifestPath,manifest); log('baseline','recorded','plugin setup acknowledged')
+  const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.phase,'plugin_baseline_pending')
+  manifest.baseline=numericCounts(args,4); manifest.phase='auth_creation_pending'; await writePrivateManifest(manifestPath,manifest); log('baseline','recorded','Auth creation may proceed')
+}
+async function reconcileCreatedUsers(manifest) {
+  const wanted=new Set(manifest.records.plannedEmails ?? []); const found=[]
+  for(let page=1;;page+=1) {
+    const {data,error}=await admin.auth.admin.listUsers({page,perPage:100}); if(error) throw error
+    for(const user of data.users ?? []) if(wanted.has(user.email) && user.user_metadata?.synthetic_run_id===manifest.runId) found.push(user)
+    if((data.users?.length ?? 0)<100) break
+  }
+  manifest.records.userIds=[...new Set(found.map(user=>user.id))]
+  return found
+}
+async function createUsers() {
+  const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.phase,'auth_creation_pending')
+  await reconcileCreatedUsers(manifest); await writePrivateManifest(manifestPath,manifest)
+  try {
+    for (const email of manifest.records.plannedEmails) {
+      if ((await reconcileCreatedUsers(manifest)).some(user=>user.email===email)) { await writePrivateManifest(manifestPath,manifest); continue }
+      const { data, error } = await admin.auth.admin.createUser({ email, password:manifest.sensitive.password, email_confirm: true, user_metadata: { synthetic_run_id: manifest.runId } })
+      if (error) throw error
+      manifest.records.userIds.push(data.user.id); await writePrivateManifest(manifestPath, manifest)
+      if (process.env.NODE_ENV==='test' && process.env.MAIM_HOSTED_E2E_MODE==='disposable' && Number(process.env.MAIM_HOSTED_E2E_INTERRUPT_AFTER_AUTH_USERS)===manifest.records.userIds.length) throw new Error('Synthetic interrupted Auth creation.')
+    }
+  } catch (error) { await reconcileCreatedUsers(manifest).catch(()=>{}); await writePrivateManifest(manifestPath,manifest); throw error }
+  assert.equal(manifest.records.userIds.length,2); manifest.phase='plugin_setup_pending'; await writePrivateManifest(manifestPath,manifest); log('create-users','pass','MAIM ECOSYSTEM plugin setup required')
+}
+async function recordSetup() {
+  const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.phase,'plugin_setup_pending'); assert.equal(manifest.records.userIds.length,2)
+  manifest.phase='plugin_ready'; await writePrivateManifest(manifestPath,manifest); log('setup','recorded','plugin setup acknowledged')
 }
 async function execute() {
   const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.phase,'plugin_ready')
@@ -90,22 +111,26 @@ async function expiration() {
   manifest.expiration.observed=true; manifest.expiration.observedAt=new Date().toISOString(); delete manifest.sensitive.expirationAccessToken; manifest.phase='plugin_cleanup_pending'; await writePrivateManifest(manifestPath,manifest); log('expiration','pass','MAIM ECOSYSTEM plugin cleanup required')
 }
 async function recordCleanup() {
-  const manifest=await readPrivateManifest(manifestPath); const after=numericCounts(args.slice(0,6)); assertCleanupBaseline(manifest.baseline,after)
+  const manifest=await readPrivateManifest(manifestPath); const after=numericCounts(args,6); assertCleanupBaseline(manifest.baseline,after)
   manifest.cleanup={pluginVerified:true,after}; manifest.phase='auth_cleanup_pending'; await writePrivateManifest(manifestPath,manifest); log('cleanup','verified','baseline restored')
 }
 async function cleanupAuth() {
-  const manifest=await readPrivateManifest(manifestPath); assert.equal(manifest.cleanup?.pluginVerified,true,'Plugin cleanup must be verified before Auth cleanup.')
-  for(const id of manifest.records.userIds) await deleteUser(id)
+  const manifest=await readPrivateManifest(manifestPath)
+  const early=['plugin_baseline_pending','auth_creation_pending'].includes(manifest.phase)
+  if(!early) assert.equal(manifest.cleanup?.pluginVerified,true,'Plugin cleanup must be verified before Auth cleanup.')
+  const users=await reconcileCreatedUsers(manifest)
+  for(const user of users) await deleteUser(user.id)
   manifest.sensitive={}; manifest.phase='cleaned'; manifest.cleanedAt=new Date().toISOString(); await writePrivateManifest(manifestPath,manifest); log('cleanup-auth','pass','synthetic users removed')
 }
 async function pluginSql() {
   const manifest=await readPrivateManifest(manifestPath); const kind=args[0]
-  if(kind==='setup') process.stdout.write(renderPluginSetupSql(manifest.records))
+  if(kind==='baseline') process.stdout.write(renderPluginBaselineSql())
+  else if(kind==='setup') process.stdout.write(renderPluginSetupSql(manifest.records))
   else if(kind==='revoke') process.stdout.write(renderPluginRevokeSql(manifest.records))
   else if(kind==='cleanup') process.stdout.write(renderPluginCleanupSql(manifest.records,manifest.baseline))
-  else throw new Error('plugin-sql requires setup, revoke, or cleanup')
+  else throw new Error('plugin-sql requires baseline, setup, revoke, or cleanup')
 }
 
 try {
-  if(phase==='prepare') await prepare(); else if(phase==='record-baseline') await recordBaseline(); else if(phase==='execute') await execute(); else if(phase==='plugin-sql') await pluginSql(); else if(phase==='revoked') await revoked(); else if(phase==='expiration') await expiration(); else if(phase==='record-cleanup') await recordCleanup(); else await cleanupAuth()
+  if(phase==='prepare') await prepare(); else if(phase==='record-baseline') await recordBaseline(); else if(phase==='create-users') await createUsers(); else if(phase==='record-setup') await recordSetup(); else if(phase==='execute') await execute(); else if(phase==='plugin-sql') await pluginSql(); else if(phase==='revoked') await revoked(); else if(phase==='expiration') await expiration(); else if(phase==='record-cleanup') await recordCleanup(); else await cleanupAuth()
 } catch { log('hosted-e2e','failed','inspect private manifest; use the MAIM ECOSYSTEM plugin plan and idempotent cleanup'); process.exitCode=1 }

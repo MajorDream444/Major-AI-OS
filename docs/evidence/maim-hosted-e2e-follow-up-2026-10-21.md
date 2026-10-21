@@ -31,14 +31,19 @@ remain the application-test boundary; they do not grant direct database access.
 
 The private mode-0600 run manifest remains outside Git. The phases are:
 
-1. `prepare` — create synthetic Auth users and persist every cleanup identity.
-2. `plugin-sql setup` — inspect and execute through MAIM ECOSYSTEM; record the
-   returned baseline with `record-baseline`.
-3. `execute` — import synthetic fixtures and assert Auth → HTTP → RLS results.
-4. `plugin-sql revoke` — execute through MAIM ECOSYSTEM, then run `revoked`.
-5. `expiration` — resume only after the recorded real token expiry.
-6. `plugin-sql cleanup` — execute through MAIM ECOSYSTEM; record returned counts
-   with `record-cleanup`; only an exact baseline match permits `cleanup-auth`.
+1. `prepare` — persist planned synthetic emails and every database cleanup
+   identity before any hosted user is created.
+2. `plugin-sql baseline` — inspect through MAIM ECOSYSTEM, then provide exactly
+   four counts to `record-baseline`.
+3. `create-users` — reconcile exact planned emails through Auth Admin before
+   creating missing users; zero, one or two users can be recovered and removed.
+4. `plugin-sql setup` — execute through MAIM ECOSYSTEM, then `record-setup`.
+5. `execute` — import synthetic fixtures and assert Auth → HTTP → RLS results.
+6. `plugin-sql revoke` — execute through MAIM ECOSYSTEM, then run `revoked`.
+7. `expiration` — resume only after the recorded real token expiry.
+8. `plugin-sql cleanup` — execute through MAIM ECOSYSTEM; provide exactly six
+   counts to `record-cleanup`; only an exact baseline match permits final Auth
+   cleanup after database setup.
 
 The SQL generator is idempotent at the cleanup boundary and is safe if the
 runner is interrupted immediately after an import. It never deletes unrelated
@@ -66,6 +71,9 @@ plugin SQL contract against disposable PostgreSQL only. Results:
 - full disposable Auth → HTTP → RPC → RLS → Studio path: passed;
 - plugin-boundary setup/revoke/cleanup contract: passed;
 - repeat import reconciled one record with no duplicate;
-- cleanup restored recorded catalogue counts and left zero run workspaces/assets.
+- cleanup restored recorded catalogue counts and left zero run workspaces/assets;
+- early interruption after the first Auth user was reconciled and cleaned;
+- cleanup with zero, one and two created users passed;
+- incomplete four-count baseline and six-count cleanup inputs were rejected without advancing phase.
 
 This is disposable evidence only and does not claim hosted execution.

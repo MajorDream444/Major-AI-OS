@@ -48,11 +48,14 @@ function validateRecords(records) {
   if ((records.userIds?.length ?? 0) !== 2 || (records.workspaceIds?.length ?? 0) !== 2) throw new Error('Plugin plan requires exactly two synthetic users and workspaces.')
   return records
 }
+export function renderPluginBaselineSql() {
+  return `-- Read only. Execute only with the MAIM ECOSYSTEM plugin for ${PROJECT_REF}.\n` +
+    `select 'baseline' as phase,\n (select count(*) from maim.asset_catalog_assets) assets,\n (select count(*) from maim.asset_catalog_projects) projects,\n (select count(*) from maim.asset_catalog_source_locations) sources,\n (select count(*) from maim.asset_catalog_byte_versions) byte_versions;\n`
+}
 export function renderPluginSetupSql(records) {
   validateRecords(records)
   const [wa, wb] = records.workspaceIds; const [ua, ub] = records.userIds; const [oa, ob] = records.orderReferences
   return `-- Execute only with the MAIM ECOSYSTEM plugin for ${PROJECT_REF}.\n` +
-    `select 'baseline' as phase,\n (select count(*) from maim.asset_catalog_assets) assets,\n (select count(*) from maim.asset_catalog_projects) projects,\n (select count(*) from maim.asset_catalog_source_locations) sources,\n (select count(*) from maim.asset_catalog_byte_versions) byte_versions;\n` +
     `insert into maim.workspaces(id,order_reference,status) values (${sqlText(wa)}::uuid,${sqlText(oa)},'active'),(${sqlText(wb)}::uuid,${sqlText(ob)},'active');\n` +
     `insert into maim.memberships(workspace_id,user_id,role) values (${sqlText(wa)}::uuid,${sqlText(ua)}::uuid,'operator'),(${sqlText(wb)}::uuid,${sqlText(ub)}::uuid,'operator');\n`
 }
