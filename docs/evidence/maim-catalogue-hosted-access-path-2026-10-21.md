@@ -105,8 +105,8 @@ supabase db dump --linked --schema-only --schema auth,maim,public \
 shasum -a 256 \
   supabase/migrations/202610210001_maim_asset_catalogue.sql \
   supabase/migrations/202610210002_maim_catalogue_api.sql \
-  supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql \
-  supabase/migrations/202610210002_maim_catalogue_api.rollback.sql
+  supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql \
+  supabase/rollbacks/202610210002_maim_catalogue_api.rollback.sql
 supabase db push --linked --dry-run
 ```
 
@@ -156,9 +156,9 @@ Disable the endpoint route first, then run only after dependency review:
 
 ```bash
 psql "$APPROVED_MAIM_DATABASE_URL" -v ON_ERROR_STOP=1 \
-  -f supabase/migrations/202610210002_maim_catalogue_api.rollback.sql
+  -f supabase/rollbacks/202610210002_maim_catalogue_api.rollback.sql
 psql "$APPROVED_MAIM_DATABASE_URL" -v ON_ERROR_STOP=1 \
-  -f supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql
+  -f supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql
 ```
 
 Re-run the private schema snapshot comparison. Existing `workspaces`,

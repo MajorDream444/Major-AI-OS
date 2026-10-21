@@ -123,7 +123,7 @@ Before hosted application:
 
 ## Rollback
 
-The rollback SQL is `supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql`.
+The rollback SQL is `supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql`.
 
 1. Disable the catalogue importer and Studio catalogue adapter.
 2. Export catalogue rows and reconciliation evidence if any test data exists.

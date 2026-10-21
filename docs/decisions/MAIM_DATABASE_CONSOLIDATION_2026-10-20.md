@@ -8,7 +8,7 @@ Five connector links expose eight distinct projects; the STB and legacy Supabase
 ## Verified existing foundation
 The canonical project is ACTIVE_HEALTHY. Its public schema is empty, but its private maim schema already has nine RLS-enabled tables: customers, entitlements, memberships, orders, refunds, reports, vault_assets, webhook_events and workspaces. An earlier public-only check did not mean the database was blank.
 
-The Vercel-managed organization contains the active legacy project fsrskmlsxqtxduhdfhnd and inactive jhoehbqzlyflfzmigfwn. Major-AI-OS/supabase/migrations/0001_registrations.sql explicitly targets fsrskmlsxqtxduhdfhnd; its public.registrations exists with RLS. Historical comments mention Kit, which is retired under current ecosystem direction. This is evidence of a legacy dependency, not proof the current production runtime still uses it.
+The Vercel-managed organization contains the active legacy project fsrskmlsxqtxduhdfhnd and inactive jhoehbqzlyflfzmigfwn. The historically committed migration, now preserved at `supabase/legacy/registrations/0001_registrations.sql`, explicitly targets fsrskmlsxqtxduhdfhnd; its public.registrations exists with RLS. Historical comments mention Kit, which is retired under current ecosystem direction. This is evidence of a legacy dependency, not proof the current production runtime still uses it.
 
 No production Vercel URL, key, DNS or account integration was switched. Changing one environment URL does not migrate data, authentication, storage, policies or webhooks.
 
