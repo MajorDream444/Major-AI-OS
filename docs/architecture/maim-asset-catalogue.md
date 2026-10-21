@@ -65,7 +65,12 @@ The Studio only treats non-blocked images and PDFs as preview-capable. PDFs requ
 
 The Studio defaults to live mode and consumes the owning application's injected
 authenticated-session provider; it does not implement a parallel sign-in. A
-normal user token and trusted workspace ID are used with the publishable key.
+normal user token and trusted workspace ID are sent only to the owning
+application's private `/api/catalogue` route. The browser does not call the
+private `maim` PostgREST schema directly. The server validates the session and
+uses the same user JWT with the narrowly exposed, security-invoker
+`public.get_maim_asset_catalogue(uuid)` RPC; no service-role credential is used
+for reads.
 The Supabase adapter forwards Auth changes, rejects stale delayed session reads,
 and verifies workspace membership before loading catalogue rows. Every catalogue
 request also filters `asset_catalog_studio.workspace_id` to the selected
