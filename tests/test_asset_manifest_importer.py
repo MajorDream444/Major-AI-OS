@@ -69,6 +69,18 @@ class AssetImporterTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "refused HTTP redirect"):
             handler.redirect_request(request, None, 307, "redirect", {}, "https://evil.example/")
 
+    def test_explicit_loopback_test_origin_is_exact(self):
+        with mock.patch.dict("os.environ", {"MAIM_ASSET_IMPORTER_TEST_ORIGIN": "http://127.0.0.1:54321"}, clear=True):
+            self.assertEqual(MODULE.validated_supabase_origin("http://127.0.0.1:54321"), "http://127.0.0.1:54321")
+            for unsafe in [
+                "http://127.0.0.1:54321/path",
+                "http://localhost:54321",
+                "http://127.0.0.1:54322",
+                "http://127.0.0.1:54321?next=evil",
+            ]:
+                with self.subTest(url=unsafe), self.assertRaises(RuntimeError):
+                    MODULE.validated_supabase_origin(unsafe)
+
 
 if __name__ == "__main__":
     unittest.main()

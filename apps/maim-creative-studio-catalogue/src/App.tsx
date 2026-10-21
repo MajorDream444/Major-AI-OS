@@ -4,6 +4,7 @@ import { fixtureAssets } from './fixtures'
 import { fetchCatalogue } from './lib/catalogueClient'
 import { catalogueFailureState, signedOutState } from './lib/catalogueState.mjs'
 import type { CatalogueSessionProvider } from './session'
+import type { CatalogueSession } from './session'
 import type { Asset } from './types'
 import './styles.css'
 
@@ -29,12 +30,12 @@ export default function App({ mode, sessionProvider }: Props) {
       setCatalogue({ phase: state.phase as Phase, message: state.message, assets: [] })
       setSelectedId(null)
     }
-    const load = async (token: string | null) => {
+    const load = async (session: CatalogueSession | null) => {
       const generation = ++requestGeneration
-      if (!token) return clearWith(signedOutState())
+      if (!session) return clearWith(signedOutState())
       if (active) setCatalogue({ phase: 'loading', message: 'Loading private catalogue…', assets: [] })
       try {
-        const assets = await fetchCatalogue(token)
+        const assets = await fetchCatalogue(session)
         if (!active || generation !== requestGeneration) return
         setCatalogue({ phase: 'ready', message: 'Authenticated workspace catalogue', assets })
         setSelectedId(assets[0]?.id ?? null)
@@ -46,8 +47,8 @@ export default function App({ mode, sessionProvider }: Props) {
       clearWith(signedOutState())
       return
     }
-    void sessionProvider.getAccessToken().then(load).catch((error) => clearWith(catalogueFailureState(error)))
-    const unsubscribe = sessionProvider.subscribe((token) => { void load(token) })
+    void sessionProvider.getSession().then(load).catch((error) => clearWith(catalogueFailureState(error)))
+    const unsubscribe = sessionProvider.subscribe((session) => { void load(session) })
     return () => { active = false; unsubscribe() }
   }, [mode, sessionProvider])
 

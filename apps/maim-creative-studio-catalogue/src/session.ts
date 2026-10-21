@@ -1,6 +1,8 @@
+export type CatalogueSession = { accessToken: string; workspaceId: string }
+
 export type CatalogueSessionProvider = {
-  getAccessToken(): Promise<string | null>
-  subscribe(listener: (accessToken: string | null) => void): () => void
+  getSession(): Promise<CatalogueSession | null>
+  subscribe(listener: (session: CatalogueSession | null) => void): () => void
 }
 
 declare global {

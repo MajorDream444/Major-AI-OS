@@ -10,15 +10,19 @@ npm run build
 
 The default build is live mode and does not fall back to fixtures. The owning
 MAIM application must inject `window.__MAIM_STUDIO_SESSION__` with
-`getAccessToken()` and an auth-change `subscribe()` callback. Live reads require:
+`getSession()` and an auth-change `subscribe()` callback. Each session carries
+the user access token and owning workspace ID. `createSupabaseSessionProvider()`
+adapts the owning application's existing Supabase Auth client. Live reads require:
 
 - `VITE_SUPABASE_URL` for project `njpdlomvyalxrkluaige`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 - an authenticated user's access token supplied by that session provider
+- the owning workspace ID supplied by the same trusted application context
 
 Sanitized fixtures are available only when the build explicitly sets
 `VITE_CATALOGUE_MODE=fixture`. A failed live read, sign-out, or revoked
 membership clears catalogue records and displays the corresponding access state.
+The client verifies workspace membership before requesting catalogue rows.
 
 Never put a service-role key in this app. Vercel automatically created an
 SSO-protected branch preview using the Vercel project's configured
