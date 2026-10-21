@@ -25,8 +25,18 @@ Moving these files did not change their bytes. Rollback remains a separate, expl
 - Historical file: `0001_registrations.sql`
 - Original repository commit: `7fc1379` (`Establish canonical source of truth and close launch gaps`)
 
-This legacy stream is retained for provenance and audit. It is not a MAIM Ecosystem migration and must not be discovered by a linked canonical-project dry-run.
+This legacy stream is retained for provenance and audit. It is not a MAIM Ecosystem migration and must not be included in a MAIM ECOSYSTEM plugin migration operation.
 
 ## Gates
 
-Plugin reads can reconcile hosted history and inspect schema state. They do not establish CLI authentication and cannot satisfy the linked CLI dry-run gate. A linked dry-run remains **NOT RUN** until an authenticated Supabase CLI executes it and reports exactly the two proposed forward catalogue migrations.
+Use the **MAIM ECOSYSTEM** plugin connection for hosted history inspection,
+approved migration application, and post-change verification. The canonical
+project is `njpdlomvyalxrkluaige`. CLI login, linking, push, and dry-run gates
+are superseded by the owner decision in
+`docs/decisions/MAIM_DATABASE_CONSOLIDATION_2026-10-20.md`.
+
+Before any separately approved hosted apply, use read-only plugin queries to
+confirm the target, authoritative ledger, dependencies, object absence, SQL
+hashes, grants, and rollback readiness. Plugin application must contain only
+the two reviewed forward catalogue migrations. Private import and Studio
+release remain separate approvals.

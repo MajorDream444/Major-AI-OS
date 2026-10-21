@@ -22,7 +22,7 @@ The catalogue does not repurpose or alter that table. It adds a separate normali
 - `asset_catalog_studio`: security-invoker read model for the Studio, including
   the asset workspace identity required for explicit request scoping.
 
-All tables are in the private `maim` schema. RLS reuses existing workspace memberships. Authenticated users receive SELECT only and see records only for workspaces they belong to. Anonymous access and browser writes are denied. The reconciliation function is granted only to `service_role` and is intended for server-side/CLI use.
+All tables are in the private `maim` schema. RLS reuses existing workspace memberships. Authenticated users receive SELECT only and see records only for workspaces they belong to. Anonymous access and browser writes are denied. The reconciliation function is granted only to `service_role` and is intended for trusted server-side use. Hosted Supabase operations route through the MAIM ECOSYSTEM plugin.
 
 ## Importer
 

@@ -89,35 +89,29 @@ git fetch origin
 git status --short
 git rev-parse HEAD
 gh pr view 52 --json state,isDraft,mergeCommit,headRefOid
-supabase projects list
+gh pr view 53 --json state,isDraft,mergeCommit,headRefOid
 ```
 
-PR #52 merge state and hosted readiness are independent. Stop unless the
-approved commit contains both catalogue migrations in order.
+PR merge state and hosted readiness are independent. Stop unless the approved
+commit contains both catalogue migrations in order.
 
-### Gate 1 — read-only snapshot and dry run
+### Gate 1 — plugin-backed read-only preflight
 
-```bash
-supabase link --project-ref njpdlomvyalxrkluaige
-supabase migration list --linked
-supabase db dump --linked --schema-only --schema auth,maim,public \
-  --file /private/approved-location/maim-before-catalogue.sql
-shasum -a 256 \
-  supabase/migrations/202610210001_maim_asset_catalogue.sql \
-  supabase/migrations/202610210002_maim_catalogue_api.sql \
-  supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql \
-  supabase/rollbacks/202610210002_maim_catalogue_api.rollback.sql
-supabase db push --linked --dry-run
-```
+Use the **MAIM ECOSYSTEM** Supabase plugin connection and verify exact project
+`njpdlomvyalxrkluaige`. Read the authoritative migration ledger and current
+schema through supported read-only plugin tools. Compare the two reviewed
+forward SQL files, hashes, dependencies, grants, existing-object absence, and
+rollback scripts. Record the precise proposed delta.
 
-Review the proposed migration list and snapshot before any write.
+Stop on an unexpected account, project, ledger entry, object collision,
+dependency, or SQL change. CLI login, linking, push, and dry-run are not gates.
 
 ### Gate 2 — migration only, after separate approval
 
-```bash
-supabase db push --linked
-supabase migration list --linked
-```
+Apply only the two reviewed forward migrations through the MAIM ECOSYSTEM
+plugin migration operation. Each plugin call must identify project
+`njpdlomvyalxrkluaige`. Do not include rollback, legacy, private-import, or
+schema-exposure changes.
 
 Immediately re-inspect the function owner, `prosecdef=false`, fixed search
 path, grants for both public bridges, view RLS behavior, and foundation-object
@@ -152,14 +146,10 @@ This test must succeed while `maim` remains absent from exposed schemas.
 
 ### Rollback
 
-Disable the endpoint route first, then run only after dependency review:
-
-```bash
-psql "$APPROVED_MAIM_DATABASE_URL" -v ON_ERROR_STOP=1 \
-  -f supabase/rollbacks/202610210002_maim_catalogue_api.rollback.sql
-psql "$APPROVED_MAIM_DATABASE_URL" -v ON_ERROR_STOP=1 \
-  -f supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql
-```
+Disable the endpoint route first. After dependency review and separate human
+approval, submit the API rollback and then the catalogue rollback through the
+MAIM ECOSYSTEM plugin migration operation. Do not use a CLI or direct database
+URL as a fallback.
 
 Re-run the private schema snapshot comparison. Existing `workspaces`,
 `memberships`, `vault_assets`, policies, and data must remain unchanged.
