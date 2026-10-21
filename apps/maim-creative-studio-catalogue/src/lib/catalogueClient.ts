@@ -1,10 +1,8 @@
 import type { Asset } from '../types'
+import { CatalogueHttpError, fetchCatalogueRows } from './catalogueApi.mjs'
+import type { CatalogueSession } from '../session'
 
-export class CatalogueAccessError extends Error {
-  constructor(public readonly status: number) {
-    super(status === 401 ? 'Catalogue session is signed out.' : status === 403 ? 'Catalogue membership is not authorized.' : `Catalogue request failed (${status}).`)
-  }
-}
+export { CatalogueHttpError as CatalogueAccessError }
 
 type Row = {
   id: string; stable_id: string; title: string; format: string;
@@ -13,15 +11,11 @@ type Row = {
   dependency_count: number; preview_blocked: boolean; original_source_url: string;
 }
 
-export async function fetchCatalogue(accessToken: string): Promise<Asset[]> {
+export async function fetchCatalogue(session: CatalogueSession): Promise<Asset[]> {
   const endpoint = import.meta.env.VITE_SUPABASE_URL as string | undefined
   const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined
-  if (!endpoint || !publishableKey || !accessToken) throw new Error('Private catalogue session is not configured.')
-  const response = await fetch(`${endpoint}/rest/v1/asset_catalog_studio?select=*&order=title.asc`, {
-    headers: { apikey: publishableKey, Authorization: `Bearer ${accessToken}`, 'Accept-Profile': 'maim' }
-  })
-  if (!response.ok) throw new CatalogueAccessError(response.status)
-  return ((await response.json()) as Row[]).map((row) => ({
+  const rows = await fetchCatalogueRows(endpoint, publishableKey, session) as Row[]
+  return rows.map((row) => ({
     id: row.id, stableId: row.stable_id, title: row.title, format: row.format,
     projectCode: row.project_code, project: row.project, approvalStatus: row.approval_status,
     completenessStatus: row.completeness_status, integrityStatus: row.integrity_status,

@@ -33,6 +33,26 @@ class NoCredentialRedirects(urllib.request.HTTPRedirectHandler):
         raise RuntimeError(f"catalogue RPC refused HTTP redirect ({code})")
 
 
+def validated_test_origin(raw: str) -> str:
+    parsed = urllib.parse.urlsplit(raw)
+    try:
+        port = parsed.port
+    except ValueError as exc:
+        raise RuntimeError("test origin contains an invalid port") from exc
+    if (
+        parsed.scheme not in {"http", "https"}
+        or parsed.hostname not in {"127.0.0.1", "localhost"}
+        or port is None
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.path not in {"", "/"}
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise RuntimeError("test origin must be an exact loopback origin with an explicit port")
+    return f"{parsed.scheme}://{parsed.hostname}:{port}"
+
+
 def validated_supabase_origin(raw: str) -> str:
     """Return the one approved canonical origin or fail before networking."""
 
@@ -41,7 +61,7 @@ def validated_supabase_origin(raw: str) -> str:
         port = parsed.port
     except ValueError as exc:
         raise RuntimeError("SUPABASE_URL contains an invalid port") from exc
-    if (
+    canonical = not (
         parsed.scheme != "https"
         or parsed.hostname != f"{PROJECT_REF}.supabase.co"
         or port is not None
@@ -50,9 +70,15 @@ def validated_supabase_origin(raw: str) -> str:
         or parsed.path not in {"", "/"}
         or parsed.query
         or parsed.fragment
-    ):
-        raise RuntimeError(f"SUPABASE_URL must exactly match {APPROVED_SUPABASE_ORIGIN}")
-    return APPROVED_SUPABASE_ORIGIN
+    )
+    if canonical:
+        return APPROVED_SUPABASE_ORIGIN
+    configured_test_origin = os.environ.get("MAIM_ASSET_IMPORTER_TEST_ORIGIN", "")
+    if configured_test_origin:
+        test_origin = validated_test_origin(configured_test_origin)
+        if raw.rstrip("/") == test_origin and raw in {test_origin, f"{test_origin}/"}:
+            return test_origin
+    raise RuntimeError(f"SUPABASE_URL must exactly match {APPROVED_SUPABASE_ORIGIN} or the explicit loopback test origin")
 
 
 def parse_dependencies(raw: str) -> list[dict[str, object]]:
