@@ -8,5 +8,10 @@ export type CatalogueSessionProvider = {
 declare global {
   interface Window {
     __MAIM_STUDIO_SESSION__?: CatalogueSessionProvider
+    __MAIM_STUDIO_AUTH_CONFIG__?: {
+      supabaseUrl: string
+      publishableKey: string
+      workspaceId: string
+    }
   }
 }

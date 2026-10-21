@@ -30,5 +30,6 @@ PY
 )"
 rm -f "$STATUS_FILE"
 
+API_URL="$API_URL" ANON_KEY="$ANON_KEY" SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY" apps/maim-site/node_modules/.bin/tsx tests/hosted_e2e_runner_disposable.mjs
 apps/maim-site/node_modules/.bin/tsx tests/asset_catalogue_supabase_e2e.mjs
 echo 'PASS: disposable Supabase Auth -> server endpoint -> PostgREST RPC -> DB -> Studio validation completed.'
