@@ -36,7 +36,8 @@ allow-list.
 
 ## Narrow access path
 
-`public.get_maim_asset_catalogue(uuid)` is the only new PostgREST surface. It:
+`public.get_maim_asset_catalogue(uuid)` is the narrow browser-read PostgREST
+surface. It:
 
 - is `SECURITY INVOKER`, granted only to `authenticated`;
 - rejects a missing or non-member `auth.uid()`;
@@ -53,6 +54,27 @@ is used by this read endpoint or sent to the browser.
 
 The Studio now calls `/api/catalogue?workspace_id=...` with its owning
 application session instead of calling the private schema directly.
+
+The server-only importer uses a separate
+`public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)` bridge. It is
+`SECURITY INVOKER`, granted only to `service_role`, and delegates to the
+canonical `maim.reconcile_asset_catalog_manifest` implementation. The Python
+importer keeps dry-run as its default and preserves reconciliation, conflict,
+missing-upload, zero-byte, exact-origin, and redirect-refusal behavior.
+
+The disposable Supabase configuration exposes only `public` and
+`graphql_public`; `maim` is deliberately absent. With that configuration, the
+HTTP importer passed first import, repeat reconciliation, conflict protection,
+missing/zero-byte classification, and two-workspace imports through the public
+service-only bridge.
+
+The disposable end-to-end test now starts a real local HTTP server around
+`/api/catalogue` and drives the Studio client through that handler. It confirms
+anonymous 401, expired-token 401, revoked/cross-workspace 403, multi-workspace
+selection, and sign-out behavior. Studio destination tests prove that
+cross-origin, userinfo, and non-HTTPS URLs are rejected before any request;
+redirects use `redirect: error`. Explicit HTTP testing is loopback and
+exact-origin only.
 
 ## Approval-gated hosted rollout commands
 
@@ -98,8 +120,9 @@ supabase migration list --linked
 ```
 
 Immediately re-inspect the function owner, `prosecdef=false`, fixed search
-path, grants, view RLS behavior, and foundation-object counts. Do not run the
-private manifest importer.
+path, grants for both public bridges, view RLS behavior, and foundation-object
+counts. Confirm `maim` was not added to the Data API schema allow-list. Do not
+run the private manifest importer.
 
 ### Gate 3 — server configuration and protected preview, after separate approval
 
@@ -121,6 +144,11 @@ Use two approved non-production Auth users and two synthetic workspaces. Test
 anonymous, expired, revoked, cross-workspace, multi-workspace selection,
 sign-out, and delayed response behavior. Capture sanitized HTTP status and
 field-shape evidence. Do not import archive data.
+
+Run a synthetic importer dry-run, then an approved synthetic apply through
+`public.reconcile_maim_asset_catalog_manifest`. Confirm a repeat apply is
+idempotent and that conflicting stable IDs and Drive reassignment are rejected.
+This test must succeed while `maim` remains absent from exposed schemas.
 
 ### Rollback
 
