@@ -65,7 +65,22 @@ The Studio only treats non-blocked images and PDFs as preview-capable. PDFs requ
 
 The Studio defaults to live mode and consumes the owning application's injected
 authenticated-session provider; it does not implement a parallel sign-in. A
-normal user token and trusted workspace ID are used with the publishable key.
+normal user token and trusted workspace ID are sent only to the owning
+application's private `/api/catalogue` route. The browser does not call the
+private `maim` PostgREST schema directly. The server validates the session and
+uses the same user JWT with the narrowly exposed, security-invoker
+`public.get_maim_asset_catalogue(uuid)` RPC; no service-role credential is used
+for reads.
+The importer similarly uses only the exposed
+`public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)` bridge. That bridge
+is `SECURITY INVOKER`, executable only by `service_role`, and delegates to the
+canonical private reconciliation function. This preserves dry-run behavior,
+conflict detection, and idempotency without exposing the `maim` schema.
+
+The Studio accepts only a same-origin catalogue route. It rejects userinfo,
+cross-origin URLs, and non-HTTPS destinations before fetch; explicit local
+testing is limited to an exact loopback HTTP origin. Fetch redirects are
+refused so the user's bearer token cannot be forwarded to a redirect target.
 The Supabase adapter forwards Auth changes, rejects stale delayed session reads,
 and verifies workspace membership before loading catalogue rows. Every catalogue
 request also filters `asset_catalog_studio.workspace_id` to the selected
@@ -108,7 +123,7 @@ Before hosted application:
 
 ## Rollback
 
-The rollback SQL is `supabase/migrations/202610210001_maim_asset_catalogue.rollback.sql`.
+The rollback SQL is `supabase/rollbacks/202610210001_maim_asset_catalogue.rollback.sql`.
 
 1. Disable the catalogue importer and Studio catalogue adapter.
 2. Export catalogue rows and reconciliation evidence if any test data exists.
