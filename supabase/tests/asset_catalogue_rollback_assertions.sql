@@ -6,5 +6,6 @@ do $$ begin
  if to_regclass('maim.asset_catalog_assets') is not null or to_regclass('maim.asset_catalog_byte_versions') is not null or to_regclass('maim.asset_catalog_source_locations') is not null or to_regclass('maim.asset_catalog_projects') is not null or to_regclass('maim.asset_catalog_project_memberships') is not null or to_regclass('maim.asset_catalog_dependencies') is not null then raise exception 'rollback left catalogue tables'; end if;
  if to_regclass('maim.asset_catalog_studio') is not null then raise exception 'rollback left Studio view'; end if;
  if to_regprocedure('public.get_maim_asset_catalogue(uuid)') is not null then raise exception 'rollback left catalogue API function'; end if;
+ if to_regprocedure('public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)') is not null then raise exception 'rollback left importer bridge'; end if;
 end $$;
 select 'asset catalogue rollback validation passed' as result;

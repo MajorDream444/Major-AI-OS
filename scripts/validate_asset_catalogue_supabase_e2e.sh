@@ -30,5 +30,5 @@ PY
 )"
 rm -f "$STATUS_FILE"
 
-node tests/asset_catalogue_supabase_e2e.mjs
+apps/maim-site/node_modules/.bin/tsx tests/asset_catalogue_supabase_e2e.mjs
 echo 'PASS: disposable Supabase Auth -> server endpoint -> PostgREST RPC -> DB -> Studio validation completed.'

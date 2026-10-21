@@ -7,6 +7,7 @@ ROLLBACK = (ROOT / "supabase/migrations/202610210001_maim_asset_catalogue.rollba
 RLS_TEST = (ROOT / "supabase/tests/asset_catalogue_rls.sql").read_text()
 API_SQL = (ROOT / "supabase/migrations/202610210002_maim_catalogue_api.sql").read_text()
 API_ROLLBACK = (ROOT / "supabase/migrations/202610210002_maim_catalogue_api.rollback.sql").read_text()
+SUPABASE_CONFIG = (ROOT / "supabase/config.toml").read_text()
 
 
 class AssetCatalogueMigrationContractTests(unittest.TestCase):
@@ -49,7 +50,14 @@ class AssetCatalogueMigrationContractTests(unittest.TestCase):
         self.assertIn("revoke all on function public.get_maim_asset_catalogue(uuid) from public, anon", lowered)
         self.assertIn("grant execute on function public.get_maim_asset_catalogue(uuid) to authenticated", lowered)
         self.assertIn("m.workspace_id = p_workspace_id", lowered)
+        self.assertIn("security invoker", lowered)
+        self.assertIn("revoke all on function public.reconcile_maim_asset_catalog_manifest(uuid, jsonb) from public, anon, authenticated", lowered)
+        self.assertIn("grant execute on function public.reconcile_maim_asset_catalog_manifest(uuid, jsonb) to service_role", lowered)
+        self.assertIn("maim.reconcile_asset_catalog_manifest(p_workspace_id, p_manifest)", lowered)
         self.assertIn("drop function if exists public.get_maim_asset_catalogue(uuid)", API_ROLLBACK.lower())
+        self.assertIn("drop function if exists public.reconcile_maim_asset_catalog_manifest(uuid, jsonb)", API_ROLLBACK.lower())
+        self.assertIn('schemas = ["public", "graphql_public"]', SUPABASE_CONFIG)
+        self.assertNotIn('schemas = ["public", "graphql_public", "maim"]', SUPABASE_CONFIG)
 
 
 if __name__ == "__main__":

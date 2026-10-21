@@ -200,15 +200,13 @@ def apply_manifest(workspace_id: str, records: list[dict[str, object]]) -> dict[
         raise RuntimeError("SUPABASE_SERVICE_ROLE_KEY is required only for --apply")
     body = json.dumps({"p_workspace_id": workspace_id, "p_manifest": records}).encode()
     request = urllib.request.Request(
-        f"{url}/rest/v1/rpc/reconcile_asset_catalog_manifest",
+        f"{url}/rest/v1/rpc/reconcile_maim_asset_catalog_manifest",
         data=body,
         method="POST",
         headers={
             "apikey": key,
             "Authorization": f"Bearer {key}",
             "Content-Type": "application/json",
-            "Content-Profile": "maim",
-            "Accept-Profile": "maim",
         },
     )
     opener = urllib.request.build_opener(NoCredentialRedirects())

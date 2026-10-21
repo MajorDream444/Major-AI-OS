@@ -13,7 +13,9 @@ type Row = {
 
 export async function fetchCatalogue(session: CatalogueSession): Promise<Asset[]> {
   const endpoint = (import.meta.env.VITE_CATALOGUE_API_URL as string | undefined) ?? '/api/catalogue'
-  const rows = await fetchCatalogueRows(endpoint, session) as Row[]
+  const rows = await fetchCatalogueRows(endpoint, session, {
+    allowHttpLocal: import.meta.env.VITE_CATALOGUE_ALLOW_HTTP_LOCAL === 'true'
+  }) as Row[]
   return rows.map((row) => ({
     id: row.id, stableId: row.stable_id, title: row.title, format: row.format,
     projectCode: row.project_code, project: row.project, approvalStatus: row.approval_status,

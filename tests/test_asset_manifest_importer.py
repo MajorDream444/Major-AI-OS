@@ -63,7 +63,7 @@ class AssetImporterTests(unittest.TestCase):
     def test_redirect_handler_never_forwards_credentials(self):
         handler = MODULE.NoCredentialRedirects()
         request = MODULE.urllib.request.Request(
-            f"{MODULE.APPROVED_SUPABASE_ORIGIN}/rest/v1/rpc/reconcile_asset_catalog_manifest",
+            f"{MODULE.APPROVED_SUPABASE_ORIGIN}/rest/v1/rpc/reconcile_maim_asset_catalog_manifest",
             headers={"Authorization": "Bearer secret"},
         )
         with self.assertRaisesRegex(RuntimeError, "refused HTTP redirect"):

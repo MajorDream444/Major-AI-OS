@@ -55,3 +55,23 @@ grant execute on function public.get_maim_asset_catalogue(uuid) to authenticated
 
 comment on function public.get_maim_asset_catalogue(uuid) is
   'Authenticated, membership-scoped read bridge for the private MAIM asset catalogue.';
+
+-- Server-only write bridge. This keeps the private maim schema out of the Data
+-- API allow-list while preserving the canonical reconciliation implementation.
+create or replace function public.reconcile_maim_asset_catalog_manifest(
+  p_workspace_id uuid,
+  p_manifest jsonb
+) returns jsonb
+language sql
+volatile
+security invoker
+set search_path = pg_catalog, maim
+as $$
+  select maim.reconcile_asset_catalog_manifest(p_workspace_id, p_manifest);
+$$;
+
+revoke all on function public.reconcile_maim_asset_catalog_manifest(uuid, jsonb) from public, anon, authenticated;
+grant execute on function public.reconcile_maim_asset_catalog_manifest(uuid, jsonb) to service_role;
+
+comment on function public.reconcile_maim_asset_catalog_manifest(uuid, jsonb) is
+  'Service-role-only bridge to canonical MAIM manifest reconciliation.';

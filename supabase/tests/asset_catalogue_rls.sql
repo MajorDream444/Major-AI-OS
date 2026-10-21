@@ -5,6 +5,8 @@ do $$ begin
  if has_table_privilege('authenticated','maim.asset_catalog_assets','insert,update,delete') then raise exception 'browser role has write privileges'; end if;
  if has_function_privilege('authenticated','maim.reconcile_asset_catalog_manifest(uuid,jsonb)','execute') or has_function_privilege('anon','maim.reconcile_asset_catalog_manifest(uuid,jsonb)','execute') then raise exception 'browser role can invoke importer RPC'; end if;
  if has_function_privilege('anon','public.get_maim_asset_catalogue(uuid)','execute') then raise exception 'anonymous role can invoke catalogue API'; end if;
+ if has_function_privilege('anon','public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)','execute') or has_function_privilege('authenticated','public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)','execute') then raise exception 'browser role can invoke public importer bridge'; end if;
+ if not has_function_privilege('service_role','public.reconcile_maim_asset_catalog_manifest(uuid,jsonb)','execute') then raise exception 'service role lacks public importer bridge'; end if;
  if not has_function_privilege('service_role','maim.reconcile_asset_catalog_manifest(uuid,jsonb)','execute') then raise exception 'service role lacks importer RPC'; end if;
  if not exists (select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='maim' and p.proname='reconcile_asset_catalog_manifest' and p.prosecdef and p.proconfig @> array['search_path=pg_catalog, maim']::text[]) then raise exception 'SECURITY DEFINER search_path is unsafe'; end if;
 end $$;
@@ -21,6 +23,10 @@ do $$ begin
  begin
   perform * from public.get_maim_asset_catalogue('10000000-0000-0000-0000-000000000001');
   raise exception 'anonymous catalogue API unexpectedly succeeded';
+ exception when insufficient_privilege then null; end;
+ begin
+  perform public.reconcile_maim_asset_catalog_manifest('10000000-0000-0000-0000-000000000001','[]'::jsonb);
+  raise exception 'anonymous public importer bridge unexpectedly succeeded';
  exception when insufficient_privilege then null; end;
 end $$;
 reset role;

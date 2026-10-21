@@ -25,6 +25,9 @@ membership clears catalogue records and displays the corresponding access state.
 The server validates the session and workspace membership before returning the
 selected workspace's allow-listed catalogue projection. The browser does not
 receive a Supabase project key or call the private `maim` schema directly.
+The endpoint must resolve to the Studio's own origin. HTTPS is required except
+for an explicit loopback-only local test setting, and redirects are refused
+before the bearer token can be forwarded.
 
 Never put a service-role key in this app. Vercel automatically created an
 SSO-protected branch preview using the Vercel project's configured
