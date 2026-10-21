@@ -1,5 +1,17 @@
 # MAIM database consolidation — owner decision, 20 October 2026
 
+## Owner update — 21 October 2026: plugin-only operations and account routing
+
+This update supersedes earlier CLI-based operational instructions and CLI dry-run gates in catalogue handoffs and runbooks.
+
+- Use connected Supabase plugins for hosted inspection, migration-history checks, approved migrations and post-change verification. Do not use or request Supabase CLI login, link, db push or CLI dry-run. Retired CLI account access is not an operational dependency.
+- The approved account boundaries are MAIM, AMA and Major Dream. All MAIM applications and assets use the MAIM ECOSYSTEM plugin connection and canonical project njpdlomvyalxrkluaige. AMA work uses the AMA account; Major Dream work uses the Major Dream account. Verify exact plugin/project bindings for the latter two before operations; do not guess them from generic connector labels.
+- Historical connector/project inventories describe prior observations, not approval to use additional accounts. This routing update supersedes earlier cross-brand target assumptions: AMA work does not route into MAIM merely because an older registry lists it there.
+- The reported CLI dry-run skipped migrations because local discovery was disabled. This is not migration readiness evidence and does not require enabling CLI discovery for hosted operations.
+- Replace CLI preflight with plugin-backed verification: confirm project identity, inspect authoritative migration ledger statements and current schema, compare reviewed forward SQL and hashes, inspect rollback/dependencies, and record the exact proposed delta. Do not describe these checks as a CLI dry-run.
+- Hosted DDL uses the plugin's migration operation when application is authorized. Git merges do not authorize database changes, private imports or release. Existing snapshots, isolation checks and rollback requirements remain.
+- Future Codex and Cowork handoffs must repeat the relevant account/project routing and plugin-only requirement. If the plugin lacks a required capability, report the specific gap without falling back to the retired CLI account.
+
 ## Decision
 Use MAIM Ecosystem (njpdlomvyalxrkluaige, us-east-1) as the primary Supabase project for current MAIM ecosystem builds. Major explicitly chose consolidation over spreading across accounts; additional capacity can be purchased later when needed. Separate repositories, applications and product permissions remain intact. A connector is an account authorization, not a database or an application boundary.
 
