@@ -26,9 +26,11 @@
 - Confirmed importer destination validation rejects noncanonical URLs before a
   network opener is created and the importer refuses HTTP redirects.
 - Confirmed the project-relative path `  assets/safe.png` is preserved exactly.
+- Confirmed the Studio view exposes the owning `workspace_id`; the API and
+  client separately test selection scoping while RLS remains authoritative.
 - Found and fixed a rollback dependency-order defect. The rerun confirmed that
   existing vault asset data, foundation tables, and membership/workspace policies
-  survive while all catalogue objects are removed.
+  survive while the workspace-aware Studio view and all catalogue objects are removed.
 
 ## Reproduction
 

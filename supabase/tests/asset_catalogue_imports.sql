@@ -26,6 +26,7 @@ do $$ begin
  if (select result from validation_results where case_name='missing_and_zero') <> '{"inserted":0,"reconciled":0,"conflicts":0,"missing_uploads":1,"zero_byte_exceptions":1}'::jsonb then raise exception 'missing/zero classification failed'; end if;
  if (select count(*) from maim.asset_catalog_assets) <> 1 or (select count(*) from maim.asset_catalog_byte_versions) <> 1 or (select count(*) from maim.asset_catalog_source_locations) <> 1 or (select count(*) from maim.asset_catalog_project_memberships) <> 1 or (select count(*) from maim.asset_catalog_dependencies) <> 1 then raise exception 'repeat/conflict created unintended records'; end if;
  if (select project_relative_path from maim.asset_catalog_source_locations limit 1) <> '  assets/safe.png' then raise exception 'relative path was changed'; end if;
+ if (select workspace_id from maim.asset_catalog_studio where stable_id='MAIM-CD-TEST-ONE') <> '10000000-0000-0000-0000-000000000001' then raise exception 'Studio view omitted or changed workspace identity'; end if;
  if (select a.stable_id from maim.asset_catalog_source_locations s join maim.asset_catalog_assets a on a.id=s.asset_id where s.external_file_id='driveTestAsset001') <> 'MAIM-CD-TEST-ONE' then raise exception 'Drive source association was reassigned'; end if;
 end $$;
 select case_name,result from validation_results order by case_name;

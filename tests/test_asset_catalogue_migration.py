@@ -26,6 +26,7 @@ class AssetCatalogueMigrationContractTests(unittest.TestCase):
             )
 
     def test_browser_is_read_only_and_rpc_is_server_only(self):
+        self.assertIn("a.workspace_id", SQL.lower())
         self.assertIn("grant select on maim.asset_catalog_studio to authenticated", SQL.lower())
         self.assertIn(
             "revoke all on function maim.reconcile_asset_catalog_manifest(uuid, jsonb) from public, anon, authenticated",

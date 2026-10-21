@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { AssetPreview } from './components/AssetPreview'
 import { fixtureAssets } from './fixtures'
 import { fetchCatalogue } from './lib/catalogueClient'
+import { createCatalogueLoader } from './lib/catalogueLoader.mjs'
 import { catalogueFailureState, signedOutState } from './lib/catalogueState.mjs'
 import type { CatalogueSessionProvider } from './session'
 import type { CatalogueSession } from './session'
@@ -23,33 +24,27 @@ export default function App({ mode, sessionProvider }: Props) {
 
   useEffect(() => {
     if (mode === 'fixture') return
-    let active = true
-    let requestGeneration = 0
     const clearWith = (state: { phase: string; message: string }) => {
-      if (!active) return
       setCatalogue({ phase: state.phase as Phase, message: state.message, assets: [] })
       setSelectedId(null)
     }
-    const load = async (session: CatalogueSession | null) => {
-      const generation = ++requestGeneration
-      if (!session) return clearWith(signedOutState())
-      if (active) setCatalogue({ phase: 'loading', message: 'Loading private catalogue…', assets: [] })
-      try {
-        const assets = await fetchCatalogue(session)
-        if (!active || generation !== requestGeneration) return
+    const loader = createCatalogueLoader({
+      fetchCatalogue,
+      onLoading: () => setCatalogue({ phase: 'loading', message: 'Loading private catalogue…', assets: [] }),
+      onReady: (assets: Asset[]) => {
         setCatalogue({ phase: 'ready', message: 'Authenticated workspace catalogue', assets })
         setSelectedId(assets[0]?.id ?? null)
-      } catch (error) {
-        if (generation === requestGeneration) clearWith(catalogueFailureState(error))
-      }
-    }
+      },
+      onSignedOut: () => clearWith(signedOutState()),
+      onFailure: (error: unknown) => clearWith(catalogueFailureState(error))
+    })
     if (!sessionProvider) {
-      clearWith(signedOutState())
-      return
+      loader.load(null)
+      return () => loader.dispose()
     }
-    void sessionProvider.getSession().then(load).catch((error) => clearWith(catalogueFailureState(error)))
-    const unsubscribe = sessionProvider.subscribe((session) => { void load(session) })
-    return () => { active = false; unsubscribe() }
+    void sessionProvider.getSession().then(loader.load).catch(loader.fail)
+    const unsubscribe = sessionProvider.subscribe((session: CatalogueSession | null) => { void loader.load(session) })
+    return () => { loader.dispose(); unsubscribe() }
   }, [mode, sessionProvider])
 
   const projects = useMemo(() => ['all', ...Array.from(new Set(catalogue.assets.map((asset) => asset.projectCode)))], [catalogue.assets])

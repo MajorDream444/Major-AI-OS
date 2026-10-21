@@ -175,6 +175,7 @@ with (security_invoker = true)
 as
 select
   a.id,
+  a.workspace_id,
   a.stable_id,
   a.title,
   a.format,

@@ -5,7 +5,7 @@ import type { CatalogueSession } from '../session'
 export { CatalogueHttpError as CatalogueAccessError }
 
 type Row = {
-  id: string; stable_id: string; title: string; format: string;
+  id: string; workspace_id: string; stable_id: string; title: string; format: string;
   approval_status: Asset['approvalStatus']; completeness_status: Asset['completenessStatus'];
   integrity_status: Asset['integrityStatus']; project_code: string; project: string;
   dependency_count: number; preview_blocked: boolean; original_source_url: string;

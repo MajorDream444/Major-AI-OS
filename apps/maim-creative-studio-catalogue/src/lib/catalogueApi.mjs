@@ -18,5 +18,5 @@ export async function fetchCatalogueRows(endpoint, publishableKey, session) {
   const workspace = encodeURIComponent(session.workspaceId)
   const memberships = await requestRows(endpoint, publishableKey, session.accessToken, `workspaces?id=eq.${workspace}&select=id`)
   if (memberships.length !== 1) throw new CatalogueHttpError(403)
-  return requestRows(endpoint, publishableKey, session.accessToken, 'asset_catalog_studio?select=*&order=title.asc')
+  return requestRows(endpoint, publishableKey, session.accessToken, `asset_catalog_studio?workspace_id=eq.${workspace}&select=*&order=title.asc`)
 }
