@@ -42,3 +42,38 @@ Preview rules:
 - recovered HTML/JavaScript is source-only and never executed;
 - source links are restricted to HTTPS Google Drive/Docs hosts;
 - assets remain `unreviewed` unless a separate human approval changes that field.
+
+## Protected-preview hosted E2E package
+
+The owning app may provide public browser configuration before Studio startup:
+
+```js
+window.__MAIM_STUDIO_AUTH_CONFIG__ = {
+  supabaseUrl: 'https://njpdlomvyalxrkluaige.supabase.co',
+  publishableKey: '<preview publishable key>',
+  workspaceId: '<selected workspace UUID>'
+}
+```
+
+The bootstrap accepts only the exact canonical Supabase origin. It creates the
+normal Supabase browser Auth client and installs the existing stale-response-safe
+session provider. The server still validates the JWT and workspace membership;
+the browser-selected workspace is not an authorization boundary. Never include
+an admin or service-role credential in this object.
+
+A one-time server-side runner is prepared but must not run without separate
+approval:
+
+```bash
+npm run e2e:hosted -- run /absolute/private/path/run.json
+npm run e2e:hosted -- expiration /absolute/private/path/run.json
+npm run e2e:hosted -- cleanup /absolute/private/path/run.json
+```
+
+`run` records the issued token's actual expiry and exits with
+`expiration_pending`. Run `expiration` only after that time; it verifies the
+real expired token receives 401 and then cleans up. `cleanup` is idempotent and
+may be used after interruption. The private manifest must be outside the repo
+and is written mode 0600. It contains a short-lived bearer token until the
+expiration phase completes, so it must never be committed, uploaded, or pasted
+into chat.
