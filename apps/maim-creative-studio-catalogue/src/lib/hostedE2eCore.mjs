@@ -3,9 +3,9 @@ import path from 'node:path'
 
 export const PROJECT_REF = 'njpdlomvyalxrkluaige'
 export const SUPABASE_ORIGIN = `https://${PROJECT_REF}.supabase.co`
-// Hosted execution remains blocked until a reviewed commit pins one exact
-// protected deployment origin. Wildcard vercel.app destinations are forbidden.
-export const APPROVED_PREVIEW_ORIGINS = Object.freeze([])
+// Exact protected branch alias observed through the Vercel plugin for this
+// review branch. Wildcard vercel.app destinations are forbidden.
+export const APPROVED_PREVIEW_ORIGINS = Object.freeze(['https://major-ai-os-git-codex-maim-hosted-e2e-hardening-hamal-agi.vercel.app'])
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 
 export function validateHostedDestinations(env, options = {}) {

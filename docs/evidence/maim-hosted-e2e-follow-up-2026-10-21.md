@@ -5,8 +5,8 @@ Status: implementation only; hosted execution **PENDING / NOT AUTHORIZED**.
 ## Findings closed
 
 1. The runner no longer accepts a wildcard `*.vercel.app` target. The checked-in
-   production allow-list is empty, so hosted execution is blocked until a
-   reviewed commit pins one exact protected deployment origin. Validation
+   production allow-list pins only the exact protected branch alias observed
+   through the Vercel plugin; other `vercel.app` hosts are rejected. Validation
    occurs before any network request and redirects remain refused.
 2. Browser importer denial sends the publishable key in `apikey` and the user
    JWT only in `Authorization: Bearer`. This reaches the authenticated RPC
@@ -48,8 +48,10 @@ records or a byte version still referenced by a source location.
 
 No protected preview was deployed or configured by this change. No hosted
 secrets, users, workspaces, catalogue records or private assets were created.
-The exact preview origin remains intentionally unpinned until a concrete
-protected deployment is separately approved and reviewed. Studio release and
+An automatic branch preview was observed as READY at deployment
+`dpl_P5Cy1KHnktowRLZ5wiCvfjabB28k`; its exact protected branch alias is pinned.
+This provider-created preview is not a deliberate deployment or release and was
+not accessed or configured during this work. Studio release and
 private archive import remain unauthorized.
 
 ## Disposable evidence

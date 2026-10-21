@@ -5,13 +5,13 @@ import test from 'node:test'
 import { mkdtemp, stat } from 'node:fs/promises'
 import { assertCleanupBaseline, importerHeaders, readPrivateManifest, renderPluginCleanupSql, validateHostedDestinations, validateManifestPath, writePrivateManifest } from '../src/lib/hostedE2eCore.mjs'
 
-const approved='https://maim-e2e-reviewed.vercel.app'
+const approved='https://major-ai-os-git-codex-maim-hosted-e2e-hardening-hamal-agi.vercel.app'
 const env={MAIM_HOSTED_E2E_ENABLED:'true',MAIM_HOSTED_E2E_PROJECT_REF:'njpdlomvyalxrkluaige',SUPABASE_URL:'https://njpdlomvyalxrkluaige.supabase.co',MAIM_HOSTED_E2E_PREVIEW_ORIGIN:approved,SUPABASE_PUBLISHABLE_KEY:'publishable-test',SUPABASE_SERVICE_ROLE_KEY:'service-test',VERCEL_AUTOMATION_BYPASS_SECRET:'bypass-test'}
 
 test('pins one exact reviewed preview before network access',()=>{
-  assert.equal(validateHostedDestinations(env,{approvedPreviewOrigins:[approved]}).endpoint,`${approved}/api/catalogue`)
+  assert.equal(validateHostedDestinations(env).endpoint,`${approved}/api/catalogue`)
   for(const bad of [{MAIM_HOSTED_E2E_PREVIEW_ORIGIN:'https://other.vercel.app'},{MAIM_HOSTED_E2E_PREVIEW_ORIGIN:'https://user@maim-e2e-reviewed.vercel.app'},{SUPABASE_URL:'https://evil.example/?project=njpdlomvyalxrkluaige'},{MAIM_HOSTED_E2E_ENABLED:'false'}]) assert.throws(()=>validateHostedDestinations({...env,...bad},{approvedPreviewOrigins:[approved]}),/not approved|invalid|guard|exact reviewed/)
-  assert.throws(()=>validateHostedDestinations(env),/exact reviewed/)
+  assert.throws(()=>validateHostedDestinations({...env,MAIM_HOSTED_E2E_PREVIEW_ORIGIN:'https://major-ai-os-git-other-hamal-agi.vercel.app'}),/exact reviewed/)
 })
 
 test('import denial uses publishable apikey and user bearer independently',()=>{
