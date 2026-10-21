@@ -44,11 +44,17 @@ The legacy migration remains byte-identical at SHA-256 `1d3987b853204e8e34daf6ac
 
 The PostgreSQL harness now waits across the image's bootstrap restart before beginning validation.
 
-## CLI gate
+## Historical CLI observation — superseded
 
-**Linked CLI dry-run: NOT RUN.** The prior CLI session was intentionally logged out after it was identified as the wrong account. Plugin-backed history reconciliation does not satisfy CLI authentication or dry-run acceptance. The remaining gate is an authenticated CLI dry-run showing exactly:
+The earlier linked CLI dry-run was **NOT RUN**. This is retained only as
+historical evidence. Owner decision `abc9977679c0a581690d11c88301391feb1abbd8`
+supersedes CLI login, linking, push, and dry-run requirements for hosted
+Supabase operations. It does not require enabling local migration discovery.
+
+The active plugin-backed preflight expects exactly these proposed changes:
 
 1. `202610210001_maim_asset_catalogue.sql`
 2. `202610210002_maim_catalogue_api.sql`
 
-It must show no rollback, legacy, or unexpected migrations. Do not run `db push` without `--dry-run`, migration repair, or any hosted apply command.
+No rollback, legacy, or unexpected migration may be included. Application via
+the MAIM ECOSYSTEM plugin remains separately approval-gated.
