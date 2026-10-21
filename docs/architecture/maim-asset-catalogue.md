@@ -64,7 +64,9 @@ The Studio only treats non-blocked images and PDFs as preview-capable. PDFs requ
 
 The Studio defaults to live mode and consumes the owning application's injected
 authenticated-session provider; it does not implement a parallel sign-in. A
-normal user token is used with the publishable key. Fixture mode requires the
+normal user token and trusted workspace ID are used with the publishable key.
+The Supabase adapter forwards Auth changes, rejects stale delayed session reads,
+and verifies workspace membership before loading catalogue rows. Fixture mode requires the
 explicit `VITE_CATALOGUE_MODE=fixture` build setting, and live errors never fall
 back to fixtures. Sign-out and HTTP 403 membership revocation clear all records.
 
@@ -75,6 +77,14 @@ showed target `preview`, status `Ready`, configured root directory
 site's `api/checkout` and `api/stripe-webhook` function outputs. It did not build
 this Studio directory. This is automatic repository-branch deployment
 evidence, not a deliberate Studio deployment or a hosted catalogue connection.
+
+After PR #50 merged, Vercel automatically created production deployment
+`dpl_3e7e9rNf1WcEJhTV8njHNy1J4WvS` for merge commit
+`b848256b61ab8b7fe27f99d02fe057a7db84408a`. It was `Ready` and aliased to the
+MAIM domains, but its inspected outputs again contained only the configured
+`apps/maim-site` application and its two API functions. `/studio` and
+`/creative-studio` returned 404. This is a production deployment caused by the
+merge, not evidence that the catalogue or Studio was deployed.
 
 ## Validation gates
 
