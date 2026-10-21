@@ -37,7 +37,7 @@ class AssetCatalogueMigrationContractTests(unittest.TestCase):
         )
 
     def test_cross_user_denial_fixture_exists(self):
-        self.assertIn("cross-user catalogue access was not denied", RLS_TEST)
+        self.assertIn("User A records leaked to User B", RLS_TEST)
         self.assertIn("request.jwt.claim.sub", RLS_TEST)
 
 
