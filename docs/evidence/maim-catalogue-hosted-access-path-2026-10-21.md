@@ -146,5 +146,11 @@ Re-run the private schema snapshot comparison. Existing `workspaces`,
 - separate private catalogue import approval;
 - separate production release approval.
 
-No hosted migration, schema allow-list change, private import, or deployment was
-performed for this decision.
+No hosted migration, schema allow-list change, private import, or deliberate
+deployment was performed for this decision. Pushing the review branch triggered
+the repository's automatic Vercel preview `dpl_5ZfozNjQxZA4umhsEJ5CwahbnEAd`.
+Provider inspection showed target `preview`, status `Ready`, and the new
+`api/catalogue` function alongside the existing checkout/webhook functions. An
+unauthenticated request was redirected to Vercel SSO (HTTP 302). This protected
+automatic build is not a deliberate Studio deployment, hosted Supabase
+connection test, or release approval.
