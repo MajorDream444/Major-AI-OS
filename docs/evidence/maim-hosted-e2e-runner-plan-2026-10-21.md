@@ -1,6 +1,8 @@
 # MAIM hosted E2E runner and protected-preview integration
 
 Status: implementation prepared locally; hosted execution **NOT AUTHORIZED**.
+
+> Historical plan from merged PR #55. The direct-database portions below are superseded by `maim-hosted-e2e-follow-up-2026-10-21.md` and must not be used for hosted execution.
 No deployment, hosted secret configuration, synthetic user/data creation,
 private import, or Studio release is part of this change.
 
