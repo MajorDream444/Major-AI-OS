@@ -20,3 +20,11 @@ Performance: animate transforms only, fixed 24 decorative particles, no image-ge
 Brand: black/obsidian foundation, crown gold, clarity white and restrained blue/green signals from DESIGN.md. Keep existing approved marks as source assets. Do not distort them into the orbit or regenerate them. The sculpture is an illustration, not a replacement identity mark.
 
 A standalone GitHub runtime repository (suggested future name MAIM-CREATIVE-STUDIO) is optional pending deliberate ownership/release review. The working UI already has versioned Sites source; do not create a duplicate deployment or copy private assets into a public repository. Academy can link to a reviewed studio/lesson destination through a separate navigation/release PR.
+
+## Founder architecture decision — 2026-10-21
+
+Status: APPROVED direction, by Major Dream Williams in this conversation ("agreed" following the recommendation).
+
+Keep MAIM Creative Studio as a separate application. MAIM Academy provides its learning doorway, including discoverability, tutorials and guided entry to reviewed studio workflows. Preserve the existing studio project and repository authority boundaries. Shared asset storage and media-generation connections are the next implementation workstream; this decision does not establish that they exist.
+
+The choice to create a separate GitHub runtime repository remains an implementation decision. This agreement does not merge the five context PRs, activate paid generation, or authorize public promotion of Academy. Existing review and release gates continue to apply.
