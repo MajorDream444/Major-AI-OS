@@ -33,12 +33,15 @@ Verified through actual HTTP boundaries:
 - exact loopback test origin required through explicit test-only configuration;
 - canonical exact-origin validation and redirect refusal remain unchanged;
 - owning Supabase Auth client adapted through `createSupabaseSessionProvider()`;
-- User A read one workspace asset; User B read zero in their own workspace and
-  received 403 when attempting User A's workspace context;
+- User A belonged to two workspaces with distinct assets; selecting A returned
+  only A and selecting B returned only B through the workspace-filtered view;
+- User B read only B and received 403 when attempting User A's workspace context;
 - an actually signed expired JWT received HTTP 401;
 - revoked membership produced 403 before catalogue rows were requested;
 - Auth sign-out cleared the provider session;
 - a delayed session response arriving after sign-out could not restore access;
+- a delayed catalogue response from workspace A could not replace records
+  already loaded after switching to workspace B;
 - no fixture fallback was used in live mode.
 
 No local keys, tokens, user IDs, temporary paths, or synthetic passwords are
@@ -56,6 +59,13 @@ The MAIM Ecosystem project `njpdlomvyalxrkluaige` reports ACTIVE_HEALTHY in
 - authenticated has MAIM schema usage and SELECT on workspaces/memberships;
 - authenticated has no SELECT on `vault_assets`; anonymous has no MAIM schema usage;
 - no `asset_catalog_*` tables or view currently exist in hosted MAIM.
+
+The revised migration exposes `workspace_id` in `asset_catalog_studio`. This is
+compatible with the inspected hosted baseline because that view does not yet
+exist there. The disposable PostgreSQL 17/PostgREST run exercised the new
+column and filter, and rollback removed the view before its dependent tables
+while preserving the existing foundation. No hosted compatibility claim is
+made beyond that read-only baseline comparison.
 
 The database reports no session-visible `pgrst.db_schemas` setting, so read-only
 SQL did not prove whether `maim` is currently exposed through hosted PostgREST.
@@ -138,10 +148,13 @@ independently reviewed and the broader API surface is an intentional decision.
 
 1. Use two approved non-production Auth users and two isolated workspaces.
 2. Insert only synthetic catalogue rows through the server importer.
-3. Confirm User A reads A, User B reads B, and cross-workspace context is 403.
+3. Give User A membership in A and B with distinct assets; confirm selecting A
+   returns only A and selecting B returns only B. Confirm User B reads B and
+   cross-workspace context is 403.
 4. Confirm anonymous, expired-token, browser-write, and browser-RPC denial.
 5. Revoke A's membership and confirm access becomes 403 immediately.
-6. Confirm sign-out and delayed pre-sign-out responses cannot restore records.
+6. Confirm sign-out, delayed pre-sign-out responses, and delayed results from a
+   previously selected workspace cannot restore stale records.
 7. Delete synthetic catalogue rows/users only under the approved test cleanup
    procedure; retain sanitized results and exact cleanup receipts.
 

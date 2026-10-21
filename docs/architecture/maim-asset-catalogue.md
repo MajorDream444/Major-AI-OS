@@ -19,7 +19,8 @@ The catalogue does not repurpose or alter that table. It adds a separate normali
 - `asset_catalog_projects`: workspace-scoped MAIM 00–09 or routing-review projects.
 - `asset_catalog_project_memberships`: many-to-many project membership and version relationship.
 - `asset_catalog_dependencies`: dependency status, evidence and preview blocking.
-- `asset_catalog_studio`: security-invoker read model for the Studio.
+- `asset_catalog_studio`: security-invoker read model for the Studio, including
+  the asset workspace identity required for explicit request scoping.
 
 All tables are in the private `maim` schema. RLS reuses existing workspace memberships. Authenticated users receive SELECT only and see records only for workspaces they belong to. Anonymous access and browser writes are denied. The reconciliation function is granted only to `service_role` and is intended for server-side/CLI use.
 
@@ -66,7 +67,12 @@ The Studio defaults to live mode and consumes the owning application's injected
 authenticated-session provider; it does not implement a parallel sign-in. A
 normal user token and trusted workspace ID are used with the publishable key.
 The Supabase adapter forwards Auth changes, rejects stale delayed session reads,
-and verifies workspace membership before loading catalogue rows. Fixture mode requires the
+and verifies workspace membership before loading catalogue rows. Every catalogue
+request also filters `asset_catalog_studio.workspace_id` to the selected
+workspace. That filter prevents multi-workspace result mixing; RLS remains the
+authorization boundary and the filter is not treated as authorization. Delayed
+responses are generation-checked so a prior workspace cannot repopulate the
+current selection. Fixture mode requires the
 explicit `VITE_CATALOGUE_MODE=fixture` build setting, and live errors never fall
 back to fixtures. Sign-out and HTTP 403 membership revocation clear all records.
 
@@ -109,5 +115,9 @@ The rollback SQL is `supabase/migrations/202610210001_maim_asset_catalogue.rollb
 3. Confirm no later migration or consumer references the catalogue objects.
 4. Run the rollback against the same approved environment.
 5. Re-run schema and policy inspection.
+
+The rollback test asserts that the Studio view, including its workspace-aware
+projection, is removed before catalogue tables while all foundation objects
+survive.
 
 Rollback intentionally leaves `maim.vault_assets`, `maim.memberships`, `maim.workspaces`, `auth.users`, Drive originals and every existing product policy unchanged.

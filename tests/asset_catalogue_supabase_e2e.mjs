@@ -43,18 +43,25 @@ await serviceRequest('workspaces', { method: 'POST', body: JSON.stringify([
 ]) })
 await serviceRequest('memberships', { method: 'POST', body: JSON.stringify([
   { workspace_id: workspaceA, user_id: signupA.data.user.id, role: 'operator' },
+  { workspace_id: workspaceB, user_id: signupA.data.user.id, role: 'operator' },
   { workspace_id: workspaceB, user_id: signupB.data.user.id, role: 'operator' }
 ]) })
 
 const temp = await mkdtemp(path.join(os.tmpdir(), 'maim-e2e-'))
-const manifest = path.join(temp, 'synthetic-manifest.csv')
-await writeFile(manifest, [
-  'stable_id,sha256,size_bytes,format,mime_type,original_filename,project_code,project,project_relative_path,drive_file_id,drive_url,upload_status,approval_status,integrity_status,dependencies',
-  'MAIM-E2E-ONE,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,12,.png,image/png,synthetic.png,00,MAIM 00 Brand System,"  assets/synthetic.png",driveSynthetic001,https://drive.google.com/file/d/driveSynthetic001/view,uploaded,unreviewed,sha256_verified,'
+const manifestA = path.join(temp, 'synthetic-manifest-a.csv')
+const manifestB = path.join(temp, 'synthetic-manifest-b.csv')
+const header = 'stable_id,sha256,size_bytes,format,mime_type,original_filename,project_code,project,project_relative_path,drive_file_id,drive_url,upload_status,approval_status,integrity_status,dependencies'
+await writeFile(manifestA, [
+  header,
+  'MAIM-E2E-A,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,12,.png,image/png,synthetic-a.png,00,MAIM 00 Brand System,"  assets/synthetic-a.png",driveSyntheticA01,https://drive.google.com/file/d/driveSyntheticA01/view,uploaded,unreviewed,sha256_verified,'
+].join('\n'))
+await writeFile(manifestB, [
+  header,
+  'MAIM-E2E-B,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,13,.svg,image/svg+xml,synthetic-b.svg,01,MAIM 01,"  assets/synthetic-b.svg",driveSyntheticB01,https://drive.google.com/file/d/driveSyntheticB01/view,uploaded,unreviewed,sha256_verified,'
 ].join('\n'))
 
-function runImporter() {
-  const run = spawnSync('python3', ['scripts/import_maim_asset_manifest.py', manifest, '--workspace-id', workspaceA, '--apply'], {
+function runImporter(manifest, workspaceId) {
+  const run = spawnSync('python3', ['scripts/import_maim_asset_manifest.py', manifest, '--workspace-id', workspaceId, '--apply'], {
     cwd: process.cwd(), encoding: 'utf8', env: {
       ...process.env,
       SUPABASE_URL: API_URL,
@@ -65,18 +72,24 @@ function runImporter() {
   assert.equal(run.status, 0, run.stderr)
   return JSON.parse(run.stdout)
 }
-const first = runImporter()
-const repeat = runImporter()
+const first = runImporter(manifestA, workspaceA)
+const repeat = runImporter(manifestA, workspaceA)
+const secondWorkspace = runImporter(manifestB, workspaceB)
 assert.equal(first.database.inserted, 1)
 assert.equal(repeat.database.reconciled, 1)
+assert.equal(secondWorkspace.database.inserted, 1)
 
 const providerA = createSupabaseSessionProvider(clientA.auth, workspaceA)
 const providerB = createSupabaseSessionProvider(clientB.auth, workspaceB)
 const sessionA = await providerA.getSession()
 const sessionB = await providerB.getSession()
 assert.ok(sessionA && sessionB)
-assert.equal((await fetchCatalogueRows(API_URL, ANON_KEY, sessionA)).length, 1)
-assert.equal((await fetchCatalogueRows(API_URL, ANON_KEY, sessionB)).length, 0)
+const workspaceARows = await fetchCatalogueRows(API_URL, ANON_KEY, sessionA)
+const workspaceBRowsForA = await fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionA, workspaceId: workspaceB })
+const workspaceBRowsForB = await fetchCatalogueRows(API_URL, ANON_KEY, sessionB)
+assert.deepEqual(workspaceARows.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-A', workspace_id: workspaceA }])
+assert.deepEqual(workspaceBRowsForA.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-B', workspace_id: workspaceB }])
+assert.deepEqual(workspaceBRowsForB.map(({ stable_id, workspace_id }) => ({ stable_id, workspace_id })), [{ stable_id: 'MAIM-E2E-B', workspace_id: workspaceB }])
 await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionB, workspaceId: workspaceA }), (error) => error.status === 403)
 
 function base64url(value) { return Buffer.from(JSON.stringify(value)).toString('base64url') }
@@ -87,6 +100,7 @@ await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, { accessToken: 
 
 await serviceRequest(`memberships?workspace_id=eq.${workspaceA}&user_id=eq.${signupA.data.user.id}`, { method: 'DELETE' })
 await assert.rejects(() => fetchCatalogueRows(API_URL, ANON_KEY, sessionA), (error) => error.status === 403)
+assert.equal((await fetchCatalogueRows(API_URL, ANON_KEY, { ...sessionA, workspaceId: workspaceB }))[0].stable_id, 'MAIM-E2E-B')
 
 let signedOut = false
 const unsubscribe = providerA.subscribe((session) => { if (session === null) signedOut = true })
@@ -100,7 +114,7 @@ providerA.dispose()
 providerB.dispose()
 
 console.log(JSON.stringify({
-  auth: 'two synthetic users', importer: { first: first.database, repeat: repeat.database },
-  isolation: 'user-b denied workspace-a and sees zero workspace-b assets',
+  auth: 'two synthetic users; user-a belongs to two workspaces', importer: { first: first.database, repeat: repeat.database, second_workspace: secondWorkspace.database },
+  isolation: 'selected workspace returns only its own asset; user-b denied workspace-a',
   expired_token: '401', revoked_membership: '403', sign_out: 'session cleared'
 }, null, 2))
