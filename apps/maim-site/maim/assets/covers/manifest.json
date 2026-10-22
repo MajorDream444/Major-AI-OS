@@ -1,0 +1,57 @@
+[
+  {
+    "file": "01-diaspora-empowerment.png",
+    "status": "approved-cover-concept",
+    "sha256": "3d77342da4c15f3b6c7fef24c4ac5d0f0a010399ec0c9af98590056831e84ce9"
+  },
+  {
+    "file": "02-mindset-shift-resilience.png",
+    "status": "approved-cover-concept",
+    "sha256": "b83b55f06971347b7564301c5a137b0e188504c2efeef4c9742d15780a6642d4"
+  },
+  {
+    "file": "03-gamified-education.png",
+    "status": "approved-cover-concept",
+    "sha256": "ea565e0333c23e8568eb4be70b282147c039a7630f865854ecd66e8fb4f8fab3"
+  },
+  {
+    "file": "04-blockchain-decentralization.png",
+    "status": "approved-cover-concept",
+    "sha256": "66edf3139e7852a9b480bc11b98cea7408cadf5b516d25373c938050d5f703f6"
+  },
+  {
+    "file": "05-community-collaboration.png",
+    "status": "approved-cover-concept",
+    "sha256": "5fbac5e0a73a969047cc891cbc4a919b9b3d510029bbddd91638b9af1bbdc3ab"
+  },
+  {
+    "file": "06-localized-ai-personalization.png",
+    "status": "approved-cover-concept",
+    "sha256": "ba1546dc890b6108d44de49db457e486bd2e648b29e173953e20adac2b1cb8d7"
+  },
+  {
+    "file": "07-holistic-wellness-balance.png",
+    "status": "approved-cover-concept",
+    "sha256": "e3af0c6a8258745d1dab05db43c2eed32222565a323edc29e16e187730e0c7d1"
+  },
+  {
+    "file": "08-security-compliance.png",
+    "status": "approved-cover-concept",
+    "sha256": "970e6de0354d0ccba0f902fd99e9e3eb1671cf01f3e801cc548ac8b0ed5f813b"
+  },
+  {
+    "file": "09a-data-driven-performance-corporate.png",
+    "status": "approved-cover-concept",
+    "sha256": "3859873d8c7d371b9c9a55453f1fcb7eb3207b68ed1aef7d36cc5e0d5d5a66d3"
+  },
+  {
+    "file": "09b-data-driven-performance-athletes.png",
+    "status": "approved-cover-concept",
+    "sha256": "0c069aa32c903e9e6728d69657e7ffa27e1cb829b600661013be7e87ffba50e0"
+  },
+  {
+    "file": "10-legacy-long-term-impact.png",
+    "status": "approved-cover-concept",
+    "sha256": "8d5005018d1918333966f744885b4061de253f1b3f20f77017716365cce3d4be"
+  }
+]
