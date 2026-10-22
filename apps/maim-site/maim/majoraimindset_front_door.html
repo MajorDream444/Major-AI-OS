@@ -1490,6 +1490,70 @@ footer {
   text-transform: uppercase;
   color: var(--gold);
 }
+
+/* ---- signup honeypot: off-screen, never shown, catches bots ---- */
+.su-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---- scroll reveal ----
+   Sections lift in as they enter the viewport. The .is-in class is added by
+   IntersectionObserver; without JS everything stays visible, so content never
+   depends on script running. */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.10s; }
+.reveal-d2 { transition-delay: 0.20s; }
+.reveal-d3 { transition-delay: 0.30s; }
+
+/* ---- the A·B·C sequence ----
+   Each card draws its own rule left-to-right and lifts its ghost letter as it
+   arrives, so the ABC reads as a progression rather than three static boxes. */
+.abc-card .abc-rule {
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--lc);
+  margin: 18px 0 2px;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+.abc-card.is-in .abc-rule { width: 64px; }
+.abc-card::after {
+  opacity: 0.06;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease 0.15s, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.abc-card.is-in::after { opacity: 0.13; transform: none; }
+.abc-card.is-in:hover::after { opacity: 0.2; }
+
+/* Hero settles on load rather than on scroll — it is already in view. */
+@keyframes hero-settle {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-inner > * { animation: hero-settle 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-inner > *:nth-child(4) { animation-delay: 0.35s; }
+.hero-inner > *:nth-child(5) { animation-delay: 0.45s; }
+.hero-inner > *:nth-child(6) { animation-delay: 0.55s; }
+
+/* Respect the system setting. Motion is decoration; nothing here carries meaning. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-in,
+  .abc-card::after, .abc-card.is-in::after {
+    opacity: 1; transform: none; transition: none;
+  }
+  .reveal { opacity: 1; }
+  .abc-card::after { opacity: 0.13; }
+  .abc-card .abc-rule, .abc-card.is-in .abc-rule { width: 64px; transition: none; }
+  .hero-inner > * { animation: none; }
+}
 </style>
 
 <!-- NAV -->
@@ -1673,6 +1737,7 @@ footer {
   <div class="abc-cards">
     <div class="abc-card bracket" data-letter="A">
       <div class="abc-letter">A</div>
+      <span class="abc-rule" aria-hidden="true"></span>
       <div class="abc-word">Awareness</div>
       <div class="abc-def">Most people scroll past a hundred AI use cases a day and none register as relevant. Awareness changes your lens — you start to see what was always there.</div>
       <div class="abc-major">"Awareness helps you recognize what's happening."<br>— Major</div>
@@ -1680,6 +1745,7 @@ footer {
     </div>
     <div class="abc-card bracket" data-letter="B">
       <div class="abc-letter">B</div>
+      <span class="abc-rule" aria-hidden="true"></span>
       <div class="abc-word">Belief</div>
       <div class="abc-def">The biggest barrier isn't access or technical skill. It's the story you tell yourself about who AI is "really for." This lesson dismantles that story and puts you back in the frame.</div>
       <div class="abc-major">"Belief allows you to see what is possible."<br>— Major</div>
@@ -1687,6 +1753,7 @@ footer {
     </div>
     <div class="abc-card bracket" data-letter="C">
       <div class="abc-letter">C</div>
+      <span class="abc-rule" aria-hidden="true"></span>
       <div class="abc-word">Context</div>
       <div class="abc-def">AI responds to what you give it. The quality of your output is determined by the quality of your input. Context is the skill that changes everything downstream.</div>
       <div class="abc-major">"Context helps you ask better questions, understand your environment, and make better decisions."<br>— Major</div>
@@ -1853,9 +1920,16 @@ footer {
       <div>
         <div class="register-form" aria-label="Free MAIM starting guide">
           <h3>Start with five moves.</h3>
-          <p>Five practical AI moves to start building your own path.</p>
-          <a class="form-submit" href="/assets/MAIM_Free_Guide_5_AI_Moves.pdf" download>Download your free guide →</a>
-          <p class="form-note">Free PDF. No registration required.</p>
+          <p>Five practical AI moves to start building your own path — then one letter of the A–Z Roadmap at a time, straight to your inbox.</p>
+          <form id="maim-signup" novalidate>
+            <label class="form-label" for="su-name">First name</label>
+            <input class="form-input" id="su-name" name="first_name" type="text" autocomplete="given-name" placeholder="Optional">
+            <label class="form-label" for="su-email">Email</label>
+            <input class="form-input" id="su-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+            <div class="su-hp" aria-hidden="true"><label for="su-website">Website</label><input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="form-submit" type="submit" id="su-btn">Send me the guide →</button>
+            <p class="form-note" id="su-msg" role="status" aria-live="polite">Free PDF. One letter at a time. Unsubscribe whenever.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -1890,6 +1964,90 @@ footer {
 </footer>
 
 <script>
+// Scroll reveal. Sections are marked here rather than in the markup so the page
+// still renders fully if this script never runs.
+(function () {
+  var targets = [
+    '.film-sec', '.origin-sec', '.why-sec', '.abc-cards > *', '.statement-sec',
+    '.lane-sec', '.room-sec', '.pressure-sec', '.builders-sec', '.meet-sec',
+    '.register-sec', '.closing-sec'
+  ].flatMap(function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); });
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+  targets.forEach(function (el, i) {
+    el.classList.add('reveal');
+    // Stagger siblings so a row of cards arrives in sequence, not all at once.
+    if (el.parentElement && el.parentElement.classList.contains('abc-cards')) {
+      el.classList.add('reveal-d' + Math.min(i % 3 + 1, 3));
+    }
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+
+// Free-guide signup. Posts to /api/subscribe, which adds the contact in Resend
+// and returns the guide path. The download only starts once the address is stored.
+(function () {
+  var form = document.getElementById('maim-signup');
+  if (!form) return;
+  var btn = document.getElementById('su-btn');
+  var msg = document.getElementById('su-msg');
+  var busy = false;
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (busy) return;
+    var email = (document.getElementById('su-email').value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      msg.textContent = 'Enter a valid email address.';
+      msg.style.color = 'var(--red)';
+      return;
+    }
+    busy = true;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    msg.style.color = '';
+    msg.textContent = 'One moment.';
+
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        first_name: (document.getElementById('su-name').value || '').trim(),
+        website: (document.getElementById('su-website').value || '')
+      })
+    }).then(function (r) {
+      return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+    }).then(function (res) {
+      if (!res.ok) throw new Error(res.d && res.d.error);
+      form.innerHTML = '<h3 style="margin-top:0">Check your inbox.</h3>'
+        + '<p>Your guide is downloading now. The first letter of the A–Z Roadmap follows shortly.</p>'
+        + '<p class="form-note"><a href="' + (res.d.guide || '/assets/MAIM_Free_Guide_5_AI_Moves.pdf')
+        + '" style="color:var(--gold)">Download again</a></p>';
+      var a = document.createElement('a');
+      a.href = res.d.guide || '/assets/MAIM_Free_Guide_5_AI_Moves.pdf';
+      a.download = '';
+      document.body.appendChild(a); a.click(); a.remove();
+    }).catch(function (err) {
+      busy = false;
+      btn.disabled = false;
+      btn.textContent = 'Send me the guide →';
+      msg.style.color = 'var(--red)';
+      msg.textContent = (err && err.message) || 'Something went wrong. Please try again.';
+    });
+  });
+})();
+
 // Lane selector
 function setLane(el) {
   document.querySelectorAll('.lane-chip').forEach(c => c.classList.remove('active'));
