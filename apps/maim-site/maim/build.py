@@ -190,6 +190,13 @@ def main() -> int:
     for name in public_assets:
         shutil.copy2(ROOT / "assets" / name, DIST / "assets" / name)
 
+    # Cover art is marketing, not a paid file: the books themselves stay out of dist.
+    # Published so Stripe product images and campaign pages can cite one canonical URL.
+    covers = ROOT / "assets" / "covers"
+    if covers.is_dir():
+        shutil.copytree(covers, DIST / "assets" / "covers", dirs_exist_ok=True)
+        print(f"covers: {len(list((DIST / 'assets' / 'covers').glob('*.jpg')))} published")
+
     # favicon: real medallion if present, else the drawn mark
     logo = ROOT / "assets" / "md-medallion.png"
     if logo.exists():
