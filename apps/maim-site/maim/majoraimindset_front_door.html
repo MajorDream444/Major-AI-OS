@@ -1417,6 +1417,53 @@ nav {
   margin-top: 4px;
 }
 .form-submit:hover { background: var(--gold2); }
+.su-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 14px 0 2px;
+  cursor: pointer;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.su-check input { margin-top: 3px; accent-color: var(--gold); flex: 0 0 auto; }
+.su-check em { font-style: normal; opacity: 0.72; }
+
+/* Founding cohort — anticipation, stated honestly. No invented scarcity. */
+.cohort-sec { padding: 96px 0; border-top: 1px solid var(--line); }
+.cohort-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; text-align: center; }
+.cohort-kicker {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 22px;
+}
+.cohort-h { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 0 0 18px; }
+.cohort-sub { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 620px; margin: 0 auto 40px; }
+.cd { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.cd-unit {
+  min-width: 92px; padding: 18px 10px 14px;
+  border: 1px solid var(--line); background: rgba(216,175,85,0.04);
+}
+.cd-num {
+  font-family: 'Courier New', monospace; font-size: 34px; font-weight: 700;
+  color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.cd-lab {
+  font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted); margin-top: 9px; opacity: 0.8;
+}
+.cohort-facts {
+  display: flex; justify-content: center; gap: 34px; flex-wrap: wrap;
+  font-family: 'Courier New', monospace; font-size: 11.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); opacity: 0.8; margin-bottom: 30px;
+}
+.cohort-note { font-size: 13.5px; color: var(--muted); opacity: 0.75; max-width: 560px; margin: 0 auto; line-height: 1.65; }
+@media (max-width: 640px) {
+  .cd-unit { min-width: 72px; padding: 14px 8px 11px; }
+  .cd-num { font-size: 26px; }
+  .cohort-facts { gap: 18px; }
+}
 .form-note {
   font-family: 'Courier New', monospace;
   font-size: 11px;
@@ -1927,12 +1974,48 @@ footer {
             <label class="form-label" for="su-email">Email</label>
             <input class="form-input" id="su-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
             <div class="su-hp" aria-hidden="true"><label for="su-website">Website</label><input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="su-check" for="su-cohort">
+              <input type="checkbox" id="su-cohort" name="cohort">
+              <span>Tell me when the founding cohort opens — <em>20 seats, not open yet</em></span>
+            </label>
             <button class="form-submit" type="submit" id="su-btn">Send me the guide →</button>
             <p class="form-note" id="su-msg" role="status" aria-live="polite">Free PDF. One letter at a time. Unsubscribe whenever.</p>
           </form>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FOUNDING COHORT -->
+<section class="cohort-sec reveal" id="cohort">
+  <div class="cohort-inner">
+    <div class="cohort-kicker">The Founding Cohort</div>
+    <h2 class="cohort-h">Twenty people. One real problem each.</h2>
+    <p class="cohort-sub">Four sessions, working through one problem you actually have, until
+      you finish with something that runs. Built for practitioners and business owners who
+      already know their work — and want it to stop depending on them.</p>
+
+    <!-- Counts to the planned first session. The date is editable in one place. -->
+    <div class="cd" id="cohort-countdown" data-start="2026-11-11T14:00:00Z" aria-live="off">
+      <div class="cd-unit"><div class="cd-num" id="cd-d">—</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-h">—</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-m">—</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-s">—</div><div class="cd-lab">Seconds</div></div>
+    </div>
+
+    <div class="cohort-facts">
+      <span>First session 11 November</span>
+      <span>Four sessions</span>
+      <span>20 seats</span>
+      <span>One private hour</span>
+    </div>
+
+    <p class="cohort-note" id="cohort-note">
+      <strong style="color:var(--gold)">Enrollment is not open yet.</strong>
+      Tick the box in the form above and you will hear before it opens publicly.
+      Dates are planned and confirmed before any seat is sold.
+    </p>
   </div>
 </section>
 
@@ -2024,14 +2107,20 @@ footer {
       body: JSON.stringify({
         email: email,
         first_name: (document.getElementById('su-name').value || '').trim(),
-        website: (document.getElementById('su-website').value || '')
+        website: (document.getElementById('su-website').value || ''),
+        cohort: !!(document.getElementById('su-cohort') || {}).checked
       })
     }).then(function (r) {
       return r.json().then(function (d) { return { ok: r.ok, d: d }; });
     }).then(function (res) {
       if (!res.ok) throw new Error(res.d && res.d.error);
+      // Only claim the waitlist when the server actually confirmed it.
+      var wl = res.d && res.d.waitlisted
+        ? '<p>You are on the founding cohort list. You will hear before it opens publicly.</p>'
+        : '';
       form.innerHTML = '<h3 style="margin-top:0">Check your inbox.</h3>'
         + '<p>Your guide is downloading now. The first letter of the A–Z Roadmap follows shortly.</p>'
+        + wl
         + '<p class="form-note"><a href="' + (res.d.guide || '/assets/MAIM_Free_Guide_5_AI_Moves.pdf')
         + '" style="color:var(--gold)">Download again</a></p>';
       var a = document.createElement('a');
@@ -2156,4 +2245,39 @@ opts.forEach(opt => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); opt.click(); }
   });
 });
+
+// Founding cohort countdown. Counts to the planned first session, which lives
+// in one data attribute on the element. It never invents a seats-remaining
+// number and never implies enrollment is open.
+(function () {
+  var el = document.getElementById('cohort-countdown');
+  if (!el) return;
+  var target = Date.parse(el.getAttribute('data-start') || '');
+  if (isNaN(target)) return;
+  var d = document.getElementById('cd-d'), h = document.getElementById('cd-h'),
+      m = document.getElementById('cd-m'), s = document.getElementById('cd-s');
+  var note = document.getElementById('cohort-note');
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  function tick() {
+    var left = target - Date.now();
+    if (left <= 0) {
+      // The date has passed. Say so plainly rather than showing zeros or
+      // rolling over into a negative count.
+      el.style.display = 'none';
+      if (note) note.innerHTML = '<strong style="color:var(--gold)">The founding cohort has begun.</strong> '
+        + 'Join the letter above to hear about the next one.';
+      clearInterval(timer);
+      return;
+    }
+    var sec = Math.floor(left / 1000);
+    d.textContent = Math.floor(sec / 86400);
+    h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    m.textContent = pad(Math.floor(sec % 3600 / 60));
+    s.textContent = pad(sec % 60);
+  }
+  tick();
+  var timer = setInterval(tick, 1000);
+})();
+
 </script>
