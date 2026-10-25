@@ -262,7 +262,7 @@ export default function MethodologySection() {
                       COMPILED OUTPUT
                     </div>
                     <label className="block text-[9px] font-mono text-brand-gold uppercase mb-1">MINDSET-TRANSFORMED PROMPT STRUCTURE:</label>
-                    <pre className="text-[10px] text-brand-white font-mono leading-relaxed bg-[#030304] p-3 rounded border border-[#161622] overflow-x-auto whitespace-pre-wrap max-h-48">
+                    <pre className="text-[10px] text-brand-white font-mono leading-relaxed bg-brand-black p-3 rounded border border-[#161622] overflow-x-auto whitespace-pre-wrap max-h-48">
                       {translatedPrompt}
                     </pre>
                     <p className="text-[9px] text-brand-muted/70 mt-2 font-mono">
