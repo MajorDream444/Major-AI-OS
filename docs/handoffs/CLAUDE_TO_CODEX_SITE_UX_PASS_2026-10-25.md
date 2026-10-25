@@ -1,5 +1,11 @@
 # Handover: site UX pass + cohort teaser (25 Oct 2026)
 
+> **Schedule superseded by the later founder decision:** payments open Nov11
+> after release approval; official cohort start Nov18; Nov4 removed. Read
+> [MAIM_ACADEMY_LAUNCH_REVISION_2026-10-25.md](MAIM_ACADEMY_LAUNCH_REVISION_2026-10-25.md).
+> Dates/countdown/teaser observations below preserve the earlier implementation
+> history and must not be reused as the current launch schedule.
+
 **From:** Claude Code · **To:** Codex (pick up anything not ticked)
 **Approved by Major, 25 Oct:** "Let's do it all." Two stages: fixes first, teaser right after.
 Rules: use the UI/UX Pro Max skill (`MajorDream444/ui-ux-pro-max-skill`,
