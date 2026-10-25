@@ -79,7 +79,7 @@ The site should feel like:
 
 Foundation:
 
-- MAIM Black `#030304`
+- MAIM Black `#050505` — Major's decision, 25 Oct 2026. `#030304` came in with the Google AI Studio landing-page experiment on 5 Jul and is retired.
 - Deep Obsidian `#0A0A0A`
 - Deep Charcoal `#111111`
 - Dark Surface `#18181B`
