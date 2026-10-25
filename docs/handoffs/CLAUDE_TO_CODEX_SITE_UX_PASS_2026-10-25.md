@@ -56,13 +56,22 @@ so the pages' own element selectors don't restyle it.
 
 ## Stage 2: the cohort teaser (motion graphic)
 
-- [ ] 8 seconds, Remotion (`remotion/` in this repo), 1920×1080 and 1080×1920.
+- [x] 8 seconds, Remotion (`remotion/` in this repo), 1920×1080 and 1080×1920.
       Beats: "Founding cohort" → "20 spots" → "Starts 11 November" → badge →
       "Reserve your spot". Tokens only. The Academy badge is
       `MAIMACADEMY/assets/brand/MD-Academy-Badge-Transparent.png` and must never
       be redrawn. If footage is used, it's Major's real footage only.
-- [ ] Plays in the home hero (muted, looping, with a poster frame, and paused
+- [x] Plays in the home hero (muted, looping, with a poster frame, and paused
       under reduced motion) and in the slide-up card on desktop.
+
+Stage 2 notes: compositions are `CohortTeaser` (1920×1080) and `CohortTeaserVertical`
+(1080×1920) in `remotion/src/compositions/CohortTeaser.tsx`. Render with
+`npx remotion render src/index.ts CohortTeaser out/x.mp4 --browser-executable=<chrome-headless-shell>`.
+The web copy is `apps/maim-site/maim/assets/cohort-teaser.mp4` (1280×720, about 250 KB) plus a poster.
+On the home page the slide-up card waits until the teaser scrolls away, so only one
+call to action shows at a time. Still open: put the teaser in the slide-up card on
+other pages, the Academy site's own nav pass, the 11 Nov payment-link send, and
+using the vertical cut for Instagram and Shorts.
 
 ## Guardrails
 
