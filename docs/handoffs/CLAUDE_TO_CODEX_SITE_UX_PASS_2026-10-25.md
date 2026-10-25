@@ -1,5 +1,8 @@
 # Handover: site UX pass + cohort teaser (25 Oct 2026)
 
+> **Schedule revised 25 Oct:** payment opens 11 Nov, the cohort starts 18 Nov. See
+> `docs/decisions/MAIM_ACADEMY_SCHEDULE_REVISION_2026-10-25.md`.
+
 **From:** Claude Code · **To:** Codex (pick up anything not ticked)
 **Approved by Major, 25 Oct:** "Let's do it all." Two stages: fixes first, teaser right after.
 Rules: use the UI/UX Pro Max skill (`MajorDream444/ui-ux-pro-max-skill`,
@@ -41,14 +44,15 @@ The fix, with each part ticked when it lands on main:
       replacing each page's own bar. Logo → home, 16px links, a mobile menu
       button, and a "Reserve your spot" CTA to academy /reserve.
 - [x] One shared footer nav on every page.
-- [x] A cohort slide-up card 2s after landing: live countdown to 2026-11-11T14:00Z,
+- [x] A cohort slide-up card 2s after landing: live countdown to 2026-11-18T14:00Z (revised 25 Oct),
       20 spots, $249, Reserve → academy /reserve. It can be dismissed (remembered),
       respects reduced motion, and never blocks the page. Not shown on
       return/checkout/terms/privacy.
 - [x] Every element that looks clickable goes somewhere; anything that can't
       loses the clickable styling.
-- [ ] The same nav rules on the Academy site (`MAIMACADEMY/scripts/build.mjs`).
-- [ ] Before and after screenshots at desktop 1440 and phone 390.
+- [x] The same nav rules on the Academy site (`MAIMACADEMY/scripts/build.mjs`). See
+      `MAIMACADEMY/docs/handoffs/CLAUDE_TO_CODEX_ACADEMY_UX_2026-10-25.md`.
+- [x] Screenshots at desktop 1440 and phone 390: `MAIMACADEMY/docs/qa/screenshots-2026-10-25/`.
 
 Stage 1 notes: the shared chrome lives in `apps/maim-site/maim/site-chrome.{css,js}` and is injected by
 `site_chrome()` / `strip_page_nav()` in `maim/build.py`. It uses `div[role]`, not `header`/`nav`/`footer`,
@@ -57,7 +61,7 @@ so the pages' own element selectors don't restyle it.
 ## Stage 2: the cohort teaser (motion graphic)
 
 - [x] 8 seconds, Remotion (`remotion/` in this repo), 1920×1080 and 1080×1920.
-      Beats: "Founding cohort" → "20 spots" → "Starts 11 November" → badge →
+      Beats: "Founding cohort" → "20 spots" → "Starts November 18" (re-rendered 25 Oct) → badge →
       "Reserve your spot". Tokens only. The Academy badge is
       `MAIMACADEMY/assets/brand/MD-Academy-Badge-Transparent.png` and must never
       be redrawn. If footage is used, it's Major's real footage only.

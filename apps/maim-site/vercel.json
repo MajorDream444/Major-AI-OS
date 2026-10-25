@@ -76,6 +76,21 @@
       "source": "/thank-you",
       "destination": "/return",
       "permanent": false
+    },
+    {
+      "source": "/academy",
+      "destination": "https://academy.majoraimindset.com/",
+      "permanent": false
+    },
+    {
+      "source": "/academy/:path*",
+      "destination": "https://academy.majoraimindset.com/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/reserve",
+      "destination": "https://academy.majoraimindset.com/reserve",
+      "permanent": false
     }
   ],
   "headers": [

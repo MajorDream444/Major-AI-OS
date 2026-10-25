@@ -184,13 +184,13 @@ def site_chrome(route):
     cohort = ""
     if not route.startswith(NO_COHORT_PREFIXES):
         cohort = (
-            '<aside class="mc-cohort" id="mc-cohort" hidden data-start="2026-11-11T14:00:00Z" aria-label="Founding cohort">'
+            '<aside class="mc-cohort" id="mc-cohort" hidden data-start="2026-11-18T14:00:00Z" aria-label="Founding cohort">'
             '<button class="mc-x" type="button" aria-label="Dismiss">×</button>'
             '<p class="mc-kick">MAIM Academy · Founding cohort</p>'
-            '<h2>20 spots. Starts 11 November.</h2>'
+            '<h2>20 spots. Starts 18 November.</h2>'
             '<div class="mc-count"><div><b data-d>–</b><span>days</span></div>'
             '<div><b data-h>–</b><span>hours</span></div><div><b data-m>–</b><span>min</span></div></div>'
-            '<p>US$249, paid once. Reserve free now; you get the payment link first.</p>'
+            '<p>US$249, paid once. Reserve free now; payment links go out 11 November, reserved people first.</p>'
             f'<a class="mc-cta" href="{ACADEMY}/reserve">Reserve your spot →</a>'
             '<div class="mc-bar-tri" aria-hidden="true"><i style="background:#1F7A3A"></i><i style="background:#D8AF55"></i><i style="background:#006BB6"></i></div>'
             '</aside>'
