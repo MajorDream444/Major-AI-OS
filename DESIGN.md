@@ -125,6 +125,20 @@ Orange should appear on CTAs, selected states, or small signal moments.
 
 Orange should not dominate the visual system.
 
+## The Tri-bar — the Common Thread
+
+Decided by Major, 25 October 2026.
+
+The green → gold → blue tri-bar is the one common thread across everything
+Major builds: Major AI Mindset, MAIM Academy, the agripreneur work and
+whatever comes next.
+
+- Jamaican Legacy Green `#1F7A3A` → Crown Gold `#D8AF55` → Champion Blue `#006BB6`, always in that order.
+- The crown, the woven hat and the MD mark are loud. The tri-bar is the quiet one: someone who connects the dots recognises where a piece belongs.
+- Never the hero, never left out.
+- The rendering may change with the piece (flat, metallic, retro, anime). The three hues and their order do not.
+- A metallic or retro treatment adds sheen, grain or gradient to the token hues. Approve each treatment once; it then becomes a rule here.
+
 ## Typography
 
 Use typography to create hierarchy, not noise.
