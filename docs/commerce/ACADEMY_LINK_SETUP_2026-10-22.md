@@ -21,7 +21,7 @@ link to save a record. Enrich it with the fields below, archive
 
 > The founding cohort. Thirty days building one useful, repeatable workflow around a real
 > problem in your business — not an AI course, and not theory. Four live implementation
-> sessions on 11, 18, 25 November and 2 December, plus one 45-minute private session with
+> sessions on 18 and 25 November and 2 and 9 December, plus one 45-minute private session with
 > Major Dream Williams to use within 90 days. Session replays included. Capped at 20
 > people for the founding run. Founding offer, US$249 once.
 
@@ -38,7 +38,7 @@ Never write "was US$999.99" or any percentage saving. No former price was establ
 | `cohort_capacity` | `20` |
 | `cohort_run` | `founding-2026-11` |
 | `group_days` | `30` |
-| `session_dates` | `2026-11-11,2026-11-18,2026-11-25,2026-12-02` |
+| `session_dates` | `2026-11-18,2026-11-25,2026-12-02,2026-12-09` (revised 25 Oct; update in Stripe if already set) |
 | `private_session_minutes` | `45` |
 | `private_session_window_days` | `90` |
 | `audience` | `existing_practitioners_and_business_owners` |
@@ -59,8 +59,8 @@ refund window, 48-hour prep brief and 24-hour reschedule rule need acceptance on
 
 **3. Write the confirmation message.** `after_completion` shows Stripe's default. Use:
 
-> You're in the founding cohort. Within 24 hours you'll get your session calendar for 11,
-> 18, 25 November and 2 December, plus your preparation brief — due 48 hours before your
+> You're in the founding cohort. Within 24 hours you'll get your session calendar for 18
+> and 25 November and 2 and 9 December, plus your preparation brief — due 48 hours before your
 > private session. Bring a real problem. Questions: contact@majoraimindset.com
 
 **4. Collect the problem at checkout.** Add a custom field:

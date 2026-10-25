@@ -56,7 +56,7 @@ export const CohortTeaser: React.FC = () => {
       </Beat>
       <Beat from={105} to={150}>
         <p style={kick}>Starts</p>
-        <h1 style={head}>11 November</h1>
+        <h1 style={head}>{vertical ? <>November<br />18</> : "November 18"}</h1>
         <p style={{...kick, margin: '28px 0 0', color: c.smokeGray, letterSpacing: '0.08em', textTransform: 'none'}}>Four live sessions · US$249 once</p>
       </Beat>
       {frame >= 150 && frame < 195 && (
