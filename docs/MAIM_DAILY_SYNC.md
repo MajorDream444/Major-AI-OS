@@ -1,5 +1,16 @@
 # MAIM Daily Sync
 
+## Current Academy schedule — founder approved 25 October 2026
+
+Payments/invitations open **11 November**, only after readiness approval.
+Official cohort start **18 November**. November 4 is removed; earlier Nov11
+start/Nov18 fallback are superseded. Preserve **US$249 once**, **20 members**,
+reservations open, and no early activation if engineering finishes early.
+Read [the canonical revision](handoffs/MAIM_ACADEMY_LAUNCH_REVISION_2026-10-25.md).
+Claude Code owns public copy/countdowns/teaser revisions; Codex owns backend,
+membership, commerce and protected QA. Report actual deployed copy/SHAs
+separately from this approved decision. Existing runtime/payment HOLD remains.
+
 ## Deployment Watch — 19 October 2026 reconciliation
 
 Current evidence supersedes historical PR/deployment status below: main and the
