@@ -8,13 +8,28 @@ function validEmail(value: unknown): value is string {
     && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
 }
 
-function allowedOrigin(origin: string | undefined, host: string | undefined): boolean {
+// The Academy lives at academy.majoraimindset.com and reserves founding-cohort
+// spots through this endpoint, so it is the one cross-origin caller allowed.
+export const ACADEMY_ORIGIN = 'https://academy.majoraimindset.com';
+
+export function allowedOrigin(origin: string | undefined, host: string | undefined): boolean {
   if (!origin || !host) return false;
+  if (origin === ACADEMY_ORIGIN) return true;
   try { return new URL(origin).host === host; } catch { return false; }
 }
 
 export default async function handler(req: ApiRequest, res: ApiResponse): Promise<void> {
   res.setHeader('Cache-Control', 'no-store');
+  if (req.headers.origin === ACADEMY_ORIGIN) {
+    res.setHeader('Access-Control-Allow-Origin', ACADEMY_ORIGIN);
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Vary', 'Origin');
+  }
+  if (req.method === 'OPTIONS') {
+    res.status(204).json({});
+    return;
+  }
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).json({ error: 'Method not allowed' });
