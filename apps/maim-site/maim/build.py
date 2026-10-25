@@ -132,6 +132,72 @@ FALLBACK_FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48
 """
 
 
+ACADEMY = "https://academy.majoraimindset.com"
+SITE_NAV = [
+    ("Home", "/"),
+    ("Academy", ACADEMY),
+    ("10 Pillars", "/pillars"),
+    ("Library", "/library"),
+    ("Vault", "/vault"),
+    ("Shop", "/shop"),
+    ("Coaching", "/coaching"),
+]
+NO_COHORT_PREFIXES = ("/return", "/checkout", "/terms", "/privacy")
+PAGE_NAV_PATTERNS = [
+    re.compile(r"<!-- NAV -->\s*<nav>.*?</nav>", re.DOTALL),
+    re.compile(r"<nav>\s*<a class=\"nav-logo\".*?</nav>", re.DOTALL),
+    re.compile(r"<header><a href=\"/\">MAJOR AI MINDSET</a>.*?</header>", re.DOTALL),
+    re.compile(r"<div class=\"nav\"><div class=\"shell[^\"]*\">.*?</div></div>", re.DOTALL),
+]
+
+
+def strip_page_nav(body):
+    """Remove the page's own top bar; the shared header replaces it."""
+    for pattern in PAGE_NAV_PATTERNS:
+        body, n = pattern.subn("", body, count=1)
+        if n:
+            return body
+    return body
+
+
+def site_chrome(route):
+    """Shared header, footer loop and cohort card (UX pass, Major, 25 Oct 2026)."""
+    def link(label, href):
+        current = ' aria-current="page"' if href == route else ""
+        return f'<li><a href="{href}"{current}>{label}</a></li>'
+    items = "".join(link(label, href) for label, href in SITE_NAV)
+    header = (
+        '<div class="mc-bar" role="banner"><div class="mc-inner" role="navigation" aria-label="Main">'
+        '<a class="mc-brand" href="/" aria-label="Major AI Mindset home">'
+        '<img src="/favicon.png" alt="" width="36" height="36">Major AI Mindset</a>'
+        '<button class="mc-menu" type="button" aria-expanded="false" aria-controls="mc-links">Menu</button>'
+        f'<ul class="mc-links" id="mc-links">{items}'
+        f'<li><a class="mc-cta mc-cta-mob" href="{ACADEMY}/reserve">Reserve your spot</a></li></ul>'
+        f'<a class="mc-cta mc-cta-desk" href="{ACADEMY}/reserve">Reserve your spot</a>'
+        '</div></div>'
+    )
+    foot_links = "".join(
+        f'<a href="{href}"{" class=\"mc-home\"" if href == "/" else ""}>{"← Home" if href == "/" else label}</a>'
+        for label, href in SITE_NAV
+    )
+    footer = f'<div class="mc-foot"><div class="mc-foot-nav" role="navigation" aria-label="Site">{foot_links}<a href="{ACADEMY}/reserve">Reserve your Academy spot</a></div></div>'
+    cohort = ""
+    if not route.startswith(NO_COHORT_PREFIXES):
+        cohort = (
+            '<aside class="mc-cohort" id="mc-cohort" hidden data-start="2026-11-11T14:00:00Z" aria-label="Founding cohort">'
+            '<button class="mc-x" type="button" aria-label="Dismiss">×</button>'
+            '<p class="mc-kick">MAIM Academy · Founding cohort</p>'
+            '<h2>20 spots. Starts 11 November.</h2>'
+            '<div class="mc-count"><div><b data-d>–</b><span>days</span></div>'
+            '<div><b data-h>–</b><span>hours</span></div><div><b data-m>–</b><span>min</span></div></div>'
+            '<p>US$249, paid once. Reserve free now; you get the payment link first.</p>'
+            f'<a class="mc-cta" href="{ACADEMY}/reserve">Reserve your spot →</a>'
+            '<div class="mc-bar-tri" aria-hidden="true"><i style="background:#1F7A3A"></i><i style="background:#D8AF55"></i><i style="background:#006BB6"></i></div>'
+            '</aside>'
+        )
+    return header, footer + cohort
+
+
 def document(title, description, route, body, favicon_href):
     canonical = ORIGIN + route
     social = f"{ORIGIN}/social-preview.png"
@@ -146,6 +212,8 @@ def document(title, description, route, body, favicon_href):
     )
     body = body.replace('<div class="footer-links">',
                         '<div class="footer-links">' + contact_links, 1)
+    body = strip_page_nav(body)
+    chrome_top, chrome_bottom = site_chrome(route)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,9 +237,13 @@ def document(title, description, route, body, favicon_href):
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{social}">
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/site-chrome.css">
+<script defer src="/site-chrome.js"></script>
 </head>
 <body>
+{chrome_top}
 {body}
+{chrome_bottom}
 </body>
 </html>
 """
@@ -183,6 +255,8 @@ def main() -> int:
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
     shutil.copy2(ROOT / "checkout.js", DIST / "checkout.js")
+    for name in ("site-chrome.css", "site-chrome.js"):
+        shutil.copy2(ROOT / name, DIST / name)
 
     # Publish only explicitly public assets. Paid source files stay out of dist.
     public_assets = ("major-dream-williams.jpg", "MAIM_Free_Guide_5_AI_Moves.pdf")

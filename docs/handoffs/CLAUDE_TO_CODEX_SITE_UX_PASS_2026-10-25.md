@@ -37,18 +37,22 @@ Audit findings (live site, 25 Oct):
 5. Nothing on the first screen pushed the cohort.
 
 The fix, with each part ticked when it lands on main:
-- [ ] One shared site header injected by `maim/build.py` into every page,
+- [x] One shared site header injected by `maim/build.py` into every page,
       replacing each page's own bar. Logo → home, 16px links, a mobile menu
       button, and a "Reserve your spot" CTA to academy /reserve.
-- [ ] One shared footer nav on every page.
-- [ ] A cohort slide-up card 2s after landing: live countdown to 2026-11-11T14:00Z,
+- [x] One shared footer nav on every page.
+- [x] A cohort slide-up card 2s after landing: live countdown to 2026-11-11T14:00Z,
       20 spots, $249, Reserve → academy /reserve. It can be dismissed (remembered),
       respects reduced motion, and never blocks the page. Not shown on
       return/checkout/terms/privacy.
-- [ ] Every element that looks clickable goes somewhere; anything that can't
+- [x] Every element that looks clickable goes somewhere; anything that can't
       loses the clickable styling.
 - [ ] The same nav rules on the Academy site (`MAIMACADEMY/scripts/build.mjs`).
 - [ ] Before and after screenshots at desktop 1440 and phone 390.
+
+Stage 1 notes: the shared chrome lives in `apps/maim-site/maim/site-chrome.{css,js}` and is injected by
+`site_chrome()` / `strip_page_nav()` in `maim/build.py`. It uses `div[role]`, not `header`/`nav`/`footer`,
+so the pages' own element selectors don't restyle it.
 
 ## Stage 2: the cohort teaser (motion graphic)
 
