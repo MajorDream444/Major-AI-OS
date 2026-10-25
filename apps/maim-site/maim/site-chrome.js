@@ -9,6 +9,10 @@
       btn.textContent = open ? 'Close' : 'Menu';
     });
   }
+  var teaser = document.querySelector('.mc-teaser video');
+  if (teaser && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    teaser.removeAttribute('autoplay'); teaser.pause();
+  }
   var card = document.getElementById('mc-cohort');
   if (!card) return;
   var KEY = 'maim-cohort-dismissed';
@@ -23,7 +27,18 @@
   }
   tick(); setInterval(tick, 30000);
   card.hidden = false;
-  setTimeout(function () { card.classList.add('mc-in'); }, 2000);
+  function show() { card.classList.add('mc-in'); }
+  // One call to action at a time: where the hero teaser is on screen, the
+  // card waits until the teaser scrolls away; everywhere else it comes in at 2s.
+  var hero = document.querySelector('.mc-teaser');
+  if (hero && 'IntersectionObserver' in window) {
+    var seen = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (!e.isIntersecting && seen) show(); if (e.isIntersecting) seen = true; });
+    }).observe(hero);
+  } else {
+    setTimeout(show, 2000);
+  }
   card.querySelector('.mc-x').addEventListener('click', function () {
     card.classList.remove('mc-in');
     try { localStorage.setItem(KEY, '1'); } catch (e) {}
