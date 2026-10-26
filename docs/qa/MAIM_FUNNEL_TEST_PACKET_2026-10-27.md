@@ -7,7 +7,7 @@ This is a limited provider integration test, not full launch acceptance.
 
 | Component | Code SHA | Owning review | Local origin and start command |
 |---|---|---|---|
-| Main-site reservation API | aae4e1c9e1c77ba7a71af51ccee5f5a3de66bcac | isolated codex/funnel-reconciled-2026-10-27 branch | http://127.0.0.1:3001; from apps/maim-site: `node --import tsx scripts/qa-subscribe-server.ts` |
+| Main-site reservation API | fc5c94f4479a7523c277615de4ad26c8413db7b5 | isolated codex/funnel-reconciled-2026-10-27 branch | http://127.0.0.1:3001; from apps/maim-site: `node --import tsx scripts/qa-subscribe-server.ts` |
 | BPT capture API | 239af00245916dbaac086b8f5f529067ead2ea4f | BPT PR #5, maim/deployment-ready | http://127.0.0.1:3000; from repo root: `node --import tsx scripts/qa-local-server.ts` |
 | Academy public source | 67d09473e6b532867d46eba07a15dea7564fe88f | Academy PR #28 | build-only in this packet; no member server or hosted API enabled |
 

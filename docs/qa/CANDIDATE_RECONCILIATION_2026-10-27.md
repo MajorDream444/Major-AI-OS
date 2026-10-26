@@ -28,7 +28,7 @@ not independent verification of these recovered/reconciled candidates.
 
 | Component | Immutable tested code commit |
 |---|---|
-| Site | aae4e1c9e1c77ba7a71af51ccee5f5a3de66bcac |
+| Site | fc5c94f4479a7523c277615de4ad26c8413db7b5 |
 | Academy #28 | 67d09473e6b532867d46eba07a15dea7564fe88f |
 | BPT #5 | 239af00245916dbaac086b8f5f529067ead2ea4f |
 
