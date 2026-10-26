@@ -1,5 +1,7 @@
 import type { ApiRequest, ApiResponse } from './_types.js';
 
+import {recordReservation} from '../lib/reservation-ledger.js';
+
 const GUIDE = '/assets/MAIM_Free_Guide_5_AI_Moves.pdf';
 
 function validEmail(value: unknown): value is string {
@@ -41,7 +43,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
     return;
   }
 
-  const body = (typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body) ?? {};
+  let body;
+  try {body=(typeof req.body==='string'?JSON.parse(req.body||'{}'):req.body)??{};if(typeof body!=='object'||Array.isArray(body))throw new Error();}
+  catch {res.status(400).json({error:'Invalid signup request.'});return;}
 
   // Honeypot: a real person never fills a hidden field.
   if (typeof body.website === 'string' && body.website.trim() !== '') {
@@ -67,24 +71,32 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
     return;
   }
 
-  const addTo = async (segmentId: string): Promise<boolean> => {
-    const response = await fetch('https://api.resend.com/contacts', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        first_name: firstName || undefined,
-        unsubscribed: false,
-        segment_id: segmentId,
-      }),
-      signal: AbortSignal.timeout(10000),
-    });
-    // An address already on the list is a success for the visitor, not an error.
-    return response.ok || response.status === 409;
+  let contactId:string|undefined, suppressed=false;
+  const providerHeaders={Authorization:`Bearer ${key}`,'Content-Type':'application/json'};
+  const addTo = async(segmentId:string):Promise<boolean> => {
+    if(suppressed)return false;
+    if(!contactId){
+      const lookup=await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`,{headers:providerHeaders,signal:AbortSignal.timeout(10000)});
+      if(lookup.ok){
+        const contact=await lookup.json();
+        if(contact.unsubscribed===true){suppressed=true;return false;}
+        if(contact.unsubscribed!==false||typeof contact.id!=='string')return false;
+        contactId=contact.id;
+      }else if(lookup.status===404){
+        const created=await fetch('https://api.resend.com/contacts',{method:'POST',headers:providerHeaders,signal:AbortSignal.timeout(10000),body:JSON.stringify({email,first_name:firstName||undefined})});
+        if(!created.ok)return false;contactId=(await created.json()).id;
+      }else return false;
+    }
+    if(!contactId)return false;
+    const membership=await fetch(`https://api.resend.com/contacts/${encodeURIComponent(contactId)}/segments/${encodeURIComponent(segmentId)}`,{method:'POST',headers:providerHeaders,signal:AbortSignal.timeout(10000)});
+    return membership.ok;
   };
+  const reservation={email,firstName,source:body.source==='academy-reserve'?'academy-reserve':'maim-homepage',status:'pending'};
 
   try {
+    if(wantsCohort)await recordReservation(reservation);
     if (!(await addTo(segment))) {
+      if(suppressed){if(wantsCohort)await recordReservation({...reservation,status:'suppressed'});res.status(200).json({ok:true,guide:GUIDE,waitlisted:false,subscriptionStatus:'suppressed'});return;}
       res.status(502).json({ error: 'Could not complete signup. Please try again.' });
       return;
     }
@@ -101,7 +113,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse): Promis
       }
     }
 
-    res.status(200).json({ ok: true, guide: GUIDE, waitlisted });
+    let reservationStatus='not_requested';
+    if(wantsCohort){try{reservationStatus=await recordReservation({...reservation,status:waitlisted?'confirmed':'pending'});}catch{reservationStatus='pending';waitlisted=false;}}
+    res.status(200).json({ok:true,guide:GUIDE,waitlisted,reservationStatus});
   } catch {
     res.status(504).json({ error: 'Signup timed out. Please try again.' });
   }
