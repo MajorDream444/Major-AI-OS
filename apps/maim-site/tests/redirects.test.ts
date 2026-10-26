@@ -11,3 +11,11 @@ test('old Academy paths on the main site send people to the Academy subdomain', 
   assert.equal(to('/reserve'), 'https://academy.majoraimindset.com/reserve');
   assert.ok(!config.rewrites.some((r: { source: string }) => r.source.startsWith('/academy') || r.source === '/reserve'));
 });
+
+test('every emitted immutable legal candidate has an extensionless route', () => {
+  const to = (source: string) => config.rewrites.find((r: { source: string }) => r.source === source)?.destination;
+  assert.equal(
+    to('/terms/blueprint/blueprint-terms-2026-10-16.2'),
+    '/terms/blueprint/blueprint-terms-2026-10-16.2.html',
+  );
+});
