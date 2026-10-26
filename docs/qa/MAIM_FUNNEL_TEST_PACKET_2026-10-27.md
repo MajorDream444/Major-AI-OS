@@ -9,7 +9,7 @@ This is a limited provider integration test, not full launch acceptance.
 |---|---|---|---|
 | Main-site reservation API | fc5c94f4479a7523c277615de4ad26c8413db7b5 | isolated codex/funnel-reconciled-2026-10-27 branch | http://127.0.0.1:3001; from apps/maim-site: `node --import tsx scripts/qa-subscribe-server.ts` |
 | BPT capture API | 239af00245916dbaac086b8f5f529067ead2ea4f | BPT PR #5, maim/deployment-ready | http://127.0.0.1:3000; from repo root: `node --import tsx scripts/qa-local-server.ts` |
-| Academy public source | 5095ba145a6453461c09b2a3ffb12e43e46ff6bb | Academy PR #28 | build-only in this packet; no member server or hosted API enabled |
+| Academy public source | 5095ba145a6453461c09b2a3ffb12e43e46ff6bb | Academy draft PR #29; #28 merged | build-only in this packet; no member server or hosted API enabled |
 
 Run exact code SHAs in clean worktrees. Later documentation-only PR commits do
 not silently change these executable pins. Any runtime change requires new pins,
