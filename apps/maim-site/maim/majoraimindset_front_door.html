@@ -1981,7 +1981,7 @@ footer {
             <div class="su-hp" aria-hidden="true"><label for="su-website">Website</label><input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
             <label class="su-check" for="su-cohort">
               <input type="checkbox" id="su-cohort" name="cohort">
-              <span>Tell me when the founding cohort opens — <em>20 seats, not open yet</em></span>
+              <span>Add me to the founding cohort reservation list — <em>20-member capacity; payment is not open yet</em></span>
             </label>
             <button class="form-submit" type="submit" id="su-btn">Send me the guide →</button>
             <p class="form-note" id="su-msg" role="status" aria-live="polite">Free PDF. One letter at a time. Unsubscribe whenever.</p>
@@ -2012,14 +2012,14 @@ footer {
     <div class="cohort-facts">
       <span>Starts 18 November</span>
       <span>Four sessions</span>
-      <span>20 seats</span>
+      <span>20-member capacity</span>
       <span>One private hour</span>
     </div>
 
     <a class="btn-seat" href="https://academy.majoraimindset.com/reserve" style="display:inline-block;margin-bottom:20px">Reserve your spot in the Academy →</a>
     <p class="cohort-note" id="cohort-note">
       <strong style="color:var(--gold)">Reservations are open, and free.</strong>
-      Payment opens 11 November, and everyone who reserved gets their payment link first. The cohort starts 18 November.
+      Payment is planned to open 11 November after readiness approval, with reserved people first. The cohort starts 18 November.
     </p>
   </div>
 </section>
@@ -2148,73 +2148,6 @@ function setLane(el) {
   el.classList.add('active');
   const sel = document.getElementById('r-lane');
   if (sel) sel.value = el.textContent;
-}
-
-// ── First-party registration capture ──────────────────────────────
-// The form posts to Kit, which owns email delivery. But the handoff is
-// cross-origin, so without this we keep no record of our own and the
-// `lane` value is silently dropped unless Kit has a matching custom
-// field. Write to Supabase first, then let the native submit proceed.
-//
-// This is fire-and-forget by design: `keepalive` lets the request
-// survive the navigation, and we never preventDefault. If Supabase is
-// down, slow, or misconfigured, the visitor still reaches Kit. Capture
-// must never block conversion.
-const MAIM_SUPABASE_URL = 'https://fsrskmlsxqtxduhdfhnd.supabase.co';
-// Publishable (anon) key — safe to ship client-side. It grants only what
-// row-level security allows, so the `registrations` table must have an
-// insert-only RLS policy. See supabase/migrations/ in this repo.
-const MAIM_SUPABASE_KEY = 'sb_publishable_qqh58usxUcdgpF0Paew0XA_PS9iE7sp';
-
-function maimCaptureRegistration(form) {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const payload = {
-      full_name: (form.querySelector('#r-name') || {}).value || null,
-      email:     (form.querySelector('#r-email') || {}).value || null,
-      lane:      (form.querySelector('#r-lane') || {}).value || null,
-      source:       params.get('source')   || 'majoraimindset.com',
-      utm_source:   params.get('utm_source')   || null,
-      utm_medium:   params.get('utm_medium')   || null,
-      utm_campaign: params.get('utm_campaign') || null,
-      referrer:     document.referrer || null
-    };
-    fetch(MAIM_SUPABASE_URL + '/rest/v1/registrations', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': MAIM_SUPABASE_KEY,
-        'Authorization': 'Bearer ' + MAIM_SUPABASE_KEY,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify(payload),
-      keepalive: true
-    }).catch(() => {});
-  } catch (e) {
-    // Never let capture interfere with the Kit submit.
-  }
-}
-
-const maimForm = document.querySelector('.register-form');
-if (maimForm) {
-  maimForm.addEventListener('submit', () => maimCaptureRegistration(maimForm));
-}
-
-// Carry the chosen lane into the Kit querystring too, so the value
-// survives even if the POST field name does not match Kit's schema.
-if (maimForm) {
-  maimForm.addEventListener('submit', () => {
-    const lane = (maimForm.querySelector('#r-lane') || {}).value;
-    if (!lane) return;
-    let existing = maimForm.querySelector('input[name="fields[lane]"]');
-    if (!existing) {
-      existing = document.createElement('input');
-      existing.type = 'hidden';
-      existing.name = 'fields[lane]';
-      maimForm.appendChild(existing);
-    }
-    existing.value = lane;
-  });
 }
 
 // Pressure test
