@@ -29,7 +29,7 @@ not independent verification of these recovered/reconciled candidates.
 | Component | Immutable tested code commit |
 |---|---|
 | Site | fc5c94f4479a7523c277615de4ad26c8413db7b5 |
-| Academy #28 | 67d09473e6b532867d46eba07a15dea7564fe88f |
+| Academy #29 follow-up | 5095ba145a6453461c09b2a3ffb12e43e46ff6bb |
 | BPT #5 | 239af00245916dbaac086b8f5f529067ead2ea4f |
 
 Later PR heads may add this documentation and packet only. The test environment
@@ -106,3 +106,25 @@ SHAs equal the locally tested merged tree SHAs: Academy
 `efe4bb25c51fab010bd2dae3aa5458af05dd8ddd`. Commit IDs differ because the
 publication commits have new metadata; source trees are byte-identical. The
 unpublished local merge heads were 2568dc33 and df60c61e respectively.
+
+## Final concurrent-main boundary exception
+
+During publication, independent merges advanced Academy main to
+`d7f6a0f496097d936fdd0294e78116079c47283c` (PR #28, head 5f8f531), and BPT
+main to `e6c8bc25e0e4d4f9c11c2f77adcf93a02ab6e62d` (PR #5, head 239af002).
+This task did not initiate those merges or deployments. Production aliases now
+point to those newer SHAs; therefore **production is not proven untouched**.
+BPT merged main has exactly the same tree as the reconciled/tested candidate.
+Academy follow-up is isolated draft #29 at
+`5095ba145a6453461c09b2a3ffb12e43e46ff6bb`, based on the newer main; its
+runtime/build/tests are unchanged from the tested candidate, with an added
+branch-specific deployment guard. Original #28 and #5 are merged, not drafts.
+
+Production environment metadata comparison passed unchanged: site 24, Academy
+16, BPT 3 variables (IDs, keys, targets, types and update times; no secret
+decryption). Site production alias remained at 79137ee29c8e93ebbc2ec002d3b03262ef70ee70.
+No provider env changes, customer submissions, external QA, payment activation
+or manual deployment were performed by this task. This metadata evidence does
+not establish unchanged credentials or every external integration. The changed
+production pins trigger the packet's stop condition: external QA remains BLOCKED.
+Do not run against production or reinterpret these merges as QA approval.
