@@ -1,0 +1,3 @@
+// Deliberately started loopback adapter; injected QA environment only, no dotenv.
+import {createServer} from 'node:http';import handler from '../api/subscribe.js';
+createServer(async(req,res)=>{if(req.url!=='/api/subscribe'){res.writeHead(404).end();return;}let body='';try{for await(const part of req){body+=part;if(Buffer.byteLength(body)>16000){res.writeHead(413).end();return;}}const reply={setHeader:(n:string,v:string)=>res.setHeader(n,v),status(n:number){res.statusCode=n;return reply;},json(v:unknown){res.setHeader('Content-Type','application/json');res.end(JSON.stringify(v));}};await handler({method:req.method,headers:req.headers,body},reply);}catch{res.writeHead(500).end('Local QA failed');}}).listen(3001,'127.0.0.1');

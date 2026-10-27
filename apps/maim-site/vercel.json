@@ -137,5 +137,10 @@
         }
       ]
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "codex/funnel-reconciled-2026-10-27": false
+    }
+  }
 }

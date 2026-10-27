@@ -1,0 +1,276 @@
+{
+  "status": "UNBOUND_NOT_CREATED",
+  "base_name": "MAIM Funnel QA 2026-10-27",
+  "tables": [
+    {
+      "name": "BPT Responses",
+      "fields": [
+        {
+          "name": "Name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "First Name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Last Name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Email",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Telegram_or_Phone",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Source",
+          "type": "singleLineText"
+        },
+        {
+          "name": "App Version",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Submission ID",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Business Type",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Revenue Range",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Biggest Issue",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Score Band",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Priority",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Primary Leak",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Diagnosis Summary",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Recommended Offer",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Next Step",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Submitted At",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Results Email Status",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Results Email Updated At",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q1",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q2",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q3",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q4",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q5",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q6",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q7",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q8",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q9",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Q10",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Score",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Total Score",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q1",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q2",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q3",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q4",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q5",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q6",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q7",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q8",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q9",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Score Q10",
+          "type": "number",
+          "options": {
+            "precision": 1
+          }
+        },
+        {
+          "name": "Raw Payload JSON",
+          "type": "multilineText"
+        }
+      ]
+    },
+    {
+      "name": "Academy Reservations",
+      "fields": [
+        {
+          "name": "Reservation ID",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Email",
+          "type": "singleLineText"
+        },
+        {
+          "name": "First Name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Source",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Notice Version",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Consent At",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Consent Purpose",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Provider Status",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Updated At",
+          "type": "singleLineText"
+        },
+        {
+          "name": "Paid Seat",
+          "type": "checkbox",
+          "options": {
+            "icon": "check",
+            "color": "greenBright"
+          }
+        },
+        {
+          "name": "Marketing Consent",
+          "type": "checkbox",
+          "options": {
+            "icon": "check",
+            "color": "greenBright"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,14 @@
     "moduleResolution": "NodeNext",
     "strict": true,
     "noEmit": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "include": ["api/**/*.ts", "lib/**/*.ts", "tests/**/*.ts"]
+  "include": [
+    "api/**/*.ts",
+    "lib/**/*.ts",
+    "tests/**/*.ts",
+    "scripts/**/*.ts"
+  ]
 }
