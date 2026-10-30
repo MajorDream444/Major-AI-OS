@@ -6,7 +6,7 @@ export type AcademyTitleProps = {title: string; context: string; showBackdrop: b
 export const AcademyEpisodeTitle: React.FC<AcademyTitleProps> = ({title, context, showBackdrop, mirroredSource}) => {
   const [fontHandle]=useState(()=>delayRender('Load Academy title font'));
   useEffect(()=>{
-    const font=new FontFace('AcademyInter', `url("${staticFile('AcademyInter.ttf')}")`);
+    const font=new FontFace('AcademyInter', `url("${staticFile('Inter-500.woff2')}")`);
     font.load().then(loaded=>{document.fonts.add(loaded);continueRender(fontHandle);}).catch(cancelRender);
   },[fontHandle]);
   const frame=useCurrentFrame();
