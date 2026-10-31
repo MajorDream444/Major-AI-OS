@@ -48,6 +48,8 @@ C = Context — The quality of your output is determined by the quality of your 
 D = Direction — Know what you are trying to accomplish.  
 E = Experiment — You do not have to get it right. You have to start.
 
+The founder-supplied complete map is [MAIM ABCs — Volume 1](docs/curriculum/ABC_VOLUME_1_MINDSET.md). A–E remain the existing opening lessons; the A–Z map is a working curriculum reference, not a claim that every letter is published. The applied companion is [MAIM Academy ABCs — Volume 2](https://github.com/MajorDream444/MAIMACADEMY/blob/docs/academy-abc-volume-2-map/docs/curriculum/ABC_VOLUME_2_ACADEMY.md).
+
 ## First 9-Post Instagram Grid
 
 1. What is Major AI Mindset?
