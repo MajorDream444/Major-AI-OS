@@ -1680,11 +1680,14 @@ footer {
 <section class="film-sec" id="film">
   <div class="film-inner">
     <div class="film-stage bracket bracket-b">
-      <iframe src="https://www.youtube-nocookie.com/embed/OZ10QdrUxl8?rel=0"
-              title="MAIM Welcome Film — Major Dream Williams"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"
-              style="position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3"></iframe>
+      <video controls playsinline preload="none"
+             poster="/assets/maim-welcome-poster.jpg"
+             aria-label="MAIM welcome film — Major Dream Williams, two minute website cut"
+             width="1920" height="1080"
+             style="position:absolute;inset:0;width:100%;height:100%;z-index:3;background:#050505">
+        <source src="/assets/maim-welcome-film.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="https://youtu.be/OZ10QdrUxl8">Watch the full film on YouTube.</a>
+      </video>
     </div>
     <div class="film-copy">
       <div class="film-copy-eyebrow">Founder welcome</div>
@@ -1694,7 +1697,7 @@ footer {
         "AI should not replace your judgment, your culture, or your experience — or your <em>humanity.</em> It should help you think more clearly."
       </div>
       <a class="film-watch" href="https://youtu.be/OZ10QdrUxl8" target="_blank" rel="noopener noreferrer">
-        Watch on YouTube
+        Watch the full 4:34 film on YouTube
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
           <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/>
         </svg>

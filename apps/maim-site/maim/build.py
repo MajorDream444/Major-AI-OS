@@ -260,7 +260,8 @@ def main() -> int:
 
     # Publish only explicitly public assets. Paid source files stay out of dist.
     public_assets = ("major-dream-williams.jpg", "MAIM_Free_Guide_5_AI_Moves.pdf",
-                     "cohort-teaser.mp4", "cohort-teaser-poster.jpg")
+                     "cohort-teaser.mp4", "cohort-teaser-poster.jpg",
+                     "maim-welcome-film.mp4", "maim-welcome-poster.jpg")
     (DIST / "assets").mkdir(exist_ok=True)
     for name in public_assets:
         shutil.copy2(ROOT / "assets" / name, DIST / "assets" / name)
