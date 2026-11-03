@@ -1,0 +1,160 @@
+[
+  {
+    "url": "https://www.majoraimindset.com/",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/",
+    "bytes": 75705
+  },
+  {
+    "url": "https://www.majoraimindset.com/academy",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://www.majoraimindset.com/reserve",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://www.majoraimindset.com/pillars",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/pillars",
+    "bytes": 36196
+  },
+  {
+    "url": "https://www.majoraimindset.com/library",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/library",
+    "bytes": 5320
+  },
+  {
+    "url": "https://www.majoraimindset.com/vault",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/vault",
+    "bytes": 4551
+  },
+  {
+    "url": "https://www.majoraimindset.com/shop",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/shop",
+    "bytes": 13808
+  },
+  {
+    "url": "https://www.majoraimindset.com/coaching",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/coaching",
+    "bytes": 4519
+  },
+  {
+    "url": "https://www.majoraimindset.com/campus",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/campus",
+    "bytes": 7491
+  },
+  {
+    "url": "https://www.majoraimindset.com/privacy",
+    "status": 200,
+    "final": "https://www.majoraimindset.com/privacy",
+    "bytes": 9716
+  },
+  {
+    "url": "https://www.majoraimindset.com/assets/MAIM_Free_Guide_5_AI_Moves.pdf",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/reserve",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/major-moves",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/library",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/spark-lab",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/foundry",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/sign-in",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/member-room",
+    "status": 200,
+    "final": "https://academy.majoraimindset.com/member-room",
+    "bytes": 4093
+  },
+  {
+    "url": "https://academy.majoraimindset.com/walkthrough",
+    "status": 200,
+    "final": "https://academy.majoraimindset.com/walkthrough",
+    "bytes": 5293
+  },
+  {
+    "url": "https://academy.majoraimindset.com/terms.html",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/privacy.html",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/support.html",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/api/checkout.json",
+    "status": 200,
+    "final": "https://academy.majoraimindset.com/api/checkout.json",
+    "bytes": 134
+  },
+  {
+    "url": "https://academy.majoraimindset.com/api/academy-auth/get-session",
+    "error": "HTTP Error 503: Service Unavailable"
+  },
+  {
+    "url": "https://academy.majoraimindset.com/api/member",
+    "error": "HTTP Error 503: Service Unavailable"
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/terms.html",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/privacy.html",
+    "status": 200,
+    "final": "https://business-pressure-test.vercel.app/privacy.html",
+    "bytes": 3395
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/refunds.html",
+    "status": 200,
+    "final": "https://business-pressure-test.vercel.app/refunds.html",
+    "bytes": 2526
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/participant-agreement.html",
+    "status": 200,
+    "final": "https://business-pressure-test.vercel.app/participant-agreement.html",
+    "bytes": 2102
+  },
+  {
+    "url": "https://business-pressure-test.vercel.app/api/shop",
+    "status": 200,
+    "final": "https://business-pressure-test.vercel.app/api/shop",
+    "bytes": 238
+  }
+]
