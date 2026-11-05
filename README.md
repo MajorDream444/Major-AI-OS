@@ -139,3 +139,7 @@ Shopify, Gumroad and Kit are RETIRED / DO NOT USE for owned MAIM/AMA/HAMAL opera
 ## Creative studio context — 21 October 2026
 
 Read [creative studio ownership, skill discovery and handoff context](docs/MAIM_CREATIVE_STUDIO_CONTEXT_2026-10-21.md) before related work. This is documentation connectivity; it does not activate generation, shared sign-in or publishing. Existing domain authority and release gates remain in force.
+
+## Founder-approved learning and commerce architecture — 5 November 2026
+
+Read [MAIM Learning and Commerce Architecture](docs/decisions/MAIM_LEARNING_AND_COMMERCE_ARCHITECTURE_2026-11-05.md) before defining offers, learning paths, Spark Lab sprints, recurring access, institutional products, or commerce records. This decision separates philosophy, Academy execution, brand application, and the commerce catalog while preserving production verification gates.
