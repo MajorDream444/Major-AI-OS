@@ -32,11 +32,21 @@ carry over.
 | --- | --- | --- |
 | `MajorDream444/Major-AI-OS` | MAIM operating system: public site, curriculum, content, agents, docs | **Canonical. Active.** |
 | `MajorDream444/MAIM_ABC_STUDIO` | The ABC app | **New. Empty.** To be seeded — see §6 |
-| `MajorDream444/Major-OS-AMA-OS--Command` | Previously drove the production site deploy | **Retired.** Read-only history |
+| `MajorDream444/Major-OS-AMA-OS--Command` | Yawdie orchestration; broader ecosystem and Major Moves coordination | **Active** — but its MAIM *site copy* is historical |
 
 `Major-AI-OS` stays the source of truth for ABC *content and curriculum*.
 `MAIM_ABC_STUDIO` becomes the source of truth for the ABC *application*. Content
 flows one direction: OS → app. Do not fork the curriculum into the app repo.
+
+On the Command repository, hold the distinction carefully. It once held a copy
+of the MAIM site and drove the production deploy; **that copy is historical and
+MAIM site changes belong in `Major-AI-OS`**. The repository itself is **not**
+retired: `docs/00-canonical-sources.md` keeps it as the active Yawdie
+orchestration source, and
+`docs/handoffs/MAIM_CODEX_CLAUDE_PUBLISHING_SYNC_2026-10-23.md` assigns it
+broader ecosystem and Major Moves coordination. Do not skip its operating
+instructions or refuse a coordination update there on the belief that it is
+dead.
 
 ---
 
