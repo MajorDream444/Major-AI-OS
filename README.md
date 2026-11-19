@@ -1,3 +1,5 @@
+[![Edit on Hanzo](https://hanzo.ai/badges/edit-on-hanzo.svg)](https://hanzo.app/dev?repo=https%3A%2F%2Fgithub.com%2FMajorDream444%2FMajor-AI-OS)
+
 # Major AI Mindset OS
 
 Major AI Mindset is an AI education, content, design, and community operating system created by Major Dream Williams.
