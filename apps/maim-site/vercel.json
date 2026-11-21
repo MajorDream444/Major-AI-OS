@@ -38,6 +38,10 @@
       "destination": "/vault.html"
     },
     {
+      "source": "/wisdom",
+      "destination": "/wisdom.html"
+    },
+    {
       "source": "/campus",
       "destination": "/campus.html"
     },

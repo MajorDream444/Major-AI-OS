@@ -59,7 +59,8 @@ PAGES = {
     "coaching.html": ("coaching.html", "/coaching", "Learn about MAIM coaching and workshops."),
     "library.html": ("library.html", "/library", "Explore MAIM recommended reading, resources and book clubs."),
     "vault.html": ("vault.html", "/vault", "MAIM premium collections and access guidance."),
-    "campus.html": ("campus.html", "/campus", "Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
+    "wisdom.html": ("wisdom.html", "/wisdom", "The MAIM Wisdom Exchange: people who have lived it pass their wisdom to AI agents, on their terms, and get paid when it is used. In pilot, powered by Hanzo."),
+    "campus.html": ("campus.html", "/campus","Explore MAIM as a lifelong learning campus bridging wisdom, technology and stewardship."),
     "checkout-return.html": ("checkout/return.html", "/checkout/return", "MAIM is confirming your checkout and preparing the next step."),
     "terms-2026-10-16.2.html": ("terms.html", "/terms", "Review the proposed terms for the MAIM Client System Blueprint service."),
     "privacy.html": ("privacy.html", "/privacy", "Review the proposed MAIM privacy notice."),
@@ -136,6 +137,7 @@ ACADEMY = "https://academy.majoraimindset.com"
 SITE_NAV = [
     ("Home", "/"),
     ("Academy", ACADEMY),
+    ("Wisdom", "/wisdom"),
     ("10 Pillars", "/pillars"),
     ("Library", "/library"),
     ("Vault", "/vault"),
