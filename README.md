@@ -26,6 +26,8 @@ Infrastructure layer: Powered by Hanzo
 
 MAIM is the human education doorway. Hanzo is the infrastructure engine.
 
+**Current direction (21 Nov 2026): Hanzo builds the agents. MAIM gives them wisdom.** MAIM keeps teaching the ABCs and adds the Wisdom Exchange: capturing real human know-how (Legacy Leavers, captured by Pathfinders) so agents can call on it, with contributors paid per use. Hanzo University is the deep academy; MAIM does not build its own LMS or marketplace infrastructure. Read [MAIM Wisdom Exchange Pivot](docs/decisions/MAIM_WISDOM_EXCHANGE_PIVOT_2026-11-21.md) before building anything for the site, the Academy or new products.
+
 ## Mission
 
 MAIM translates the future into language real people can use. The audience does not need another AI tool first. They need clarity, safety, permission, confidence, structure, and a starting point.

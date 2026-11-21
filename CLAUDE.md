@@ -29,6 +29,12 @@ Major AI Mindset is that translation layer.
 
 Likkle by likkle, we build the future.
 
+## Current Direction — Wisdom Exchange (21 Nov 2026)
+
+Hanzo builds the agents. MAIM gives them wisdom.
+
+MAIM keeps the ABCs and adds the Wisdom Exchange: three doors — Learn the ABCs, Leave a Legacy, Hire Wisdom. Hanzo University is the deep academy and Hanzo runs the infrastructure (MCP, metering, billing). Do not build a standalone MAIM LMS or marketplace backend. Do not name contributors, clients or pilot partners in this public repo. Read `docs/decisions/MAIM_WISDOM_EXCHANGE_PIVOT_2026-11-21.md` before site, Academy or product work.
+
 ## Voice
 
 Sound like Major Dream Williams built it, lived it, and is inviting people into it.
