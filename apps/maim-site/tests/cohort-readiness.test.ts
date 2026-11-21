@@ -22,8 +22,10 @@ test('mobile navigation remains available with readable touch targets', () => {
 test('cohort copy preserves the approved facts and the payment release gate', () => {
   for (const source of [build, homepage]) {
     assert.match(source, /20-member capacity/);
-    assert.match(source, /18 November/);
-    assert.match(source, /11 November after readiness approval/);
+    assert.match(source, /15 January/);
+    assert.match(source, /2027-01-15T14:00:00Z/);
+    assert.match(source, /opens after readiness approval/);
+    assert.doesNotMatch(source, /18 November|11 November/);
   }
   assert.match(build, /US\$249/);
   assert.doesNotMatch(homepage, /Payment opens 11 November/);
